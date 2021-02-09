@@ -88,3 +88,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+/** permet de débloquer les accès et l'installation automatique des pluggins */
+define('FS_METHOD','direct'); 
