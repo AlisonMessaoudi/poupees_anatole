@@ -77,7 +77,16 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+
+// Active le mode WP_DEBUG
+define( 'WP_DEBUG', true );
+ 
+// Active l’enregistrement dans le fichier /wp-content/debug.log
+define( 'WP_DEBUG_LOG', true );
+ 
+// Désactive l’affichage des erreurs et des avertissements
+define( 'WP_DEBUG_DISPLAY', true );
+@ini_set( 'display_errors', 0 );
 
 /* That's all, stop editing! Happy publishing. */
 
@@ -88,6 +97,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
-
-/** permet de débloquer les accès et l'installation automatique des pluggins */
-define('FS_METHOD','direct'); 

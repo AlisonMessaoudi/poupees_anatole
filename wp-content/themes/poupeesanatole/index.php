@@ -2,7 +2,7 @@
 <?php get_header() ?>
 
     <!-- MAIN -->
-    <main></main>
+    <main>Hello</main>
 
 <!-- FOOTER -->
 <?php get_footer() ?>
