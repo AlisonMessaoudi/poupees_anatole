@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: Poupees Anatole
 Theme URI: https://wordpress.org/themes/twentynineteen/
@@ -7,107 +8,103 @@ Description: Thème réalisé en 2021 pour le projet 'Poupées Anatoles' : outil
 Requires PHP: 7.4.12
 Version: 1.0
 */
-
-
-
 /* GENERAL */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    /* FONT */
-    font-family: 'MyWebFont', Arial, sans-serif;
-    color: rgb(25,25,25);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* FONT */
+  font-family: "MyWebFont", Arial, sans-serif;
+  color: #d36c3c;
 }
 
 /* COULEURS */
 .background-primary {
-    background-color: rgb(211, 108, 60);
+  background-color: #faba5e;
 }
 
 .background-secondly {
-    background-color: rgb(250, 186, 94);
+  background-color: #faba5e;
 }
 
 .background-thirdly {
-    background-color: rgb(99, 48, 38);
+  background-color: #633026;
 }
 
 .background-fourth {
-    background-color: rgb(194, 79, 43);
+  background-color: #c24f2b;
 }
 
 /* BOUTON */
-
 .btn-vide {
-    border: none;
-    background-color: transparent;
+  border: none;
+  background-color: transparent;
 }
 
 .btn-vide-blanc {
-    border: solid 1px white;
-    background-color: transparent;
-    padding: 3rem;
-    color: white;
+  border: solid 1px white;
+  background-color: transparent;
+  padding: 3rem;
+  color: white;
 }
 
 .btn-vide-noir {
-    border: solide 1px black;
-    background-color: transparent;
-    padding: 3rem;
-    color: black;
+  border: solide 1px black;
+  background-color: transparent;
+  padding: 3rem;
+  color: black;
 }
 
 .btn-plein-orange {
-    border: none;
-    background-color: rgb(194, 79, 43);
+  border: none;
+  background-color: #c24f2b;
 }
 
 /* FONTS */
-
 h1 {
-    color: white;
-    font-weight: 600;
-    font-style: italic;
+  color: white;
+  font-weight: 600;
+  font-style: italic;
 }
 
 h2 a {
-    font-weight: bold;
-    font-size: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 h3 {
-    font-weight: bold;
-    font-size: 1.8rem;
+  font-weight: bold;
+  font-size: 1.8rem;
 }
 
 h4 {
-    font-weight: 400;
-    font-size: 1.5rem;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
 
 p {
-    font-weight: 400;
-    font-size: 1rem;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 p .italic {
-    font-style: italic;
-    font-size: 1rem;
+  font-style: italic;
+  font-size: 1rem;
 }
 
 p .black {
-    font-weight: bold;
-    font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 p .blanc {
-    color: white;
+  color: white;
 }
 
 form::placeholder {
-    color: rgb(25,25,25);
-    font-style: italic;
-    font-size: 1.2rem;
+  color: #191919;
+  font-style: italic;
+  font-size: 1.2rem;
 }
+
+/*# sourceMappingURL=style.css.map */

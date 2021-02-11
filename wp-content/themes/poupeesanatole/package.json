@@ -1,0 +1,19 @@
+{
+  "name": "poupees_anatole",
+  "version": "1.0.0",
+  "description": "Thème réalisé en 2021 pour le projet 'Poupées Anatoles' : outil de médiation qui explore les sexualités, les émotions et les corps...",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch assets/sass/style.scss:style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlisonMessaoudi/poupees_anatole.git"
+  },
+  "author": "Alison Messaoudi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlisonMessaoudi/poupees_anatole/issues"
+  },
+  "homepage": "https://github.com/AlisonMessaoudi/poupees_anatole#readme"
+}

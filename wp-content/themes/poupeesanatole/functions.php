@@ -6,6 +6,7 @@
             /* TITRE AUTO-COMPLETE */
             add_theme_support('menus');
             register_nav_menu('header','En tête du menu');
+            register_nav_menu('footer', 'Pied de page');
             /* register_nav_menus('','') : permet d'en créer plusieurs (connexion, déconnexion ?) */
         }
 
