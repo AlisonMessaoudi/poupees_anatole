@@ -20,5 +20,8 @@
   "homepage": "https://github.com/AlisonMessaoudi/poupees_anatole#readme",
   "devDependencies": {
     "font-awesome": "^4.7.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0"
   }
 }

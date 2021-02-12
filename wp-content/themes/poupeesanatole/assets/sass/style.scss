@@ -17,6 +17,13 @@ Version: 1.0
     @import "./utils/extensions"; //placeholder
 
     /* VENDORS */ 
+        
+        /* BOOTSTRAP */
+        @import "./vendors/bootstrap/scss/bootstrap";
+  
+        /* FONTAWESOME */
+        @import "./vendors/font-awesome/scss/font-awesome.scss";
+
 
     /* BASE */
     @import "./base/base";
