@@ -1,0 +1,25 @@
+/* BOUTONS */
+
+button .btn_vide {
+    border: none;
+    background-color: transparent;
+}
+
+button .btn-vide-blanc {
+    border: solid 1px white;
+    background-color: transparent;
+    padding: 3rem;
+    color: white;
+}
+
+button .btn-vide-noir {
+    border: solid 1px black;
+    background-color: transparent;
+    padding: 3rem;
+    color: $color-base;
+}
+
+button .btn-plein-orange {
+    border: none;
+    background-color: rgb(194, 79, 43);
+}

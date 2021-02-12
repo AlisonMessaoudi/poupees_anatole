@@ -8,106 +8,35 @@ Requires PHP: 7.4.12
 Version: 1.0
 */
 
-@import "./utils/variables";
+/* IMPORTATION DE TOUTES LES BIBLIOTHEQUES */
 
-/* GENERAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    /* UTILS */
+    @import "./utils/variables";
+    @import "./utils/functions";
+    @import "./utils/mixins";
+    @import "./utils/extensions"; //placeholder
 
-    /* FONT */
-    font-family: 'MyWebFont', Arial, sans-serif;
-    color: $colour-primary;
-}
+    /* VENDORS */ 
 
-/* COULEURS */
-.background-primary {
-    background-color: rgb(250, 186, 94);
-}
+    /* BASE */
+    @import "./base/base";
+    @import "./base/typography";
 
-.background-secondly {
-    background-color: rgb(250, 186, 94);
-}
+    /* COMPOSANTS */
+    @import "./composants/buttons";
 
-.background-thirdly {
-    background-color: rgb(99, 48, 38);
-}
+    /* LAYOUT */
+    @import "./layout/container";
+    @import "./layout/form";
+    @import "./layout/header";
+    @import "./layout/nav";
 
-.background-fourth {
-    background-color: rgb(194, 79, 43);
-}
+    /* PAGES */
+    @import "./pages/contact";
+    @import "./pages/home";
+    @import "./pages/partner";
+    @import "./pages/product";
+    @import "./pages/project";
+    @import "./pages/shop";
 
-/* BOUTON */
-
-.btn-vide {
-    border: none;
-    background-color: transparent;
-}
-
-.btn-vide-blanc {
-    border: solid 1px white;
-    background-color: transparent;
-    padding: 3rem;
-    color: white;
-}
-
-.btn-vide-noir {
-    border: solide 1px black;
-    background-color: transparent;
-    padding: 3rem;
-    color: black;
-}
-
-.btn-plein-orange {
-    border: none;
-    background-color: rgb(194, 79, 43);
-}
-
-/* FONTS */
-
-h1 {
-    color: white;
-    font-weight: 600;
-    font-style: italic;
-}
-
-h2 a {
-    font-weight: bold;
-    font-size: 2rem;
-}
-
-h3 {
-    font-weight: bold;
-    font-size: 1.8rem;
-}
-
-h4 {
-    font-weight: 400;
-    font-size: 1.5rem;
-}
-
-p {
-    font-weight: 400;
-    font-size: 1rem;
-}
-
-p .italic {
-    font-style: italic;
-    font-size: 1rem;
-}
-
-p .black {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-p .blanc {
-    color: white;
-}
-
-form::placeholder {
-    color: rgb(25,25,25);
-    font-style: italic;
-    font-size: 1.2rem;
-}
+    /* THEMES */

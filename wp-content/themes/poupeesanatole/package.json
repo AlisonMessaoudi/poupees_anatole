@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/AlisonMessaoudi/poupees_anatole/issues"
   },
-  "homepage": "https://github.com/AlisonMessaoudi/poupees_anatole#readme"
+  "homepage": "https://github.com/AlisonMessaoudi/poupees_anatole#readme",
+  "devDependencies": {
+    "font-awesome": "^4.7.0"
+  }
 }
