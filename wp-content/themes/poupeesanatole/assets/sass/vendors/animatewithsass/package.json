@@ -1,0 +1,53 @@
+{
+  "_from": "animatewithsass",
+  "_id": "animatewithsass@3.2.1",
+  "_inBundle": false,
+  "_integrity": "sha1-Sugz9bhSN3xuj9V0xCIzNN/ujBk=",
+  "_location": "/animatewithsass",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "animatewithsass",
+    "name": "animatewithsass",
+    "escapedName": "animatewithsass",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/animatewithsass/-/animatewithsass-3.2.1.tgz",
+  "_shasum": "4ae833f5b852377c6e8fd574c4223334dfee8c19",
+  "_spec": "animatewithsass",
+  "_where": "/Applications/MAMP/htdocs/Sites/poupees_anatole/wp-content/themes/poupeesanatole",
+  "author": {
+    "name": "geoffgraham",
+    "email": "@geoffreygraham"
+  },
+  "bugs": {
+    "url": "https://github.com/geoffgraham/animate.scss/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A SASS port of Dan Eden's Animate.css",
+  "homepage": "https://github.com/geoffgraham/animate.scss#readme",
+  "keywords": [
+    "animate.scss",
+    "animate.css",
+    "animate"
+  ],
+  "license": "MIT",
+  "main": "animate.scss",
+  "name": "animatewithsass",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoffgraham/animate.scss.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.2.1"
+}

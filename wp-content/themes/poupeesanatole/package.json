@@ -22,6 +22,7 @@
     "font-awesome": "^4.7.0"
   },
   "dependencies": {
+    "animatewithsass": "^3.2.1",
     "bootstrap": "^4.6.0"
   }
 }
