@@ -4,7 +4,8 @@
   "description": "Thème réalisé en 2021 pour le projet 'Poupées Anatoles' : outil de médiation qui explore les sexualités, les émotions et les corps...",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch assets/sass/style.scss:style.css --style compressed"
+    "sass": "sass --watch assets/sass/style.scss:style.css --style compressed",
+    "prefix": "postcss style.css --use autoprefixer -d css/prefixed/"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,7 @@
   },
   "author": "Alison Messaoudi",
   "license": "ISC",
+  "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/AlisonMessaoudi/poupees_anatole/issues"
   },
