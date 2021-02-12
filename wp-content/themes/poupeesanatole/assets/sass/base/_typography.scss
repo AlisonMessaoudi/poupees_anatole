@@ -1,8 +1,12 @@
 @font-face{ 
 	font-family: 'Neris';
-	src: url('neris.eot');
-	src: url('neris.eot?iefix') format('eot'),
-	     url('neris.woff') format('woff'),
-	     url('neris.ttf') format('truetype'),
-	     url('neris.svg#neris') format('svg');
+	src: url('assets/sass/base/Neris-Black-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-BlackItalic-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-Bold-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-BoldItalic-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-Light-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-LightItalic-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-SemiBold-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-SemiBoldItalic-webfont.woff') format('woff');
+	src: url('assets/sass/base/Neris-Thin-webfont.woff') format('woff');
 }
