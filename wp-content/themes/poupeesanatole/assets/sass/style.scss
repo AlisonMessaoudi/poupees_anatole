@@ -22,10 +22,10 @@ Version: 1.0
         @import "./vendors/bootstrap/scss/bootstrap";
   
         /* FONTAWESOME */
-        @import "./vendors/font-awesome/scss/font-awesome.scss";
+        @import "./vendors/fontawesome/scss/font-awesome";
 
         /* ANIMATE CSS */
-        @import "./vendors/animatewithsass/animate.scss";
+        @import "./vendors/animatewithsass/animate";
 
     /* BASE */
     @import "./base/base";
@@ -39,6 +39,7 @@ Version: 1.0
     @import "./layout/form";
     @import "./layout/header";
     @import "./layout/nav";
+    @import "./layout/footer";
 
     /* PAGES */
     @import "./pages/contact";
@@ -49,3 +50,5 @@ Version: 1.0
     @import "./pages/shop";
 
     /* THEMES */
+
+    

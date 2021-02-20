@@ -1,0 +1,189 @@
+/* GENERAL */
+
+h2 {
+    @include h2(nth($font-size, 4));
+}
+
+h3 {
+    font-weight: $bold-weight;
+}
+
+/* SECTION 1 : INTRODUCTION */
+.home__intro {
+    background-color: $color-primary;
+    height: 500px;
+    & .row {
+        height: 100%;
+    }
+}
+
+    .home__bloc__img {
+        position: relative;
+        @include row_center();
+        & .forme__img__gauche {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+        }
+        & .forme__img__center {
+            z-index: 10;
+            width: 55%;
+        }
+        & .forme__img__droite {
+            position: absolute;
+            right: 25%;
+            bottom: 15%;
+            z-index: 11;
+        }
+    }
+
+    .home__bloc__txt {
+        @include column_center();
+        align-items: flex-start;
+        & h1 {
+            @include h1();
+        }
+        & p {
+            font-size: nth($font-size, 2);
+            font-weight: $normal-weight;
+            max-width: 44%;
+            margin: 1.5rem 0;
+        }
+        & .bloc__btn a {
+            font-weight: $semibold-weight;
+        }
+        & .bloc__btn i {
+            font-size: nth($font-size, 1)
+        }
+    }
+
+/* SECTION 2 : PRESENTATION POUPÉES */
+.poupees__presentation {
+    padding: 5rem 0em;
+}
+
+    .poupees__presentation__formes {
+        position: relative;
+        & .forme__left {
+            position: absolute;     
+            bottom: 5%;
+            left: -2%;
+        }
+        & .forme__right {
+            position: absolute;
+            top: 20%;
+            right: -6%;
+        }
+    }
+
+    .poupee__presentation__illustration {
+        justify-content: center;
+        & .illustration__txt__right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        & .illustration__txt__left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        & .illustration__txt__left h3{
+            width: 55%;
+            text-align: right;
+        }
+        & .illustration__img__right {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 4rem;
+        }
+        & .illustration__img__left {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 4rem;
+        }
+
+    }
+
+/* SECTION 3 : SHOP SLIDER */
+.shop {
+    padding: 5rem 0;
+    margin-bottom: 1rem;
+}
+
+    .shop__titre {
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        & button a i {
+            font-size: nth($font-size, 1)
+        }
+    }
+
+    #slider__shop {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card__shop {
+        position: relative;
+        & h5 {
+            font-size: nth($font-size, 3);
+            text-align: center;
+            font-weight: $semibold-weight;
+            padding-top: 2rem;
+        }
+        & .shop__panier {
+            background-color: #ffa500;
+            color: #fff;
+            padding: 0.8rem;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 20.4%;
+            right: 0;
+        }
+    }
+    
+
+/* SECTION 4 : COLLABORATEURS */
+.collaborateurs {
+    padding: 5rem 0;
+}
+    .collaborateurs__titre {
+        justify-content: space-between;
+        margin: 0;
+        margin-bottom: 2.5rem;
+        & button a i {
+            font-size: nth($font-size, 1)
+        }
+    }
+    .liste__collaborateurs {
+        & .collaborateur {
+            text-align: center;
+            width: 200px;
+        }
+            & h4 {
+                padding-top: 2rem;
+                font-size: nth($font-size, 1);
+            }
+            & p {
+                font-weight: $bold-weight;
+                font-size: nth($font-size, 1);
+            }
+                & p span {
+                    font-style: italic;
+                    font-weight: $medium-weight;
+                }
+            & .more__round .fa {
+                border: 3px solid #000;
+                border-radius: 100%;
+                width: 20%;
+                padding: 0.5rem;
+            }
+    }
+#slider__collaborateurs {
+    @include row_center();
+    justify-content: space-between;
+}

@@ -1,12 +1,55 @@
 @font-face{ 
 	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-Black-webfont.woff') format('woff');
+	font-weight: $black-weight;
+	font-style: normal;
+}
+
+@font-face{ 
+	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-BlackItalic-webfont.woff') format('woff');
-	src: url('assets/sass/base/Neris-Bold-webfont.woff') format('woff');
+	font-weight: $black-weight;
+	font-style: italic;
+}
+
+@font-face{ 
+	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-BoldItalic-webfont.woff') format('woff');
+	font-weight: $bold-weight;
+	font-style: italic;
+}
+
+@font-face{ 
+	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-Light-webfont.woff') format('woff');
+	font-weight: $light-weight;
+	font-style: normal;
+}
+	
+@font-face{ 
+	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-LightItalic-webfont.woff') format('woff');
+	font-weight: $light-weight;
+	font-style: italic;
+}
+	
+@font-face{ 
+	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-SemiBold-webfont.woff') format('woff');
+	font-weight: $semibold-weight;
+	font-style: normal;
+}
+
+@font-face{ 
+	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-SemiBoldItalic-webfont.woff') format('woff');
+	font-weight: $semibold-weight;
+	font-style: italic;
+}
+
+@font-face{ 
+	font-family: 'Neris';
 	src: url('assets/sass/base/Neris-Thin-webfont.woff') format('woff');
+	font-weight: $thin-weight;
+	font-style: normal;
 }

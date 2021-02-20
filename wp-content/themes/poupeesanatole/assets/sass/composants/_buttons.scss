@@ -1,25 +1,17 @@
 /* BOUTONS */
 
-button .btn_vide {
-    border: none;
-    background-color: transparent;
+.home__bloc__txt button {
+    @include btn_redirection ($color-base-background);
 }
 
-button .btn-vide-blanc {
-    border: solid 1px white;
-    background-color: transparent;
-    padding: 3rem;
-    color: white;
+.shop__titre button {
+    @include btn_redirection ($color-base);
 }
 
-button .btn-vide-noir {
-    border: solid 1px black;
-    background-color: transparent;
-    padding: 3rem;
-    color: $color-base;
+.collaborateurs__titre button {
+    @include btn_redirection ($color-base);
 }
 
-button .btn-plein-orange {
-    border: none;
-    background-color: rgb(194, 79, 43);
+.contact button {
+    @include btn_redirection ($color-base);
 }

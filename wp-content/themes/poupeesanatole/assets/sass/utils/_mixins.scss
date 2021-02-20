@@ -1,0 +1,47 @@
+/* FONTS */
+
+@mixin h1() {
+    font-weight: $semibold-weight;
+    font-style: italic;
+    color: $color-base-background;
+    font-size: nth($font-size, 5);
+    max-width: 75%;
+    margin: 0;
+}
+
+@mixin h2($font-size) {
+    font-size: $font-size;
+    color: $color-base;
+    font-weight: $black-weight;
+}
+
+/* BOUTON */
+@mixin btn_redirection($color) {
+    border: solid 3px $color;
+    background-color: transparent;
+    padding: 5px 25px;;
+    & a {
+        color: $color;
+        font-weight: $bold-weight;
+    }
+    & a:hover {
+        color: $color;
+        text-transform: none;
+    }
+}
+
+/* MISE EN PAGE */
+@mixin row_center() {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin column_center() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

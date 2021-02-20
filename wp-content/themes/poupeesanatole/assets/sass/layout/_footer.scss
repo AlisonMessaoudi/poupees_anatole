@@ -1,0 +1,100 @@
+.contact {
+    background-image: url("assets/images/04_fonds/contact_trait.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 250px;
+}
+
+.bloc__contact {
+    @include column_center();
+    height: 100%;
+    position: relative;
+    & .forme__left {
+        position: absolute;
+        top: 20%;
+        left: 15%;
+    }
+    & .forme__right {
+        position: absolute;
+        top: 40%;
+        right: 15%;
+    }
+    & p {
+        font-size: nth($font-size, 3);
+    }
+    & button a {
+        font-size: nth($font-size, 4);
+    }
+    & button a i {
+        font-size: nth($font-size, 2);
+    }
+}
+
+.newsletter {
+    background-color: $color-fourth;
+    color: $color-base-background;
+    padding: 2.5rem;
+    & .form__news {
+        @include column_center();
+    }
+        & form {
+            @include column_center;
+        }
+            & label {
+                margin-bottom: 1rem;
+            }
+            & .form__news__input {
+                @include row_center();
+            }
+                & .newsletter__input {
+                    background-color: rgb(250, 250, 250, 0.3);
+                    border: none;
+                    width: 300px;
+                    padding: 0.2rem 1rem;
+                }
+                    & input::placeholder {
+                        color: $color-base-background;
+                        font-style: italic;
+                    }
+                & .btn_envoyer {
+                    border: none;
+                    background-color: $color-secondly;
+                    color: $color-base-background;
+                    font-weight: $semibold-weight;
+                    padding: 0.2rem 1rem;
+                    margin-left: 0.5rem;
+                }
+}
+
+.newsletter__ligne {
+    @include row_center();
+    & hr {
+        border-top: 1.5px solid $color-base-background;
+        width: 20%;
+    }
+}
+
+.mentions {
+    @include column_center();
+    & p {
+        text-align: center;
+        font-weight: $thin-weight;
+        font-size: nth($font-size, 1);
+    }
+    & img {
+        margin-bottom: 1.5rem;
+        margin-top: 0.5rem;
+    }
+}
+
+.mentions__politique {
+    & ul {
+        list-style-type: none;
+        @include row_center();
+    }
+    & li a {
+        color: $color-base-background;
+        font-size: nth($font-size, 1);
+        padding: 0 1rem;
+    }
+}

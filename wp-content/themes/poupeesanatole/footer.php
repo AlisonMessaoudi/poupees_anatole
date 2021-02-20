@@ -2,44 +2,61 @@
         <footer class="site__footer">
 
             <!-- SECTION 1 : CONTACTEZ-NOUS -->
-            <section class="contact">
+            <section class="container-fluid contact">
 
-                <div>
+                <div class="bloc__contact">
 
-                    <p>Une question, un avis, une commande ?</p> <!-- balise p ou h5 ? -->
+                    <!-- Forme Left -->
+                    <div class="forme__left">
+                    
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_02.png" alt="Forme jaune - illustration Poupées Anatoles"/>
+                    
+                    </div>
+
+                    <!-- Forme Right -->
+                    <div class="forme__right">
+
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_06.png" alt="Forme orange - illustration Poupées Anatoles"/>
+                    
+                    </div>
+
+                    <p>Une question, un avis, une commande ?</p> 
 
                     <button>
     
-                        <a href="<?php echo home_url('/contact'); ?>">Contactez-nous <i class="fas fa-chevron-right"></i></a> <!-- icône favicon ou '>' -->
+                        <a href="<?php echo home_url('/contact'); ?>">Contactez-nous&nbsp; &nbsp;<i class="fa fa-chevron-right"></i></a>
     
                     </button>
-
 
                 </div>
 
             </section>
 
             <!-- SECTION 2 : NEWSLETTER -->
-            <section class="newsletter">
+            <section class="container-fluid newsletter">
 
                 <!-- FORMULAIRE NEWSLETTER -->
-                <div class="form_news">
+                <div class="form__news">
 
                     <form action="" method="POST">
+
                         
                         <!-- Texte -->
                         <label for="newsletter">Abonnez-vous à notre Newsletter</label>
-                        <!-- Adresse mail -->
-                        <input type="email" class="newsletter" name="newsletter" placeholder="Adresse mail"/>
-                        <!-- Bouton envoyé -->
-                        <input type="submit" class="btn_envoyer" value="Envoyer"/>
+
+                        <div class="form__news__input">
+                            <!-- Adresse mail -->
+                            <input type="email" id="newsletter" class="newsletter__input" name="newsletter" placeholder="Adresse mail"/>
+                            <!-- Bouton envoyé -->
+                            <input type="submit"class="btn_envoyer" value="Envoyer"/>
+                        </div>
 
                     </form>
 
                 </div>
 
                 <!-- LIGNE -->
-                <div>
+                <div class="newsletter__ligne">
                     <hr>
                 </div>
 
@@ -48,7 +65,7 @@
 
                     <div>
 
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_thomasHuard.png" alt="Logo de Thomas Huard - Designer et concepteur d'outils pédagogique"/>
+                        <a href="www.thomashuard.com"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_thomasHuard.png" alt="Logo de Thomas Huard - Designer et concepteur d'outils pédagogique"/></a>
                     
                     </div>
                     
@@ -61,25 +78,24 @@
 
                 </div>
 
+                <div class="mentions__politique">
+
+                    <?php wp_nav_menu( 
+                        array(
+                            'theme_location' => 'footer',
+                            'container' => 'ul', // évite d'avoir une div autour du menu
+                            'menu_class' => 'site__footer__menu', // crée une classe personnalisée
+                        )
+                    ); ?>
+
+                </div>
 
             </section>
 
-            <section class="mentions_politique">
-
-                <?php wp_nav_menu( 
-                    array(
-                        'theme_location' => 'footer',
-                        'container' => 'ul', // évite d'avoir une div autour du menu
-                        'menu_class' => 'site__footer__menu', // crée une classe personnalisée
-                    )
-                ); ?>
-
-            </section>
-            
         </footer>
         
         <?php wp_footer() ?>
-    
+
     </body>
 
 </html>

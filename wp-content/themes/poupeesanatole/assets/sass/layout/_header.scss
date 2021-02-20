@@ -1,0 +1,19 @@
+.site__header__menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.site__header__menu li a{
+    color: $color-base;
+    &:hover{
+        font-weight: 900; // ne fonctionne pas
+        text-decoration: none;
+    }
+}
+
+.site__header__menu li ul {
+    list-style-type: none;
+}

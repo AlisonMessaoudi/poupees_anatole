@@ -52,8 +52,6 @@
                             'menu_class' => 'site__header__menu', // crée une classe personnalisée
                         )
                     ); ?>
-
-                    <style> .site__header__menu { display:flex; flex-direction: row; }</style>
                 
                 </div>
             

@@ -1,5 +1,6 @@
 // COULEURS
 $color-base: rgb(25, 25 ,25); //noir
+$color-base-background: rgb(250, 250, 250); // blanc
 $color-primary: rgb(211, 108, 60); // orange
 $color-secondly: rgb(194, 79, 43); // orange foncé
 $color-thirdly: rgb(250, 186, 94); // orange clair
@@ -7,5 +8,16 @@ $color-fourth: rgb(99, 48, 38); // brun
 
 // TYPOGRAPHIES
 $font-family: 'Neris', Arial, sans-serif;
-$font-weight: 400 bold;
-$font-size: 0.5rem 1rem 1.5rem 2rem; 
+$font-size: 0.9rem 1rem 1.2rem 1.5rem 1.8rem; 
+
+// Weights
+$thin-weight:     200;
+$light-weight:    300;
+$normal-weight:   400;
+$medium-weight:   500;
+$semibold-weight: 600;
+$bold-weight:     700;
+$black-weight:    900;
+
+// FONT AWESOME
+$fa-font-path: "./assets/sass/vendors/fontawesome/fonts";
