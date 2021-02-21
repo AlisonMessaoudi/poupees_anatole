@@ -1,6 +1,10 @@
 # poupees_anatole
 Projet web pour Thomas Huard - Poupées Anatoles : Outil de médiation qui explore les sexualités, les corps et les émotions... 
 
+Voir le site internet : (mise à jour 1 fois par semaine) 
+
+  https://mon-labo.go.yo.fr/PoupeesAnatole/
+
 Installation du projet en local : 
 
   Dans le terminal : 
