@@ -1,9 +1,11 @@
 # poupees_anatole
 Projet web pour Thomas Huard - Poupées Anatoles : Outil de médiation qui explore les sexualités, les corps et les émotions... 
 
-Voir le site internet : (mise à jour 1 fois par semaine) 
+Voir le site internet : 
 
-  https://mon-labo.go.yo.fr/PoupeesAnatole/
+  1. https://mon-labo.go.yo.fr/PoupeesAnatole/
+  
+  (mise à jour 1 fois par semaine) 
 
 Installation du projet en local : 
 
@@ -12,7 +14,7 @@ Installation du projet en local :
   1. cd /C/Documents/Sites
   2. git clone https://github.com/AlisonMessaoudi/poupees_anatole.git
 
-Une fois le projet installé, pour récupérer les mises à jours il suffira d'être dans le dossier /poupees_anatole et suivre les commandes ci-dessous : 
+Une fois le projet installé, pour récupérer les mises à jour il suffira d'être dans le dossier /poupees_anatole et suivre les commandes ci-dessous : 
 
   Dans le terminal : 
 
@@ -29,6 +31,7 @@ Ou installation à partir du fichier zip :
 Notes : 
 
   Suivre le chemin ci-contre pour modifier les fichiers du projet :
-  wp-content/themes/poupeesanatole
+    
+    1. wp-content/themes/poupeesanatole
   
   Puis suivre la notice pour modifier le fichier
