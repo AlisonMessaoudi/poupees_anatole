@@ -17,3 +17,18 @@ Une fois le projet installé, pour récupérer les mises à jours il suffira d'�
   Dans le terminal : 
 
   1. git pull
+
+Ou installation à partir du fichier zip :
+
+  1. Rendez-vous sur la branche dev
+  2. Appuyer sur bouton vert "Code"
+  3. Choisissez "Download zip"
+  4. Décompresser le zip
+  5. Ouvrez le dossier dans Visual Studio Code (ou tout autre éditeur de texte)
+
+Notes : 
+
+  Suivre le chemin ci-contre pour modifier les fichiers du projet :
+  wp-content/themes/poupeesanatole
+  
+  Puis suivre la notice pour modifier le fichier
