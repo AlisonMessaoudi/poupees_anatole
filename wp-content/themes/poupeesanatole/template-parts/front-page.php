@@ -203,8 +203,9 @@
                 <p>Thomas Huard
 
                 <br/>
+                <br/>
                 
-                <span>Designer, Créateur d'outils pédagogique</span>
+                <span>Designer, Créateur d'outils pédagogiques</span>
             
                 </p>
 
@@ -224,10 +225,11 @@
                 <p>Sheila Warembourg
                 
                 <br/>
+                <br/>
 
                 <span>Diplômée en Sexologie <br/> et Santé Publique, <br/>Formatrice sexologue</span>
                 
-                <p>
+                </p>
 
                 <div class="more__round">
                     <i class="fa fa-plus"></i>
@@ -244,6 +246,7 @@
 
                 <p>Libre Objet
 
+                <br/>
                 <br/>
 
                 <span>Atelier d'insertion</span>
@@ -266,6 +269,7 @@
                 <p>Géraldine Mathieu
                 
                 <br/>
+                <br/>
 
                 <span>Couturière</span>
             
@@ -286,6 +290,7 @@
 
                 <p>Tango&Scan
 
+                <br/>
                 <br/>
                 
                 <span>Appel à projets</span>
