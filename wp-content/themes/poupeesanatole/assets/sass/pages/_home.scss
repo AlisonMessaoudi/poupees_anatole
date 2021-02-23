@@ -1,13 +1,3 @@
-/* GENERAL */
-
-h2 {
-    @include h2(nth($font-size, 4));
-}
-
-h3 {
-    font-weight: $bold-weight;
-}
-
 /* SECTION 1 : INTRODUCTION */
 .home__intro {
     background-color: $color-primary;
@@ -27,7 +17,7 @@ h3 {
         }
         & .forme__img__center {
             z-index: 10;
-            width: 55%;
+            width: 53%;
         }
         & .forme__img__droite {
             position: absolute;
@@ -45,7 +35,7 @@ h3 {
         }
         & p {
             font-size: nth($font-size, 2);
-            font-weight: $normal-weight;
+            font-weight: $semibold-weight;
             max-width: 44%;
             margin: 1.5rem 0;
         }
@@ -115,7 +105,7 @@ h3 {
         justify-content: space-between;
         margin-bottom: 1.5rem;
         & button a i {
-            font-size: nth($font-size, 1)
+            font-size: nth($font-size, 3)
         }
     }
 
@@ -133,13 +123,11 @@ h3 {
             padding-top: 2rem;
         }
         & .shop__panier {
-            background-color: #ffa500;
-            color: #fff;
+            background-color: $color-primary;
+            color: $color-base-background;
             padding: 0.8rem;
             width: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include row_center();
             position: absolute;
             bottom: 20.4%;
             right: 0;
@@ -171,15 +159,16 @@ h3 {
             & p {
                 font-weight: $bold-weight;
                 font-size: nth($font-size, 1);
+                line-height: 1.1rem;
             }
                 & p span {
                     font-style: italic;
                     font-weight: $medium-weight;
                 }
             & .more__round .fa {
-                border: 3px solid #000;
+                border: 2px solid #000;
                 border-radius: 100%;
-                width: 20%;
+                width: 18%;
                 padding: 0.5rem;
             }
     }
