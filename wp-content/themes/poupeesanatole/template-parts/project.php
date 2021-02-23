@@ -11,25 +11,21 @@ get_header();
 <main class="container-fluid p-0 site__project">
 
     <!-- SECTION 1 : LE PROJET -->
-    <section class="container-fluid project__intro">
+    <section class="container row project__intro">
 
-        <div class="row">
+        <!-- BLOC TEXTE -->
+        <div class="col-lg-7 project__bloc__txt">
 
-            <!-- BLOC TEXTE -->
-            <div class="col-lg-6 project__bloc__txt">
+            <h2>Le Projet</h2>
 
-                <h2>Le Projet</h2>
+            <p>Le projet des Poupées Anatoles consiste à mettre à disposition des institutions et des professionnels accompagnant les personnes en situation de handicap un outil qui permet d'<span>aborder de façon respectueuse et adaptée le corps et les rapports amoureux.</span></p>
 
-                <p>Le projet des Poupées Anatoles consiste à mettre à disposition des institutions et des professionnels accompagnant les personnes en situation de handicap un outil qui permet d'<span>aborder de façon respectueuse et adaptée le corps et les rapports amoureux.</span></p>
-
-                <p>Les poupées anatoles sont un ensemble de poupées de chiffon didactiques <span>que l'on peut déshabiller, dont on peut comprendre l'anatomie, que l'on peut mouvoir dans l'espace et qui rendent factuels les discours autour de la sexualité.</span></p>
-
-            </div>
+            <p>Les poupées anatoles sont un ensemble de poupées de chiffon didactiques <span>que l'on peut déshabiller, dont on peut comprendre l'anatomie, que l'on peut mouvoir dans l'espace et qui rendent factuels les discours autour de la sexualité.</span></p>
 
         </div>
 
         <!-- BLOC IMAGE -->
-        <div class="col-lg-6 project__bloc__img">
+        <div class="col-lg-5 project__bloc__img">
 
             <!-- Intro_img -->
             <img class="forme__img__center" src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/intro_img.png" alt="Image d'introduction - les Poupées Anatoles"/>
@@ -46,14 +42,14 @@ get_header();
             <!-- Forme Left -->
             <div class="forme__left">
             
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_07_blanche.png" alt="Forme blanche - illustration Poupées Anatoles"/>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_01_blanche.png" alt="Forme blanche - illustration Poupées Anatoles"/>
             
             </div>
 
             <!-- Forme Right -->
             <div class="forme__right">
             
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_06_blanche.png" alt="Forme blanche - illustration Poupées Anatoles"/>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_02_blanche.png" alt="Forme blanche - illustration Poupées Anatoles"/>
             
             </div>
 
@@ -230,22 +226,26 @@ get_header();
     </section>
 
     <!-- SECTION 4 : DOCUMENTS -->
-    <section class="container documents">
+    <section class="container p-0 documents">
 
         <div>
             <h5>Les documents pour aller plus loin</h5>
         </div>
 
-        <div class="row liste_documents">
+        <div class="row m-0 liste__documents">
 
             <!-- DOCUMENT 1 -->
             <div class="document">
 
                 <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/08_documents/document_01.png" alt="Dossier de création - Projet les Poupées Anatoles"/></a>
 
-                <h4>Dossier de Création</h4>
+                <div class="document__txt">
+                
+                    <h4>Dossier de Création</h4>
 
-                <p>Thomas Huard<br/>2020</p>
+                    <p>Thomas Huard<br/>2020</p>
+                
+                </div>
 
             </div>
 
@@ -254,9 +254,13 @@ get_header();
 
                 <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/08_documents/document_02.png" alt="Retour d'expérimentations - Projet les Poupées Anatoles"/></a>
 
-                <h4>Retour d'expérimentations</h4>
+                <div class="document__txt">
+                    
+                    <h4>Retour <br/> d'expérimentations</h4>
 
-                <p>2021</p>
+                    <p>2021</p>
+                
+                </div>  
 
             </div>
 
@@ -265,9 +269,13 @@ get_header();
 
                 <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/08_documents/document_03.png" alt="Ressources - Projet les Poupées Anatoles"/></a>
 
-                <h4>Ressources</h4>
+                <div class="document__txt">
+                    
+                    <h4>Ressources</h4>
 
-                <p></p>
+                    <p></p>
+                
+                </div>
 
             </div>
 

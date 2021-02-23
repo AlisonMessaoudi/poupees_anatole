@@ -13,7 +13,9 @@
         function poupeesanatole_register_assets () {
             wp_enqueue_style('core', get_template_directory_uri() .'/style.css' );
             wp_enqueue_style('core', get_template_directory_uri() .'assets/css/fonts/fonts.css' );
+        
             wp_enqueue_script('core', get_template_directory_uri() .'/assets/js/index.js');
+            wp_enqueue_script('core', get_template_directory_uri() .'/assets/js/more.js');
         }
 
         function woocommerce_support() {

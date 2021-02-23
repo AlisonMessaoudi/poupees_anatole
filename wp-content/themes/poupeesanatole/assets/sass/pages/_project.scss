@@ -1,0 +1,117 @@
+.site__project, .project__presentation__formes {
+    margin: 2rem 0;
+}
+
+.project__intro, .project__presentation__formes {
+    max-width: 890px;
+    margin: auto;
+}
+
+.project__bloc__txt {
+    & h2 {
+        margin-bottom: 1.5rem;
+    }
+    & p {
+        max-width: 350px;
+    }
+    & span {
+        font-weight: $semibold-weight;
+    }
+}
+
+.project__bloc__img {
+    display: flex;
+    justify-content: center;
+}
+
+.project__presentation {
+    background-color: $color-primary;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.project__presentation__formes{
+    padding: 4rem 0;
+    & .forme__left {
+        position:absolute;
+        bottom: 22%;
+        left: -3%;
+    }
+    & .forme__right {
+        position: absolute;
+        top: 20%;
+        right: -4%;
+    }
+}
+
+.site__project .collaborateur {
+    border-bottom: none;
+    padding: 3rem 0;
+}
+
+.project__presentation__illustration {
+    padding: 1.2rem 0;
+}
+
+.illustration__txt__right, .illustration__txt__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    & h3 {
+        font-size: nth($font-size, 4);
+        color: $color-base;
+        font-weight: $semibold-weight;
+        padding-bottom: 1rem;
+    }
+    & p {
+        max-width: 350px;
+        font-weight: $thin-weight;
+    }
+    & span {
+        font-weight: $semibold-weight;
+    }
+
+}
+
+.illustration__img__left, .illustration__img__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.documents {
+    max-width: 890px;
+    & h5 {
+        font-weight: $semibold-weight;
+    }
+}
+
+.liste__documents {
+    max-width: 890px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    & .document {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+.document__txt {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2rem;
+    & h4 {
+        font-size: nth($font-size, 2);
+        font-weight: $semibold-weight;
+    }
+    & p {
+        font-size: nth($font-size, 2);
+        font-weight: $normal-weight;
+    }
+}

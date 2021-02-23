@@ -3,6 +3,9 @@
   Template Name: Accueil
   Template Post Type: post, page, product
 */
+
+get_header();
+
 ?>
 
 <!-- MAIN -->
@@ -309,3 +312,5 @@
     </section>
 
 </main>
+
+<?php get_footer(); ?>

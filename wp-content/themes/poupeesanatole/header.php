@@ -14,6 +14,8 @@
         <!-- FAVICON -->
         <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/favicon.png"/>
 
+        <title> <?php bloginfo('name'); ?> </title>
+
         <?php wp_head(); ?>
 
     </head>
