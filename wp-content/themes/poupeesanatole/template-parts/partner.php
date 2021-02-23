@@ -2,6 +2,9 @@
 /*
   Template Name: Collaborateurs
 */
+
+get_header();
+
 ?>
 
 <main class="container site__partner">
@@ -185,3 +188,5 @@
 
 
 </main>
+
+<?php get_footer() ?>

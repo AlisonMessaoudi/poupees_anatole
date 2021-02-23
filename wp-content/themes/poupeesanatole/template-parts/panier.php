@@ -1,7 +1,10 @@
 <?php 
 /*
-  Template Name: Accueil
+  Template Name: Panier
 */
+
+get_header();
+
 ?>
 
 <main class="container site__panier">
@@ -52,3 +55,5 @@
 
 
 </main>
+
+<?php get_footer() ?>

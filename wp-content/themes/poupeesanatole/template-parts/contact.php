@@ -1,7 +1,10 @@
 <?php 
 /*
-  Template Name: Accueil
+  Template Name: Contact
 */
+
+get_header();
+
 ?>
 
 <main class="container site__contact">
@@ -57,3 +60,5 @@
     </div>
 
 </main>
+
+<?php get_footer() ?>

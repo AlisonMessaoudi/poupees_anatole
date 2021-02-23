@@ -2,6 +2,9 @@
 /*
   Template Name: Document
 */
+
+get_header();
+
 ?>
 
 <main class="container site__document">
@@ -45,12 +48,13 @@
             <p>Lorem ipsum dolor, <span>sit amet consectetur adipisicing elit.</span> Nesciunt eos voluptatum explicabo deserunt nulla maiores tempora adipisci <span>unde accusantium nihil</span>, dolor provident eveniet quas aut quia consequuntur quasi sint culpa!</p>
 
             <button>
-                <a href="<?php echo home_url('/shop'); ?>">Lire le document</a>
+                <a href="<?php echo home_url('#'); ?>">Lire le document</a>
             </button>
 
         </div>
 
     </div>
 
-
 </main>
+
+<?php get_footer() ?>

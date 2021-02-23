@@ -1,6 +1,7 @@
 <?php 
 /*
   Template Name: Accueil
+  Template Post Type: post, page, product
 */
 ?>
 
@@ -35,7 +36,7 @@
 
                     <button>
 
-                        <a href="<?php echo home_url('/contact'); ?>">En savoir plus&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                        <a href="<?php echo home_url('/projet'); ?>">En savoir plus&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
 
                     </button>
                 
@@ -185,7 +186,7 @@
             <h2>Les Collaborateurs</h2>
             
             <button>
-                <a href="<?php echo home_url('/shop'); ?>">Tous les collaborateurs&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                <a href="<?php echo home_url('/collaborateurs'); ?>">Tous les collaborateurs&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
             </button>
         
         </div>

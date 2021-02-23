@@ -18,25 +18,6 @@
  * @package WordPress
  */
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'poupees_anatole' );
-
-/** MySQL database username */
-define( 'DB_USER', 'poupeesanatolewpadmin' );
-
-/** MySQL database password */
-define( 'DB_PASSWORD', '_P4w_cmAj2XNrB7' );
-
-/** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
-
-/** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
-
-/** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -78,15 +59,76 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 
-// Active le mode WP_DEBUG
-define( 'WP_DEBUG', true );
- 
-// Active l’enregistrement dans le fichier /wp-content/debug.log
-define( 'WP_DEBUG_LOG', true );
- 
-// Désactive l’affichage des erreurs et des avertissements
-define( 'WP_DEBUG_DISPLAY', true );
-@ini_set( 'display_errors', 0 );
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'poupees_anatole' );
+
+/** MySQL database username */
+define( 'DB_USER', 'poupeesanatolewpadmin');
+
+/** MySQL database password */
+define( 'DB_PASSWORD', '_P4w_cmAj2XNrB7' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+$is_localhost = ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' or $_SERVER['REMOTE_ADDR'] == "::1");
+
+if ($is_localhost):
+
+	/** The name of the database for WordPress */
+	define( 'DB_NAME', 'poupees_anatole' );
+
+	/** MySQL database username */
+	define( 'DB_USER', 'poupeesanatolewpadmin');
+
+	/** MySQL database password */
+	define( 'DB_PASSWORD', '_P4w_cmAj2XNrB7' );
+
+	/** MySQL hostname */
+	define( 'DB_HOST', 'localhost' );
+
+	// Active le mode WP_DEBUG
+	define( 'WP_DEBUG', true );
+	
+	// Active l’enregistrement dans le fichier /wp-content/debug.log
+	define( 'WP_DEBUG_LOG', true );
+	
+	// Désactive l’affichage des erreurs et des avertissements
+	define( 'WP_DEBUG_DISPLAY', true );
+	@ini_set( 'display_errors', 0 );
+
+else: 
+
+	/** The name of the database for WordPress */
+	define( 'DB_NAME', 'poupees_anatoleonline' );
+
+	/** MySQL database username */
+	define( 'DB_USER', 'poupeesanatoleonline' );
+
+	/** MySQL database password */
+	define( 'DB_PASSWORD', 'AZERTY123' );
+
+	/** MySQL hostname */
+	define( 'DB_HOST', 'mysql.db.52' );
+
+	// Définir l'adresse du site 
+	define ('WP_HOME', 'https://poupees-anatoles.com');
+	define ('WP_SITEURL', 'https://poupees-anatoles.com');
+
+endif;
+
+// Désactive l'éditeur de fichier
+define('DISALLOW_FILE_EDIT', true);
+
+// Limite le nombre de révisions
+define ('WP_POST_REVISIONS', 5);
 
 /* That's all, stop editing! Happy publishing. */
 

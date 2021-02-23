@@ -13,7 +13,7 @@
         
         <!-- FAVICON -->
         <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/favicon.png"/>
-        
+
         <?php wp_head(); ?>
 
     </head>

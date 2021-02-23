@@ -1,7 +1,11 @@
 <?php 
 /*
   Template Name: Shop
+  Template Post Type: product
 */
+
+get_header();
+
 ?>
 
 <main class="container site__shop">
@@ -115,3 +119,5 @@
     </div>
 
 </main>
+
+<?php get_footer() ?>
