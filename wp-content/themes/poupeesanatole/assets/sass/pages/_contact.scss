@@ -1,0 +1,65 @@
+.site__page__contact {
+    max-width: 950px;
+    & h2 {
+        padding-bottom: 1rem;
+    }
+    & h5 {
+        font-weight: $bold-weight;
+        font-size: nth($font-size, 3);
+        width: 50%;
+        padding-bottom: 2rem;
+    }
+    & input, textarea {
+        background-color: rgb(250, 250, 250, 0.3);
+        border: none;
+        width: 100%;
+        padding: 0.2rem 1rem;
+        margin-top: 1rem;
+        }
+        & input::placeholder, textarea{
+            color: $color-base;
+            font-style: italic;
+        }
+        & textarea {
+            height: 100%;
+        }
+        & .btn_envoyer {
+            border: none;
+            background-color: $color-secondly;
+            color: $color-base-background;
+            font-weight: $semibold-weight;
+            padding: 0.2rem 1rem;
+            margin-left: 0.5rem;
+            width: 150px;
+        }
+}
+
+.ligne {
+    display: flex;
+    justify-content: center;
+    & hr {
+        width: 50%;
+        border: 1px solid #000;
+        margin: 3rem 0;
+    }
+}
+
+
+.site__news {
+    & form {
+        @include column_center();
+        align-items: flex-start;
+    }
+    & .form__news__input {
+        width: 100%;
+    }
+}
+
+.site__contact { 
+    form {
+        @include column_center();
+        align-items: flex-end;
+        }
+}
+
+
