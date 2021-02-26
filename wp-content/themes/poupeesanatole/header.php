@@ -30,7 +30,26 @@
         <!-- HEADER -->
         <header class="container-fluid site__header">
 
-            <nav class="navbar mt-3 navbar-expand-lg shift">
+            <nav class="navbar mt-3 navbar-expand-lg shift site__navbar">
+
+                <!-- BLOC IMAGE -->
+                <div>
+
+                    <!-- Forme image -->
+                    <img class="forme__img__gauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_01.png" alt="Forme noire - illustration Poupées Anatoles"/>
+                    <!-- Forme image -->
+                    <img class="forme__img__center" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_02.png" alt="Image d'introduction - les Poupées Anatoles"/>
+                    <!-- Forme image -->
+                    <img class="forme__img__droite" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_03.png" alt="Forme blanche - illustration Poupées Anatoles"/>
+
+                </div>
+
+                <div class="row connexion">
+
+                    <i class="col-lg-5 fa fa-shopping-basket"></i>
+                    <i class="col-lg-5 fa fa-user"></i>
+
+                </div>
                 
                 <!-- LOGO : redirection accueil -->
                 <a href="<?php echo home_url('/'); ?>">
@@ -45,7 +64,7 @@
                 </button>
 
                 <!-- MENU DESKTOP et MOBILE DEPLOYÉ -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse menu__desktop" id="navbarSupportedContent">
                     
                     <?php wp_nav_menu( 
                         array(

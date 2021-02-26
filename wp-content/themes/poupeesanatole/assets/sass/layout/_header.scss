@@ -1,9 +1,47 @@
+.site__header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    & .site__navbar {
+        display: flex;
+        flex-direction: column;
+        & .forme__img__gauche {
+            position: absolute;
+            top: 20%;
+            left: -2%;
+        }
+        & .forme__img__center {
+            position: absolute;
+            top: -20%;
+            left: 35%;
+        }
+        & .forme__img__droite {
+            position: absolute;
+            top: 30%;
+            right: -2%;
+        }
+        & .connexion {
+            position: absolute;
+            top: 20%;
+            right: 25%;
+        }
+    }
+    & .menu__desktop {
+        width: 90%;
+        & .menu-item-84 {
+            display:none;
+        }
+    }
+}
+
 .site__header__menu {
     display: flex;
     flex-direction: row;
     list-style-type: none;
     width: 100%;
     justify-content: space-evenly;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
 }
 
 .site__header__menu li a{
