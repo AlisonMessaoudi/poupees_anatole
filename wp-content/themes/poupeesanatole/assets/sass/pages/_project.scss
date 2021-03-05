@@ -1,111 +1,207 @@
-.site__project, .project__presentation__formes {
-    margin: 2rem 0;
-}
-
-.project__intro, .project__presentation__formes {
-    max-width: 890px;
-    margin: auto;
-}
-
-.project__bloc__txt {
-    & h2 {
-        margin-bottom: 1.5rem;
+/* GENERAL */
+    .project__intro, .project__presentation__formes {
+        max-width: 890px;
+        margin: auto;
     }
-    & p {
-        max-width: 350px;
+    /* SECTION 1 : LE PROJET */
+    .project__intro {
+        min-height: 450px;
+        @include row_center();
+        /* Bloc texte */
+        & .project__bloc__txt {
+            & h2 {
+                margin-bottom: 1.5rem;
+            }
+            & p {
+                max-width: 350px;
+                & span {
+                    font-weight: $semibold-weight;
+                }
+            }
+        }
+        /* Bloc image */
+        & .project__bloc__img {
+            @include row_center();
+        }
     }
-    & span {
-        font-weight: $semibold-weight;
+    /* SECTION 2 : LES POUPEES */
+    .project__presentation {
+        background-color: $color-primary;
+        position: relative;
+        /* Bloc formes */
+        & .project__presentation__formes{
+            padding: 2rem 0;
+            /* Forme left */
+            & .forme__left {
+                position:absolute;
+            }
+            /* Forme right */
+            & .forme__right {
+                position: absolute;
+            }
+            /* Illustrations */
+            .project__presentation__illustration {
+                padding: 1.2rem 0;
+                /* Illustration image */
+                & .illustration__img__left, .illustration__img__right {
+                    @include row_center();
+                }
+                /* Illustration texte */
+                & .illustration__txt__right, .illustration__txt__left {
+                    @include column_center();
+                    color: $color-base-background;
+                    & h2 {
+                        padding-bottom: 1rem;
+                    }
+                    & p {
+                        max-width: 350px;
+                        font-weight: $thin-weight;
+                        & span {
+                            font-weight: $semibold-weight;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* SECTION 3 : COLLABORATEURS */
+    .site__project .collaborateurs {
+        height: nth($height, 4);
+        /* Collaborateur */
+        & .collaborateur {
+            border-bottom: none;
+            padding: 3rem 0;
+        }
+    }
+    /* SECTION 4 : DOCUMENTS */
+    .documents {
+        max-width: 890px;
+        height: 400px;
+        @include column();
+        justify-content: center;
+        /* Liste documents */
+        & .liste__documents {
+            max-width: 890px;
+            @include row();
+            justify-content: space-between;
+            padding-top: 1.5rem;
+            /* Document */
+            & .document {
+                @include column_center();
+                justify-content: flex-start;
+                /* Document texte */
+                & .document__txt {
+                    @include column();
+                    text-align: center;
+                    padding-top: 2rem;
+                    & h4 {
+                        font-size: nth($font-size, 2);
+                        font-weight: $semibold-weight;
+                    }
+                    & p {
+                        font-size: nth($font-size, 2);
+                        font-weight: $normal-weight;
+                    }
+                }
+            }
+        }
+    }
+
+/* DESKTOP AND LAPTOPS */
+@media only screen and (min-width : 1224px) {
+    .project__presentation__formes{
+        /* Forme left */
+        & .forme__left {
+            bottom: 22%;
+            left: -3%;
+        }
+        /* Forme right */
+        & .forme__right {
+            top: 20%;
+            right: -4%;
+        }
+    }
+    .project__presentation__illustration {
+        & .illustration__txt__left, .illustration__txt__right {
+            align-items: flex-start;
+        }
     }
 }
 
-.project__bloc__img {
-    @include row_center();
-}
-
-.project__presentation {
-    background-color: $color-primary;
-    margin-top: 4rem;
-    position: relative;
-}
-
-.project__presentation__formes{
-    padding: 4rem 0;
-    & .forme__left {
-        position:absolute;
-        bottom: 22%;
-        left: -3%;
+/* MOBILE */
+@media all and (max-device-width: 480px)
+{
+    .site__project {
+        /* SECTION 1 : LE PROJET */
+        & .project__intro {
+            margin-bottom: 2rem;
+            /* BLOC TEXTE */
+            & .project__bloc__txt {
+                width: 300px;
+                & p {
+                    font-size: 1.2rem;
+                }
+            }
+        }
     }
-    & .forme__right {
-        position: absolute;
-        top: 20%;
-        right: -4%;
+    /* SECTION 2 : LES POUPEES */
+    .project__presentation .project__presentation__formes {
+        padding: 3rem 0;
+        /* Forme Left */
+        & .forme__left {
+            left: -9%;
+            bottom: 38%;
+            & img {
+                width: 65%;
+            }
+        }
+        /* Forme Right */
+        & .forme__right {
+            right: -23%;
+            top: 9%;
+            & img {
+                width: 65%;
+            }
+        }
+        /* Illustration */
+        & .project__presentation__illustration {
+            padding: 0;
+            /* Bloc texte */
+            & .illustration__txt__left, .illustration__txt__right {
+                align-items: center;
+                order: 2;
+                & p {
+                    width: 300px;
+                    font-size: 1.3rem;
+                }
+                & h2 {
+                    width: 300px;
+                }
+            }
+            /* Bloc image */
+            & .illustration__img__right, .illustration__img__left {
+                order: 1;
+                margin-top: 1rem;
+                margin-bottom: 2rem;   
+            }
+        }
     }
-}
-
-.site__project .collaborateurs {
-    height: 600px;
-}
-
-.site__project .collaborateur {
-    border-bottom: none;
-    padding: 3rem 0;
-}
-
-.project__presentation__illustration {
-    padding: 1.2rem 0;
-}
-
-.illustration__txt__right, .illustration__txt__left {
-    @include column_center();
-    align-items: flex-start;
-    color: $color-base-background;
-    & h3 {
-        @include h3($semibold-weight);
-        padding-bottom: 1rem;
+    /* SECTION 3 : COLLABORATEURS */
+    .site__project .collaborateurs {
+        height: 500px;
+        /* TITRE : LES COLLABORATEURS */
+        & .collaborateurs__titre {
+            margin-left: 2rem;
+            margin-bottom: 0;
+        }
     }
-    & p {
-        max-width: 350px;
-        font-weight: $thin-weight;
-    }
-    & span {
-        font-weight: $semibold-weight;
-    }
-
-}
-
-.illustration__img__left, .illustration__img__right {
-    @include row_center();
-}
-
-.documents {
-    max-width: 890px;
-    height: 400px;
-    @include column();
-    justify-content: center;
-}
-
-.liste__documents {
-    max-width: 890px;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1.5rem;
-    & .document {
-        @include column_center();
-        justify-content: flex-start;
-    }
-}
-
-.document__txt {
-    @include column();
-    text-align: center;
-    padding-top: 2rem;
-    & h4 {
-        font-size: nth($font-size, 2);
-        font-weight: $semibold-weight;
-    }
-    & p {
-        font-size: nth($font-size, 2);
-        font-weight: $normal-weight;
+    /* SECTION 4 : DOCUMENTS */
+    .documents {
+        height: 400px;
+        justify-content: space-evenly;
+        & h2 {
+            font-size: 1.3rem;
+            text-align: center;
+        }
     }
 }

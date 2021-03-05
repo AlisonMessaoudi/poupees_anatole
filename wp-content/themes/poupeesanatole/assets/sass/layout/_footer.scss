@@ -106,8 +106,8 @@
         }
     }
 
-/* DESKTOP */
-@media all and (min-width: 1024px) and (max-width: 1280px) {
+/* DESKTOP AND LAPTOPS */
+@media only screen and (min-width : 1224px) {
     /* SECTION 1 : CONTACTEZ NOUS */
     /* Bloc contact */
     .bloc__contact {
@@ -124,8 +124,8 @@
     }
 }
 
-/* MOBILE */
-@media all and (max-device-width: 480px)
+/* MOBILE (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
     /* SECTION 1 : CONTACTEZ NOUS */
     .contact {
