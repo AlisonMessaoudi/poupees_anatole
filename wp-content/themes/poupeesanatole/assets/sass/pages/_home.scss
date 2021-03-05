@@ -1,156 +1,177 @@
 /* SECTION 1 : INTRODUCTION */
 .home__intro {
     background-color: $color-primary;
-    height: 500px;
+    height: nth($height, 3);
     & .row {
-        height: 100%;
+        height: nth($height, 5);
     }
 }
-
+    /* BLOC IMAGE */
     .home__bloc__img {
         position: relative;
         @include row_center();
+        justify-content: flex-end;
+        /* Forme image */
         & .forme__img__gauche {
             position: absolute;
-            top: 20%;
-            left: 20%;
         }
+        /* Intro image */
         & .forme__img__center {
             z-index: 10;
-            width: 53%;
+            margin-right: 4rem;
         }
+        /* Forme image */ 
         & .forme__img__droite {
             position: absolute;
-            right: 25%;
-            bottom: 15%;
             z-index: 11;
         }
     }
-
+    /* BLOC TEXTE */
     .home__bloc__txt {
         @include column_center();
         align-items: flex-start;
-        & h1 {
-            @include h1();
-        }
         & p {
             font-size: nth($font-size, 2);
             font-weight: $semibold-weight;
             max-width: 44%;
             margin: 1.5rem 0;
         }
-        & .bloc__btn a {
+        /* BOUTON REDIRECTION */
+        & .bloc__btn button a {
             font-weight: $semibold-weight;
-        }
-        & .bloc__btn i {
-            font-size: nth($font-size, 1)
-        }
+            & i {
+                font-size: nth($font-size, 1)
+            }
+        } 
     }
 
 /* SECTION 2 : PRESENTATION POUPÉES */
 .poupees__presentation {
-    padding: 5rem 0em;
+    height: nth($height, 4);
+    @include row_center();
 }
-
+    /* BLOC FORMES */
     .poupees__presentation__formes {
         position: relative;
+        width: nth($width, 5);
+        /* Forme left */
         & .forme__left {
             position: absolute;     
-            bottom: 5%;
-            left: -2%;
         }
+        /* Forme right */
         & .forme__right {
             position: absolute;
-            top: 20%;
-            right: -6%;
         }
     }
-
+    /* BLOC ILLUSTRATION */
     .poupee__presentation__illustration {
-        justify-content: center;
-        & .illustration__txt__right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        & .illustration__txt__left {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-        & .illustration__txt__left h3{
-            width: 55%;
-            text-align: right;
-        }
+        /* Illustration right */
         & .illustration__img__right {
-            display: flex;
+            @include row();
             justify-content: flex-end;
             padding-right: 4rem;
+            & img {
+                width: nth($width, 2);
+            }
         }
+        /* Texte right */
+        & .illustration__txt__right {
+            @include row_center();
+            justify-content: flex-start;
+        }
+        /* Texte left */
+        & .illustration__txt__left {
+            @include row_center();
+            justify-content: flex-end;
+            & h3 {
+                text-align: right;
+            }
+        }
+        /* Illustration left */
         & .illustration__img__left {
-            display: flex;
+            @include row();
             justify-content: flex-start;
             padding-left: 4rem;
+            & img {
+                width: nth($width, 2);
+            }
         }
 
     }
 
 /* SECTION 3 : SHOP SLIDER */
-.shop {
-    padding: 5rem 0;
-    margin-bottom: 1rem;
+.shop, .collaborateurs {
+    height: nth($height, 3);
+    @include column();
+    justify-content: center;
 }
-
-    .shop__titre {
+    /* Titre et redirection */
+    .shop__titre, .collaborateurs__titre {
+        @include row();
         justify-content: space-between;
-        margin-bottom: 1.5rem;
+        flex-wrap: nowrap;
+        margin-left: 2.5rem;
+        margin-bottom: 2.5rem;
         & button a i {
-            font-size: nth($font-size, 3)
+            font-size: nth($font-size, 3);
         }
     }
+    /* SLIDER */
+    .slider__wrapper {
+        min-width: 110vw;
+        display: grid;
+        overflow-x: scroll;
+        grid-template-columns: repeat(6, auto);
+        column-gap: 30px;
+        flex-wrap: nowrap;
+        margin-left: 2.5rem;
 
-    #slider__shop {
-        display: flex;
-        justify-content: space-between;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
-
+    .slider__wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    /* CARD */
     .card__shop {
         position: relative;
+        /* Nom produit */
         & h5 {
-            font-size: nth($font-size, 3);
-            text-align: center;
-            font-weight: $semibold-weight;
             padding-top: 2rem;
         }
+        /* Bouton panier */
         & .shop__panier {
             background-color: $color-primary;
             color: $color-base-background;
             padding: 0.8rem;
-            width: 50px;
+            width: nth($width, 1);
             @include row_center();
             position: absolute;
-            bottom: 20.4%;
+            bottom: 19.9%;
             right: 0;
         }
     }
-    
+    /* CARD VIDE */ 
+    .empty {
+        width: 1rem;
+    }
 
 /* SECTION 4 : COLLABORATEURS */
 .collaborateurs {
-    padding: 5rem 0;
-}
-    .collaborateurs__titre {
-        justify-content: space-between;
-        margin: 0;
-        margin-bottom: 2.5rem;
-        & button a i {
-            font-size: nth($font-size, 1)
-        }
+    & .slider__wrapper {
+        column-gap: 0;
+        grid-template-columns: repeat(6, 250px);
     }
+}   
+    /* Liste des collaborateurs */
     .liste__collaborateurs {
+        /* Collaborateur */
         & .collaborateur {
             text-align: center;
             width: 200px;
+            border-bottom: none;
+            padding: 2rem 0;
+            position: relative;
         }
             & h4 {
                 padding-top: 2rem;
@@ -166,13 +187,172 @@
                     font-weight: $medium-weight;
                 }
             & .more__round .fa {
-                border: 2px solid #000;
+                border: 2px solid $color-base;
                 border-radius: 100%;
                 width: 18%;
                 padding: 0.5rem;
+                position: absolute;
+                bottom: 0;
+                left: 40%;
             }
     }
-#slider__collaborateurs {
-    @include row_center();
-    justify-content: space-between;
+
+/* DESKTOP */
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+    /* SECTION 1 : INTRODUCTION */
+    
+    /* Bloc image */
+    .home__bloc__img {
+        /* Forme image */
+        & .forme__img__gauche {
+            top: 20%;
+            left: 37%;
+        }
+        /* Intro image */
+        & .forme__img__center {
+            width: 53%;
+        }
+        /* Forme image */
+        & .forme__img__droite {
+            right: 16%;
+            bottom: 15%;
+        }
+    }
+    
+    /* SECTION 2 : PRÉSENTATION POUPÉES */
+    
+    /* Bloc formes */
+    .poupees__presentation__formes {
+        /* Forme left */
+        & .forme__left {  
+            bottom: 5%;
+            left: -5%;
+        }
+        /* Forme right */
+        & .forme__right {
+            top: 20%;
+            right: -6%;
+        }
+    }
+}
+
+/* MOBILE */
+@media all and (max-device-width: 480px)
+{
+    /* SECTION 1 : INTRODUCTION */
+    .home__intro {
+        height: 100vh;
+    }
+        /* Bloc image*/
+        .home__bloc__img {
+            /* Forme image */
+            & .forme__img__droite {
+                right: 15%;
+                bottom: 10%;
+                width: 28%;
+            }
+            /* Intro image */
+            & .forme__img__center {
+                width: 70%;
+            }
+            /* Forme image */
+            & .forme__img__gauche {
+                top: 17%;
+                left: 12%;
+                width: 25%;
+            }
+        }
+        /* Bloc texte*/
+        .home__bloc__txt {
+            align-items: center;
+            & h1 {
+                font-size: nth($font-size, 4);
+                font-weight: $medium-weight;
+                text-align: center;
+                max-width: 90%;
+                height: 24%;
+            }
+            & p {
+                text-align: center;
+                max-width: 78%;
+                font-size: nth($font-size, 1);
+            }
+        }
+    /* SECTION 2 : PRÉSENTATION POUPÉES */
+    .poupees__presentation {
+        max-width: 100vw;
+        padding: 0;
+        height: nth($height, 1);
+    }
+    /* Bloc formes */
+    .poupees__presentation__formes {
+        /* Forme Left */
+        & .forme__left {
+            bottom: 40%;
+            left: -11%;
+        }
+        /* Forme Right */
+        & .forme__right {
+            top: 19%;
+            right: -28%;
+        }
+        /* Images */
+        & .forme__left img, .forme__right img {
+            width: 60%;
+        }
+    }
+    /* Bloc illustration */
+    .poupee__presentation__illustration {
+        width: nth($width, 5);
+        margin: 0;
+        /* Illustration Right et Left */
+        & .illustration__img__right, .illustration__img__left {
+            width: nth($width, 3);
+            padding: 1.5rem;
+            & img {
+                width: nth($width, 5);
+            } 
+        }
+        /* Texte Right et Left */
+        & .illustration__txt__right, .illustration__txt__left {
+            padding: 2rem 0;
+            width: nth($width, 3); 
+            & h3 {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    /* SECTION 3 : SHOP */
+    .shop, .collaborateurs {
+        margin-bottom: 0;
+        padding: 0;
+        height: nth($height, 2);
+    }
+        /* Titre et redirection */
+        .shop__titre, .collaborateurs__titre {
+            margin-left: 2.5rem;
+            margin-right: 2rem;
+            @include row();
+            align-items: flex-end;
+            justify-content: space-between;
+            & h2 {
+                margin: 0;
+                font-size: 1.3rem;
+            }
+            & button {
+                padding: 5px;
+                & a i {
+                    font-size: nth($font-size, 1);
+                }
+            }
+        }
+        /* CARD */
+        .card__shop {
+            min-width: 244px;
+        }
+    /* SECTION 4 : COLLABORATEURS */
+    .liste__collaborateurs .collaborateur {
+        height: nth($height, 1);
+        padding: 1.5rem 0;
+    }
 }

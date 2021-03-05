@@ -5,6 +5,7 @@
     font-style: italic;
     color: $color-base-background;
     font-size: nth($font-size, 5);
+    line-height: inherit;
     max-width: 75%;
     margin: 0;
 }
@@ -15,9 +16,21 @@
     font-weight: $black-weight;
 }
 
+@mixin h3($font-weight) {
+    font-size: nth($font-size, 4);
+    color: $color-base;
+    font-weight: $font-weight;
+} 
+
+@mixin h5() {
+    font-size: nth($font-size, 3);
+    text-align: center;
+    font-weight: $semibold-weight;
+}
+
 /* BOUTON */
-@mixin btn_redirection($color) {
-    border: solid 3px $color;
+@mixin btn_redirection($color:$color-base) {
+    border: solid 2px $color;
     background-color: transparent;
     padding: 5px 25px;;
     & a {
@@ -30,12 +43,29 @@
     }
 }
 
+/* FORMULAIRE */
+
+@mixin placeholder ($color:$color-base) {
+    font-style: italic;
+    color: $color;
+}
+
 /* MISE EN PAGE */
+@mixin row() {
+    display: flex;
+    flex-direction: row;
+}
+
 @mixin row_center() {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+@mixin column() {
+    display: flex;
+    flex-direction: column;
 }
 
 @mixin column_center() {

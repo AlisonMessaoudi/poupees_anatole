@@ -20,8 +20,7 @@
 }
 
 .project__bloc__img {
-    display: flex;
-    justify-content: center;
+    @include row_center();
 }
 
 .project__presentation {
@@ -44,6 +43,10 @@
     }
 }
 
+.site__project .collaborateurs {
+    height: 600px;
+}
+
 .site__project .collaborateur {
     border-bottom: none;
     padding: 3rem 0;
@@ -54,15 +57,11 @@
 }
 
 .illustration__txt__right, .illustration__txt__left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include column_center();
     align-items: flex-start;
-    color: #fff;
+    color: $color-base-background;
     & h3 {
-        font-size: nth($font-size, 4);
-        color: $color-base;
-        font-weight: $semibold-weight;
+        @include h3($semibold-weight);
         padding-bottom: 1rem;
     }
     & p {
@@ -76,16 +75,14 @@
 }
 
 .illustration__img__left, .illustration__img__right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include row_center();
 }
 
 .documents {
     max-width: 890px;
-    & h5 {
-        font-weight: $semibold-weight;
-    }
+    height: 400px;
+    @include column();
+    justify-content: center;
 }
 
 .liste__documents {
@@ -94,16 +91,13 @@
     justify-content: space-between;
     padding-top: 1.5rem;
     & .document {
-        display: flex;
-        flex-direction: column;
+        @include column_center();
         justify-content: flex-start;
-        align-items: center;
     }
 }
 
 .document__txt {
-    display: flex;
-    flex-direction: column;
+    @include column();
     text-align: center;
     padding-top: 2rem;
     & h4 {

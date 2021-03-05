@@ -4,6 +4,7 @@
             <!-- SECTION 1 : CONTACTEZ-NOUS -->
             <section class="container-fluid contact">
 
+                <!-- Bloc contact -->
                 <div class="bloc__contact">
 
                     <!-- Forme Left -->
@@ -40,7 +41,6 @@
 
                     <form action="" method="POST">
 
-                        
                         <!-- Texte -->
                         <label for="newsletter">Abonnez-vous à notre Newsletter</label>
 

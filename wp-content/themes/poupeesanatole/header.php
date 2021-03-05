@@ -29,21 +29,23 @@
 
         <!-- HEADER -->
         <header class="container-fluid site__header">
-
+            
+            <!-- SITE NAVBAR -->
             <nav class="navbar mt-3 navbar-expand-lg shift site__navbar">
 
                 <!-- BLOC IMAGE -->
                 <div>
 
-                    <!-- Forme image -->
+                    <!-- Forme image left -->
                     <img class="forme__img__gauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_01.png" alt="Forme noire - illustration Poupées Anatoles"/>
-                    <!-- Forme image -->
+                    <!-- Forme image center -->
                     <img class="forme__img__center" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_02.png" alt="Image d'introduction - les Poupées Anatoles"/>
-                    <!-- Forme image -->
+                    <!-- Forme image right -->
                     <img class="forme__img__droite" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_03.png" alt="Forme blanche - illustration Poupées Anatoles"/>
 
                 </div>
 
+                <!-- BOUTONS CONNEXION -->
                 <div class="row connexion">
 
                     <i class="col-lg-5 fa fa-shopping-basket"></i>
@@ -57,9 +59,9 @@
                 </a>
 
                 <!-- MENU BURGER -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler menu__burger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 
-                    <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                    <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
             
                 </button>
 

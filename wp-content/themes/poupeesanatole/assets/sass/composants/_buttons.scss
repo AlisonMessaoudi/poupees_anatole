@@ -1,17 +1,17 @@
 /* BOUTONS */
 
 .home__bloc__txt button {
-    @include btn_redirection ($color-base-background);
+    @include btn_redirection($color-base-background);
 }
 
 .shop__titre button {
-    @include btn_redirection ($color-base);
+    @include btn_redirection();
 }
 
 .collaborateurs__titre button {
-    @include btn_redirection ($color-base);
+    @include btn_redirection();
 }
 
 .contact button {
-    @include btn_redirection ($color-base);
+    @include btn_redirection();
 }

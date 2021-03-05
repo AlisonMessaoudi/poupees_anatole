@@ -21,7 +21,7 @@ get_header();
 
                 <!-- Forme image -->
                 <img class="forme__img__gauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/intro_forme_01.png" alt="Forme noire - illustration Poupées Anatoles"/>
-                <!-- Intro_img -->
+                <!-- Intro image -->
                 <img class="forme__img__center" src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/intro_img.png" alt="Image d'introduction - les Poupées Anatoles"/>
                 <!-- Forme image -->
                 <img class="forme__img__droite" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/intro_forme_02.png" alt="Forme blanche - illustration Poupées Anatoles"/>
@@ -35,6 +35,7 @@ get_header();
 
                 <p>Les poupées Anatoles sont un ensemble de poupées de chiffon didactiques que l’on peut déshabiller, dont on peut comprendre l’anatomie, que l’on peut mouvoir dans l’espace et qui rendent factuels les discours autour de la sexualité.</p>
 
+                <!-- BOUTON REDIRECTION -->
                 <div class="bloc__btn">
 
                     <button>
@@ -54,6 +55,7 @@ get_header();
     <!-- SECTION 2 : PRESENTATION POUPÉES -->
     <section class="container-fluid poupees__presentation">
 
+        <!-- BLOC FORMES -->
         <div class="poupees__presentation__formes">
 
             <!-- Forme Left -->
@@ -70,15 +72,17 @@ get_header();
             
             </div>
 
-            <!-- ILLUSTRATION 1 -->
+            <!-- BLOC ILLUSTRATION 1 -->
             <div class="row poupee__presentation__illustration">
 
+                <!-- ILLUSTRATION RIGHT -->
                 <div class="col-lg-6 illustration__img__right">
                 
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/poupees_presentation.png" alt="Poupées émotives - Thomas Huard les Poupées Anatoles"/>
                 
                 </div>
 
+                <!-- TEXTE RIGHT -->
                 <div class="col-lg-6 illustration__txt__right">
                     
                     <h3>Des poupées émotives</h3>
@@ -87,15 +91,17 @@ get_header();
 
             </div>
 
-            <!-- ILLUSTRATION 2 -->
+            <!-- BLOC ILLUSTRATION 2 -->
             <div class="row poupee__presentation__illustration">
                 
+                <!-- TEXTE RIGHT -->
                 <div class="col-lg-6 illustration__txt__left">
                     
                     <h3>Une représentation <br/> des diversités</h3>
                 
                 </div>
 
+                <!-- ILLUSTRATION RIGHT -->
                 <div class="col-lg-6 illustration__img__left">
                     
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/poupees_presentation02.png" alt="Une représentation des diversités - Thomas Huard les Poupées Anatoles"/>
@@ -108,12 +114,13 @@ get_header();
 
     </section>
 
-    <!-- SECTION 3 : SHOP SLIDER -->
+    <!-- SECTION 3 : SHOP -->
     <section class="container shop">
 
-        <div class="row shop__titre">
+        <!-- TITRE ET REDIRECTION -->
+        <div class="shop__titre">
             
-            <h2>Les Articles</h2>
+            <h2>Articles</h2>
             
             <button>
                 <a href="<?php echo home_url('/shop'); ?>">Accéder au Shop&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
@@ -122,15 +129,17 @@ get_header();
         </div>
 
         <!-- SLIDER SHOP -->
-        <div id="slider__shop" class="row">
+        <div id="slider__shop" class="slider__wrapper">
 
             <!-- CARD 01 -->
             <div class="card__shop">
             
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_01.png" alt="La Famille Abricot - Les poupées anatoles" />
                 
+                <!-- NOM PRODUIT --> 
                 <h5>Famille Abricot</h5>
 
+                <!-- BOUTON PANIER -->
                 <div class="shop__panier">
                     <i class="fa fa-shopping-basket"></i>
                 </div>
@@ -142,8 +151,10 @@ get_header();
             
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_02.png" alt="Couple Pomme - Les poupées anatoles" />
                 
+                <!-- NOM PRODUIT --> 
                 <h5>Couple Pomme</h5>
 
+                <!-- BOUTON PANIER -->
                 <div class="shop__panier">
                     <i class="fa fa-shopping-basket"></i>
                 </div>
@@ -155,8 +166,10 @@ get_header();
             
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_03.png" alt="Famille Poire - Les poupées anatoles" />
                 
+                <!-- NOM PRODUIT --> 
                 <h5>Famille Poire</h5>
 
+                <!-- BOUTON PANIER -->
                 <div class="shop__panier">
                     <i class="fa fa-shopping-basket"></i>
                 </div>
@@ -168,13 +181,48 @@ get_header();
             
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_03.png" alt="Famille Poire - Les poupées anatoles" />
                 
+                <!-- NOM PRODUIT --> 
                 <h5>Famille Poire</h5>
 
+                <!-- BOUTON PANIER -->
                 <div class="shop__panier">
                     <i class="fa fa-shopping-basket"></i>
                 </div>
             
             </div>
+
+            <!-- CARD 05 -->
+            <div class="card__shop">
+            
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_03.png" alt="Famille Poire - Les poupées anatoles" />
+                
+                <!-- NOM PRODUIT --> 
+                <h5>Famille Poire</h5>
+
+                <!-- BOUTON PANIER -->
+                <div class="shop__panier">
+                    <i class="fa fa-shopping-basket"></i>
+                </div>
+            
+            </div>
+
+            <!-- CARD 06 -->
+            <div class="card__shop">
+            
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_03.png" alt="Famille Poire - Les poupées anatoles" />
+                
+                <!-- NOM PRODUIT --> 
+                <h5>Famille Poire</h5>
+
+                <!-- BOUTON PANIER -->
+                <div class="shop__panier">
+                    <i class="fa fa-shopping-basket"></i>
+                </div>
+            
+            </div>
+
+            <!-- CARD VIDE -->
+            <div class="empty"></div>
 
         </div>
 
@@ -183,19 +231,19 @@ get_header();
     <!-- SECTION 4 : COLLABORATEURS -->
     <section class="container collaborateurs">
 
-        <!-- TITRE : LES COLLABORATEURS -->
-        <div class="row collaborateurs__titre">
+        <!-- TITRE ET REDIRECTION -->
+        <div class="collaborateurs__titre">
                 
-            <h2>Les Collaborateurs</h2>
+            <h2>Collaborateurs</h2>
             
             <button>
-                <a href="<?php echo home_url('/collaborateurs'); ?>">Tous les collaborateurs&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                <a href="<?php echo home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
             </button>
         
         </div>
 
         <!-- LISTE DES COLLABORATEURS -->
-        <div id="slider__collaborateurs" class="liste__collaborateurs">
+        <div id="slider__collaborateurs" class="slider__wrapper liste__collaborateurs">
 
             <!-- COLLABORATEUR 1 -->
             <div class="collaborateur">
@@ -286,6 +334,28 @@ get_header();
             </div>
 
             <!-- COLLABORATEUR 5 -->
+            <div class="collaborateur">
+
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_tango&Scan.png" alt="Logo de Tango&Scan - Financeur du projet les Poupées Anatoles"/>
+
+                <h4>Financeurs</h4>
+
+                <p>Tango&Scan
+
+                <br/>
+                <br/>
+                
+                <span>Appel à projets</span>
+                
+                </p>
+
+                <div class="more__round">
+                    <i class="fa fa-plus"></i>
+                </div>
+
+            </div>
+
+            <!-- COLLABORATEUR 6 -->
             <div class="collaborateur">
 
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_tango&Scan.png" alt="Logo de Tango&Scan - Financeur du projet les Poupées Anatoles"/>

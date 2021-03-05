@@ -6,7 +6,7 @@
 }
 
 .collaborateur {
-    border-bottom: 0.1px solid #00000030;
+    border-bottom: 0.1px solid $color-base;
     padding: 4rem 0;
     & .collaborateur__img {
         display: flex;
@@ -32,7 +32,7 @@
 
 .collaborateur input {
     background-color: transparent;
-    border: none;
+    border: $border-none;
     color: $color-base;
     font-weight: $semibold-weight;
 }
@@ -49,5 +49,5 @@
 }
 
 .collaborateur__last {
-    border-bottom: none;
+    border-bottom: $border-none;
 }

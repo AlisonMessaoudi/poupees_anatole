@@ -109,7 +109,7 @@ get_header();
         </div>
 
         <!-- LISTE DES COLLABORATEURS -->
-        <div id="slider__collaborateurs" class="liste__collaborateurs">
+        <div id="slider__collaborateurs" class="slider__wrapper liste__collaborateurs">
 
             <!-- COLLABORATEUR 1 -->
             <div class="collaborateur">
