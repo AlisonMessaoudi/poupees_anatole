@@ -43,6 +43,7 @@ get_header();
             <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__1', this.id)">
         
+                <!-- CONTENU EN SAVOIR PLUS -->
                 <div id="collaborateur__1" class="more__collaborateur" style="display:none">
 
                     <p>Designer et illustrateur, Thomas s'est spécialisé dans la création d'outils pédagogiques et de médiation utilisés au sein de structures médico-sociales. Le compréhension des besoins des professionnels de la santé et des attentes des personnes soignées est devenu le centre de son travail pour créer des outils adaptés à leur usagers.</p>
@@ -85,6 +86,7 @@ get_header();
             <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__2', this.id)">
         
+                <!-- CONTENU EN SAVOIR PLUS -->
                 <div id="collaborateur__2" class="more__collaborateur" style="display:none">
 
                     <p>Designer et illustrateur, Thomas s'est spécialisé dans la création d'outils pédagogiques et de médiation utilisés au sein de structures médico-sociales. Le compréhension des besoins des professionnels de la santé et des attentes des personnes soignées est devenu le centre de son travail pour créer des outils adaptés à leur usagers.</p>
@@ -127,6 +129,7 @@ get_header();
             <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__3', this.id)">
         
+                <!-- CONTENU EN SAVOIR PLUS -->
                 <div id="collaborateur__3" class="more__collaborateur" style="display:none">
 
                     <p>Designer et illustrateur, Thomas s'est spécialisé dans la création d'outils pédagogiques et de médiation utilisés au sein de structures médico-sociales. Le compréhension des besoins des professionnels de la santé et des attentes des personnes soignées est devenu le centre de son travail pour créer des outils adaptés à leur usagers.</p>
@@ -168,7 +171,8 @@ get_header();
 
             <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__4', this.id)">
-        
+                
+                <!-- CONTENU EN SAVOIR PLUS -->
                 <div id="collaborateur__4" class="more__collaborateur" style="display:none">
 
                     <p>Designer et illustrateur, Thomas s'est spécialisé dans la création d'outils pédagogiques et de médiation utilisés au sein de structures médico-sociales. Le compréhension des besoins des professionnels de la santé et des attentes des personnes soignées est devenu le centre de son travail pour créer des outils adaptés à leur usagers.</p>
@@ -211,6 +215,7 @@ get_header();
             <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__5', this.id)">
         
+                <!-- CONTENU EN SAVOIR PLUS -->
                 <div id="collaborateur__5" class="more__collaborateur" style="display:none">
 
                     <p>Designer et illustrateur, Thomas s'est spécialisé dans la création d'outils pédagogiques et de médiation utilisés au sein de structures médico-sociales. Le compréhension des besoins des professionnels de la santé et des attentes des personnes soignées est devenu le centre de son travail pour créer des outils adaptés à leur usagers.</p>

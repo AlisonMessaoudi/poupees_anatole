@@ -156,16 +156,19 @@
     }
     /* SECTION 2 : NEWSLETTER */
     .newsletter {
+        & .form__news__input {
+            width: 360px;
+        }
         /* Adresse mail */
-        .newsletter__input {
+        & .newsletter__input {
             width: 200px;
         }
         /* Ligne */
-        .newsletter__ligne hr {
+        & .newsletter__ligne hr {
             width: 43%;
         }
         /* Mentions et politique */
-        .mentions p, .mentions li a {
+        & .mentions p, .mentions li a {
             font-size: 0.7rem;
         }
     }

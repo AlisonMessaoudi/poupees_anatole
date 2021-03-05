@@ -1,65 +1,132 @@
+/* SECTION 0 : PAGE CONTACT */
 .site__page__contact {
-    max-width: 950px;
-    margin-bottom: 5rem;
-    & h2 {
-        padding-bottom: 1rem;
+    max-width: 900px;
+    margin-top: 3.5rem;
+    margin-bottom: 0rem;
+    /* Formulaire Newsletter */
+    & .site__news, .site__contact {
+        /* Formulaire */
+        & form {
+            @include column_center();
+            align-items: flex-start;
+            /* Titre */
+            & h2 {
+                padding-bottom: 1rem;
+            }
+            /* Formulaire newsletter*/
+            & .form__news__input {
+                width: nth($width, 4);
+            }
+            /* Caractéristique générale formulaire */
+            & input, textarea {
+                background-color: rgb(250, 250, 250, 0.3);
+                border: $border-none;
+                width: nth($width, 4);
+                padding: 0.2rem 1rem;
+                margin-top: 1rem;
+            }
+            & input::placeholder, textarea{
+                color: $color-base;
+                font-style: italic;
+            }
+            & textarea {
+                height: nth($height, 5);
+            }
+            & .btn_envoyer {
+                border: $border-none;
+                background-color: $color-secondly;
+                color: $color-base-background;
+                font-weight: $semibold-weight;
+                padding: 0.2rem 1rem;
+                margin-left: 0.5rem;
+                width: 150px;
+            }
+        }
     }
+    /* Ligne */ 
+    .ligne {
+        @include row_center();
+        & hr {
+            width: nth($width, 2);
+            border: 1px solid $color-base;
+            margin: 3rem 0;
+        }
+    }
+    /* Sous-titre */
     & h5 {
         font-weight: $bold-weight;
         font-size: nth($font-size, 3);
         width: nth($width, 4);
         padding-bottom: 2rem;
     }
-    & input, textarea {
-        background-color: rgb(250, 250, 250, 0.3);
-        border: $border-none;
-        width: nth($width, 4);
-        padding: 0.2rem 1rem;
-        margin-top: 1rem;
+    .site__contact { 
+        & form {
+            align-items: flex-end;
         }
-        & input::placeholder, textarea{
-            color: $color-base;
-            font-style: italic;
-        }
-        & textarea {
-            height: 100%;
-        }
-        & .btn_envoyer {
-            border: $border-none;
-            background-color: $color-secondly;
-            color: $color-base-background;
-            font-weight: $semibold-weight;
-            padding: 0.2rem 1rem;
-            margin-left: 0.5rem;
-            width: 150px;
-        }
-}
-
-.ligne {
-    @include row_center();
-    & hr {
-        width: nth($width, 2);
-        border: 1px solid $color-base;
-        margin: 3rem 0;
     }
 }
 
-
-.site__news {
-    & form {
-        @include column_center();
-        align-items: flex-start;
-    }
-    & .form__news__input {
-        width: nth($width, 4);
-    }
-}
-
-.site__contact { 
-    form {
-        @include column_center();
-        align-items: flex-end;
+/* MOBILE (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    /* SECTION 0 : PAGE CONTACT */
+    .site__page__contact {
+        width: 380px;
+        padding: 1rem;
+        margin-bottom: 0;
+        .site__news, .site__contact {
+            /* Formulaire */
+            & form { 
+                align-items: center;
+                /* Titre */
+                & h2 {
+                    width: 360px;
+                    font-size: 1.4rem;
+                    padding-bottom: 0;
+                }
+                /* Formulaire newsletter */
+                & .form__news__input {
+                    width: 360px;
+                    justify-content: center;
+                }
+                /* Caractérstique générale formulaire */
+                & input, textarea {
+                    width: 100%;
+                }
+                /* Champ nom */
+                & .name__input {
+                    padding-top: 0 !important;
+                }
+            }
         }
+        /* Ligne */
+        .ligne { 
+            width: 100%;
+            & hr {
+            width: 100%;
+            margin: 2rem 0;
+            margin-bottom: 3rem;
+            }
+        }
+        /* Sous-titre */
+        & h5 {
+            display: none;
+        }
+    }
+    /* CONTACT */
+    .site__contact {
+        /* Bloc image */
+        & .bloc__image {
+            order: 4;
+            /* Image */
+            & img {
+                width: 100%;
+                margin-top: 3rem;
+            }
+        }
+        /* Bloc texte et formulaire */
+        .bloc__texte__form {
+            padding-right: 15px !important;
+        }
+    }
 }
-
-

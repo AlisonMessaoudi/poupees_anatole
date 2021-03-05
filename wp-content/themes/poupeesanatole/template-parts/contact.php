@@ -7,6 +7,7 @@ get_header();
 
 ?>
 
+<!-- SECTION 0 : PAGE CONTACT -->
 <main class="container site__page__contact">
 
     <!-- FORMULAIRE NEWSLETTER -->
@@ -28,41 +29,47 @@ get_header();
 
     </div>
 
+    <!-- Ligne -->
     <div class="ligne">
         <hr/>
     </div>
 
+    <!-- CONTACT -->
     <div class="site__contact">
 
-                
+        <!-- TITRE -->
         <h2>Contactez-nous</h2>
 
         <div class="row pt-3">
 
-            <div class="col-lg-4">
+            <!-- BLOC IMAGE -->
+            <div class="col-lg-4 bloc__image">
                 
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/contact.png" alt="Ensemble de poupées - Projet les Poupées Anatoles"/>
             
             </div>
 
-            <div class="col-lg-6 pr-0">
+            <!-- BLOC TEXTE ET FORMULAIRE -->
+            <div class="col-lg-6 pr-0 bloc__texte__form">
 
-            <h5>Une Question ? Une envie ? Une rencontre ?</h5>
+                <!-- Sous-titre -->
+                <h5>Une Question ? Une envie ? Une rencontre ?</h5>
 
-            <form action="" method="POST">
+                <!-- Formulaire -->
+                <form action="" method="POST">
 
-                <input type="name" id="name" class="name__input" name="name" placeholder="Nom & Prénom"/>
+                    <input type="name" id="name" class="name__input" name="name" placeholder="Nom & Prénom"/>
 
-                <input type="email" id="email" class="email__input" name="email" placeholder="Adresse mail"/>
+                    <input type="email" id="email" class="email__input" name="email" placeholder="Adresse mail"/>
 
-                <textarea id="message" class="message__input" name="message" rows="8">Message</textarea>
+                    <textarea id="message" class="message__input" name="message" rows="8">Message</textarea>
 
-                <!-- Bouton envoyé -->
-                <input type="submit" class="btn_envoyer" value="Envoyer"/>
+                    <!-- Bouton envoyé -->
+                    <input type="submit" class="btn_envoyer" value="Envoyer"/>
 
-            </form>
+                </form>
 
-        </div>
+            </div>
 
         </div>
 
