@@ -7,6 +7,7 @@ get_header();
 
 ?>
 
+<!-- SECTION 0 : PRESENTATION COLLABORATEURS -->
 <main class="container site__partner">
 
     <!-- TITRE : LES COLLABORATEURS -->
@@ -19,12 +20,14 @@ get_header();
     <!-- COLLABORATEUR 1 -->
     <div class="row collaborateur">
 
+        <!-- BLOC IMAGE -->
         <div class="col-lg-3 collaborateur__img">
         
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_thomasHuard.png" alt="Portrait de Thomas Huard - Porteur du projet les Poupées Anatoles"/>
         
         </div>
         
+        <!-- BLOC TEXTE -->
         <div class="col-lg-9 collaborateur__txt">
             
             <h4>Porteur de projet</h4>
@@ -37,6 +40,7 @@ get_header();
 
             </p>
 
+            <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__1', this.id)">
         
                 <div id="collaborateur__1" class="more__collaborateur" style="display:none">
@@ -58,12 +62,14 @@ get_header();
     <!-- COLLABORATEUR 2 -->
     <div class="row collaborateur">
 
+        <!-- BLOC IMAGE -->
         <div class="col-lg-3 collaborateur__img">
         
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_sheilaWarembourg.png" alt="Portrait de Sheila Warembourg - Collaborateur du projet les Poupées Anatoles"/>
         
         </div>
         
+        <!-- BLOC TEXTE -->
         <div class="col-lg-9 collaborateur__txt">
             
             <h4>Experte</h4>
@@ -76,6 +82,7 @@ get_header();
 
             </p>
 
+            <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__2', this.id)">
         
                 <div id="collaborateur__2" class="more__collaborateur" style="display:none">
@@ -97,12 +104,14 @@ get_header();
     <!-- COLLABORATEUR 3 -->
     <div class="row collaborateur">
 
+        <!-- BLOC IMAGE -->
         <div class="col-lg-3 collaborateur__img">
         
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_libreObjet.png" alt="Logo de Libre Objet - Collaborateur du projet les Poupées Anatoles"/>
         
         </div>
         
+        <!-- BLOC TEXTE -->
         <div class="col-lg-9 collaborateur__txt">
             
             <h4>Fabricant</h4>
@@ -115,6 +124,7 @@ get_header();
 
             </p>
 
+            <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__3', this.id)">
         
                 <div id="collaborateur__3" class="more__collaborateur" style="display:none">
@@ -136,12 +146,14 @@ get_header();
     <!-- COLLABORATEUR 4 -->
     <div class="row collaborateur">
 
+        <!-- BLOC IMAGE -->
         <div class="col-lg-3 collaborateur__img">
         
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_GeraldineMathieu.png" alt="Portrait de Geraldine Mathieu - Collaborateur du projet les Poupées Anatoles"/>
         
         </div>
         
+        <!-- BLOC TEXTE -->
         <div class="col-lg-9 collaborateur__txt">
             
             <h4>Développement des Prototypes</h4>
@@ -154,6 +166,7 @@ get_header();
 
             </p>
 
+            <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__4', this.id)">
         
                 <div id="collaborateur__4" class="more__collaborateur" style="display:none">
@@ -175,12 +188,14 @@ get_header();
     <!-- COLLABORATEUR 5 -->
     <div class="row collaborateur collaborateur__last">
 
+        <!-- BLOC IMAGE -->
         <div class="col-lg-3 collaborateur__img">
         
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_tango&Scan.png" alt="Logo de Tango&Scan - Financeur du projet les Poupées Anatoles"/>
         
         </div>
         
+        <!-- BLOC TEXTE -->
         <div class="col-lg-9 collaborateur__txt">
             
             <h4>Financeurs</h4>
@@ -193,6 +208,7 @@ get_header();
 
             </p>
             
+            <!-- EN SAVOIR PLUS -->
             <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('collaborateur__5', this.id)">
         
                 <div id="collaborateur__5" class="more__collaborateur" style="display:none">
@@ -210,7 +226,6 @@ get_header();
         </div>
 
     </div>
-
 
 </main>
 

@@ -188,7 +188,7 @@
     }
     /* SECTION 3 : COLLABORATEURS */
     .site__project .collaborateurs {
-        height: 500px;
+        height: nth($height, 3);
         /* TITRE : LES COLLABORATEURS */
         & .collaborateurs__titre {
             margin-left: 2rem;

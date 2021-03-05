@@ -1,53 +1,87 @@
+/* SECTION 0 : PRESENTATION COLLABORATEURS */
 .site__partner{
-    max-width: 950px;
+    max-width: 830px;
+    margin-top: 3.5rem;
+    /* TITRE : LES COLLABORATEURS */
     & .collaborateurs__titre {
         margin-bottom: 0rem;
     }
 }
-
+/* CARD COLLABORATEUR */
 .collaborateur {
     border-bottom: 0.1px solid $color-base;
     padding: 4rem 0;
+    /* Bloc image */
     & .collaborateur__img {
-        display: flex;
+        @include row();
         justify-content: flex-start;
         align-items: flex-start;
     }
-    & .collaborateur__txt h4 {
-        font-size: nth($font-size, 2);
-        font-weight: $normal-weight;
+    /* Bloc texte */
+    & .collaborateur__txt { 
+        & h4 {
+            font-size: nth($font-size, 2);
+            font-weight: $normal-weight;
+        }
+        & p {
+            line-height: 1.5rem;
+            padding-top: 1rem;
+            font-weight: $black-weight;
+            font-size: nth($font-size, 4);
+            & span {
+                font-weight: $normal-weight;
+                font-style: italic;
+                font-size: nth($font-size, 3);
+            }
+        }
     }
-    & .collaborateur__txt p {
-        line-height: 1.5rem;
-        padding-top: 1rem;
-        font-weight: $black-weight;
-        font-size: nth($font-size, 4);
-    }
-    & .collaborateur__txt p span {
-        font-weight: $normal-weight;
-        font-style: italic;
-        font-size: nth($font-size, 3);
-    }
-}
-
-.collaborateur input {
-    background-color: transparent;
-    border: $border-none;
-    color: $color-base;
-    font-weight: $semibold-weight;
-}
-
-.collaborateur .more__collaborateur{
-    & p {
-        font-size: nth($font-size, 2);
-        font-weight: $normal-weight;
-    }
-    & a {
-        font-weight: $semibold-weight;
+    /* En savoir plus */
+    & input {
+        background-color: transparent;
+        border: $border-none;
         color: $color-base;
+        font-weight: $semibold-weight;
+    }
+    & .more__collaborateur {
+        & p {
+            font-size: nth($font-size, 2);
+            font-weight: $normal-weight;
+            & a {
+                font-weight: $semibold-weight;
+                color: $color-base;
+            }
+        }
     }
 }
-
 .collaborateur__last {
     border-bottom: $border-none;
+}
+
+/* MOBILE (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    .site__partner {
+        width: 350px;
+        & .collaborateurs__titre {
+            margin: 0;
+        }
+        & .collaborateur {
+            padding: 2rem 0;
+            width: 300px;
+            margin: auto;
+            & .collaborateur__img {
+                @include row();
+                justify-content: center;
+            }
+            & .collaborateur__txt {
+                text-align: center;
+            }
+            & .more__collaborateur p {
+                text-align: start;
+            }
+        }
+        & .collaborateur__last {
+            padding-bottom: 0rem;
+        }
+    }
 }
