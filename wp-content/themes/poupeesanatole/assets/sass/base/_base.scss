@@ -25,3 +25,7 @@ h3 {
 h5 {
     @include h5();
 }
+
+ul {
+    list-style-type: none;
+}

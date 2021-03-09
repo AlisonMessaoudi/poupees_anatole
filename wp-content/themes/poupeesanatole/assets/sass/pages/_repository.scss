@@ -1,0 +1,82 @@
+.site__document {
+    max-width: 830px;
+    margin-top: 3.5rem;
+    padding: 0;
+    & .document__titre {
+        width: 100%;
+        margin: 0;
+        justify-content: space-between;
+    }
+    & .document__navigation {
+        width: 10%;
+        margin: 0;
+        justify-content: space-between;
+        & .nav {
+            border: solid 1px $color-base;
+            padding: 10px;
+        }
+    }
+    .document__description {
+        @include row();
+        margin: 2.5rem 0;
+        & .bloc__img {
+            padding: 0;
+            & img {
+                width: 100%;
+            }
+        }
+        & .bloc__txt {
+            padding: 0 35px;
+            & .document {
+                margin-bottom: 0;
+            }
+            & h2 {
+                margin: 0;
+            }
+            & .auteur {
+                font-weight: $black-weight;
+            }
+            & .resume, .date, .document {
+                font-style: italic;
+            }
+            & .description {
+                width: 90%;
+            }
+        }
+    }
+}
+
+/* MOBILE (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    /* SECTION 0 : PRESENTATION COLLABORATEURS */
+    .site__document {
+        width: 350px;
+        padding: 0;
+        & .document__titre {
+            align-items: center;
+            & h2 {
+                width: 60%;
+            }
+            & .document__navigation {
+                width: 25%;
+                height: 25%;
+            }
+        }
+        & .document__description {
+            flex-direction: column;
+            & .bloc__txt {
+                padding: 0;
+                padding-top: 2rem;
+                & .description {
+                    width: 100%;
+                }
+                & .btn_redirection {
+                    justify-content: center;
+                    display: flex;
+                }
+            }
+        }
+    }
+
+}

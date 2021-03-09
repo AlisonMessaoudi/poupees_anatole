@@ -1,0 +1,128 @@
+.site__product {
+    max-width: 830px;
+    margin-top: 3.5rem;
+    & .shop__titre {
+        margin-left: 0;
+    }
+    & .bloc__description {
+        & h2 {
+            font-size: 1rem;
+            font-weight: $normal-weight;
+            font-style: italic;
+        }
+        & p {
+            font-size: 0.9rem;
+            max-width: 85%;
+        }
+    }
+    & .product__description {
+        & .bloc__img {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+            position: relative;
+            .shop__panier {
+                background-color: $color-primary;
+                padding: 0.8rem;
+                width: nth($width, 1);
+                @include row_center();
+                position: absolute;
+                bottom: 68.8%;
+                right: 8.2%;
+                & a i {
+                    color: $color-base-background;
+                }
+            }
+        }
+        & .card__description {
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+        }
+        & .bloc__img, .card__description {
+            margin-bottom: 2.5rem;
+        }
+        & .card__description {
+            & .price {
+                font-style: italic;
+            }
+        }
+    }
+    & .related {
+        position: relative;
+        & .card__shop {
+            a {
+                @include column_center();
+            }
+            & .price {
+                color: $color-base;
+                font-style: italic;
+            }
+        }
+        & .products {
+            display: grid;
+            overflow-x: scroll;
+            grid-template-columns: repeat(6, auto);
+            column-gap: 30px;
+            flex-wrap: nowrap;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            & .shop__panier {
+                bottom: 21.9%;
+                right: 5.2%;
+                & a i {
+                    color: $color-base-background;
+                }
+            }
+        }
+        .products::-webkit-scrollbar {
+            display: none;
+        }
+
+        & h2 {
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+/* MOBILE (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    /* SECTION 0 : PRESENTATION COLLABORATEURS */
+    .site__product {
+        width: 350px;
+        padding: 0;
+        & .shop__titre {
+            margin-right: 0;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        & .product__description {
+            flex-direction: column;
+            & .bloc__img {
+                min-width: 100%;
+                & img {
+                    width: 100%;
+                    height: 100%;
+                }
+                & .shop__panier {
+                    width: 100%;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+            & .card__description {
+                min-width: 100%;
+                & p {
+                    max-width: 100%;
+                }
+            }
+        }
+        & .related .products {
+            margin: 0;
+            & .shop__panier {
+                bottom: 27%;
+                right: 0;
+            }
+        }
+    }
+}

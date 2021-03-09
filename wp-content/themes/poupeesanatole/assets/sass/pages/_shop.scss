@@ -1,0 +1,78 @@
+.site__shop {
+    max-width: 830px;
+    margin-top: 3.5rem;
+    padding: 0;
+    & .shop__titre {
+        margin-left: 0;
+    }
+    & .card__shop {
+        min-height: 350px;
+        & img {
+            min-width: 100%;
+        }
+        & h5 {
+            padding-top: 1rem;
+        }
+        & .price {
+            color: $color-base;
+            justify-content: center;
+            display: flex;
+            font-style: italic;
+        }
+        & .shop__panier {
+            & .fa {
+                color: $color-base-background;
+            }
+        }
+    }
+    & .woocommerce-pagination {
+        display: flex;
+        justify-content: center;
+        & ul {
+            @include row();
+            justify-content: space-between;
+            width: 25%;
+            & li a {
+                color: $color-base;
+            }
+            & li span {
+                font-weight: $black-weight;
+            }
+
+        }
+    }
+}
+
+/* DESKTOP AND LAPTOPS */
+@media only screen and (min-width : 1224px) {
+    .site__shop {
+        & .shop__panier {
+            bottom: 30.4%;
+            right: 5.2%;
+        }
+    }
+}
+
+/* MOBILE (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    .site__shop {
+        width: 350px;
+        & .shop__titre {
+            margin-right: 0;
+        }
+        & .card__shop {
+            min-height: 450px;
+            & img {
+                min-width: 100%;
+                height: auto;
+            }
+            & .shop__panier {
+                bottom: 22.4%;
+                right: 4.2%;
+                width: 92%;
+                height: 10%;
+            }
+        }
+    }
+}

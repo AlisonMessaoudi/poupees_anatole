@@ -101,17 +101,22 @@
 
 /* SECTION 3 : SHOP SLIDER */
 .shop, .collaborateurs {
-    height: nth($height, 3);
+    height: 430px;
     @include column();
     justify-content: center;
 }
+
     /* Titre et redirection */
     .shop__titre, .collaborateurs__titre {
         @include row();
         justify-content: space-between;
+        align-items: center;
         flex-wrap: nowrap;
         margin-left: 2.5rem;
         margin-bottom: 2.5rem;
+        & h2 {
+            margin: 0;
+        }
         & button a i {
             font-size: nth($font-size, 3);
         }
@@ -137,7 +142,7 @@
         position: relative;
         /* Nom produit */
         & h5 {
-            padding-top: 2rem;
+            padding-top: 1rem;
         }
         /* Bouton panier */
         & .shop__panier {
@@ -158,9 +163,10 @@
 
 /* SECTION 4 : COLLABORATEURS */
 .collaborateurs {
+    margin-top: 5rem;
     & .slider__wrapper {
         column-gap: 0;
-        grid-template-columns: repeat(6, 250px);
+        grid-template-columns: repeat(6, 200px);
     }
 }   
     /* Liste des collaborateurs */
@@ -267,7 +273,6 @@
             align-items: center;
             & h1 {
                 font-size: nth($font-size, 4);
-                font-weight: $medium-weight;
                 text-align: center;
                 max-width: 90%;
                 height: 24%;
@@ -275,7 +280,6 @@
             & p {
                 text-align: center;
                 max-width: 78%;
-                font-size: nth($font-size, 1);
             }
         }
     /* SECTION 2 : PRÉSENTATION POUPÉES */
@@ -315,7 +319,7 @@
         }
         /* Texte Right et Left */
         & .illustration__txt__right, .illustration__txt__left {
-            padding: 2rem 0;
+            padding: 1rem 0;
             width: nth($width, 3); 
             & h3 {
                 font-size: 1.2rem;
@@ -332,14 +336,14 @@
         .shop__titre, .collaborateurs__titre {
             margin-left: 2.5rem;
             margin-right: 2rem;
-            @include row();
-            align-items: flex-end;
-            justify-content: space-between;
+            @include column();
+            align-items: flex-start;
             & h2 {
                 margin: 0;
+                margin-bottom: 0.5rem;
             }
             & button {
-                padding: 5px;
+                padding: 5px 17px;
                 & a i {
                     font-size: nth($font-size, 1);
                 }

@@ -12,6 +12,11 @@
     @include btn_redirection();
 }
 
+.document__description button {
+    @include btn_redirection();
+    margin-top: 2rem;
+}
+
 .contact button {
     @include btn_redirection();
 }

@@ -3,7 +3,7 @@
     @include column();
     padding: 0;
     position: relative;
-    height: 190px;
+    height: 170px;
     /* SITE NAVBAR */
     & .site__navbar {
         @include column();
@@ -36,12 +36,11 @@
     /* MENU DESKTOP ET MOBILE DEPLOYÉ */
     .site__header__menu {
         @include row();
-        justify-content: space-evenly;
-        list-style-type: none;
+        max-width: 830px;
+        margin: auto;
+        margin-top: 2rem;
+        justify-content: space-around;
         width: nth($width, 4);
-        margin-top: 3rem;
-        margin-bottom: 5rem;
-        list-style-type: none;
         & li a {
             color: $color-base;
             &:hover {

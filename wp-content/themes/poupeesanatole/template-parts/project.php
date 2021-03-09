@@ -231,13 +231,13 @@ get_header();
     </section>
 
     <!-- SECTION 4 : DOCUMENTS -->
-    <section class="container p-0 documents">
+    <section class="container documents">
 
         <div>
             <h2>Les documents pour aller plus loin</h2>
         </div>
 
-        <div class="slider__wrapper liste__documents">
+        <div class="liste__documents">
 
             <!-- DOCUMENT 1 -->
             <div class="document">

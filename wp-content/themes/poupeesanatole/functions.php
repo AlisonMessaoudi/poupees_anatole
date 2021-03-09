@@ -22,6 +22,13 @@
             add_theme_support('woocommerce');
         }
 
+        function new_loop_shop_per_page ($cols) {
+        // $ cols contient le nombre actuel de produits par page en fonction de la valeur stockée dans Options - > Lecture
+        // Renvoie le nombre de produits que vous souhaitez afficher par page.
+        $cols = 6;
+        return $cols;
+        }
+
     /* ACTIONS */
 
         add_action('after_setup_theme', 'poupeesanatole_supports');
@@ -31,3 +38,5 @@
     /* FILTER */
 
         add_filter('woocommerce_enqueue_styles','__return_false');
+        /* Modifier le nombre de produits affichés par page (page boutique) */
+        add_filter ('loop_shop_per_page', 'new_loop_shop_per_page', 20);

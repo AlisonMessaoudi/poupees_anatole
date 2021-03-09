@@ -4,7 +4,7 @@
     margin-top: 3.5rem;
     /* TITRE : LES COLLABORATEURS */
     & .collaborateurs__titre {
-        margin-bottom: 0rem;
+        margin: 0;
     }
 }
 /* CARD COLLABORATEUR */
@@ -24,7 +24,7 @@
             font-weight: $normal-weight;
         }
         & p {
-            line-height: 1.5rem;
+            line-height: 1.9rem;
             padding-top: 1rem;
             font-weight: $black-weight;
             font-size: nth($font-size, 4);
@@ -68,10 +68,11 @@
         /* Titre collaborateur */
         & .collaborateurs__titre {
             margin: 0;
+            @include row_center();
         }
         /* Card collaborateur */
         & .collaborateur {
-            padding: 2rem 0;
+            padding: 3rem 0;
             width: 300px;
             margin: auto;
             /* Bloc image */
@@ -82,6 +83,9 @@
             /* Bloc texte */
             & .collaborateur__txt {
                 text-align: center;
+                & h4 {
+                    padding-top: 1.5rem;
+                }
             }
             /* Contenu en savoir plus */
             & .more__collaborateur p {

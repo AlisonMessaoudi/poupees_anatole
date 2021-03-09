@@ -23,12 +23,12 @@ get_header();
 
 <main class="container site__shop">
 
-    <div class="row shop__titre">
+    <div class="shop__titre">
         
         <h2>Le Shop</h2>
         
         <button>
-            <a href="<?php echo home_url('/shop'); ?>"><i class="fa fa-shopping-basket"></i>&nbsp;Mon panier (1)</a>
+            <a href="<?php echo home_url('/shop'); ?>"><i class="fa fa-shopping-basket"></i>&nbsp;Mon panier</a>
         </button>
     
     </div>
@@ -55,7 +55,6 @@ get_header();
 				 * Hook: woocommerce_shop_loop.
 				 */
 				do_action( 'woocommerce_shop_loop' );
-
 				wc_get_template_part( 'content', 'product' );
 			}
 		}
@@ -67,7 +66,8 @@ get_header();
 		 *
 		 * @hooked woocommerce_pagination - 10
 		 */
-		// do_action( 'woocommerce_after_shop_loop' );
+		do_action( 'woocommerce_after_shop_loop' );
+
 	} else {
 		/**
 		 * Hook: woocommerce_no_products_found.

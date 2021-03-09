@@ -19,44 +19,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header(); 
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+?>
 
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
+<main class="container site__product">
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+    <div class="shop__titre">
+        
+        <h2>Le Shop</h2>
+        
+        <button>
+            <a href="<?php echo home_url('/panier'); ?>"><i class="fa fa-shopping-basket"></i>&nbsp;Mon panier </a>
+        </button>
+    
+    </div>
 
-		<?php endwhile; // end of the loop. ?>
+	<div class="product__description"> 
+		<?php
+			/**
+			 * woocommerce_before_main_content hook.
+			 *
+			 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+			 * @hooked woocommerce_breadcrumb - 20
+			 */
+			// do_action( 'woocommerce_before_main_content' );
+		?>
 
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
+			<?php while ( have_posts() ) : ?>
+				<?php the_post(); ?>
 
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
+				<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-<?php
-get_footer( 'shop' );
+			<?php endwhile; // end of the loop. ?>
+
+		<?php
+			/**
+			 * woocommerce_after_main_content hook.
+			 *
+			 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+			 */
+			do_action( 'woocommerce_after_main_content' );
+		?>
+
+		<?php
+			/**
+			 * woocommerce_sidebar hook.
+			 *
+			 * @hooked woocommerce_get_sidebar - 10
+			 */
+			// do_action( 'woocommerce_sidebar' );
+		?>
+	
+	</div>
+
+</main>
+
+<?php get_footer();
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

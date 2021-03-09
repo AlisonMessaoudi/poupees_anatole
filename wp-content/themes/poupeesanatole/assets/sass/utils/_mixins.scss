@@ -25,7 +25,8 @@
 @mixin h5() {
     font-size: nth($font-size, 3);
     text-align: center;
-    font-weight: $semibold-weight;
+    font-weight: $black-weight;
+    color: $color-base;
 }
 
 /* BOUTON */
