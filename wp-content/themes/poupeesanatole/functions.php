@@ -75,13 +75,13 @@
     /* REQUIRE */
         
         /* CPT Document */
-        require get_template_directory() . '/inc/cpt_documents.php';
+        require get_template_directory() . '/custom/cpt_documents.php';
         /* Metaboxes Document */
         require_once('metaboxes/document.php');
         DocumentMetaBox::register();
 
         /* CPT Collaborateur */
-        require get_template_directory() . '/inc/cpt_collaborateurs.php';
+        require get_template_directory() . '/custom/cpt_collaborateurs.php';
         /* Metaboxes Collaborateur */
         require_once('metaboxes/collaborateur.php');
         CollaborateurMetaBox::register();
