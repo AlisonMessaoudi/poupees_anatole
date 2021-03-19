@@ -210,92 +210,152 @@
 		cli_form_toggler.set();
 
 	 });
-	 var genericFunction = {
-		set : function() {
-			this.CLIAccordion();
-			this.checkboxTogglerHandler();
-			this.revisitConsentPositionEvent();
-			this.revisitConsentPosition();
-		},
-		CLIAccordion : function() {
-			
-			if (jQuery('.wt-cli-accordion-tab').hasClass('active')) {
-				jQuery('.wt-cli-accordion-tab.active').find('.wt-cli-accordion-content').slideDown(0);
-			}
-			jQuery(document).on('click', '.wt-cli-accordion-tab a', function (e) {
-				e.preventDefault();
-				var $this = jQuery(this);
-				if ($this.next().hasClass('active')) {
-					$this.removeClass('active');
-					$this.next().removeClass('active');
-					$this.closest('.wt-cli-accordion-tab').removeClass('active');
-					$this.next().slideUp(350);
-				} else {
-					$this.parent().parent().find('.wt-cli-accordion-content').removeClass('active');
-					$this.parent().parent().find('.wt-cli-accordion-content').slideUp(350);
-					$this.parent().parent().find('.wt-cli-accordion-tab a').removeClass('active');
-					$this.parent().parent().find('.wt-cli-accordion-tab').removeClass('active');
-					$this.toggleClass('active');
-					$this.closest('.wt-cli-accordion-tab').toggleClass('active');
-					$this.next().toggleClass('active');
-					$this.next().slideToggle(350);
-	
-				}
-			});
-			
-		},
-		checkboxTogglerHandler: function(){
-			jQuery('input[name="showagain_tab_field"],.wt-cli-input-toggle-checkbox').each(function(){
-				genericFunction.checkboxToggler( jQuery(this) );
-			});
-			jQuery(document).on('click','.wt-cli-input-toggle-checkbox',function(){
-				genericFunction.checkboxToggler( jQuery(this));
-			});
-		},
-		checkboxToggler: function( element ) {
-			
-			var currentElement = element;
-			var toggleTarget = currentElement.attr('data-cli-toggle-target');
-			var targetElement = jQuery('[data-cli-toggle-id='+toggleTarget+']');
-			if ( currentElement.is(':checked') ) {
-				targetElement.slideDown(200);
-				targetElement.addClass('wt-cli-toggle-active');
-			} else {
-				targetElement.slideUp(100);
-				targetElement.removeClass('wt-cli-toggle-active');
-				
-			}
-		},
-		revisitConsentPositionEvent: function(){
-			jQuery(document).on('change', 'select[name="notify_position_horizontal_field"],select[name="popup_showagain_position_field"],input[name="cookie_bar_as_field"],select[name="widget_position_field"]', function(){
-				genericFunction.revisitConsentPosition();
-			});
-		},
-		revisitConsentPosition: function(){
-			var barType = jQuery('input[type="radio"][name="cookie_bar_as_field"]:checked').val();
-			var position = jQuery('select[name="notify_position_horizontal_field"] option:selected').val();
-			var revisitConsentMarginLabel = jQuery('#wt-cli-revisit-consent-margin-label');
-			var currentText = jQuery('#wt-cli-revisit-consent-margin-label').val();
-			if( barType === "popup" ) {
-				position = jQuery('select[name="popup_showagain_position_field"] option:selected').val();
-			} else if( barType === "widget") {
-				position = jQuery('select[name="widget_position_field"] option:selected').val();
-			}
-			
-			if( position === 'bottom-right' || position === 'top-right' || position === 'right' ){
-				currentText =  revisitConsentMarginLabel.attr('data-cli-right-text');
-			} else {
-				currentText =  revisitConsentMarginLabel.attr('data-cli-left-text');
-			}
-			if(typeof(currentText) != "undefined" && currentText !== null) {
-				revisitConsentMarginLabel.html(currentText);
-			}
-		}
-	}
 	$(document).ready(function () {
-		genericFunction.set();
+		wtCliAdminFunctions.set();
     });
 })( jQuery );
+
+var wtCliAdminFunctions = {
+
+	set : function() {
+		this.CLIAccordion();
+		this.checkboxTogglerHandler();
+		this.revisitConsentPositionEvent();
+		this.revisitConsentPosition();
+		this.modalEvents();
+	},
+	CLIAccordion : function() {
+		
+		if (jQuery('.wt-cli-accordion-tab').hasClass('active')) {
+			jQuery('.wt-cli-accordion-tab.active').find('.wt-cli-accordion-content').slideDown(0);
+		}
+		jQuery(document).on('click', '.wt-cli-accordion-tab a', function (e) {
+			e.preventDefault();
+			var $this = jQuery(this);
+			if ($this.next().hasClass('active')) {
+				$this.removeClass('active');
+				$this.next().removeClass('active');
+				$this.closest('.wt-cli-accordion-tab').removeClass('active');
+				$this.next().slideUp(350);
+			} else {
+				$this.parent().parent().find('.wt-cli-accordion-content').removeClass('active');
+				$this.parent().parent().find('.wt-cli-accordion-content').slideUp(350);
+				$this.parent().parent().find('.wt-cli-accordion-tab a').removeClass('active');
+				$this.parent().parent().find('.wt-cli-accordion-tab').removeClass('active');
+				$this.toggleClass('active');
+				$this.closest('.wt-cli-accordion-tab').toggleClass('active');
+				$this.next().toggleClass('active');
+				$this.next().slideToggle(350);
+
+			}
+		});
+		
+	},
+	checkboxTogglerHandler: function(){
+		jQuery('input[name="showagain_tab_field"],.wt-cli-input-toggle-checkbox').each(function(){
+			wtCliAdminFunctions.checkboxToggler( jQuery(this) );
+		});
+		jQuery(document).on('click','.wt-cli-input-toggle-checkbox',function(){
+			wtCliAdminFunctions.checkboxToggler( jQuery(this));
+		});
+	},
+	checkboxToggler: function( element ) {
+		
+		var currentElement = element;
+		var toggleTarget = currentElement.attr('data-cli-toggle-target');
+		var targetElement = jQuery('[data-cli-toggle-id='+toggleTarget+']');
+		if ( currentElement.is(':checked') ) {
+			targetElement.slideDown(200);
+			targetElement.addClass('wt-cli-toggle-active');
+		} else {
+			targetElement.slideUp(100);
+			targetElement.removeClass('wt-cli-toggle-active');
+			
+		}
+	},
+	revisitConsentPositionEvent: function(){
+		jQuery(document).on('change', 'select[name="notify_position_horizontal_field"],select[name="popup_showagain_position_field"],input[name="cookie_bar_as_field"],select[name="widget_position_field"]', function(){
+			wtCliAdminFunctions.revisitConsentPosition();
+		});
+	},
+	
+	revisitConsentPosition: function(){
+		var barType = jQuery('input[type="radio"][name="cookie_bar_as_field"]:checked').val();
+		var position = jQuery('select[name="notify_position_horizontal_field"] option:selected').val();
+		var revisitConsentMarginLabel = jQuery('#wt-cli-revisit-consent-margin-label');
+		var currentText = jQuery('#wt-cli-revisit-consent-margin-label').val();
+		if( barType === "popup" ) {
+			position = jQuery('select[name="popup_showagain_position_field"] option:selected').val();
+		} else if( barType === "widget") {
+			position = jQuery('select[name="widget_position_field"] option:selected').val();
+		}
+		
+		if( position === 'bottom-right' || position === 'top-right' || position === 'right' ){
+			currentText =  revisitConsentMarginLabel.attr('data-cli-right-text');
+		} else {
+			currentText =  revisitConsentMarginLabel.attr('data-cli-left-text');
+		}
+		if(typeof(currentText) != "undefined" && currentText !== null) {
+			revisitConsentMarginLabel.html(currentText);
+		}
+	},
+	
+	modalEvents: function(){
+		jQuery(document).on('click','.wt-cli-modal-js-close', function(){
+			wtCliAdminFunctions.closeModal();
+		});	
+	},
+	showModal: function(id) {
+		this.closeModal();
+		let el = jQuery('#'+id);
+		el.find('.wt-cli-inline-notice').remove();
+		el.addClass('on');
+		this.addOverlay();
+
+	},
+	createModal: function( heading,content ){
+		this.closeModal();
+		var headingHtml = '';
+		if( heading !== '') {
+			headingHtml = '<div class="wt-cli-modal-header"><h4>'+heading+'</h4></div>';
+		}
+		html 	= 	'<div class="wt-cli-modal on" id="">';
+		html	+=	'<span class="wt-cli-modal-js-close">×</span>';
+		html    += 	headingHtml;
+		html    += 	'<div class="wt-cli-modal-body">';
+		html    += 	'<p>'+content+'</p>';
+		html    +=	'</div>';
+		html    +=	'</div>';
+		jQuery('body').append(html);
+		this.addOverlay();
+	},
+	addOverlay: function(){
+		html 	=	'<div class="wt-cli-modal-js-overlay"></div>';
+		jQuery('body').append(html);
+	},
+	closeOverlay: function(){
+		jQuery('.wt-cli-modal-js-overlay').remove();
+	},
+	closeModal: function(){
+		jQuery('.wt-cli-modal').removeClass('on');
+		this.closeOverlay();
+	},
+	addInlineMessage:function( message, type='notice', element ) {
+		element.find('.wt-cli-inline-notice').remove();
+		var error_message = '<div role="alert" class="wt-cli-inline-notice wt-cli-inline-notice-'+type+'">'+message+'</div>';
+		jQuery( element ).append( error_message );
+	},
+	loadSpinner( element ){
+		var spinner	 =	jQuery( '<span class="spinner"></span>' );
+		spinner.insertBefore(element);
+		spinner.css({'visibility' : 'visible'});
+	},
+	removeSpinner: function( element ){
+		var spinner	 =	element.prev('.spinner');
+		spinner.remove();
+	},
+}
+
 var cli_notify_msg=
 {
 	error:function(message)

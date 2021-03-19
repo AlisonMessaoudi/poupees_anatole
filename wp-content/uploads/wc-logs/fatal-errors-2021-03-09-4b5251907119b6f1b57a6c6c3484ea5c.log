@@ -1,0 +1,2 @@
+2021-03-09T13:11:12+00:00 CRITICAL syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/woocommerce/single-product/add-to-cart/simple.php on line 57
+

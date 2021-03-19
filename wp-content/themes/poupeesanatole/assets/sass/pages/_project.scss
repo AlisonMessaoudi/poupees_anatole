@@ -74,10 +74,12 @@
     .site__project .collaborateurs {
         margin-top: 0;
         height: nth($height, 4);
+        & .collaborateurs__titre {
+            margin-top: 5rem;
+        }
         /* Collaborateur */
         & .collaborateur {
             border-bottom: none;
-            padding: 3rem 0;
         }
     }
     /* SECTION 4 : DOCUMENTS */

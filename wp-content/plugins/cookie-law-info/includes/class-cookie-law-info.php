@@ -69,6 +69,7 @@ class Cookie_Law_Info {
 	 *
 	 * @since    1.6.6
 	 */
+	public static $db_initial_version = '1.9.4';
 	public function __construct() 
 	{
 		if(defined( 'CLI_VERSION' )) 
@@ -77,7 +78,7 @@ class Cookie_Law_Info {
 		} 
 		else 	
 		{
-			$this->version = '1.9.5';
+			$this->version = '2.0.0';
 		}
 		$this->plugin_name = 'cookie-law-info';
 
@@ -112,6 +113,19 @@ class Cookie_Law_Info {
 		 * core plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cookie-law-info-loader.php';
+		
+		/**
+		 * Webtoffee Security Library
+		 * Includes Data sanitization, Access checking
+		 */
+		
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wt-security-helper.php';
+		
+		/**
+		 * The class which integrates Cookieyes services to the plugin
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cookie-law-info-cookieyes.php';
+		
 
 		/**
 		 * The class responsible for defining internationalization functionality
@@ -119,6 +133,17 @@ class Cookie_Law_Info {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cookie-law-info-i18n.php';
 
+		/**
+		 * The class responsible for handling multi language features
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cookie-law-info-languages.php';
+
+		/**
+		 * The class which integrates Cookieyes services to the plugin
+		 */
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cookie-law-info-cookieyes.php';
+		
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
@@ -173,10 +198,7 @@ class Cookie_Law_Info {
 
 		
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu',11); /* Adding admin menu */		
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'add_meta_box'); /* Adding custom meta box */
-		$this->loader->add_action( 'save_post', $plugin_admin, 'save_custom_metaboxes');/* Saving meta box data */
-		$this->loader->add_action( 'manage_edit-cookielawinfo_columns', $plugin_admin, 'manage_edit_columns'); /* Customizing listing column */
-		$this->loader->add_action( 'manage_posts_custom_column', $plugin_admin, 'manage_posts_custom_columns');
+		
 		
 		$this->loader->add_action('admin_menu',$plugin_admin,'remove_cli_addnew_link');
 
@@ -207,11 +229,10 @@ class Cookie_Law_Info {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_action( 'init', $plugin_public,'register_custom_post_type');
 		$this->loader->add_action( 'template_redirect', $plugin_public,'cli_set_category_cookies');
 
 		$plugin_public->common_modules();
-
+ 
 		//below hook's functions needs update
 		$this->loader->add_action( 'init',$plugin_public,'other_plugin_compatibility');
 		$this->loader->add_action( 'wp_footer',$plugin_public,'cookielawinfo_inject_cli_script');
@@ -617,13 +638,19 @@ class Cookie_Law_Info {
 				break;
 			// Basic sanitisation for all the rest:
 			default:
-				$ret = sanitize_text_field( $value );
+				$ret = self::wt_cli_clean( $value );
 				break;
 		}
 	        if(('is_eu_on' === $key || 'logging_on' == $key) && 'fffffff' === $ret) $ret = false;
 		return $ret;
 	}
-
+	public static function wt_cli_clean( $var ){
+		if ( is_array( $var ) ) {
+			return array_map( 'self::wt_cli_clean' , $var );
+		  } else {
+			return is_scalar( $var ) ? sanitize_text_field( $var ) : $var;
+		  }
+	}
 	public static function get_non_necessary_cookie_ids()
 	{
 
@@ -947,7 +974,7 @@ class Cookie_Law_Info {
 	* @since  1.8.9
 	* @return bool
 	*/
-	public static function maybe_first_time_install()
+	public static function check_for_upgrade()
     {
 		$plugin_settings = get_option(CLI_SETTINGS_FIELD);
 		if( $plugin_settings === false ) {
@@ -959,6 +986,15 @@ class Cookie_Law_Info {
 			return true;
 		}
 		return false;
+	}
+	public static function maybe_first_time_install()
+    {	
+		$maybe_first_time = false;
+		$activation_transient = wp_validate_boolean( get_transient('_wt_cli_first_time_activation') ); 
+		if( $activation_transient === true ) {
+			$maybe_first_time = true;
+		}
+		return $maybe_first_time;
 	}
 	/**
 	* Return js options

@@ -16,7 +16,7 @@
  * Plugin Name:       GDPR Cookie Consent
  * Plugin URI:        https://www.webtoffee.com/product/gdpr-cookie-consent/
  * Description:       A simple way to show your website complies with the EU Cookie Law / GDPR.
- * Version:           1.9.5
+ * Version:           2.0.0
  * Author:            WebToffee
  * Author URI:        http://cookielawinfo.com/
  * License:           GPLv3
@@ -46,7 +46,10 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-
+$wt_cli_wp_lanugage = get_option('WPLANG', 'en_US');
+if ( empty($wt_cli_wp_lanugage) || strlen($wt_cli_wp_lanugage) <= 1) {
+    $wt_cli_wp_lanugage = 'en';
+}
 define ( 'CLI_PLUGIN_DEVELOPMENT_MODE', false );
 define ( 'CLI_PLUGIN_BASENAME', plugin_basename(__FILE__) );
 define ( 'CLI_PLUGIN_PATH', plugin_dir_path(__FILE__) );
@@ -59,11 +62,14 @@ define ( 'CLI_MIGRATED_VERSION', CLI_DB_KEY_PREFIX . 'MigratedVersion' );
 define ( 'CLI_ADMIN_OPTIONS_NAME', 'CookieLawInfo-0.8.3' );
 define ( 'CLI_PLUGIN_FILENAME',__FILE__);
 define ( 'CLI_POST_TYPE','cookielawinfo');
+define  ('CLI_DEFAULT_LANGUAGE', substr($wt_cli_wp_lanugage, 0, 2));
+define ( 'CLI_ACTIVATION_ID','wtgdprcookieconsent');
+
 /**
  * Currently plugin version.
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CLI_VERSION', '1.9.5' );
+define( 'CLI_VERSION', '2.0.0' );
 
 function wt_cookie_law_info_update_message( $data, $response )
 {   
@@ -99,8 +105,8 @@ add_action( 'in_plugin_update_message-cookie-law-info/cookie-law-info.php', 'wt_
  * The code that runs during plugin activation.
  * This action is documented in includes/class-cookie-law-info-activator.php
  */
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-cookie-law-info-activator.php';
 function activate_cookie_law_info() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cookie-law-info-activator.php';
 	Cookie_Law_Info_Activator::activate();
     register_uninstall_hook( __FILE__, 'uninstall_cookie_law_info' );
 }

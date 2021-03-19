@@ -12,7 +12,7 @@
         <meta name="author" content="Thomas Huard - Designer et concepteur d'outils pédagogiques" />
         
         <!-- FAVICON -->
-        <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/favicon.png"/>
+        <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/favicon32x32.png"/>
 
         <title> <?php bloginfo('name'); ?> </title>
 
@@ -72,7 +72,8 @@
                         array(
                             'theme_location' => 'header',
                             'container' => 'ul', // évite d'avoir une div autour du menu
-                            'menu_class' => 'site__header__menu', // crée une classe personnalisée
+                            'menu_class' => 'navbar-nav site__header__menu', // crée une classe personnalisée
+                            'depth' => 0,
                         )
                     ); ?>
                 

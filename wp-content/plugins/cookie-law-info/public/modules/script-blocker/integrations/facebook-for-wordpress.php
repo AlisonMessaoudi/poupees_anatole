@@ -5,6 +5,6 @@ if ( ! defined( 'WPINC' ) ) {
 }
 add_filter( 'wt_cli_third_party_scripts', 'wt_cli_facebook_wordpress_script' );
 function wt_cli_facebook_wordpress_script( $tags ) {
-	$tags[] = 'fbq';
+	$tags['facebook-for-wordpress'] = 'fbq';
 	return $tags;
 }

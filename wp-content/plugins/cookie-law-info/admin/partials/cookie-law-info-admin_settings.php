@@ -30,26 +30,50 @@ $all_pages=get_pages($args_for_get_pages);
 <div class="wrap">
     <h2 class="wp-heading-inline"><?php _e('Settings', 'cookie-law-info'); ?></h2>
     
-    <table class="cli_notify_table cli_bar_state">
-        <tr valign="middle" class="cli_bar_on" style="<?php echo $the_options['is_on'] == true ? '' : 'display:none;';?>">
-            <th scope="row" style="padding-left:15px;">
-                <label><img id="cli-plugin-status-icon" src="<?php echo $cli_img_path;?>tick.png" /></label>
-            </th>
-            <td style="padding-left: 10px;">
-                <?php _e('Cookie bar is currently active', 'cookie-law-info'); ?>
-            </td>
-        </tr>
-        <tr valign="middle" class="cli_bar_off" style="<?php echo $the_options['is_on'] == true ? 'display:none;' : '';?>">
-            <th scope="row" style="padding-left:15px;">
-                <label><img id="cli-plugin-status-icon" src="<?php echo $cli_img_path;?>cross.png" /></label>
-            </th>
-            <td style="padding-left: 10px;">
-                <?php _e('Cookie bar is currently inactive', 'cookie-law-info'); ?>
-            </td>
-        </tr>
-    </table>
+    <div class="wt-cli-gdpr-plugin-header">
+        <div class="wt-cli-gdpr-plugin-status-bar">
+            <table class="cli_notify_table cli_bar_state">
+                <tr valign="middle" class="cli_bar_on" style="<?php echo $the_options['is_on'] == true ? '' : 'display:none;';?>">
+                    <td style="padding-left: 10px;">
+                        <div class="wt-cli-gdpr-plugin-status wt-cli-gdpr-plugin-status-active">
+                            <img id="cli-plugin-status-icon" src="<?php echo $cli_img_path;?>add.svg" />
+                            <span><?php _e('Cookie bar is currently active', 'cookie-law-info'); ?></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr valign="middle" class="cli_bar_off" style="<?php echo $the_options['is_on'] == true ? 'display:none;' : '';?>">
+                    <td style="padding-left: 10px;">
+                        <div class="wt-cli-gdpr-plugin-status wt-cli-gdpr-plugin-status-active">
+                            <img id="cli-plugin-status-icon" src="<?php echo $cli_img_path;?>cross.png" />
+                            <span><?php _e('Cookie bar is currently inactive', 'cookie-law-info'); ?></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="wt-cli-gdpr-plugin-branding">
+            <div class="wt-cli-gdpr-plugin-branding-logo">
+                <a href="https://www.cookieyes.com" target="_blank"><img src="<?php echo $cli_img_path;?>logo-cookieyes.svg" alt="CookieYes Logo"></a>
+            </div>
+            <div class="wt-cli-gdpr-plugin-branding-tagline">
+                
+            <span><b><?php echo __( 'Cookie Compliance Made Easy', 'cookie-law-info' ); ?> | <?php echo sprintf(
+				wp_kses(
+					__( 'Plugin Developed By <a href="%s" target="_blank">WebToffee</a>', 'cookie-law-info' ),
+					array(
+						'a' => array(
+							'href'   => array(),
+							'target' => array(),
+						),
+					)
+				),
+				'https://www.webtoffee.com/'
+			); ?></b></span>
+            </div>
+        </div>
+    </div>
 
-
+   
     <div class="cli_settings_left">
         <div class="nav-tab-wrapper wp-clearfix cookie-law-info-tab-head">
             <?php

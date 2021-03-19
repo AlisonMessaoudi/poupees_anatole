@@ -485,6 +485,8 @@ span.wt-cli-tootip-icon {
     border-left: 4px solid;
     border-color: #00a0d2;
     margin-bottom: 15px;
+    width:100%;
+    box-sizing: border-box;
 }
 
 .wt-cli-notice.wt-cli-info:before {
@@ -494,6 +496,22 @@ span.wt-cli-tootip-icon {
     position: absolute;
     left: 15px;
     font-size: 16px;
+}
+.wt-cli-status-success:before{
+    content: "";
+    background: url(../images/add.svg);
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-size: cover;
+}
+.wt-cli-status-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+    text-align: center;
+    content: "";
+    font-family: "dashicons";
 }
 /* Toggle checkbox CSS since 1.9.4 */
 .wt-cli-input-toggle-section
@@ -511,4 +529,264 @@ span.wt-cli-tootip-icon {
 }
 .wt-cli-section-floating-widget-settings .form-table th {
     width: 260px;
+}
+
+
+/* Callout styles  */
+
+.wt-cli-callout {
+    width:100%;
+    padding: 1.5em 1.5em 1.5em 1.5em;
+    margin-bottom: 1.5em;
+    overflow: auto;
+    position: relative;
+    border-width: 0 0 0 5px;
+    border-style: solid;
+    min-width: 170px;
+    box-sizing: border-box;
+  }
+  .wt-cli-callout.wt-cli-callout-icon {
+    padding: 1.5em 3em 1.6em 3.7em;
+  }
+  .wt-cli-callout p {
+    margin-bottom: 0.6em;
+    margin-top: 0.5em;
+  }
+  .wt-cli-callout p:first-child {
+    margin-top: 0;
+  }
+  .wt-cli-callout p:last-child {
+    margin-bottom: 0;
+  }
+  .wt-cli-callout:before {
+    content: "";
+    font-family: "dashicons";
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 0.5em;
+    transform: translateY(-50%);
+}
+  .wt-cli-callout .screen-reader-text + br {
+    display: none;
+  }
+  
+  .wt-cli-callout-info     { background: #e5f5fa; border-color: #00a0d2; }
+  .wt-cli-callout-success  { background: #eff7ed; border-color: #64b450; }
+  .wt-cli-callout-alert    { background: #fff8e5; border-color: #ffb900; }
+  .wt-cli-callout-tutorial { background: #f2f0f7; border-color: #826eb4; }
+  .wt-cli-callout-warning  { background: #fbeaea; border-color: #dc3232; }
+  
+  .wt-cli-callout-info.wt-cli-callout-icon:before     { content: "\f348"; color: #00a0d2; }
+  .wt-cli-callout-success.wt-cli-callout-icon:before  { content: ""; color: #fff; width: 18px; height: 18px;background:url('../images/add.svg'); }
+  .wt-cli-callout-alert.wt-cli-callout-icon:before    { content: "\f227"; color: #ffb900; }
+  .wt-cli-callout-tutorial.wt-cli-callout-icon:before { content: "\f308"; color: #826eb4; }
+  .wt-cli-callout-warning.wt-cli-callout-icon:before  { content: "\f153"; color: #dc3232; }
+
+/* Modal styles since 2.3.2 */
+
+.wt-cli-modal {
+    position: fixed;
+    top: 10%;
+    padding: 15px 20px;
+    border-radius: 3px;
+    background-color: white;
+    z-index: 60000;
+    width: 400px;
+    display: none;
+    left: 0;
+    right:0;
+    margin:0 auto;
+    box-sizing: border-box;
+}
+
+.wt-cli-modal.on {
+    display: block;
+}
+.wt-cli-modal-js-overlay {
+    background: #444;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 1000px;
+    z-index: 20000;
+    left: 0px;
+}
+.wt-cli-modal-js-close {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: #000;
+    border-radius: 50%;
+    font-size: 18px;
+    text-align: center;
+    padding: 1px;
+    top: 5px;
+    right: 5px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+.wt-cli-modal-header h4 {
+    margin: 0;
+    font-size: 15px;
+}
+
+/* New grid styles */
+.wt-cli-align-center {
+    -webkit-box-align: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+
+.wt-cli-justify-center {
+    -webkit-box-pack: justify!important;
+    -ms-flex-pack: justify!important;
+    justify-content: center!important;
+}
+
+.wt-cli-justify-end {
+    -ms-flex-pack: end!important;
+    justify-content: flex-end!important;
+}
+.wt-cli-container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.wt-cli-grid-wrapper *,.wt-cli-row *{
+    box-sizing: border-box;
+}
+.wt-cli-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin-left: -12.5px;
+    margin-right: -12.5px;
+}
+
+.wt-cli-col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.wt-cli-col-1 {
+    -ms-flex: 0 0 8.33333333%;
+    flex: 0 0 8.33333333%;
+    max-width: 8.33333333%;
+}
+
+.wt-cli-col-2 {
+    -ms-flex: 0 0 16.66666667%;
+    flex: 0 0 16.66666667%;
+    max-width: 16.66666667%;
+}
+
+.wt-cli-col-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.wt-cli-col-4 {
+    -ms-flex: 0 0 33.33333333%;
+    flex: 0 0 33.33333333%;
+    max-width: 33.33333333%;
+}
+
+.wt-cli-col-5 {
+    -ms-flex: 0 0 41.66666667%;
+    flex: 0 0 41.66666667%;
+    max-width: 41.66666667%;
+}
+
+.wt-cli-col-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.wt-cli-col-7 {
+    -ms-flex: 0 0 58.33333333%;
+    flex: 0 0 58.33333333%;
+    max-width: 58.33333333%;
+}
+
+.wt-cli-col-8 {
+    -ms-flex: 0 0 66.66666667%;
+    flex: 0 0 66.66666667%;
+    max-width: 66.66666667%;
+}
+
+.wt-cli-col-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.wt-cli-col-10 {
+    -ms-flex: 0 0 83.33333333%;
+    flex: 0 0 83.33333333%;
+    max-width: 83.33333333%;
+}
+
+.wt-cli-col-11 {
+    -ms-flex: 0 0 91.66666667%;
+    flex: 0 0 91.66666667%;
+    max-width: 91.66666667%;
+}
+
+.wt-cli-col-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.wt-cli-col, .wt-cli-col-1, .wt-cli-col-2, .wt-cli-col-3, .wt-cli-col-4, .wt-cli-col-5, .wt-cli-col-6, .wt-cli-col-7, .wt-cli-col-8, .wt-cli-col-9, .wt-cli-col-10, .wt-cli-col-11, .wt-cli-col-12 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 12.5px;
+    padding-left: 12.5px;
+}
+.wt-cli-gdpr-plugin-status{
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+.wt-cli-gdpr-plugin-status img {
+    width: 18px;
+    margin-right: 10px;
+}
+.wt-cli-gdpr-plugin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wt-cli-gdpr-plugin-branding-logo {
+    display: flex;
+    justify-content: flex-end;
+}
+.wt-cli-gdpr-plugin-branding-logo img {
+    width: 150px;
+}
+.wt-cli-gdpr-plugin-branding-logo a:focus {
+    outline:none;
+    box-shadow: none;
+}
+.wt-cli-gdpr-plugin-branding-tagline a {
+    color: #444;
+}
+.wt-cli-gdpr-plugin-branding-tagline {
+    margin-top: 5px;
 }

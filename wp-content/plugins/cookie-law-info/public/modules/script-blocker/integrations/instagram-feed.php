@@ -6,14 +6,18 @@ if ( ! defined( 'WPINC' ) ) {
 add_filter( 'wt_cli_third_party_scripts', 'wt_cli_instagram_feed_script' );
 function wt_cli_instagram_feed_script( $tags ) {
 
-	$tags[] = 'plugins/instagram-feed/js/sb-instagram.min.js';
-	$tags[] = 'plugins/instagram-feed/js/sb-instagram.js';
-	$tags[] = 'plugins/instagram-feed/js/sbi-scripts.min.js';
-	$tags[] = 'plugins/instagram-feed/js/sbi-scripts.js';
-	$tags[] = 'plugins/instagram-feed-pro/js/sb-instagram.min.js';
-	$tags[] = 'plugins/instagram-feed-pro/js/sb-instagram.js';
-	$tags[] = 'plugins/instagram-feed-pro/js/sbi-scripts.min.js';
-	$tags[] = 'plugins/instagram-feed-pro/js/sbi-scripts.js';
-	
+	$tags['instagram-feed'] = array( 
+		
+			'plugins/instagram-feed/js/sb-instagram.min.js',
+			'plugins/instagram-feed/js/sb-instagram.js',
+			'plugins/instagram-feed/js/sbi-scripts.min.js',
+			'plugins/instagram-feed/js/sbi-scripts.js',
+			'plugins/instagram-feed-pro/js/sb-instagram.min.js',
+			'plugins/instagram-feed-pro/js/sb-instagram.js',
+			'plugins/instagram-feed-pro/js/sbi-scripts.min.js',
+			'plugins/instagram-feed-pro/js/sbi-scripts.js'
+			
+		) ;
+
 	return $tags;
 }

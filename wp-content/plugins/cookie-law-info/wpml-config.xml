@@ -25,6 +25,9 @@
             <key name="necessary_description" />
         </key>
 	</admin-texts>
+    <taxonomies>
+     <taxonomy translate="1">cookielawinfo-category</taxonomy>
+    </taxonomies>
     <custom-types>
      <custom-type translate="1">cookielawinfo</custom-type>
     </custom-types>

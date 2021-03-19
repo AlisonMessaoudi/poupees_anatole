@@ -4,12 +4,12 @@ if (!defined('ABSPATH')) {
 }
 
 $cli_icon = ($script_blocker_status === true  ? '<span class="dashicons dashicons-yes cli-enabled ">' : '<span class="dashicons dashicons-no-alt cli-disabled"></span>');
-$action_text = ( $script_blocker_status === true  ? __('Disable', 'cookie-law-info') : __('Enable', 'cookie-law-info'));
-$action_value = ( $script_blocker_status === true  ? 'disabled' : 'enabled');
-$script_blocker_text = ( $script_blocker_status === true  ? __('Script blocker is enabled.', 'cookie-law-info') : __('Script blocker is currently disabled. Enable the blocker if you want any of the below listed plugins to be auto blocked.', 'cookie-law-info'));
+$action_text = ($script_blocker_status === true  ? __('Disable', 'cookie-law-info') : __('Enable', 'cookie-law-info'));
+$action_value = ($script_blocker_status === true  ? 'disabled' : 'enabled');
+$script_blocker_text = ($script_blocker_status === true  ? __('Script blocker is enabled.', 'cookie-law-info') : __('Script blocker is currently disabled. Enable the blocker if you want any of the below listed plugins to be auto blocked.', 'cookie-law-info'));
 $cli_notice_text = sprintf(__('<a href="javascript: submitform()">%s</a>', 'cookie-law-info'), $action_text);
 $js_blocking_status = ($js_blocking === false || $js_blocking === 'no') ? false : true;
-$script_blocker_class = ($js_blocking_status === false || $script_blocker_status === false ) ? 'wt-cli-script-blocker-disabled' : '';
+$script_blocker_class = ($js_blocking_status === false || $script_blocker_status === false) ? 'wt-cli-script-blocker-disabled' : '';
 $advanced_settings_url = get_admin_url(null, 'edit.php?post_type=' . CLI_POST_TYPE . '&page=cookie-law-info#cookie-law-info-advanced');
 $js_blocking_notice = sprintf(wp_kses(__('Advanced script rendering is currently disabled. It should be enabled for the automatic script blocker to function. <a href="%s">Enable.</a>', 'cookie-law-info'), array('a' => array('href' => array()))),  esc_url($advanced_settings_url));
 $count = 0;
@@ -86,28 +86,32 @@ $plugin_help_url = 'https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-v
         color: #dc3232;
     }
 
-    .wt-cli-script-blocker-disabled,.wt-cli-plugin-inactive .cli-switch{
+    .wt-cli-script-blocker-disabled,
+    .wt-cli-plugin-inactive .cli-switch {
         opacity: 0.5;
     }
+
     .cli_script_items [data-wt-cli-tooltip]:before {
-    min-width: 220px;
+        min-width: 220px;
     }
+
     .wt-cli-notice.wt-cli-info {
-    padding: 15px 15px 15px 41px;
-    background: #e5f5fa;
-    position: relative;
-    border-left: 4px solid;
-    border-color: #00a0d2;
-    margin-bottom: 15px;
-}
-.wt-cli-notice.wt-cli-info:before {
-    content: "\f348";
-    color: #00a0d2;
-    font-family: "dashicons";
-    position: absolute;
-    left: 15px;
-    font-size: 16px;
-}
+        padding: 15px 15px 15px 41px;
+        background: #e5f5fa;
+        position: relative;
+        border-left: 4px solid;
+        border-color: #00a0d2;
+        margin-bottom: 15px;
+    }
+
+    .wt-cli-notice.wt-cli-info:before {
+        content: "\f348";
+        color: #00a0d2;
+        font-family: "dashicons";
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+    }
 </style>
 <div class="wrap cliscript-container">
     <h3><?php _e('Manage Script Blocking', 'cookie-law-info'); ?></h3>
@@ -131,7 +135,7 @@ $plugin_help_url = 'https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-v
         <input type="hidden" id="cli_update_script_blocker" name="cli_update_script_blocker" />
     </form>
     <div class="wt-cli-notice wt-cli-info">
-        <?php echo sprintf( wp_kses( __( 'Below is the list of plugins currently supported for auto blocking. Plugins marked inactive are either not installed or activated on your website. Enabled plugins will be blocked by default on the front-end of your website prior to obtaining user consent and rendered respectively based on consent. <a href="%s" target="_blank">Read more.</a>', 'cookie-law-info' ), array(  'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( $plugin_help_url ) ); ?>
+        <?php echo sprintf(wp_kses(__('Below is the list of plugins currently supported for auto blocking. Plugins marked inactive are either not installed or activated on your website. Enabled plugins will be blocked by default on the front-end of your website prior to obtaining user consent and rendered respectively based on consent. <a href="%s" target="_blank">Read more.</a>', 'cookie-law-info'), array('a' => array('href' => array(), 'target' => array()))), esc_url($plugin_help_url)); ?>
     </div>
     <table class="cli_script_items widefat <?php echo $script_blocker_class; ?>" cellspacing="0">
         <thead>
@@ -139,6 +143,9 @@ $plugin_help_url = 'https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-v
                 <th><?php echo __('No', 'cookie-law-info'); ?></th>
                 <th><?php echo __('Name', 'cookie-law-info'); ?></th>
                 <th><?php echo __('Enabled', 'cookie-law-info'); ?><span class="wt-cli-tootip" data-wt-cli-tooltip="<?php _e('Enabled: Plugins will be blocked by default prior to obtaining user consent.', 'cookie-law-info'); ?> <?php _e('Disabled: Plugins will be rendered prior to obtaining consent.', 'cookie-law-info'); ?>"><span class="wt-cli-tootip-icon"></span></span></th>
+                <?php if( Cookie_Law_Info_Cookies::get_instance()->check_if_old_category_table() === false ):  ?>
+                    <th><?php echo __('Category', 'cookie-law-info'); ?></th>
+                <?php endif; ?>
                 <th><?php echo __('Description', 'cookie-law-info'); ?></th>
             </tr>
         </thead>
@@ -148,49 +155,60 @@ $plugin_help_url = 'https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-v
             $disabled_plugins = array();
             $enabled_plugins  = array();
             foreach ($wt_cli_integration_list as $plugin => $data) {
-                
+
                 $plugin_data = (isset($script_data[$plugin]) ? $script_data[$plugin] : '');
-                if (!empty($plugin_data) ) {
-                    if( defined($data['constant_or_function']) || function_exists($data['constant_or_function']) || class_exists($data['constant_or_function'])) {
+                if (!empty($plugin_data)) {
+                    if (defined($data['constant_or_function']) || function_exists($data['constant_or_function']) || class_exists($data['constant_or_function'])) {
                         $plugin_data['active'] = true;
-                        $enabled_plugins[ $plugin ] = $plugin_data;
-                    }
-                    else {
+                        $enabled_plugins[$plugin] = $plugin_data;
+                    } else {
                         $plugin_data['active'] = false;
-                        $disabled_plugins[ $plugin ] = $plugin_data;
+                        $disabled_plugins[$plugin] = $plugin_data;
                     }
                 }
             }
             $plugin_list = $enabled_plugins + $disabled_plugins;
-            if( !empty( $plugin_list ) ) :
-            foreach ( $plugin_list as $plugin => $plugin_data) :
-
-                    $count++ ;
+            if (!empty($plugin_list)) :
+                foreach ($plugin_list as $plugin => $plugin_data) :
+ 
+                    $count++;
                     $script_id              =   isset($plugin_data['id']) ? $plugin_data['id'] : '';
                     $title                  =   isset($plugin_data['title']) ? $plugin_data['title'] : '';
                     $description            =   isset($plugin_data['description']) ? $plugin_data['description'] : '';
-                    $status                 =   isset($plugin_data['status']) ? wp_validate_boolean( $plugin_data['status'])  : false;
-                    $plugin_status          =   isset($plugin_data['active']) ? wp_validate_boolean( $plugin_data['active'])  : false;
+                    $status                 =   isset($plugin_data['status']) ? wp_validate_boolean($plugin_data['status'])  : false;
+                    $plugin_status          =   isset($plugin_data['active']) ? wp_validate_boolean($plugin_data['active'])  : false;
                     $category               =   __('Non-necessary', 'cookie-law-info');
-                    $plugins_status_text    =   ( $plugin_status === false ? __('Inactive','cookie-law-info'): '');
-                    $plugins_status_class   =   ( $plugin_status === false ? 'wt-cli-plugin-inactive': 'wt-cli-plugin-active');
-                ?>
-                    <tr class="<?php echo $plugins_status_class;?>">
+                    $plugins_status_text    =   ($plugin_status === false ? __('Inactive', 'cookie-law-info') : '');
+                    $plugins_status_class   =   ($plugin_status === false ? 'wt-cli-plugin-inactive' : 'wt-cli-plugin-active');
+            ?>
+                    <tr class="<?php echo $plugins_status_class; ?>" data-script-id="<?php echo esc_attr($script_id) ?>">
                         <td><?php echo $count; ?></td>
                         <td><?php echo $title; ?>
-                            <?php if( !empty( $plugins_status_text )) :?>
+                            <?php if (!empty($plugins_status_text)) : ?>
                                 <span style="color:#dc3232; margin-left:3px;">( <?php echo $plugins_status_text; ?> )</span>
                             <?php endif; ?>
-                            </td>
+                        </td>
                         <td>
                             <div class="cli-switch">
                                 <input type="checkbox" id="wt-cli-checkbox-<?php echo esc_attr($plugin); ?>" data-script-id="<?php echo esc_attr($script_id) ?>" class="wt-cli-plugin-status" <?php checked(wp_validate_boolean($status), true)  ?> />
                                 <label for="wt-cli-checkbox-<?php echo esc_attr($plugin); ?>" class="cli-slider"></label>
                             </div>
                         </td>
+                        <?php if( Cookie_Law_Info_Cookies::get_instance()->check_if_old_category_table() === false ):  ?>
+                        
+                        <td> 
+                            <select name="cliscript_category" id="cliscript_category">
+                                <option value="0">--Select Category--</option>
+                                <?php foreach ($terms as $key => $term) : ?>
+                                    <option value="<?php echo $key; ?>" <?php echo selected($plugin_data['category'], $key, false) ?>><?php echo $term['title']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <?php endif; ?>
                         <td><?php echo $description; ?></td>
                     </tr>
-            <?php endforeach; endif; ?>
+            <?php endforeach;
+            endif; ?>
         </tbody>
     </table>
 </div>

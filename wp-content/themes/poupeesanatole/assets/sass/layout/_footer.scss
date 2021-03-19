@@ -54,6 +54,7 @@
                     border: $border-none;
                     width: 300px;
                     padding: 0.2rem 1rem;
+                    border-radius: 6px;
                 }
                     & input::placeholder {
                         @include placeholder($color-base-background);
@@ -66,19 +67,13 @@
                     font-weight: $semibold-weight;
                     padding: 0.2rem 1rem;
                     margin-left: 0.5rem;
+                    border-radius: 6px;
                 }
             }
         }
     }           
 }
-    /* Ligne */
-    .newsletter__ligne {
-        @include row_center();
-        & hr {
-            border-top: 1.5px solid $color-base-background;
-            width: nth($width, 1);
-        }
-    }
+    
     /* Mentions */
     .mentions {
         @include column_center();
@@ -159,10 +154,6 @@
         /* Adresse mail */
         & .newsletter__input {
             width: 200px;
-        }
-        /* Ligne */
-        & .newsletter__ligne hr {
-            width: 43%;
         }
         /* Mentions et politique */
         & .mentions p, .mentions li a {

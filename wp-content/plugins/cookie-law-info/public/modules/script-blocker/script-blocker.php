@@ -12,7 +12,7 @@ $wt_cli_integration_list = apply_filters('wt_cli_plugin_integrations', array(
         'label'                => 'Official Facebook Pixel',
         'status'               =>  'yes',
         'description'          => 'Official Facebook Pixel',
-        'category'             => -1,
+        'category'             => 'analytics',
         'type'                 =>  1
     ),
     'twitter-feed'   => array(
@@ -20,7 +20,7 @@ $wt_cli_integration_list = apply_filters('wt_cli_plugin_integrations', array(
         'label'                => 'Smash Balloon Twitter Feed',
         'status'               =>  'yes',
         'description'          => 'Twitter Feed By Smash Baloon',
-        'category'             => -1,
+        'category'             => 'analytics',
         'type'                 =>  1
     ),
     'instagram-feed'   => array(
@@ -28,7 +28,7 @@ $wt_cli_integration_list = apply_filters('wt_cli_plugin_integrations', array(
         'label'                => 'Smash Balloon Instagram Feed',
         'status'               =>  'yes',
         'description'          => 'Instagram Feed By Smash Baloon',
-        'category'             => -1,
+        'category'             => 'advertisement',
         'type'                 =>  1
     ),
 ));
@@ -48,22 +48,30 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
 
         function __construct()
         {   
-            add_action( 'plugins_loaded', array($this, 'load_integrations'), 10);
+            add_action( 'init', array($this, 'init_scripts'), 10);
             add_action( 'template_redirect', array($this, 'start_buffer'));
             add_action( 'shutdown', array($this, 'end_buffer'), 999);
             register_activation_hook( CLI_PLUGIN_FILENAME, array($this, 'activator'));
+            
             add_action( 'activated_plugin', array($this, 'update_integration_data'));
-            add_action( 'admin_menu', array( $this, 'register_settings_page' ),20 );
+            add_action( 'admin_menu', array( $this, 'register_settings_page' ),10 );
             add_action( 'wp_ajax_wt_cli_change_plugin_status',array($this, 'change_plugin_status'));
-            add_action( 'init', array( $this, 'update_script_blocker_status' ));
+            add_action( 'admin_init', array( $this, 'update_script_blocker_status' ));
             add_action( 'wt_cli_after_advanced_settings', array( $this, 'add_blocking_control'));
             add_action( 'wt_cli_ajax_settings_update', array( $this, 'update_js_blocking_status'),10,1);
-            $this->script_blocker_status = $this->get_script_blocker_status();
-            $this->script_data = $this->get_script_data();
-            $this->js_blocking = Cookie_Law_Info::get_js_option();
-            $this->third_party_enabled = $this->get_third_party_status();
-        }
 
+            add_action('admin_notices', array( $this, 'wt_cli_admin_notices' ),10);
+            add_action('admin_init', array($this,'save_notice_link'));
+
+            // @since 1.9.6 for changing the category of each script blocker
+            add_action('wp_ajax_cli_change_script_category', array($this, 'cli_change_script_category'));
+            add_action('wt_cli_after_cookie_category_migration',array( $this, 'reset_scripts_category') );
+            
+           
+        }
+        public function init_scripts() {
+            $this->load_integrations();
+        }
         /**
          * Get the current status of the integrations
          * @since  1.9.2
@@ -71,32 +79,51 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
          * @return array
          */
         public function get_script_data() {
-            global $wpdb;
-            $script_table = $wpdb->prefix.$this->script_table;
-            $scripts = array();
-            if($wpdb->get_var("SHOW TABLES LIKE '$script_table'") == $script_table) {
-                $script_data = $wpdb->get_results( "select * from {$script_table}", ARRAY_A);
-                foreach( $script_data as $key => $data ) {
+			global $wpdb;
+			$script_table = $wpdb->prefix . $this->script_table;
+			$scripts      = array();
+            if ( $wpdb->get_var( "SHOW TABLES LIKE '$script_table'" ) == $script_table ) {
 
-                    $id             =   sanitize_text_field( ( isset( $data['id'] ) ? $data['id'] : '' ) );
-                    $slug           =   sanitize_text_field( ( isset( $data['cliscript_key'] ) ? $data['cliscript_key'] : '' ) );
-                    $title          =   sanitize_text_field( ( isset( $data['cliscript_title'] ) ? $data['cliscript_title'] : '' ) );
-                    $description    =   sanitize_text_field( ( isset( $data['cliscript_description'] ) ? $data['cliscript_description'] : '' ) );
-                    $category       =   sanitize_text_field( ( isset( $data['cliscript_category'] ) ? $data['cliscript_category'] : '' ) );
-                    $status         =   wp_validate_boolean( ( isset( $data['cliscript_status'] ) ? $data['cliscript_status'] : false ) );
-                    
-                    if( !empty( $id ) ) {
-                        $scripts[ $slug ] =  array(
-                            'id'            =>  $id,
-                            'title'         =>  $title,
-                            'description'   =>  $description,
-                            'category'      =>  $category,
-                            'status'        =>  $status,
+                $script_data = $wpdb->get_results( "select * from {$script_table}", ARRAY_A );
+                foreach ( $script_data as $key => $data ) {
+
+                    $id            = sanitize_text_field( ( isset( $data['id'] ) ? $data['id'] : '' ) );
+                    $slug          = sanitize_text_field( ( isset( $data['cliscript_key'] ) ? $data['cliscript_key'] : '' ) );
+                    $title         = sanitize_text_field( ( isset( $data['cliscript_title'] ) ? $data['cliscript_title'] : '' ) );
+                    $description   = sanitize_text_field( ( isset( $data['cliscript_description'] ) ? $data['cliscript_description'] : '' ) );
+                    $category_id   = isset( $data['cliscript_category'] ) ? $data['cliscript_category'] : '';
+                    $status        = wp_validate_boolean( ( isset( $data['cliscript_status'] ) ? $data['cliscript_status'] : false ) );
+                    $term          = get_term_by( 'id', $category_id, 'cookielawinfo-category' );
+                    $category_slug = '';
+                    if ( '' !== $category_id ) {
+                        if ( is_numeric( $category_id ) ) {
+                            $category_slug = $this->get_script_category_slug_by_id( $category_id );
+
+                        } else {
+                            $category_slug = $category_id;
+                        }
+                    }
+                    if( false === Cookie_Law_Info_Cookies::get_instance()->check_if_old_category_table() && !is_admin() && is_null( term_exists( $category_slug, 'cookielawinfo-category') ) ) {
+                        $status = false;
+                    }
+                    if ( ! empty( $id ) ) {
+                        $scripts[ $slug ] = array(
+                            'id'            => $id,
+                            'title'         => $title,
+                            'description'   => $description,
+                            'category'      => $category_slug,
+                            'status'        => $status,
                         );
                     }
                 }
             }
             return $scripts;
+        }
+        public function get_scripts() {
+            if( !$this->script_data ) {
+                $this->script_data = $this->get_script_data();
+            }
+            return $this->script_data;
         }
         /**
          * Register admin menu for the plugn
@@ -111,12 +138,18 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
             }
             return false;
         }
-        public function get_third_party_status(){
-            $default_settings 	= 	Cookie_Law_Info_Admin::get_non_necessary_defaults();
-            $stored_options = get_option('cookielawinfo_thirdparty_settings');
-            $wt_cli_non_necessary_enabled  =  isset($stored_options['thirdparty_on_field']) ? $stored_options['thirdparty_on_field'] : $default_settings['thirdparty_on_field'];
-            $wt_cli_non_necessary_enabled = Cookie_Law_Info::sanitise_settings('thirdparty_on_field',$wt_cli_non_necessary_enabled);
-            return $wt_cli_non_necessary_enabled;
+        public function get_third_party_status() {
+            
+            if( Cookie_Law_Info_Cookies::get_instance()->check_if_old_category_table() === true ) {
+                $cookies = Cookie_Law_Info_Cookies::get_instance()->get_cookies();
+                if( isset( $cookies['non-necessary']) && !empty( $cookies['non-necessary'])) {
+                    $status = isset( $cookies['non-necessary']['status'] ) ? $cookies['non-necessary']['status'] : false ;
+                    return $status; 
+                }
+            } else {
+                return true;
+            }
+            return false;
         }
         /**
          * Update script blocker status
@@ -175,9 +208,9 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
 		    if(isset($_GET['post_type']) && $_GET['post_type']==CLI_POST_TYPE && isset($_GET['page']) && $_GET['page']=='cli-script-settings') {
                 
                 global $wt_cli_integration_list;
-                $script_data            =   $this->script_data;
-                $script_blocker_status  =   $this->script_blocker_status;
-                $js_blocking            =   $this->js_blocking;
+                $script_data            =   $this->get_scripts();
+                $script_blocker_status  =   $this->get_blocking_status();
+                $js_blocking            =   $this->advanced_rendering_enabled();
                 $messages = array(
                     'success' => __('Status updated','cookie-law-info'),
                 );
@@ -191,6 +224,9 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
                 wp_localize_script( 'cookie-law-info-script-blocker', 'wt_cli_script_blocker_obj', $settings );
 
             }
+            $terms = Cookie_Law_Info_Cookies::get_instance()->get_cookie_category_options();
+            $terms = ( isset( $terms ) ? $terms : array() );
+           
             include plugin_dir_path( __FILE__ ).'views/settings.php';
         }
         /**
@@ -199,8 +235,8 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
          * @access public
          */
         public function add_blocking_control(){
-
-            $js_blocking = $this->js_blocking;
+ 
+            $js_blocking = $this->advanced_rendering_enabled();
             echo '<table class="form-table">
                     <tr valign="top">
                         <th scope="row">'.__('Advanced script rendering', 'cookie-law-info').'</th>
@@ -210,16 +246,7 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
                             <span class="cli_form_help" style="margin-top:10px;">'.__('Advanced script rendering will render the blocked scripts using javascript thus eliminating the need for a page refresh. It is also optimized for caching since there is no server-side processing after obtaining the consent.','cookie-law-info').'</span>
                         </td>
                         </tr>
-                 </table>
-                 <div style="clear: both;"></div>
-                 <div class="cli-plugin-toolbar bottom">
-                    <div class="left">
-                    </div>
-                    <div class="right">
-                        <input type="submit" name="update_admin_settings_form" value="'. __('Update Settings', 'cookie-law-info').'" class="button-primary" style="float:right;" onClick="return cli_store_settings_btn_click(this.name)" />
-                        <span class="spinner" style="margin-top:9px"></span>
-                    </div>
-                 </div>';
+                 </table>';
         }
 
         /**
@@ -248,7 +275,8 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
             $activation_transient = wp_validate_boolean( get_transient('_wt_cli_first_time_activation') ); 
             $plugin_settings = get_option(CLI_SETTINGS_FIELD);
             
-            if( Cookie_Law_Info::maybe_first_time_install() === true && $activation_transient === true ) {
+            if(  $activation_transient === true ) {
+                set_transient( 'wt_cli_script_blocker_notice', true, DAY_IN_SECONDS );
                 $script_blocking = $this->get_script_blocker_status();
                 if( $script_blocking === false ) {
                     update_option('cli_script_blocker_status', 'enabled');
@@ -340,7 +368,7 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
                 $data = array(
                     'cliscript_key' => isset($key) ? $key : '',
                     'cliscript_title' => isset($value['label']) ? $value['label'] : '',
-                    'cliscript_category' => isset($value['category']) ? $value['category'] : 1,
+                    'cliscript_category' => isset($value['category']) ? $value['category'] : '',
                     'cliscript_type' => isset($value['type']) ? $value['type'] : 0,
                     'cliscript_status' => isset($value['status']) ? $value['status'] : true,
                     'cliscript_description' => isset($value['description']) ? $value['description'] : '',
@@ -405,14 +433,15 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
         public function wt_cli_plugin_is_active($plugin)
         {
             global $wt_cli_integration_list;
-            $script_data = $this->script_data;
+            $script_data = $this->get_scripts();
+            
             if( empty( $script_data ) ) {
                 return false;
             }
             if (!isset($wt_cli_integration_list[$plugin])) return false;
             $details = $wt_cli_integration_list[$plugin];
             
-            $enabled = isset( $script_data[ $plugin ]['status'] ) ? wp_validate_boolean( $script_data[ $plugin ]['status'] )  : false;
+            $enabled          = isset( $script_data[ $plugin ]['status'] ) ? wp_validate_boolean( $script_data[ $plugin ]['status'] )  : false;
             if ( ( defined($details['constant_or_function'])
                     || function_exists($details['constant_or_function'])
                     || class_exists($details['constant_or_function']) ) && $enabled === true ) {
@@ -429,7 +458,7 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
 
         public function start_buffer()
         {   
-            if( $this->script_blocker_status === true && $this->js_blocking === true && $this->third_party_enabled === true ) {
+            if( $this->get_blocking_status() === true && $this->advanced_rendering_enabled() === true && $this->third_party_scripts() === true ) {
                 ob_start(array($this, "init"));
             }
         }
@@ -441,7 +470,7 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
 
         public function end_buffer()
         {   
-            if( $this->script_blocker_status === true && $this->js_blocking === true && $this->third_party_enabled === true ) { 
+            if( $this->get_blocking_status() === true && $this->advanced_rendering_enabled() === true && $this->third_party_scripts() === true ) { 
                 if (ob_get_length()) {
                     ob_end_flush();
                 }
@@ -481,12 +510,24 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
 			if ( ! is_array( $needle ) ) {
 				$needle = array( $needle );
 			}
-
 			foreach ( $needle as $key => $value ) {
-				if ( strlen($value) === 0 ) continue;
-				if ( ( $pos = strpos( $haystack, $value ) ) !== false ) {
-					return ( is_numeric( $key ) ) ? $value : $key;
-				}
+               
+                if( is_array( $value ) ) {
+
+                    foreach ( $value as $data ) {
+                        
+                        if ( strlen($data) === 0 ) continue;
+                        if ( ( $pos = strpos( $haystack, $data ) ) !== false ) {
+                            return ( is_numeric( $key ) ) ? $data : $key;
+                        }
+                    }
+                } else {
+
+                    if ( strlen($value) === 0 ) continue;
+                    if ( ( $pos = strpos( $haystack, $value ) ) !== false ) {
+                        return ( is_numeric( $key ) ) ? $value : $key;
+                    }
+                }
 			}
 
 			return false;
@@ -534,9 +575,10 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
                         );
 
                         if ($found !== false) {
-                            $new    = $total_match;
-                            $new    = $this->replace_script_type_attribute( $new );
-                            $buffer = str_replace( $total_match, $new,$buffer );
+                            $category = $this->get_category_by_script_slug( $found );
+                            $new      = $total_match;
+                            $new      = $this->replace_script_type_attribute( $new, $category );
+                            $buffer   = str_replace( $total_match, $new,$buffer );
                         }   
                     }
                     $script_src_pattern
@@ -552,8 +594,9 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
                                     $third_party_script_tags );
 
                                 if ( $found !== false ) {
+                                    $category = $this->get_category_by_script_slug( $found );
                                     $new    = $total_match;
-                                    $new    = $this->replace_script_type_attribute( $new );
+                                    $new    = $this->replace_script_type_attribute( $new, $category );
                                     $buffer = str_replace( $total_match, $new,$buffer );
                                 }
                             }
@@ -564,9 +607,9 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
             return $buffer;
         }
 
-        public function replace_script_type_attribute( $script) {
+        public function replace_script_type_attribute( $script, $category) {
 
-            $replace = 'data-cli-class="cli-blocker-script"  data-cli-script-type="non-necessary" data-cli-block="true"  data-cli-element-position="head"';
+            $replace = 'data-cli-class="cli-blocker-script"  data-cli-script-type="'.sanitize_text_field( $category ).'" data-cli-block="true"  data-cli-element-position="head"';
             $script_type = "text/plain";
 
             if( preg_match( '/<script[^\>]*?\>/m', $script ) ) {
@@ -588,6 +631,179 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
             }
             return $script;
         }
+        /**
+         * Display admin notice for script blocker warning
+         *
+         * @version 1.9.6
+         * @since 1.9.6
+         */
+        public function wt_cli_admin_notices() {
+            
+            if( $this-> show_admin_notice_warning() === false ) {
+                return false;
+            }
+            $dismiss_url = add_query_arg( array( 'wt-cli-dismiss-notice' => 'true' ) );
+
+            echo '<div class="notice notice-warning wt-cli-script-blocker-notices" style="padding-right: 15px; display: flex; align-items: center; margin-left: 0;background: #fff8e5; border-color: #ffb900;">
+                    <p><span style="font-weight:bold;display:inline-block;margin-bottom:4px;">'.__('GDPR Cookie Consent','cookie-law-info').'</span></br>'.__('The script blocker within the plugin will block the pre-defined plugins such as Instagram, Facebook, Twitter etc. Hence activating our plugin may affect its web layout. Therefore you may want to review the website w.r.t the blocked plugins. <a href="edit.php?post_type='.CLI_POST_TYPE.'&page=cli-script-settings">view script blocker.</a>', 'cookie-law-info' ).'</p>
+                    <a href="' . $dismiss_url . '" class="notice-dismiss" style="position: relative; text-decoration: none;"></a>
+                </div>';
+        }
+        public function save_notice_link() {
+            if( isset( $_GET['wt-cli-dismiss-notice'] )  && $_GET['wt-cli-dismiss-notice'] == 'true') {
+                delete_transient( 'wt_cli_script_blocker_notice' );
+            }
+        }
+        public function show_admin_notice_warning() {
+
+            $screen = get_current_screen();
+            if ( isset( $screen->id ) && in_array( $screen->id, array( 'plugins', 'cookielawinfo_page_cookie-law-info', 'cookielawinfo_page_cli-script-settings' ) ) )
+            {
+                $option = get_transient( 'wt_cli_script_blocker_notice');;
+                if( $option ) {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+        /* change category of item on list page (ajax) */
+        public function cli_change_script_category()
+        {
+
+            if (current_user_can('manage_options') && check_ajax_referer( $this->module_id )) {
+
+                $script_id  =   (int) ( isset( $_POST['script_id'] ) ? $_POST['script_id'] : -1 );
+                $category   =  isset( $_POST['category'] ) ? sanitize_text_field( $_POST['category'] ) : '';
+
+                if ( $script_id !== -1 ) {
+                    self::cli_script_update_category( $script_id, $category );
+                    wp_send_json_success();
+                }
+                wp_send_json_error( __('Invalid script id','cookie-law-info') );
+            }
+            wp_send_json_error(__('You do not have sufficient permission to perform this operation','cookie-law-info') );
+        }
+        public static function cli_script_update_category($id = 0, $cat = 3)
+        {
+
+            global $wpdb;
+
+            $table_name = $wpdb->prefix . 'cli_scripts';
+
+            $wpdb->query($wpdb->prepare("UPDATE $table_name SET cliscript_category = %s WHERE id = %s", $cat, $id));
+        }
+        public function get_category_by_script_slug( $slug ){
+            $category    =  'non-necessary';
+            $scripts     =  $this->get_scripts();
+            $script_data =  isset( $scripts[ $slug ] ) ? $scripts[ $slug ] : array();
+            if( !empty( $script_data ) ){
+                $category = isset( $script_data['category'] ) ? $script_data['category'] : '' ;
+            }
+            return $category;
+        }
+        /**
+        * Set script category to necessary after cookie category migration
+        *
+        * @since  1.9.5
+        * @access public
+        */
+        public function reset_scripts_category(){
+
+            global $wt_cli_integration_list;
+            $script_data    =   $this->get_scripts();
+            if( isset( $script_data ) ) {
+                foreach ( $script_data as $key => $data ) {
+                    $script_id  =   $data['id'];
+                    $category   =   $data['category'];
+                  
+                    if( 'non-necessary' === $category ) {
+                        if( -1 !== self::get_non_necessary_category_id() ) {
+                            $this->cli_script_update_category( $script_id, 'non-necessary' );
+                        } else {
+                            $default_category = isset( $wt_cli_integration_list[$key]['category'] ) ? $wt_cli_integration_list[$key]['category'] : '' ;
+                           
+                            if( '' !== $default_category ) {
+                                $this->cli_script_update_category( $script_id, $default_category );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /**
+        * Get the id of non-necessary category ( Default category )
+        *
+        * @since  1.9.5
+        * @access public
+        */
+        public static function get_non_necessary_category_id()
+        {
+
+            $id_obj = get_term_by('slug', 'non-necessary', 'cookielawinfo-category');
+            $id = -1; // for non-necessary default - this may change
+            if ($id_obj) {
+                $id = $id_obj->term_id;
+            }
+            return $id;
+        }
+
+        public function get_blocking_status() {
+
+            if( !$this->script_blocker_status ) {
+                $this->script_blocker_status =  $this->get_script_blocker_status();
+            }
+            return $this->script_blocker_status;
+        }
+        public function advanced_rendering_enabled(){
+
+            if( ! $this->js_blocking ) {
+                $this->js_blocking           =  Cookie_Law_Info::get_js_option();
+            }
+            return $this->js_blocking;
+        }
+        public function third_party_scripts(){
+
+            if( !$this->third_party_enabled ) {
+                $this->third_party_enabled   =  $this->get_third_party_status();
+            }
+            return $this->third_party_enabled;
+        }
+        // Returns the category slug by category id or slug
+        public function get_script_category_slug_by_id( $category_id ) {
+
+            $category_slug = '';
+            $category_id = intval( $category_id );
+            if ( $category_id === -1 ) { // Existing cusomters.
+                $category_slug = 'non-necessary';
+            } else {
+                if ( Cookie_Law_Info_Languages::get_instance()->is_multilanguage_plugin_active() === true ) {
+
+                    $default_language = Cookie_Law_Info_Languages::get_instance()->get_default_language_code();
+                    $current_language = Cookie_Law_Info_Languages::get_instance()->get_current_language_code();
+
+                    if ( $current_language !== $default_language ) {
+                        $default_term = Cookie_Law_Info_Languages::get_instance()->get_term_by_language( $category_id, $default_language );
+
+                        if ( $default_term && $default_term->term_id ) {
+                            $category_slug = $default_term->slug;
+                        }
+                    } else {
+                        $term = get_term_by( 'id', $category_id, 'cookielawinfo-category' );
+                        if ( isset( $term ) && is_object( $term ) ) {
+                            $category_slug = $term->slug;
+                        }
+                    }
+                } else {
+                    $term = get_term_by( 'id', $category_id, 'cookielawinfo-category' );
+                    if ( isset( $term ) && is_object( $term ) ) {
+                        $category_slug = $term->slug;
+                    }
+                }
+            }
+            return $category_slug;
+        }
     }
+    
 }
 new Cookie_Law_Info_Script_Blocker();

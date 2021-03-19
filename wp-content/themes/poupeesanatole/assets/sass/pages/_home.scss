@@ -124,18 +124,25 @@
     /* SLIDER */
     .slider__wrapper {
         min-width: 110vw;
-        display: grid;
-        overflow-x: scroll;
-        grid-template-columns: repeat(6, auto);
-        column-gap: 30px;
         flex-wrap: nowrap;
         margin-left: 2.5rem;
-
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    .slider__wrapper::-webkit-scrollbar {
-        display: none;
+        & img {
+            min-height: 200px; 
+        }
+        & .owl-nav .owl-prev {
+            position: absolute;
+            top: 18%;
+            left: -3%;
+            color: #000 !important;
+            font-size: 500% !important;
+        }
+        & .owl-nav .owl-next {
+            position: absolute;
+            top: 18%;
+            left: 68%;
+            color: #000 !important;
+            font-size: 500% !important;
+        }
     }
     /* CARD */
     .card__shop {
@@ -152,8 +159,8 @@
             width: nth($width, 1);
             @include row_center();
             position: absolute;
-            bottom: 19.9%;
-            right: 0;
+            bottom: 11.9%;
+            right: 0%;
         }
     }
     /* CARD VIDE */ 
@@ -164,20 +171,43 @@
 /* SECTION 4 : COLLABORATEURS */
 .collaborateurs {
     margin-top: 5rem;
+    margin-bottom: 5rem;
+    & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+        display: block !important;
+    }
     & .slider__wrapper {
-        column-gap: 0;
-        grid-template-columns: repeat(6, 200px);
+        & .owl-nav .owl-prev {
+            position: absolute;
+            top: 35%;
+            left: -3%;
+            color: #000 !important;
+            font-size: 500% !important;
+        }
+        & .owl-nav .owl-next {
+            position: absolute;
+            top: 35%;
+            left: 68%;
+            color: #000 !important;
+            font-size: 500% !important;
+        }
     }
 }   
     /* Liste des collaborateurs */
     .liste__collaborateurs {
         /* Collaborateur */
         & .collaborateur {
+            min-height: 430px;
             text-align: center;
             width: 200px;
             border-bottom: none;
             padding: 2rem 0;
             position: relative;
+            & img {
+                min-height: 200px;
+                object-fit: none;
+                object-position: center;
+                width: 100%;
+            }
         }
             & h4 {
                 padding-top: 2rem;
@@ -187,11 +217,11 @@
                 font-weight: $bold-weight;
                 font-size: nth($font-size, 1);
                 line-height: 1.1rem;
-            }
-                & p span {
+                & span {
                     font-style: italic;
                     font-weight: $medium-weight;
                 }
+            }
             & .more__round .fa {
                 border: 2px solid $color-base;
                 border-radius: 100%;
@@ -200,6 +230,7 @@
                 position: absolute;
                 bottom: 0;
                 left: 40%;
+                color: $color-base;
             }
     }
 

@@ -46,32 +46,35 @@ class Cli_PreviewPage
         {
             $preview_pages_slugs[]=$slug;
         }
-        if(in_array(strtolower($wp->request),$preview_pages_slugs) || 
-        	(isset($wp->query_vars['page_id']) && in_array(strtolower($wp->query_vars['page_id']),$preview_pages_slugs))) 
-        {
-            if(in_array(strtolower($wp->request),$preview_pages_slugs)) 
+        if( isset( $wp->request ) ) {
+
+            if(in_array(strtolower($wp->request),$preview_pages_slugs) || 
+                (isset($wp->query_vars['page_id']) && in_array(strtolower($wp->query_vars['page_id']),$preview_pages_slugs))) 
             {
-                $preview_page=strtolower($wp->request);
-            }else 
-            {
-                $preview_page=strtolower($wp->query_vars['page_id']);
+                if(in_array(strtolower($wp->request),$preview_pages_slugs)) 
+                {
+                    $preview_page=strtolower($wp->request);
+                }else 
+                {
+                    $preview_page=strtolower($wp->query_vars['page_id']);
+                }
+
+                $posts                  = null;
+                $posts[]                = self::create_preview_page($preview_page,$preview_pages[$preview_page]);
+                $wp_query->is_page      = true;
+                $wp_query->is_singular  = true;
+                $wp_query->is_home      = false;
+                $wp_query->is_archive   = false;
+                $wp_query->is_category  = false;
+                $wp_query->is_fake_page = true;
+                $wp_query->preview_page = $wp->request;
+                unset( $wp_query->query["error"] );
+                $wp_query->query_vars["error"] = "";
+                $wp_query->is_404              = false;
+
+                add_action('admin_bar_menu',array($this,'add_admin_bar_menu'),100);
+                add_action('wp_footer',array($this,'reg_preview_auto_btn'),100);
             }
-
-            $posts                  = null;
-            $posts[]                = self::create_preview_page($preview_page,$preview_pages[$preview_page]);
-            $wp_query->is_page      = true;
-            $wp_query->is_singular  = true;
-            $wp_query->is_home      = false;
-            $wp_query->is_archive   = false;
-            $wp_query->is_category  = false;
-            $wp_query->is_fake_page = true;
-            $wp_query->preview_page = $wp->request;
-            unset( $wp_query->query["error"] );
-            $wp_query->query_vars["error"] = "";
-            $wp_query->is_404              = false;
-
-            add_action('admin_bar_menu',array($this,'add_admin_bar_menu'),100);
-            add_action('wp_footer',array($this,'reg_preview_auto_btn'),100);
         }
         return $posts;
     }

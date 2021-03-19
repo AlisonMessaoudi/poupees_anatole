@@ -26,6 +26,7 @@
                 padding: 0.2rem 1rem;
                 margin-top: 1rem;
                 width: 100%;
+                border-radius: 6px;
             }
             & input::placeholder, textarea{
                 color: $color-base;
@@ -33,6 +34,7 @@
             }
             & textarea {
                 height: nth($height, 5);
+                border-radius: 6px;
             }
             & .btn_envoyer {
                 border: $border-none;
@@ -42,6 +44,7 @@
                 padding: 0.2rem 1rem;
                 margin-left: 0.5rem;
                 width: 150px;
+                border-radius: 6px;
             }
         }
     }
@@ -65,6 +68,9 @@
     .site__contact { 
         & form {
             align-items: flex-end;
+            & p {
+                width: 100%!important;
+            }
         }
     }
     .contact {

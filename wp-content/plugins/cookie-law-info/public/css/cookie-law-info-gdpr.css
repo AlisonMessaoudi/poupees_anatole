@@ -797,7 +797,7 @@ background: #ffffff;
     width: 15px;
 }
 .cli-switch input:checked + .cli-slider {
-	background-color: #28a745;
+	background-color: #61a229;
 }
 .cli-switch input:checked + .cli-slider:before {
 	transform: translateX(18px);
@@ -929,7 +929,14 @@ color:inherit;
 .cli-tab-footer .cli-btn {
     background-color: #00acad;
     padding: 10px 15px;
+    text-decoration:none;
 }
+.cli-tab-footer .wt-cli-privacy-accept-btn {
+    background-color: #61a229;
+    color: #ffffff;
+    border-radius: 0;
+}
+
 .cli-tab-footer {
 	width:100%;
 	text-align:right;
@@ -1053,7 +1060,7 @@ color:inherit;
 	color: #000;
 	font-size:12px;
     text-align:right;
-    min-width: 60px;
+    min-width: 80px;
 }
 .cli-switch input:checked + .cli-slider:after
 {
@@ -1066,12 +1073,15 @@ color:inherit;
 }
 a.cli-privacy-readmore {
     font-size: 12px;
-    padding-top: 12px;
+    margin-top: 12px;
     display: inline-block;
     padding-bottom: 0;
     cursor: pointer;
     color:#000;
     text-decoration: underline;
+}
+.cli-modal-footer {
+    position: relative;
 }
 a.cli-privacy-readmore:before {
     content: attr(data-readmore-text);
@@ -1341,4 +1351,19 @@ a.wt-cli-ccpa-opt-out {
     {
         padding: 25px 25px;
     }
+}
+/* Settings popup footer section */
+.wt-cli-ckyes-brand-logo {
+    display: flex;
+    align-items: center;
+    font-size: 9px;
+    color: #111111;
+    font-weight: normal;
+}
+.wt-cli-ckyes-brand-logo img{
+    width: 65px;
+    margin-left: 2px;
+}
+.wt-cli-privacy-overview-actions {
+    padding-bottom:0;
 }

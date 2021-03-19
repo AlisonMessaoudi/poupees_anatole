@@ -19,6 +19,6 @@ if ( ! defined( 'WPINC' ) ) {
     </table>
     <?php do_action('wt_cli_after_advanced_settings'); ?>
     <?php 
-    //include "admin-settings-save-button.php";
+        include "admin-settings-save-button.php";
     ?>
 </div>

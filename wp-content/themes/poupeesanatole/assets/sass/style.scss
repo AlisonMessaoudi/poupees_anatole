@@ -19,14 +19,17 @@ Version: 1.0
     /* VENDORS */ 
         
         /* BOOTSTRAP */
-        @import "./vendors/bootstrap/scss/bootstrap";
+        @import "./assets/sass/vendors/bootstrap/dist/css/bootstrap.min.css";
   
         /* FONTAWESOME */
-        @import "./vendors/fontawesome/scss/font-awesome";
+        @import "./assets/sass/vendors/fontawesome/css/font-awesome.min.css";
 
         /* ANIMATE CSS */
-        @import "./vendors/animatewithsass/animate";
+        @import "./assets/sass/vendors/animatewithsass/animate.css";
 
+        /* OWL-CAROUSEL */
+        @import "./node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
+    
     /* BASE */
     @import "./base/base";
     @import "./base/typography";

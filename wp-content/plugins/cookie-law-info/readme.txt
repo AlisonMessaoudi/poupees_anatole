@@ -1,19 +1,21 @@
-=== GDPR Cookie Consent (CCPA Ready) ===
-Contributors: webtoffee
+=== CookieYes | GDPR Cookie Consent & Compliance Notice (CCPA Ready) ===
+Contributors: webtoffee, cookieyesdev
 Donate link: https://www.webtoffee.com/plugins/ 
 Tags: eu cookie law, GDPR, CCPA, cookie law, cookie consent, eu privacy directive, privacy directive, cookies, privacy, compliance
-Requires at least: 3.3.1
+Requires at least: 4.4.0
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 1.9.5
+Stable tag: 2.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Easily set up cookie notice and get GDPR Cookie Consent as per EU GDPR/Cookie Law regulations. The plugin supports GDPR (DSGVO, RGPD), LGPD, and CCPA Do Not Sell.
 
+GDPR CookieConsent' plugin is getting renamed as ‘CookieYes - GDPR Cookie Consent & Compliance Notice' plugin. WebToffee will continue to develop and maintain this plugin. In addition to the current features, we have integrated a free Automatic Cookie Scan service into the plugin. You need an account with CookieYes in order to use the scan service, but no worries, we will automatically create an account for you when you initiate the scan.
+
 == Description ==
 
-The GDPR Cookie Consent plugin will assist you in making your website GDPR (RGPD, DSVGO) compliant. In addition to compliance with this GDPR WordPress plugin also supports cookie compliance in accordance with the LGPD of Brazil and California Consumer Privacy Act (CCPA) which is a state statute intended to enhance privacy rights and consumer protection for residents of California.
+The CookieYes GDPR Cookie Consent & Compliance Notice plugin will assist you in making your website GDPR (RGPD, DSVGO) compliant. In addition to compliance with this GDPR WordPress plugin also supports cookie compliance in accordance with the LGPD of Brazil and California Consumer Privacy Act (CCPA) which is a state statute intended to enhance privacy rights and consumer protection for residents of California.
 
 The plugin is one of the best WordPress GDPR compliance plugins as it comes with a host of features some of which are listed below.
 
@@ -21,7 +23,9 @@ The plugin is one of the best WordPress GDPR compliance plugins as it comes with
 
 - The plugin will enable a WordPress cookie notice with Accept and Reject options. The cookies are not rendered by default and only upon user consent. (The cookie value will be set to ‘null’ by default; it takes a value 'yes' when the user clicks ‘Accept’ and ‘no’ upon 'Reject'. Your developer can check this value to set a cookie accordingly.)
 
-- Admin can configure cookie details and their description from the backend. The list of cookies can be displayed in your cookie policy page by using a shortcode.
+- The plugin allows single click automatic scanning and categorization of cookies.
+
+- Lets you display the list of cookies on your cookie policy page by using a shortcode.
 
 - This GDPR plugin adds a subtle cookie banner to your WordPress website either in the header or footer so you can show your compliance status regarding the new GDPR law.
 
@@ -46,7 +50,7 @@ The plugin is one of the best WordPress GDPR compliance plugins as it comes with
 * (Optional) “show again” tab is fully customisable including position shown on page and styles
 * “Cookie Audit” shortcode to construct a nicely-styled ‘Privacy & Cookie Policy’
 * WPML compatible
-* qTranslate support
+* qTranslate and Polylang support
 
 
 == The plugin uses the following cookies ==
@@ -63,9 +67,9 @@ Another best part of this GDPR compliance plugin is that it seamlessly integrate
 
 You can get more information and [read more about the EU Cookie Law](https://cookielawinfo.com/ "More information about the EU Cookie Law")
 
-[GDPR Cookie Consent user guide](https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-version-user-guide/ "GDPR Cookie Consent user guide") will help you with the setup of the plugin.
+[Cookieyes GDPR Cookie Consent & Compliance Notice plugin user guide](https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-version-user-guide/ "Cookieyes GDPR Cookie Consent & Compliance Notice plugin user guide") will help you with the setup of the plugin.
 
-[Check our javascript solution for running third-party scripts](https://www.webtoffee.com/javascript-solution-for-running-third-party-scripts/ "Javascript solution for running third-party scripts") will also be helpful.
+[Our javascript solution for running third-party scripts](https://www.webtoffee.com/javascript-solution-for-running-third-party-scripts/ "Javascript solution for running third-party scripts") will also be helpful.
 
 https://www.youtube.com/watch?v=ChjX6U5EPdE
 
@@ -152,15 +156,6 @@ As a generic plugin, there's no way we can know anything about your specific cir
 See http://cookielawinfo.com for more information on what is required.
 
 
-== Other useful plugins from WebToffee that you might like: ==
-
-1.  [Product Catalog Sync for Facebook](https://wordpress.org/plugins/webtoffee-product-feed/ "WebToffee Product Feed for Facebook"): This plugin allows you to sync your WooCommerce plugins with your Facebook Business Manager account.
-2.  [Wishlist for WooCommerce](https://wordpress.org/plugins/wt-woocommerce-wishlist/ "Wishlist for WooCommerce"): This wishlist plugin allows you to add an option that lets your users add products to their wishlist that they can purchase later.
-3.  [Decorator – WooCommerce Email Customizer](https://wordpress.org/plugins/decorator-woocommerce-email-customizer/ "Decorator – WooCommerce Email Customizer"): As the name suggests, this plugin is for you to customize the WooCommerce emails that you send out to be customized and align more with your brand.
-4.  [Social Login for WordPress](https://wordpress.org/plugins/wt-social-login/ "Social Login for WordPress"): This plugin allows you to create a single sign-on for the users using their social media login.
-5.  [WordPress Migration & Duplicator](https://wordpress.org/plugins/wp-migration-duplicator/ "WordPress Migration & Duplicator"): This plugin helps you export your WordPress website media files, plugins, and themes including the database with a single click.
-
-
 == Installation ==
 
 = Automatic installation =
@@ -200,6 +195,11 @@ For every update of the plugin, you will be notified of the installed plugins pa
 13. Add a privacy policy overview
 
 == Changelog ==
+
+= 2.0.0 =
+
+* Introduced website cookie scanner
+* Introduced dynamic cookie categories
 
 = 1.9.5 =
 
@@ -503,6 +503,7 @@ For every update of the plugin, you will be notified of the installed plugins pa
 
 == Upgrade Notice ==
 
-= 1.9.5 =
+= 2.0.0 =
 
-* Tested ok with Wordpress version 5.6
+* Introduced website cookie scanner
+* Introduced dynamic cookie categories

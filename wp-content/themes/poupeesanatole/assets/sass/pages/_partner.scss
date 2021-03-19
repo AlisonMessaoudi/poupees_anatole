@@ -19,6 +19,9 @@
     }
     /* Bloc texte */
     & .collaborateur__txt { 
+        @include column();
+        justify-content: center;
+        align-items: flex-start;
         & h4 {
             font-size: nth($font-size, 2);
             font-weight: $normal-weight;
@@ -52,6 +55,9 @@
                 color: $color-base;
             }
         }
+    }
+    .contact {
+        display: none;
     }
 }
 /* Dernier collaborateur */

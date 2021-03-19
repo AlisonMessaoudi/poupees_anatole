@@ -20,13 +20,14 @@
             flex: 0 0 33.3333333333%;
             max-width: 33.3333333333%;
             position: relative;
+            height:10%;
             .shop__panier {
                 background-color: $color-primary;
                 padding: 0.8rem;
                 width: nth($width, 1);
                 @include row_center();
                 position: absolute;
-                bottom: 68.8%;
+                bottom: 6.2%;
                 right: 8.2%;
                 & a i {
                     color: $color-base-background;
@@ -81,6 +82,9 @@
         & h2 {
             margin-bottom: 2.5rem;
         }
+    }
+    .contact {
+        display: none;
     }
 }
 

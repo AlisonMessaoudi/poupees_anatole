@@ -55,11 +55,6 @@
 
                 </div>
 
-                <!-- LIGNE -->
-                <div class="newsletter__ligne">
-                    <hr>
-                </div>
-
                 <!-- MENTIONS -->
                 <div class="mentions">
 

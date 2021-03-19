@@ -40,7 +40,6 @@ class Cookie_Law_Info_Shortcode {
         $this->parent_obj=$parent_obj;
         $this->plugin_obj=$parent_obj->plugin_obj;
         $this->plugin_name=$parent_obj->plugin_name;
-        $this->cookie_options = Cookie_Law_Info::get_settings();
         // Shortcodes:
         add_shortcode( 'delete_cookies',array($this,'cookielawinfo_delete_cookies_shortcode')); // a shortcode [delete_cookies (text="Delete Cookies")]
         add_shortcode( 'cookie_audit',array($this,'cookielawinfo_table_shortcode'));           // a shortcode [cookie_audit style="winter"]
@@ -49,12 +48,11 @@ class Cookie_Law_Info_Shortcode {
         add_shortcode( 'cookie_settings',array($this,'cookielawinfo_shortcode_settings_button'));      // a shortcode [cookie_settings]
         add_shortcode( 'cookie_link',array($this,'cookielawinfo_shortcode_more_link'));            // a shortcode [cookie_link]
         add_shortcode( 'cookie_button',array($this,'cookielawinfo_shortcode_main_button'));        // a shortcode [cookie_button]
-        add_shortcode('cookie_after_accept',array($this,'cookie_after_accept_shortcode'));
-        add_shortcode('user_consent_state',array($this,'user_consent_state_shortcode'));
-        add_shortcode('webtoffee_powered_by',array($this,'wf_powered_by'));
+        add_shortcode( 'cookie_after_accept',array($this,'cookie_after_accept_shortcode'));
+        add_shortcode( 'user_consent_state',array($this,'user_consent_state_shortcode'));
+        add_shortcode( 'webtoffee_powered_by',array($this,'wf_powered_by'));
         add_shortcode( 'cookie_close',array($this,'cookielawinfo_shortcode_close_button'));        // a shortcode [close_button]
-        add_shortcode('wt_cli_manage_consent',array( $this, 'manage_consent'));
-        
+        add_shortcode( 'wt_cli_manage_consent',array( $this, 'manage_consent'));
 	}
 
     /*
@@ -183,25 +181,67 @@ class Cookie_Law_Info_Shortcode {
         
         extract( shortcode_atts( array(
             'style' => 'classic',
-            'not_shown_message' => __('No records found','cookie-law-info'),
+            'not_shown_message' => '',
             'columns' =>'cookie,type,duration,description',
             'heading' =>'',
+            'category'=>''
         ), $atts ) );
-        $columns=explode(",",$columns);
+        $columns = explode(",",$columns);
         
         $args = array(
             'post_type' => CLI_POST_TYPE,
             /** 28/05/2013: Changing from 10 to 50 to allow longer tables of cookie data */
             'posts_per_page' => 50,
+            'tax_query' => array(),
             'order' => 'ASC',
             'orderby' => 'title'
         );
         global $sitepress;
+        $is_wpml_enabled=false;
         if(function_exists('icl_object_id') && $sitepress) //wpml enabled
         {
             $args['suppress_filters']=false;
+            $is_wpml_enabled=true;
         }
-        $posts = get_posts($args);
+        if(isset($category) && $category!="")
+        {
+            $wpml_default_lang='en';
+            $wpml_current_lang='en';
+            $term=false;
+            if($is_wpml_enabled) //wpml enabled
+            {
+                $wpml_default_lang=$sitepress->get_default_language();
+                $wpml_current_lang=ICL_LANGUAGE_CODE;
+                if($wpml_default_lang!=$wpml_current_lang)//current lang is not default
+                {
+                    $sitepress->switch_lang($wpml_default_lang); //switching to default lang
+                    $term=get_term_by('slug',$category,'cookielawinfo-category'); //original term
+                    $sitepress->switch_lang($wpml_current_lang); //revert back to current lang
+                    if(!$term) //term not exists in original lang
+                    {
+                        $term=get_term_by('slug',$category,'cookielawinfo-category'); //current lang term
+                    }
+                }else
+                {
+                    $term=get_term_by('slug',$category,'cookielawinfo-category'); 
+                }
+            }else
+            {
+                $term=get_term_by('slug',$category,'cookielawinfo-category'); 
+            }
+            if($term) //corresponding term available with the provided slug
+            {
+                $args['tax_query'][]=array(
+                    'taxonomy' => 'cookielawinfo-category',
+                    'terms' =>$term->term_id,
+                    'include_children' => false
+                );
+                $posts = get_posts($args); //only return posts if term available
+            }
+        }else
+        {
+            $posts = get_posts($args);
+        }
         $ret = '<table class="cookielawinfo-row-cat-table cookielawinfo-' . $style . '"><thead><tr>';
         if(in_array('cookie',$columns))
         {
@@ -265,6 +305,9 @@ class Cookie_Law_Info_Shortcode {
                 $ret='<p>'.__($heading,'cookie-law-info').'</p>'.$ret;
             }
             
+        }
+        if( '' === $not_shown_message && empty( $posts )) {
+            $ret = '';
         }
         return $ret;
     }
