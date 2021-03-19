@@ -104,6 +104,9 @@
     height: 430px;
     @include column();
     justify-content: center;
+    & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+        display: block !important;
+    }
 }
 
     /* Titre et redirection */
@@ -163,18 +166,11 @@
             right: 0%;
         }
     }
-    /* CARD VIDE */ 
-    .empty {
-        width: 1rem;
-    }
 
 /* SECTION 4 : COLLABORATEURS */
 .collaborateurs {
     margin-top: 5rem;
     margin-bottom: 5rem;
-    & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-        display: block !important;
-    }
     & .slider__wrapper {
         & .owl-nav .owl-prev {
             position: absolute;

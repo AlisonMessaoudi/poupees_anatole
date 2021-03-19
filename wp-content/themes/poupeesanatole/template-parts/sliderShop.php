@@ -1,14 +1,14 @@
-<!-- CARD -->
+<!-- CARD 01 -->
 <div class="card__shop">
 
-    <?php the_post_thumbnail('thumbnail'); ?>
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_02.png" alt="Couple Pomme - Les poupées anatoles" />
     
     <!-- NOM PRODUIT --> 
-    <?php the_title('<h5>', '</h5>'); ?>
+    <h5>Couple Pomme</h5>
 
     <!-- BOUTON PANIER -->
     <div class="shop__panier">
-        <a href="<?php the_permalink(); ?>"><i class="fa fa-shopping-basket"></i></a>
+        <i class="fa fa-shopping-basket"></i>
     </div>
 
 </div>
@@ -85,7 +85,5 @@
     <div class="shop__panier">
         <i class="fa fa-shopping-basket"></i>
     </div>
-
-</div>
 
 </div>

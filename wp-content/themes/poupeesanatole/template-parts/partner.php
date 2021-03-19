@@ -28,7 +28,7 @@ get_header();
         </div>
         
         <!-- BLOC TEXTE -->
-        <div id="<?php $collaborateur->$id ?>" class="col-lg-9 collaborateur__txt">
+        <div id="#huard" class="col-lg-9 collaborateur__txt">
             
             <h4>Porteur de projet</h4>
 
