@@ -5,33 +5,45 @@ if (!defined('WPINC')) {
 }
 global $wt_cli_integration_list;
 
-$wt_cli_integration_list = apply_filters('wt_cli_plugin_integrations', array(
+$wt_cli_integration_list = apply_filters(
+	'wt_cli_plugin_integrations',
+	array(
 
-    'facebook-for-wordpress' => array(
-        'constant_or_function' => 'FacebookPixelPlugin\\FacebookForWordpress',
-        'label'                => 'Official Facebook Pixel',
-        'status'               =>  'yes',
-        'description'          => 'Official Facebook Pixel',
-        'category'             => 'analytics',
-        'type'                 =>  1
-    ),
-    'twitter-feed'   => array(
-		'constant_or_function' => 'CTF_VERSION',
-        'label'                => 'Smash Balloon Twitter Feed',
-        'status'               =>  'yes',
-        'description'          => 'Twitter Feed By Smash Baloon',
-        'category'             => 'analytics',
-        'type'                 =>  1
-    ),
-    'instagram-feed'   => array(
-		'constant_or_function' => 'SBIVER',
-        'label'                => 'Smash Balloon Instagram Feed',
-        'status'               =>  'yes',
-        'description'          => 'Instagram Feed By Smash Baloon',
-        'category'             => 'advertisement',
-        'type'                 =>  1
-    ),
-));
+		'facebook-for-wordpress'         => array(
+			'identifier'  => 'FacebookPixelPlugin\\FacebookForWordpress',
+			'label'       => 'Official Facebook Pixel',
+			'status'      => 'yes',
+			'description' => 'Official Facebook Pixel',
+			'category'    => 'analytics',
+			'type'        => 1,
+		),
+		'twitter-feed'                   => array(
+			'identifier'  => 'CTF_VERSION',
+			'label'       => 'Smash Balloon Twitter Feed',
+			'status'      => 'yes',
+			'description' => 'Twitter Feed By Smash Baloon',
+			'category'    => 'analytics',
+			'type'        => 1,
+		),
+		'instagram-feed'                 => array(
+			'identifier'  => 'SBIVER',
+			'label'       => 'Smash Balloon Instagram Feed',
+			'status'      => 'yes',
+			'description' => 'Instagram Feed By Smash Baloon',
+			'category'    => 'advertisement',
+			'type'        => 1,
+		),
+		'google-analytics-for-wordpress' => array(
+			'identifier'  => 'MonsterInsights',
+			'label'       => 'Google Analytics for WordPress by MonsterInsights',
+			'status'      => 'yes',
+			'description' => 'Google Analytics Dashboard Plugin for WordPress by MonsterInsights',
+			'category'    => 'analytics',
+			'type'        => 1,
+		),
+	)
+);
+
 
 if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
     class Cookie_Law_Info_Script_Blocker
@@ -60,8 +72,8 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
             add_action( 'wt_cli_after_advanced_settings', array( $this, 'add_blocking_control'));
             add_action( 'wt_cli_ajax_settings_update', array( $this, 'update_js_blocking_status'),10,1);
 
-            add_action('admin_notices', array( $this, 'wt_cli_admin_notices' ),10);
-            add_action('admin_init', array($this,'save_notice_link'));
+            // add_action('admin_notices', array( $this, 'wt_cli_admin_notices' ),10);
+            // add_action('admin_init', array($this,'save_notice_link'));
 
             // @since 1.9.6 for changing the category of each script blocker
             add_action('wp_ajax_cli_change_script_category', array($this, 'cli_change_script_category'));
@@ -92,7 +104,7 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
                     $title         = sanitize_text_field( ( isset( $data['cliscript_title'] ) ? $data['cliscript_title'] : '' ) );
                     $description   = sanitize_text_field( ( isset( $data['cliscript_description'] ) ? $data['cliscript_description'] : '' ) );
                     $category_id   = isset( $data['cliscript_category'] ) ? $data['cliscript_category'] : '';
-                    $status        = wp_validate_boolean( ( isset( $data['cliscript_status'] ) ? $data['cliscript_status'] : false ) );
+                    $status        = (isset($data['cliscript_status']) && ( $data['cliscript_status'] === "yes" || $data['cliscript_status'] === "1")  ? true : false);
                     $term          = get_term_by( 'id', $category_id, 'cookielawinfo-category' );
                     $category_slug = '';
                     if ( '' !== $category_id ) {
@@ -375,6 +387,9 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
                 );
                 $data_exists = $wpdb->get_row("SELECT id FROM `$table_name` WHERE `cliscript_key`='" . $key . "'", ARRAY_A);
                 if (!$data_exists) {
+                    if( Cookie_Law_Info::maybe_first_time_install() === false ) {
+                        $data['cliscript_status'] = false;
+                    }
                     $wpdb->insert($table_name, $data);
                 }
             }
@@ -442,9 +457,9 @@ if (!class_exists('Cookie_Law_Info_Script_Blocker')) {
             $details = $wt_cli_integration_list[$plugin];
             
             $enabled          = isset( $script_data[ $plugin ]['status'] ) ? wp_validate_boolean( $script_data[ $plugin ]['status'] )  : false;
-            if ( ( defined($details['constant_or_function'])
-                    || function_exists($details['constant_or_function'])
-                    || class_exists($details['constant_or_function']) ) && $enabled === true ) {
+            if ( ( defined($details['identifier'])
+                    || function_exists($details['identifier'])
+                    || class_exists($details['identifier']) ) && $enabled === true ) {
                 return true;
             }
             return false;

@@ -275,6 +275,8 @@ class WP_Optimizer {
 
 		if (false === $update && null !== $tables_info) return $tables_info;
 
+		$wpo_db_info = WP_Optimize()->get_db_info();
+
 		$table_status = WP_Optimize()->get_db_info()->get_show_table_status($update);
 
 		// Filter on the site's DB prefix (was not done in releases up to 1.9.1).
@@ -296,16 +298,18 @@ class WP_Optimizer {
 					continue;
 				}
 
-				$table_status[$index]->Engine = WP_Optimize()->get_db_info()->get_table_type($table_name);
+				$table_status[$index]->Engine = $wpo_db_info->get_table_type($table_name);
 
-				$table_status[$index]->is_optimizable = WP_Optimize()->get_db_info()->is_table_optimizable($table_name);
-				$table_status[$index]->is_type_supported = WP_Optimize()->get_db_info()->is_table_type_optimize_supported($table_name);
+				$table_status[$index]->is_optimizable = $wpo_db_info->is_table_optimizable($table_name);
+				$table_status[$index]->is_type_supported = $wpo_db_info->is_table_type_optimize_supported($table_name);
 				// add information about corrupted tables.
-				$is_needing_repair = WP_Optimize()->get_db_info()->is_table_needing_repair($table_name);
+				$is_needing_repair = $wpo_db_info->is_table_needing_repair($table_name);
 				$table_status[$index]->is_needing_repair = $is_needing_repair;
 				if ($is_needing_repair) $corrupted_tables_count++;
 
 				$table_status[$index] = $this->join_plugin_information($table_name, $table_status[$index]);
+
+				$table_status[$index]->blog_id = $wpo_db_info->get_table_blog_id($table_name);
 			}
 
 			WP_Optimize()->get_options()->update_option('corrupted-tables-count', $corrupted_tables_count);
@@ -394,9 +398,11 @@ class WP_Optimizer {
 	 * and information regarding each table and returns
 	 * the results to optimizations-table.php and optimizationstable.php
 	 *
+	 * @param int $blog_id filter tables by prefix
+	 *
 	 * @return Array - an array of data such as table list, innodb info and data free
 	 */
-	public function get_table_information() {
+	public function get_table_information($blog_id = 0) {
 		// Get table information.
 		$tablesstatus = $this->get_tables();
 
@@ -410,6 +416,9 @@ class WP_Optimizer {
 
 		// Make a list of tables to optimize.
 		foreach ($tablesstatus as $each_table) {
+			// if $blog_id is set then filter tables
+			if ($blog_id > 0 && $blog_id != $each_table->blog_id) continue;
+
 			$table_information['table_list'] .= $each_table->Name.'|';
 
 			// check if table type supported.
@@ -430,6 +439,7 @@ class WP_Optimizer {
 				$table_information['non_inno_db_tables']++;
 			}
 		}
+
 		return $table_information;
 	}
 	

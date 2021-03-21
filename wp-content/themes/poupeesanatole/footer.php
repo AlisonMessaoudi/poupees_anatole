@@ -39,19 +39,19 @@
                 <!-- FORMULAIRE NEWSLETTER -->
                 <div class="form__news">
 
-                    <form action="" method="POST">
+                    <label for="newsletter">Abonnez-vous à notre Newsletter</label>
+                    <?php echo do_shortcode( '[mailjet_subscribe widget_id="19"]' ); ?>
+                    
+                    <!-- <form action="" method="POST">
 
-                        <!-- Texte -->
                         <label for="newsletter">Abonnez-vous à notre Newsletter</label>
 
                         <div class="form__news__input">
-                            <!-- Adresse mail -->
                             <input type="email" id="newsletter" class="newsletter__input" name="newsletter" placeholder="Adresse mail"/>
-                            <!-- Bouton envoyé -->
                             <input type="submit"class="btn_envoyer" value="Envoyer"/>
                         </div>
 
-                    </form>
+                    </form> -->
 
                 </div>
 

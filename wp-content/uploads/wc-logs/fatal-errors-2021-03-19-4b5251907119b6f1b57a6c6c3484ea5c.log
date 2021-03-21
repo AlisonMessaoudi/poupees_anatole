@@ -38,3 +38,25 @@
 
 2021-03-19T16:12:16+00:00 CRITICAL require(): Failed opening required '/Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/custom/cpt_collaborateurs.php' (include_path='.:/Applications/MAMP/bin/php/php7.4.12/lib/php') in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 84
 
+2021-03-19T16:16:42+00:00 CRITICAL syntax error, unexpected end of file in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 89
+
+2021-03-19T16:16:42+00:00 CRITICAL syntax error, unexpected end of file in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 89
+
+2021-03-19T20:01:33+00:00 CRITICAL syntax error, unexpected 'add_action' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 63
+
+2021-03-19T20:02:05+00:00 CRITICAL syntax error, unexpected 'add_action' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 63
+
+2021-03-19T20:11:00+00:00 CRITICAL syntax error, unexpected ''after_setup_theme'' (T_CONSTANT_ENCAPSED_STRING), expecting variable (T_VARIABLE) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 67
+
+2021-03-19T20:11:09+00:00 CRITICAL syntax error, unexpected ''after_setup_theme'' (T_CONSTANT_ENCAPSED_STRING), expecting variable (T_VARIABLE) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 67
+
+2021-03-19T20:13:01+00:00 CRITICAL syntax error, unexpected ''after_setup_theme'' (T_CONSTANT_ENCAPSED_STRING), expecting variable (T_VARIABLE) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 67
+
+2021-03-19T20:13:09+00:00 CRITICAL syntax error, unexpected ''after_setup_theme'' (T_CONSTANT_ENCAPSED_STRING), expecting variable (T_VARIABLE) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 67
+
+2021-03-19T20:15:04+00:00 CRITICAL syntax error, unexpected ''after_setup_theme'' (T_CONSTANT_ENCAPSED_STRING), expecting variable (T_VARIABLE) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 67
+
+2021-03-19T20:16:04+00:00 CRITICAL Cannot redeclare register_sidebar() (previously declared in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/widgets.php:256) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 63
+
+2021-03-19T20:16:04+00:00 CRITICAL Cannot redeclare register_sidebar() (previously declared in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/widgets.php:256) in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 63
+

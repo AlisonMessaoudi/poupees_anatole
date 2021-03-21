@@ -36,7 +36,7 @@ class Cookie_Law_Info_Cookies {
 
 		add_action( 'wt_cli_before_cookie_scanner_header', array( $this, 'add_cookie_migration_notice' ) );
 		add_action( 'wt_cli_initialize_plugin', array( $this, 'load_default_plugin_settings' ) );
-		add_action( 'wt_cli_after_cookie_category_migration', array( $this, 'load_default_terms') );
+		add_action( 'wt_cli_after_cookie_category_migration', array( $this, 'load_default_terms' ) );
 
 	}
 
@@ -85,12 +85,9 @@ class Cookie_Law_Info_Cookies {
 		$taxonomy = 'cookielawinfo-category';
 		$terms    = array();
 		if ( version_compare( $wp_version, '4.9', '>=' ) ) {
-			$args = array(
+			$args  = array(
 				'taxonomy'   => $taxonomy,
 				'hide_empty' => false,
-				'meta_key'   => 'CLIpriority',
-				'orderby'    => 'meta_value_num', // use 'meta_value_num' if the value type of this meta is numeric.
-				'order'      => 'DESC',
 			);
 			$terms = get_terms( $args );
 		} else {
@@ -179,13 +176,11 @@ class Cookie_Law_Info_Cookies {
 		$this->cookie_add_defaultstate( $term );
 		$this->add_scripts_meta( $term );
 		// $this->add_status_meta( $term );
-
 	}
 	public function edit_category_form_fields( $term ) {
 		$this->cookie_edit_defaultstate( $term );
 		$this->edit_scripts_meta( $term );
 		// $this->edit_status_meta( $term );
-
 	}
 	public function add_meta_box() {
 
@@ -317,20 +312,28 @@ class Cookie_Law_Info_Cookies {
 				break;
 		}
 	}
-
+	/**
+	 * Register cutsom taxonomy
+	 *
+	 * @return void
+	 */
 	public function create_taxonomy() {
 		register_taxonomy(
 			'cookielawinfo-category',
 			'cookielawinfo',
 			array(
-				'labels'       => array(
+				'labels'              => array(
 					'name'         => __( 'Cookie Category', 'cookie-law-info' ),
 					'add_new_item' => __( 'Add cookie category', 'cookie-law-info' ),
 					'edit_item'    => __( 'Edit cookie category', 'cookie-law-info' ),
 				),
-				'rewrite'      => array( 'slug' => 'cookielawinfo-category' ),
-				'hierarchical' => false,
-				'show_in_menu' => ( $this->check_if_old_category_table() === true ? false : true ),
+				'public'              => false,
+				'publicly_queryable'  => false,
+				'exclude_from_search' => true,
+				'show_ui'             => true,
+				'rewrite'             => true,
+				'hierarchical'        => false,
+				'show_in_menu'        => ( $this->check_if_old_category_table() === true ? false : true ),
 			)
 		);
 
@@ -339,6 +342,22 @@ class Cookie_Law_Info_Cookies {
 
 		$strictly_necessary_categories = array( 'necessary', 'obligatoire' );
 		return apply_filters( 'gdpr_strictly_enabled_category', $strictly_necessary_categories );
+	}
+	/**
+	 * Returns necessary category id's
+	 *
+	 * @return array
+	 */
+	public function get_necessary_category_ids() {
+		$necessory_categories   = self::get_strictly_necessory_categories();
+		$necessory_category_ids = array();
+		foreach ( $necessory_categories as $category ) {
+			$term = $this->get_term_data_from_db( 'slug', $category );
+			if ( false !== $term ) {
+				$necessory_category_ids[] = $term->term_id;
+			}
+		}
+		return $necessory_category_ids;
 	}
 	public function migrate_cookie_terms() {
 
@@ -377,7 +396,7 @@ class Cookie_Law_Info_Cookies {
 						$this->update_term_meta( $term_id, '_cli_cookie_body_scripts', $data['body_scripts'] );
 					}
 					$default_state = ( isset( $data['default_state'] ) && $data['default_state'] === true ? 'enabled' : 'disabled' );
-					$priority = isset( $data['priority'] ) ? $data['priority'] : 0 ;
+					$priority      = isset( $data['priority'] ) ? $data['priority'] : 0;
 					$this->update_term_meta( $term_id, 'CLIdefaultstate', $default_state );
 					$this->update_term_meta( $term_id, 'CLIpriority', $priority );
 					Cookie_Law_Info_Languages::get_instance()->maybe_set_term_language( $term_id ); // In polylang plugin the default language will not be get assigned.
@@ -387,7 +406,7 @@ class Cookie_Law_Info_Cookies {
 	}
 
 	public function register_settings_page() {
-		if ( $this->check_if_old_category_table() === true || true === apply_filters('wt_cli_force_show_old_cookie_categories', false ) ) {
+		if ( $this->check_if_old_category_table() === true || true === apply_filters( 'wt_cli_force_show_old_cookie_categories', false ) ) {
 			add_submenu_page(
 				'edit.php?post_type=' . CLI_POST_TYPE,
 				__( 'Non-necessary', 'cookie-law-info' ),
@@ -444,7 +463,7 @@ class Cookie_Law_Info_Cookies {
 			$settings['body_scripts']    = isset( $options['thirdparty_body_section'] ) ? wp_unslash( $options['thirdparty_body_section'] ) : $defaults['body_scripts'];
 			$settings['strict']          = false;
 			$settings['cookies']         = $this->get_cookies_by_meta( '_cli_cookie_sensitivity', 'non-necessary' );
-			$settings['priority']		 = 6;
+			$settings['priority']        = 6;
 			$this->non_necessary_options = $settings;
 		}
 		return $this->non_necessary_options;
@@ -517,13 +536,15 @@ class Cookie_Law_Info_Cookies {
 						}
 					}
 					$cookies           = $this->get_cookies_by_term( 'cookielawinfo-category', $term_slug );
-					$cli_default_state = $this->get_term_meta( $term_id, 'CLIdefaultstate', true );
+					$cli_default_state = $this->get_meta_data_from_db( $term_id, 'CLIdefaultstate' );
+					$priority          = $this->get_meta_data_from_db( $term_id, 'CLIpriority' );
 
 					$default_state = isset( $cli_default_state ) && $cli_default_state === 'enabled' ? true : false;
 
 					$category_data = array(
-						'id'			=> $term_id,
+						'id'            => $term_id,
 						'status'        => true,
+						'priority'      => isset( $priority ) ? intval( $priority ) : 0,
 						'default_state' => $default_state,
 						'strict'        => $strict,
 						'title'         => $term_name,
@@ -535,13 +556,15 @@ class Cookie_Law_Info_Cookies {
 
 					if ( $this->check_strictly_necessary_category( $term_id ) === true ) {
 						$strict                             = true;
+						$category_data['strict']            = $strict;
 						$necessary_categories[ $term_slug ] = $category_data;
 					} else {
 						$non_necessary_categories[ $term_slug ] = $category_data;
 					}
-					$cookie_data = $necessary_categories + $non_necessary_categories;
 				}
 			}
+			$non_necessary_categories = $this->order_category_by_key( $non_necessary_categories, 'priority' );
+			$cookie_data              = $necessary_categories + $non_necessary_categories;
 		}
 		return $cookie_data;
 
@@ -590,10 +613,8 @@ class Cookie_Law_Info_Cookies {
 		<?php
 	}
 	public function check_strictly_necessary_category( $term_id ) {
-		$strict_enabled = self::get_strictly_necessory_categories();
-		$terms          = get_term_by( 'id', $term_id, 'cookielawinfo-category' );
-
-		if ( in_array( $terms->slug, $strict_enabled ) ) {
+		$strict_enabled = $this->get_necessary_category_ids();
+		if ( in_array( $term_id, $strict_enabled ) ) {
 			return true;
 		}
 		return false;
@@ -823,11 +844,11 @@ class Cookie_Law_Info_Cookies {
 				 <div class="wt-cli-admin-notice-wrapper">
 					<div class="wt-cli-notice-content">
 						<p style="font-weight:500;font-size:1.05em;"><?php _e( 'Clicking “Migrate cookie categories” will auto migrate your existing cookie categories (Necessary and Non-necessary) to our new Cookie Category taxonomy. This action is required to enable the cookie scanner.', 'cookie-law-info' ); ?></p>
-						<h3 style="font-size:1.05em;"><?php echo __(' What happens after migration?','cookie-law-info'); ?></h3>
+						<h3 style="font-size:1.05em;"><?php echo __( 'What happens after migration?', 'cookie-law-info' ); ?></h3>
 						<ul>
-							<li><?php echo __('You no longer need to manage static cookie categories. After the migration, new cookie categories (Necessary, Functional, Analytics, Performance, Advertisement, and Others) will be created automatically. Also, you can easily add custom cookie categories and edit/delete the existing categories including the custom categories.','cookiel-law-info');?></li>
-							<li><?php echo __('If you have made any changes to the existing "Non-necessary" category we will migrate it to the newly created “Cookie Category” section. If not, we will delete the "Non-necessary" category automatically.','cookiel-law-info');?></li>
-							<li><?php echo __('During the migration phase your existing cookie category translations will be lost. Hence we request you to add it manually soon after the migration. You can access the existing translations by navigating to the string translation settings of your translator plugin.','cookiel-law-info');?></li>
+							<li><?php echo __( 'You no longer need to manage static cookie categories. After the migration, new cookie categories (Necessary, Functional, Analytics, Performance, Advertisement, and Others) will be created automatically. Also, you can easily add custom cookie categories and edit/delete the existing categories including the custom categories.', 'cookiel-law-info' ); ?></li>
+							<li><?php echo __( 'If you have made any changes to the existing "Non-necessary" category we will migrate it to the newly created “Cookie Category” section. If not, we will delete the "Non-necessary" category automatically.', 'cookiel-law-info' ); ?></li>
+							<li><?php echo __( 'During the migration phase your existing cookie category translations will be lost. Hence we request you to add it manually soon after the migration. You can access the existing translations by navigating to the string translation settings of your translator plugin.', 'cookiel-law-info' ); ?></li>
 						</ul>
 					</div>
 					<div class="wt-cli-notice-actions">
@@ -876,27 +897,27 @@ class Cookie_Law_Info_Cookies {
 			'functional'    => array(
 				'title'       => 'Functional',
 				'description' => 'Functional cookies help to perform certain functionalities like sharing the content of the website on social media platforms, collect feedbacks, and other third-party features.',
-				'priority'	  =>  5,
+				'priority'    => 5,
 			),
 			'performance'   => array(
 				'title'       => 'Performance',
 				'description' => 'Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors.',
-				'priority'	  =>  4,
+				'priority'    => 4,
 			),
 			'analytics'     => array(
 				'title'       => 'Analytics',
 				'description' => 'Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.',
-				'priority'	  =>  3,
+				'priority'    => 3,
 			),
 			'advertisement' => array(
 				'title'       => 'Advertisement',
 				'description' => 'Advertisement cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.',
-				'priority'	  =>  2,
+				'priority'    => 2,
 			),
-			'others' => array(
+			'others'        => array(
 				'title'       => 'Others',
 				'description' => 'Other uncategorized cookies are those that are being analyzed and have not been classified into a category as yet.',
-				'priority'	  =>  1,
+				'priority'    => 1,
 			),
 		);
 		return $cookie_categories;
@@ -1035,9 +1056,9 @@ class Cookie_Law_Info_Cookies {
 					continue;
 				}
 				$term_id = ( isset( $term['term_id'] ) ? $term['term_id'] : false );
-				$priority = isset( $data['priority'] ) ? $data['priority'] : 0 ;
-				$this->update_term_meta( $term_id, 'CLIpriority', $priority );
 				if ( $term_id !== false ) {
+					$priority = isset( $data['priority'] ) ? $data['priority'] : 0;
+					$this->update_term_meta( $term_id, 'CLIpriority', $priority );
 					Cookie_Law_Info_Languages::get_instance()->maybe_set_term_language( $term_id ); // In polylang plugin the default language will not be get assigned.
 				}
 			}
@@ -1073,6 +1094,63 @@ class Cookie_Law_Info_Cookies {
 	 */
 	public function save_priority_meta( $term_id ) {
 		update_term_meta( $term_id, 'CLIpriority', 0 );
+	}
+	/**
+	 * Get meta data directly from the DB
+	 *
+	 * @param int    $term_id Term id.
+	 * @param string $meta_key Meta key name.
+	 * @return string
+	 */
+	public function get_meta_data_from_db( $term_id, $meta_key ) {
+		global $wpdb;
+		$term_value = false;
+		$term_meta  = $wpdb->get_row( $wpdb->prepare( "SELECT meta_value FROM $wpdb->termmeta WHERE term_id = %d AND meta_key = %s", $term_id, $meta_key ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery,WordPress.DB.PreparedSQL.NotPrepared
+		if ( $term_meta ) {
+			$term_value = $term_meta->meta_value;
+		}
+		return $term_value;
+	}
+	/**
+	 * Get term data directly from DB to avoid hooks by other plugins.
+	 *
+	 * @param string $key using this key the row is fetched.
+	 * @param string $value value of the corresponding key.
+	 * @return array
+	 */
+	public function get_term_data_from_db( $key, $value ) {
+		global $wpdb;
+		$term_data = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->terms WHERE $key = %s", $value ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery,WordPress.DB.PreparedSQL.NotPrepared
+		if ( $term_data && is_object( $term_data ) ) {
+			return $term_data;
+		}
+		return false;
+	}
+	/**
+	 * Re order the categories based on the key
+	 *
+	 * @param array  $categories Category array.
+	 * @param string $key The key based on which an array is sorted.
+	 * @param string $order The sort order default DESC.
+	 * @return array
+	 */
+	public function order_category_by_key( $categories, $meta_key, $order = 'DESC' ) {
+		$sort_order  = SORT_DESC;
+		$meta_values = array();
+		if ( 'ASC' === $order ) {
+			$sort_order = SORT_ASC;
+		}
+		if ( ! empty( $categories ) && is_array( $categories ) ) {
+			foreach ( $categories as $key => $category ) {
+				if ( isset( $category[ $meta_key ] ) ) {
+					$meta_values[] = $category[ $meta_key ];
+				}
+			}
+			if ( ! empty( $meta_values ) && is_array( $meta_values ) ) {
+				array_multisort( $meta_values, $sort_order, $categories );
+			}
+		}
+		return $categories;
 	}
 }
 Cookie_Law_Info_Cookies::get_instance();

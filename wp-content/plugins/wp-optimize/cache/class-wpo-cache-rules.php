@@ -52,7 +52,7 @@ class WPO_Cache_Rules {
 		 *
 		 * @param array $actions The actions
 		 */
-		$purge_on_action = apply_filters('wpo_purge_cache_hooks', array('after_switch_theme', 'wp_update_nav_menu', 'customize_save_after', array('wp_ajax_save-widget', 0), array('wp_ajax_update-widget', 0), 'autoptimize_action_cachepurged', 'upgrader_overwrote_package', 'wpo_active_plugin_or_theme_updated'));
+		$purge_on_action = apply_filters('wpo_purge_cache_hooks', array('after_switch_theme', 'wp_update_nav_menu', 'customize_save_after', array('wp_ajax_save-widget', 0), array('wp_ajax_update-widget', 0), 'autoptimize_action_cachepurged', 'upgrader_overwrote_package', 'wpo_active_plugin_or_theme_updated', 'fusion_cache_reset_after'));
 		foreach ($purge_on_action as $action) {
 			if (is_array($action)) {
 				add_action($action[0], array($this, 'purge_cache'), $action[1]);
@@ -146,6 +146,7 @@ class WPO_Cache_Rules {
 		} else {
 			if (apply_filters('wpo_delete_cached_homepage_on_post_update', true, $post_id)) WPO_Page_Cache::delete_homepage_cache();
 			WPO_Page_Cache::delete_single_post_cache($post_id);
+			WPO_Page_Cache::delete_sitemap_cache();
 		}
 	}
 
@@ -164,6 +165,22 @@ class WPO_Cache_Rules {
 		$post_obj = get_post_type_object($post_type);
 
 		if ('post' == $post_type) {
+			// delete blog page cache
+			$blog_post_id = get_option('page_for_posts');
+			if ($blog_post_id) {
+				WPO_Page_Cache::delete_cache_by_url(get_permalink($blog_post_id), true);
+			}
+		
+			// delete next and previus posts cache.
+			$globals_post = isset($GLOBALS['post']) ? $GLOBALS['post'] : false;
+			$GLOBALS['post'] = get_post($post_id);
+			$previous_post = function_exists('get_previous_post') ? get_previous_post() : false;
+			$next_post = function_exists('get_next_post') ? get_next_post() : false;
+			if ($globals_post) $GLOBALS['post'] = $globals_post;
+			
+			if ($previous_post) WPO_Page_Cache::delete_cache_by_url(get_permalink($previous_post), true);
+			if ($next_post) WPO_Page_Cache::delete_cache_by_url(get_permalink($next_post), true);
+			
 			// delete all archive pages for post.
 			$post_date = get_post_time('Y-m-j', false, $post_id);
 			list($year, $month, $day) = $post_date;

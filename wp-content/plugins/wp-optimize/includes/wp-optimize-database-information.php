@@ -433,6 +433,28 @@ class WP_Optimize_Database_Information {
 	}
 
 	/**
+	 * Get blog_id
+	 *
+	 * @param string $table_name
+	 * @return int
+	 */
+	public function get_table_blog_id($table_name) {
+		global $wpdb;
+		
+		if (is_multisite()) {
+			$blogs_ids = wp_list_pluck(WP_Optimize()->get_sites(), 'blog_id');
+		
+			// if match with base_prefix_(number)_
+			if (preg_match('/^'.$wpdb->base_prefix.'(\d+)_/', $table_name, $match)) {
+				// check if matched number in available sites.
+				if (false !== array_search($match[1], $blogs_ids)) return $match[1];
+			}
+		}
+
+		return 1;
+	}
+
+	/**
 	 * Get information about relations between tables and plugins. [ 'table' => ['plugin1', 'plugin2', ...], ... ].
 	 *
 	 * @return array

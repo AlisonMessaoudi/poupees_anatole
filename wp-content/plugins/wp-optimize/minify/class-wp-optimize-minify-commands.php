@@ -73,8 +73,14 @@ class WP_Optimize_Minify_Commands {
 
 		// deletes temp files and old caches incase CRON isn't working
 		WP_Optimize_Minify_Cache_Functions::cache_increment();
-		$state = WP_Optimize_Minify_Cache_Functions::purge_temp_files();
-		$old = WP_Optimize_Minify_Cache_Functions::purge_old();
+		if (wp_optimize_minify_config()->always_purge_everything()) {
+			WP_Optimize_Minify_Cache_Functions::purge();
+			$state = array();
+			$old = array();
+		} else {
+			$state = WP_Optimize_Minify_Cache_Functions::purge_temp_files();
+			$old = WP_Optimize_Minify_Cache_Functions::purge_old();
+		}
 		$others = WP_Optimize_Minify_Cache_Functions::purge_others();
 		$files = $this->get_minify_cached_files();
 

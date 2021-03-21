@@ -5,7 +5,7 @@ Tags: cache, minify, database, image optimize, performance, clean, spam, speed, 
 Requires PHP: 5.6
 Requires at least: 4.4
 Tested up to: 5.7
-Stable tag: 3.1.7
+Stable tag: 3.1.8
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -364,7 +364,26 @@ If none of the above works, disable processing of JavaScript files in the minify
 
 == Changelog ==
 
+= 3.1.8 - 12/Mar/2021 =
 
+* FIX: Cache - Warning failed to open dir
+* FIX: Premium - Unused images - Fixed issue with images including a size suffix similar to WP sizes
+* FIX: Display optimization data based on retention period
+* FIX: Scheduled cleanup settings - Invalid date selection
+* TWEAK: Premium - Separate table optimisations per sub-site
+* TWEAK: Premium - Unused images - Add compatibilty with the Envira Gallery plugin
+* TWEAK: Page caching: add support for Avada
+* TWEAK: Add visual clue when image compression was cancelled
+* TWEAK: Image compression - multi image selection using Ctrl/Shift keys
+* TWEAK: Premium - Unused images - Reset last clicked image reference when `select none` is clicked
+* TWEAK: Prevent bots from indexing plugins list json file
+* TWEAK: Minify - Added a setting to change the time stale cache should be kept
+* TWEAK: Better support for Beaver Builder
+* TWEAK: Prevent PHP warning when reading a file's size
+* TWEAK: Cache - Purge the blog page when updating a post 
+* TWEAK: Cache - Purge next and previous posts on post update
+* TWEAK: Cache - Purge sitemap files on post update
+ 
 = 3.1.7 - 12/Feb/2021 =
 
 * FEATURE: Premium - Preload key requests (Preload fonts and other assets)
@@ -372,7 +391,7 @@ If none of the above works, disable processing of JavaScript files in the minify
 * FIX: Cache - PHP Warning in URLs to exclude from caching
 * FIX: Premium - Unused images - Unused Images Tool not recognising Greek characters
 * FIX: Button for disabling Gzip doesn't showing
-* TWEAK: Database optimization - Prevent fatal error due files missing
+* TWEAK: Database optimization - Prevent fatal error due to files missing
 * TWEAK: Skip minify when SCRIPT_DEBUG is set to true
 * TWEAK: Fixed Font-awesome settings
 * TWEAK: Add support for different spellings of "Font-awesome"
@@ -1076,4 +1095,4 @@ If none of the above works, disable processing of JavaScript files in the minify
 * Fix Interface
 
 == Upgrade Notice ==
-* 3.1.7: Premium - Unused images - Unused Images Tool not recognising Greek characters. Button for disabling Gzip doesn't showing.
+* 3.1.8: Premium - Unused images - Fixed issue with images including a size suffix similar to WP sizes.

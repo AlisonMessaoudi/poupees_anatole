@@ -40,35 +40,38 @@
     /* Formulaire newsletter */
     & .form__news {
         @include column_center();
+        & label {
+            font-size: 1.1rem;
+        }
+        & .mailjet_widget_front_container {
+            margin-bottom: 0;
+        }
+        /* Texte */
         & form {
-            @include column_center;
-            /* Texte */
-            & label {
-                margin-bottom: 1rem;
+            @include row_center();
+            & .mailjet-widget-form-group {
+                margin-bottom: 0;
             }
-            & .form__news__input {
-                @include row_center();
-                /* Adresse mail */
-                & .newsletter__input {
-                    background-color: $color-input;
-                    border: $border-none;
-                    width: 300px;
-                    padding: 0.2rem 1rem;
-                    border-radius: 6px;
+            /* Adresse mail */
+            & input[type=email] {
+                background-color: $color-input;
+                border: $border-none;
+                width: 300px;
+                padding: 0.2rem 1rem;
+                border-radius: 6px;
+            }
+                & input::placeholder {
+                    @include placeholder($color-base-background);
                 }
-                    & input::placeholder {
-                        @include placeholder($color-base-background);
-                    }
-                /* Bouton envoyé */
-                & .btn_envoyer {
-                    border: $border-none;
-                    background-color: $color-secondly;
-                    color: $color-base-background;
-                    font-weight: $semibold-weight;
-                    padding: 0.2rem 1rem;
-                    margin-left: 0.5rem;
-                    border-radius: 6px;
-                }
+            /* Bouton envoyé */
+            & input[type=submit] {
+                border: $border-none;
+                background-color: $color-secondly;
+                color: $color-base-background;
+                font-weight: $semibold-weight;
+                padding: 0.2rem 1rem;
+                margin-left: 0.5rem;
+                border-radius: 6px;
             }
         }
     }           

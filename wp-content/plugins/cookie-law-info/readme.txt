@@ -1,21 +1,21 @@
 === CookieYes | GDPR Cookie Consent & Compliance Notice (CCPA Ready) ===
 Contributors: webtoffee, cookieyesdev
 Donate link: https://www.webtoffee.com/plugins/ 
-Tags: eu cookie law, GDPR, CCPA, cookie law, cookie consent, eu privacy directive, privacy directive, cookies, privacy, compliance
+Tags: GDPR, CCPA, cookie notice, DSGVO, RGPD, LGPD, PIPEDA, cookies , cookie law, cookie consent, Opt-in, cookie policy, privacy, compliance
 Requires at least: 4.4.0
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easily set up cookie notice and get GDPR Cookie Consent as per EU GDPR/Cookie Law regulations. The plugin supports GDPR (DSGVO, RGPD), LGPD, and CCPA Do Not Sell.
+Easily set up cookie notice and get GDPR Cookie Consent as per EU GDPR/Cookie Law regulations. The plugin supports GDPR (DSGVO, RGPD), LGPD, CCPA Do Not Sell, and CNIL of France.
 
 GDPR CookieConsent' plugin is getting renamed as ‘CookieYes - GDPR Cookie Consent & Compliance Notice' plugin. WebToffee will continue to develop and maintain this plugin. In addition to the current features, we have integrated a free Automatic Cookie Scan service into the plugin. You need an account with CookieYes in order to use the scan service, but no worries, we will automatically create an account for you when you initiate the scan.
 
 == Description ==
 
-The CookieYes GDPR Cookie Consent & Compliance Notice plugin will assist you in making your website GDPR (RGPD, DSVGO) compliant. In addition to compliance with this GDPR WordPress plugin also supports cookie compliance in accordance with the LGPD of Brazil and California Consumer Privacy Act (CCPA) which is a state statute intended to enhance privacy rights and consumer protection for residents of California.
+The CookieYes GDPR Cookie Consent & Compliance Notice plugin will assist you in making your website GDPR (RGPD, DSVGO) compliant. In addition to compliance with this GDPR WordPress plugin also supports cookie compliance in accordance with the LGPD of Brazil, CNIL of France, and California Consumer Privacy Act (CCPA) which is a state statute intended to enhance privacy rights and consumer protection for residents of California.
 
 The plugin is one of the best WordPress GDPR compliance plugins as it comes with a host of features some of which are listed below.
 
@@ -37,6 +37,8 @@ The plugin is one of the best WordPress GDPR compliance plugins as it comes with
 
 - The plugin can be configured to have a CCPA 'Do Not Sell My Personal Information' control to the cookie notice.
 
+- Assists in compliance with CNIL - A french administrative regulatory body
+
 - Integrates seamlessly with Official Facebook Pixel, Smash Balloon Instagram Feed & Twitter Feed.
 
 
@@ -53,7 +55,7 @@ The plugin is one of the best WordPress GDPR compliance plugins as it comes with
 * qTranslate and Polylang support
 
 
-== The plugin uses the following cookies ==
+== The CookieYes GDPR Cookie Consent and Compliance Notice Plugin Uses The Following Cookies ==
 
 - viewed_cookie_policy – Is the primary cookie that records the user consent for the usage of the cookies upon ‘accept’ and ‘reject’. It doesn’t track any personal data and is set only upon user action(accept/reject).
 
@@ -73,37 +75,32 @@ You can get more information and [read more about the EU Cookie Law](https://coo
 
 https://www.youtube.com/watch?v=ChjX6U5EPdE
 
-<blockquote>
-
-= GDPR COOKIE CONSENT PREMIUM VERSION FEATURES =
-&#9989; Manage list of cookies ( Name, CookieID, Description, Duration, Type, Category, Header Script, Footer Script). 
-&#9989; Manage Cookie Categories.
-&#9989; Scan and auto block scripts – Google Analytics, FB Pixel, Google tag manager, Hotjar, Instagram, etc.
-&#9989; Location based exclusion of cookie notice for EU countries.
-&#9989; Provide the users with the granular control over the cookies/scripts used by the website.
-&#9989; Option to renew consents when there is a change in policy.
-&#9989; Optionally log users’ consent and export into a CSV file. 
-&#9989; Customize the privacy overview in the cookie banner settings popup.
-&#9989; Export/import cookies and related information via CSV file.
-&#9989; Scan and import/export the cookies.
-&#9989; Allow to display cookie notice settings popup where site visitors can opt-in or give consent to cookie categories.
-&#9989; Add CCPA 'Do Not Sell My Personal Information' control to the cookie notice. 
-&#9989; Customisable to look just like your own website’s style: customise the colours, styles and fonts.
-&#9989; Put the cookie banner in either the header or the footer, as pop-up or even as widget.
-&#9989; Compatibility with major caching servers and plugins.
-&#9989; Cookie policy generator.
-&#9989; Cookie banner preview in admin settings.
-&#9989; (Optional) accept cookie notice if the user scrolls.
-&#9989; (Optional) automatically close the cookie bar after a delay (delay is configurable).
-&#9989; (Optional) cookie banner can be permanently dismissed or accessible through a “show again” tab.
-&#9989; (Optional) “show again” tab is fully customisable including position shown on page and styles.
-&#9989; “Cookie Audit” shortcode to construct a nicely-styled ‘Privacy & Cookie Policy’.
-&#9989; WPML, qTranslate, Polylang compatible.
+== CookieYes GDPR Cookie Consent & Compliance Notice Plugin Premium Version Features ==
+* Manage list of cookies ( Name, CookieID, Description, Duration, Type, Category, Header Script, Footer Script).
+* Manage Cookie Categories.
+* Scan and auto block scripts – Google Analytics, FB Pixel, Google tag manager, Hotjar, Instagram, etc.
+* Location based exclusion of cookie notice for EU countries.
+* Provide the users with the granular control over the cookies/scripts used by the website.
+* Option to renew consents when there is a change in policy.
+* Optionally log users’ consent and export into a CSV file. 
+* Customize the privacy overview in the cookie banner settings popup.
+* Export/import cookies and related information via CSV file.
+* Scan and import/export the cookies.
+* Allow to display cookie notice settings popup where site visitors can opt-in or give consent to cookie categories.
+* Add CCPA 'Do Not Sell My Personal Information' control to the cookie notice.
+* Customisable to look just like your own website’s style: customise the colours, styles and fonts.
+* Put the cookie banner in either the header or the footer, as pop-up or even as widget.
+* Compatibility with major caching servers and plugins.
+* Cookie policy generator.
+* Cookie banner preview in admin settings.
+* (Optional) accept cookie notice if the user scrolls.
+* (Optional) automatically close the cookie bar after a delay (delay is configurable).
+* (Optional) cookie banner can be permanently dismissed or accessible through a "show again" tab.
+* (Optional) “show again” tab is fully customisable including position shown on page and styles.
+* "Cookie Audit" shortcode to construct a nicely-styled ‘Privacy & Cookie Policy’.
+* WPML, qTranslate, Polylang compatible.
 
 For complete list of features and details, Please visit <a rel="nofollow" href="https://www.webtoffee.com/product/gdpr-cookie-consent/">GDPR Cookie Consent Premium Plugin</a> for more details
-
-</blockquote>
-
 
 = NOTE: INSTALLING THIS PLUGIN ALONE DOES NOT MAKE YOUR SITE GDPR COMPLIANT. SINCE EACH SITE USES DIFFERENT COOKIES, YOU NEED TO ENSURE YOU HAVE THE NECESSARY CONFIGURATIONS IN PLACE WITH A SUPPORTING COOKIE NOTICE. = 
 
@@ -111,10 +108,6 @@ For complete list of features and details, Please visit <a rel="nofollow" href="
 == Frequently Asked Questions ==
 
 There’s a lot of help available on the main plugin website. See the [FAQ](https://www.cookielawinfo.com/faq) on the main website and the [setup guide](https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-version-user-guide/) for GDPR cookie compliance.
-
-https://www.cookielawinfo.com/faq
-https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-version-user-guide/
-https://www.cookielawinfo.com/support
 
 = The cookie notice header isn’t displaying ? =
 First check you have installed the plugin and have activated it in the plugins panel.
@@ -195,6 +188,14 @@ For every update of the plugin, you will be notified of the installed plugins pa
 13. Add a privacy policy overview
 
 == Changelog ==
+
+= 2.0.1 =
+
+* Enhancement - New shortcode [cookie_accept_all] to add accept all button to the banner
+* Enhancement - MonsterInsights integration
+* Enhancement - New filter `wt_cli_set_secure_cookies` to set plugin cookies as secure
+* Fix - Site map issue with cookie category
+* Fix - Cookie categories are not ordered properly in secondary languages
 
 = 2.0.0 =
 
@@ -503,7 +504,10 @@ For every update of the plugin, you will be notified of the installed plugins pa
 
 == Upgrade Notice ==
 
-= 2.0.0 =
+= 2.0.1 =
 
-* Introduced website cookie scanner
-* Introduced dynamic cookie categories
+* Enhancement - New shortcode [cookie_accept_all] to add accept all button to the banner
+* Enhancement - MonsterInsights integration
+* Enhancement - New filter `wt_cli_set_secure_cookies` to set plugin cookies as secure
+* Fix - Site map issue with cookie category
+* Fix - Cookie categories are not ordered properly in secondary languages

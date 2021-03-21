@@ -121,9 +121,11 @@ get_header();
             
             <h2>Articles</h2>
             
-            <button>
-                <a href="<?php echo home_url('/shop'); ?>">Accéder au Shop&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
-            </button>
+            <div class="btn_redirection">
+                <button>
+                    <a href="<?php echo home_url('/shop'); ?>">Accéder au Shop&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                </button>
+            </div>
         
         </div>
 
@@ -144,9 +146,11 @@ get_header();
                 
             <h2>Collaborateurs</h2>
             
-            <button>
-                <a href="<?php echo home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
-            </button>
+            <div class="btn_redirection">
+                <button>
+                    <a href="<?php echo home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                </button>
+            </div>
         
         </div>
 

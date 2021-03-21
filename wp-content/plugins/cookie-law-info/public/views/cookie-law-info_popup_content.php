@@ -6,7 +6,7 @@ $default_privacy_settings = Cookie_Law_Info_Admin::get_privacy_defaults();
 $cli_always_enable_text   = __( 'Always Enabled', 'cookie-law-info' );
 $cli_enable_text          = __( 'Enabled', 'cookie-law-info' );
 $cli_disable_text         = __( 'Disabled', 'cookie-law-info' );
-$cli_privacy_readmore     = '<a class="cli-privacy-readmore" tabindex="0" role="button" data-readmore-text="' . __( 'Show more', 'cookie-law-info' ) . '" data-readless-text="' . __( 'Show less', 'cookie-law-info' ) . '"></a>';
+$cli_privacy_readmore     = '<a class="cli-privacy-readmore"  aria-label="' . __('Show more', 'cookie-law-info') . '" tabindex="0" role="button" data-readmore-text="' . __( 'Show more', 'cookie-law-info' ) . '" data-readless-text="' . __( 'Show less', 'cookie-law-info' ) . '"></a>';
 $overview_title           = sanitize_text_field( stripslashes( isset( $overview['privacy_overview_title'] ) ? $overview['privacy_overview_title'] : $default_privacy_settings['privacy_overview_title'] ) );
 $privacy_overview_content = wp_kses_post( isset( $overview['privacy_overview_content'] ) ? $overview['privacy_overview_content'] : $default_privacy_settings['privacy_overview_content'] );
 $privacy_overview_content = nl2br( $privacy_overview_content );

@@ -951,6 +951,37 @@ EOF;
 	}
 
 	/**
+	 * Delete sitemap cahche.
+	 */
+	public static function delete_sitemap_cache() {
+		if (!defined('WPO_CACHE_FILES_DIR')) return;
+
+		$homepage_url = get_home_url(get_current_blog_id());
+
+		$path = trailingslashit(WPO_CACHE_FILES_DIR) . trailingslashit(wpo_get_url_path($homepage_url));
+
+		if (!is_dir($path)) return;
+
+		$handle = opendir($path);
+
+		if (false !== $handle) {
+			$file = readdir($handle);
+
+			while (false !== $file) {
+	
+				if ('.' != $file && '..' != $file && is_dir($path . $file) && preg_match('/.*sitemap.*\.xml/i', $file)) {
+					do_action('wpo_delete_cache_by_url', $path . $file, false);
+					wpo_delete_files($path . $file, true);
+				}
+	
+				$file = readdir($handle);
+			}
+		}
+
+		closedir($handle);
+	}
+
+	/**
 	 * Admin actions
 	 *
 	 * @return void

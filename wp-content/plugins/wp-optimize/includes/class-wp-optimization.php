@@ -205,8 +205,8 @@ abstract class WP_Optimization {
 		$this->logger = WP_Optimize()->get_logger();
 		$wpdb = $GLOBALS['wpdb'];
 		$this->wpdb = $wpdb;
-
 		$this->blogs_ids = $this->get_optimization_blogs();
+		$this->init();
 	}
 
 	/**

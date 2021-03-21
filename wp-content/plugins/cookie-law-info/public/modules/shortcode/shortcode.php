@@ -53,6 +53,8 @@ class Cookie_Law_Info_Shortcode {
         add_shortcode( 'webtoffee_powered_by',array($this,'wf_powered_by'));
         add_shortcode( 'cookie_close',array($this,'cookielawinfo_shortcode_close_button'));        // a shortcode [close_button]
         add_shortcode( 'wt_cli_manage_consent',array( $this, 'manage_consent'));
+        add_shortcode( 'cookie_accept_all',array($this,'accept_all_button'));      // a shortcode [cookie_button]
+
 	}
 
     /*
@@ -187,7 +189,7 @@ class Cookie_Law_Info_Shortcode {
             'category'=>''
         ), $atts ) );
         $columns = explode(",",$columns);
-        
+        $posts = array();
         $args = array(
             'post_type' => CLI_POST_TYPE,
             /** 28/05/2013: Changing from 10 to 50 to allow longer tables of cookie data */
@@ -311,26 +313,6 @@ class Cookie_Law_Info_Shortcode {
         }
         return $ret;
     }
-
-    public function render_cookie_raw_table($cookie_post = array(), $ret)
-    {
-        
-        // Get custom fields:
-        $custom = get_post_custom( $cookie_post->ID );
-        $post = get_post($cookie_post->ID);
-        $cookie_type = ( isset ( $custom["_cli_cookie_type"][0] ) ) ? $custom["_cli_cookie_type"][0] : '';
-        $cookie_duration = ( isset ( $custom["_cli_cookie_duration"][0] ) ) ? $custom["_cli_cookie_duration"][0] : '';
-        // Output HTML:
-        $ret .= '<tr class="cookielawinfo-row"><td class="cookielawinfo-column-1">' . $post->post_title . '</td>';
-        $ret .= '<td class="cookielawinfo-column-2">' . $cookie_type .'</td>';
-        $ret .= '<td class="cookielawinfo-column-3">' . $cookie_duration .'</td>';
-        $ret .= '<td class="cookielawinfo-column-4">' . $post->post_content .'</td>';
-        $ret .= '</tr>';
-        return $ret;       
-    }
-
-
-
 
     /**  
     *   Returns HTML for a standard (green, medium sized) 'Accept' button
@@ -592,5 +574,28 @@ class Cookie_Law_Info_Shortcode {
         
         return $manage_consent_link;
     }
+    /**
+     * Creates accept all button
+     *
+     * @return void
+     */
+    public function accept_all_button() {
+
+        $defaults = Cookie_Law_Info::get_default_settings();
+        $settings = wp_parse_args( Cookie_Law_Info::get_settings(), $defaults );
+        $class    = '';
+        if ( $settings['button_7_as_button'] ) {
+            $class = ' class="wt-cli-element' . ' ' . $settings['button_7_button_size'] . ' cli-plugin-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button"';
+        } else {
+            $class = ' class="wt-cli-element cli-plugin-main-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button" ';
+        }
+        $url = ( $settings['button_7_action'] == 'CONSTANT_OPEN_URL' && $settings['button_7_url'] != '#' ) ? "href='$settings[button_7_url]'" : "role='button'";
+
+        $link_tag  = '<a id="wt-cli-accept-all-btn" tabindex="0" ' . $url . ' data-cli_action="accept_all" ';
+        $link_tag .= ( $settings['button_7_new_win'] ) ? ' target="_blank" ' : '';
+        $link_tag .= $class . ' >' . stripslashes( $settings['button_7_text'] ) . '</a>';
+        return $link_tag;
+    }
+    
 }
 new Cookie_Law_Info_Shortcode($this);

@@ -65,10 +65,14 @@
         width: nth($width, 4);
         & li a {
             color: $color-base;
-            &:hover {
-                font-weight: $black-weight;
-                text-decoration: none;
-            }
+        }
+        & li a:hover {
+            text-decoration: none;
+            border-bottom: 0.5px solid black;
+        }
+        & li a:active {
+            font-weight: $bold-weight;
+            text-decoration: none;
         }
     }
 
@@ -94,6 +98,10 @@
         & .connexion {
             top: 20%;
             right: 25%;
+            & ion-icon {
+                padding-right: 1rem;
+                font-size: 1.4rem;
+            }
         }
     }
 }

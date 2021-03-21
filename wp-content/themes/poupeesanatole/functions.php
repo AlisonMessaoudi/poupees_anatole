@@ -20,9 +20,9 @@
             /* STYLE */
             wp_enqueue_style('core', get_template_directory_uri().'/style.css' );
             
-            wp_enqueue_style('core', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.carousel.min.css' );
-            
-            wp_enqueue_style('core', get_template_directory_uri() .'/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css' );
+            wp_enqueue_style('owl-carousel', get_template_directory_uri().'/node_modules/owl.carousel/dist/assets/owl.carousel.min.css' );
+
+            wp_enqueue_style('ionicons', "https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" );
 
             /* SCRIPT */
 
@@ -43,9 +43,8 @@
                 /* MORE */
                 wp_enqueue_script('core', get_template_directory_uri().'/assets/js/more.js', array('jquery'), false, true);
 
-                /* JQUERY */
-                // wp_register_script('jquery','https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', array(), null, true);
-                // wp_enqueue_script('jquery', array(), null, true);
+                /* IONICONS */
+                wp_enqueue_script('ionicons', 'https://unpkg.com/ionicons@5.4.0/dist/ionicons.js');
         
         }
 
@@ -58,6 +57,22 @@
             $cols = 6;
             // Renvoie le nombre de produits qu'on souhaite afficher par page.
             return $cols;
+        }
+
+        add_action('widgets_init', 'poupeesanatoles_widgets_init');
+
+        function poupeesanatoles_widgets_init() {
+            if(function_exists('register_sidebar')){
+                register_sidebar( array(
+                    'name' => __('Footer Top', 'virtue'),
+                    'id' => 'footer_top',
+                    'description' => __('Add widgets here to appear above your footer', 'virtue'),
+                    'before_widget' => '<aside id="%1$s" class="newsL %2$s">',
+                    'after_widget' => '</aside>',
+                    'before_title' => '<h3>',
+                    'after_titre' => '</h3>',
+                )
+            );}
         }
 
         /* ACTIONS */

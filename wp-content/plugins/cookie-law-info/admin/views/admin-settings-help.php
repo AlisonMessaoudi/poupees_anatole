@@ -106,7 +106,7 @@ if ( ! defined( 'WPINC' ) ) {
                     <img src="<?php echo $admin_img_path;?>documentation.png">
                     <h3><?php _e('Documentation', 'cookie-law-info'); ?></h3>
                     <p><?php _e('Refer to our documentation to set and get started', 'cookie-law-info'); ?></p>
-                    <a target="_blank" href="http://cookielawinfo.com/user-guide/" class="button button-primary">
+                    <a target="_blank" href="https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-version-user-guide/" class="button button-primary">
                         <?php _e('Documentation', 'cookie-law-info'); ?>        
                     </a>
                 </li>

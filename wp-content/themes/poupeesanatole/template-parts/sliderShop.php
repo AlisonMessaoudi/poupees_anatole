@@ -8,7 +8,7 @@
 
     <!-- BOUTON PANIER -->
     <div class="shop__panier">
-        <i class="fa fa-shopping-basket"></i>
+        <ion-icon name="basket-outline"></ion-icon>
     </div>
 
 </div>
@@ -23,7 +23,7 @@
 
     <!-- BOUTON PANIER -->
     <div class="shop__panier">
-        <i class="fa fa-shopping-basket"></i>
+        <ion-icon name="basket-outline"></ion-icon>
     </div>
 
 </div>
@@ -38,7 +38,7 @@
 
     <!-- BOUTON PANIER -->
     <div class="shop__panier">
-        <i class="fa fa-shopping-basket"></i>
+        <ion-icon name="basket-outline"></ion-icon>
     </div>
 
 </div>
@@ -53,7 +53,7 @@
 
     <!-- BOUTON PANIER -->
     <div class="shop__panier">
-        <i class="fa fa-shopping-basket"></i>
+        <ion-icon name="basket-outline"></ion-icon>
     </div>
 
 </div>
@@ -68,7 +68,7 @@
 
     <!-- BOUTON PANIER -->
     <div class="shop__panier">
-        <i class="fa fa-shopping-basket"></i>
+        <ion-icon name="basket-outline"></ion-icon>
     </div>
 
 </div>
@@ -83,7 +83,7 @@
 
     <!-- BOUTON PANIER -->
     <div class="shop__panier">
-        <i class="fa fa-shopping-basket"></i>
+        <ion-icon name="basket-outline"></ion-icon>
     </div>
 
 </div>

@@ -198,6 +198,5 @@ table.wt-cli-table {
 		<div class="wt-cli-cookie-scan-notice">
 			<?php do_action( 'wt_cli_cookie_scanner_body' ); ?>
 		</div>
-		<?php //do_action( 'wt_cli_cookie_scanner_results' ); ?>
 	</div>
 </div>

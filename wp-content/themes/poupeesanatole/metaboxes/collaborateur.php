@@ -63,7 +63,7 @@ class CollaborateurMetaBox {
     public static function save($post_id){
 
         // if('metabox_collaborateur' == $_POST['post_type']){ 
-        //     if (!current_user_can('edit_page', $post_ID)){
+        //     if (!current_user_can('edit_page', $post_id)){
 
             // global $post;
             // $post_id = $post-> ID;

@@ -70,8 +70,31 @@
 		</div>		
 		
 	</div>
-	<h3><?php _e('Development options', 'wp-optimize'); ?></h3>
+
+	<form method="post" action="#">
+
+	<h3><?php _e('Advanced options', 'wp-optimize'); ?></h3>
 	<div class="wpo-fieldgroup">
+		<div class="wpo-fieldgroup__subgroup">
+			<label for="wpo_min_cache_lifespan">
+				<?php _e('Cache lifespan', 'wp-optimize'); ?>
+			</label>
+			<p>
+				<input
+					name="cache_lifespan"
+					id="wpo_min_cache_lifespan"
+					class="cache_lifespan wpo-save-setting"
+					type="number"
+					min="0"
+					value="<?php echo intval($wpo_minify_options['cache_lifespan']);?>"
+				> <?php _e('days', 'wp-optimize'); ?>
+			</p>
+			<p>
+				<?php _e('In order to prevent broken pages when using a third party page caching, WP-Optimize keeps the stale minified cache for 30 days.', 'wp-optimize'); ?>
+				<br><?php _e('Enter 0 to never keep stale cache.', 'wp-optimize'); ?>
+			</p>
+		</div>
+
 		<div class="switch-container">
 			<label class="switch">
 				<input
@@ -90,9 +113,6 @@
 		</div>
 		<p><?php _e('Enabling the debug mode will add various comments and show more information in the files list.', 'wp-optimize'); ?> <?php _e('It also adds extra actions in the status tab.', 'wp-optimize'); ?></p>
 	</div>
-
-	<form method="post" action="#">
-
 	<h3><?php _e('Default exclusions', 'wp-optimize'); ?></h3>
 	<div class="wpo-fieldgroup">
 		<div class="switch-container">

@@ -20,3 +20,19 @@
 .contact button {
     @include btn_redirection();
 }
+
+.btn_redirection button:hover {
+    border: none;
+    background-color: $color-secondly;
+    padding: 7px 25px;
+    & a {
+        color: $color-base-background;
+    }
+}
+
+.home__bloc__txt button:hover {
+    background-color: $color-base-background;
+    & a {
+        color: $color-secondly;
+    }
+}

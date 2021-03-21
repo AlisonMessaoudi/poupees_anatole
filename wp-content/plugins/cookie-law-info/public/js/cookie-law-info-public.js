@@ -4,13 +4,15 @@ CLI_ACCEPT_COOKIE_EXPIRE =(typeof CLI_ACCEPT_COOKIE_EXPIRE !== 'undefined' ? CLI
 CLI_COOKIEBAR_AS_POPUP=(typeof CLI_COOKIEBAR_AS_POPUP !== 'undefined' ? CLI_COOKIEBAR_AS_POPUP : false);
 var CLI_Cookie={
 	set: function (name, value, days) {
+		var secure = "";
+		if ( true === Boolean( Cli_Data.secure_cookies ) ) secure = ";secure";
         if (days) {
             var date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             var expires = "; expires=" + date.toGMTString();
         } else
             var expires = "";
-        document.cookie = name + "=" + value + expires + "; path=/";
+        document.cookie = name + "=" + value + secure + expires + "; path=/";
         if(days<1)
         {
             host_name=window.location.hostname;
@@ -18,10 +20,10 @@ var CLI_Cookie={
             if(host_name.indexOf("www")!=1)
 			{  
 			   var host_name_withoutwww=host_name.replace('www','');
-			   document.cookie = name + "=" + value + expires + "; path=/; domain="+host_name_withoutwww+";";
+			   document.cookie = name + "=" + value + secure + expires + "; path=/; domain="+host_name_withoutwww+";";
 			}
             host_name=host_name.substring(host_name.lastIndexOf(".", host_name.lastIndexOf(".")-1));
-            document.cookie = name + "=" + value + expires + "; path=/; domain="+host_name+";";
+            document.cookie = name + "=" + value + secure + expires + "; path=/; domain="+host_name+";";
         }
     },
     read: function (name) {
@@ -86,9 +88,9 @@ var CLI=
         this.main_button=jQuery('.cli-plugin-main-button');
         this.main_link = jQuery('.cli-plugin-main-link');
         this.reject_link = jQuery('.cookie_action_close_header_reject');
-		    this.delete_link=jQuery(".cookielawinfo-cookie-delete");
-	    	this.settings_button=jQuery('.cli_settings_button');
-
+		this.delete_link=jQuery(".cookielawinfo-cookie-delete");
+		this.settings_button=jQuery('.cli_settings_button');
+		this.accept_all_button = jQuery('.wt-cli-accept-all-btn');
         if(this.settings.cookie_bar_as=='popup')
     	{
     		CLI_COOKIEBAR_AS_POPUP=true;
@@ -137,7 +139,13 @@ var CLI=
 				CLI.accept_close();
 				new_window= Boolean( CLI.settings.button_1_new_win ) ? true : false;
 
-			}else if(button_action=='reject')
+			}
+			else if( button_action == 'accept_all') {
+				CLI.enableAllCookies();
+				CLI.accept_close();
+				new_window=CLI.settings.button_7_new_win ? true : false;
+			}
+			else if(button_action=='reject')
 			{
 				CLI.reject_close();
 				new_window= Boolean( CLI.settings.button_3_new_win ) ? true : false;
@@ -403,6 +411,18 @@ var CLI=
 				jQuery(this).css('background-color',CLI.settings.button_4_button_colour);
 			});
 	    }
+		/* [cookie_accept_all] */
+		this.accept_all_button.css('color',this.settings.button_7_link_colour);
+		if(this.settings.button_7_as_button) 
+		{
+			this.accept_all_button.css('background-color',this.settings.button_7_button_colour);
+			this.accept_all_button.on('mouseenter', function(){
+				jQuery(this).css('background-color',CLI.settings.button_7_button_hover);
+			})
+			.on('mouseleave', function(){
+				jQuery(this).css('background-color',CLI.settings.button_7_button_colour);
+			});
+		}
 	},
 	toggleBar:function()
 	{

@@ -28,6 +28,7 @@ class WP_Optimize_Minify_Admin {
 		add_action('after_switch_theme', array('WP_Optimize_Minify_Cache_Functions', 'cache_increment'));
 		add_action('updraftcentral_version_updated', array('WP_Optimize_Minify_Cache_Functions', 'reset'));
 		add_action('elementor/editor/after_save', array('WP_Optimize_Minify_Cache_Functions', 'reset'));
+		add_action('fusion_cache_reset_after', array('WP_Optimize_Minify_Cache_Functions', 'reset'));
 		// Output asset preload placeholder, replaced by premium
 		add_action('wpo_minify_settings_tabs', array($this, 'output_assets_preload_placeholder'), 10, 1);
 

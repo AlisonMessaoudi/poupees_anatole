@@ -873,6 +873,8 @@ class WP_Optimize_Minify_Functions {
 				// Brizy Editor
 				'brizy-edit',
 				'brizy-edit-iframe',
+				// Beaver builder
+				'fl_builder',
 			);
 			return (bool) count(array_intersect($excluded_params, $get_params));
 		}
@@ -910,6 +912,7 @@ class WP_Optimize_Minify_Functions {
 			'elementor-admin-bar',
 			'pdfjs-dist',
 			'wordpress-popular-posts',
+			'uploads/bb-plugin/cache', // Beaver builder page specific pages
 		));
 	}
 

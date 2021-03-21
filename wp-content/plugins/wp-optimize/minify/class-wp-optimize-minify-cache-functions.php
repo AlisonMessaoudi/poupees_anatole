@@ -270,13 +270,14 @@ class WP_Optimize_Minify_Cache_Functions {
 			include_once WPO_PLUGIN_MAIN_PATH . '/minify/class-wp-optimize-minify-config.php';
 		}
 		$cache_time = wp_optimize_minify_config()->get('last-cache-update');
+		$cache_lifespan = wp_optimize_minify_config()->get('cache_lifespan');
 
 		/**
 		 * Minify cache lifespan
 		 *
 		 * @param int The minify cache expiry timestamp
 		 */
-		$expires = apply_filters('wp_optimize_minify_cache_expiry_time', time() - 86400 * 30);
+		$expires = apply_filters('wp_optimize_minify_cache_expiry_time', time() - 86400 * $cache_lifespan);
 		$log = array();
 
 		// get all directories that are a direct child of current directory

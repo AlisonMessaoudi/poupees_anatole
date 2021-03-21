@@ -158,7 +158,7 @@ $plugin_help_url = 'https://www.webtoffee.com/gdpr-cookie-consent-plugin-basic-v
 
                 $plugin_data = (isset($script_data[$plugin]) ? $script_data[$plugin] : '');
                 if (!empty($plugin_data)) {
-                    if (defined($data['constant_or_function']) || function_exists($data['constant_or_function']) || class_exists($data['constant_or_function'])) {
+                    if (defined($data['identifier']) || function_exists($data['identifier']) || class_exists($data['identifier'])) {
                         $plugin_data['active'] = true;
                         $enabled_plugins[$plugin] = $plugin_data;
                     } else {

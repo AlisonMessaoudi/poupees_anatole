@@ -64,11 +64,11 @@ class Cookie_Law_Info_Cookie_Scaner extends Cookie_Law_Info_Cookieyes {
 		);
 		add_action( 'admin_menu', array( $this, 'add_admin_pages' ), 5 );
 		add_action( 'wt_cli_cookie_scanner_body', array( $this, 'scanner_notices' ) );
-		// add_action( 'wt_cli_cookie_scanner_results', array( $this, 'display_scan_results' ) );
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'admin_init', array( $this, 'export_result' ) );
 		add_filter( 'wt_cli_cookie_scan_status', array( $this, 'check_scan_status' ) );
 		register_activation_hook( CLI_PLUGIN_FILENAME, array( $this, 'activator' ) );
+		add_action('wt_cli_initialize_plugin', array( $this, 'activator' ) );
 		add_action(
 			'rest_api_init',
 			function () {
@@ -151,7 +151,7 @@ class Cookie_Law_Info_Cookie_Scaner extends Cookie_Law_Info_Cookieyes {
 			    `current_action` VARCHAR(50) NOT NULL,
 			    `current_offset` INT NOT NULL DEFAULT '0',
 			    PRIMARY KEY(`id_cli_cookie_scan`)
-            );";
+            ) $charset_collate;";
 
 			dbDelta( $create_table_sql );
 		}
@@ -167,7 +167,7 @@ class Cookie_Law_Info_Cookie_Scaner extends Cookie_Law_Info_Cookieyes {
 			    `scanned` INT NOT NULL DEFAULT '0',
 			    `total_cookies` INT NOT NULL DEFAULT '0',
 			    PRIMARY KEY(`id_cli_cookie_scan_url`)
-            );";
+            ) $charset_collate;";
 
 			dbDelta( $create_table_sql );
 		}
@@ -683,7 +683,7 @@ class Cookie_Law_Info_Cookie_Scaner extends Cookie_Law_Info_Cookieyes {
 	 */
 	public function get_table_missing_notice() {
 
-		$message  = __( 'To scan cookies following tables should be present on your database, please check if tables do exist on your database.', 'cookie-law-info' );
+		$message  = __( 'To scan cookies following tables should be present on your database, please check if tables do exist on your database. If not exist please try to deactivate and activate the plugin again.', 'cookie-law-info' );
 		$message .= '<ul>';
 		$message .= '<li>{$wpdb->prefix}cli_cookie_scan</li>';
 		$message .= '<li>{$wpdb->prefix}cli_cookie_scan_url</li>';

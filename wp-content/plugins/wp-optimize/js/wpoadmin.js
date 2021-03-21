@@ -619,15 +619,22 @@ var WP_Optimize = function () {
 		// don't run optimization if optimization active.
 		if (true == $('.optimization_button_' + id).prop('disabled')) return;
 
-		$('#optimization_checkbox_' + id).hide();
-		$('#optimization_spinner_' + id).show();
-		$('.optimization_button_' + id).prop('disabled', true);
-
-		$('#optimization_info_' + id).html('...');
+		var no_queue_actions_added = false;
 
 		// Check if it is DB optimize.
 		if ('optimizetables' == id) {
-			var optimization_tables = $('#wpoptimize_table_list #the-list tr');
+			var optimization_tables = $('#wpoptimize_table_list #the-list tr'),
+				filter_by_blog_id = $('#wpo_sitelist_moreoptions').length > 0 && $('#wpo_sitelist_moreoptions').is(':visible'),
+				selected_sites = [];
+			
+			// Get list of selected sites.
+			if (filter_by_blog_id) {
+				selected_sites = $('#wpo_sitelist_moreoptions input[type="checkbox"]:checked').map(function() {
+					 return parseInt($(this).val());
+					}).get();
+			}
+			
+			no_queue_actions_added = true;
 
 			// Check if there are any tables to be optimized.
 			$(optimization_tables).each(function (index) {
@@ -638,9 +645,17 @@ var WP_Optimize = function () {
 				var table_type = $(this).data('type');
 				var table = $(this).data('tablename');
 				var optimizable = $(this).data('optimizable');
+				var blog_id = $(this).data('blog_id') ? parseInt($(this).data('blog_id')) : 1;
+				var in_selected_sites = true;
+
+				
+				// Check if table is in the list of selected sites (multisite mode).
+				if (filter_by_blog_id && -1 == selected_sites.indexOf(blog_id)) {
+					in_selected_sites = false;
+				}
 
 				// Make sure the table isnt blank.
-				if ('' != table) {
+				if ('' != table && in_selected_sites) {
 					// Check if table is optimizable or optimization forced by user.
 					if (1 == parseInt(optimizable) || optimization_force) {
 						var data = {
@@ -649,7 +664,10 @@ var WP_Optimize = function () {
 							optimization_table_type: table_type,
 							optimization_force: optimization_force
 						};
+						
 						queue.enqueue(data);
+
+						no_queue_actions_added = false;
 					}
 				}
 			});
@@ -668,6 +686,16 @@ var WP_Optimize = function () {
 		} else {
 			queue.enqueue(id);
 		}
+
+		// if new actions was not added in tasks queue then we don't process queue.
+		if (no_queue_actions_added) return;
+
+		$('#optimization_checkbox_' + id).hide();
+		$('#optimization_spinner_' + id).show();
+		$('.optimization_button_' + id).prop('disabled', true);
+
+		$('#optimization_info_' + id).html('...');
+
 		process_queue();
 	}
 

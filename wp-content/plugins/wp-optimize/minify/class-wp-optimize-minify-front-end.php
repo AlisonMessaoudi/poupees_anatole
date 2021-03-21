@@ -30,6 +30,10 @@ class WP_Optimize_Minify_Front_End {
 	public function __construct() {
 		// Main process
 		add_action('wp', array($this, 'init'));
+		
+		// Beaver builder
+		add_action('fl_builder_after_save_layout', array('WP_Optimize_Minify_Cache_Functions', 'reset'));
+
 		// extra_preload_headers is currently not available to users
 		// add_action('send_headers', array($this, 'extra_preload_headers'));
 	}

@@ -78,7 +78,7 @@ class Cookie_Law_Info {
 		} 
 		else 	
 		{
-			$this->version = '2.0.0';
+			$this->version = '2.0.1';
 		}
 		$this->plugin_name = 'cookie-law-info';
 
@@ -425,7 +425,17 @@ class Cookie_Law_Info {
 			'button_4_button_size' 			=> 'medium',
 			'button_4_style'				=> array(),
 			'button_5_style'				=> array(),   
-			   
+
+			'button_7_text'					=> 'ACCEPT ALL',
+			'button_7_url' 					=> '#',
+			'button_7_action' 				=> '#cookie_action_close_header',
+			'button_7_link_colour' 			=> '#fff',
+			'button_7_new_win' 				=> false,
+			'button_7_as_button' 			=> true,
+			'button_7_button_colour' 		=> '#61a229',
+			'button_7_button_size' 			=> 'medium',
+			'button_7_style'				=> array(),
+
 			'font_family' 					=> 'inherit', // Pick the family, not the easy name (see helper function below)
 			'header_fix'                    => false,
 			'is_on' 						=> true,
@@ -501,7 +511,12 @@ class Cookie_Law_Info {
 	    'button_4_button_colour'    => $settings['button_4_button_colour'],
 	    'button_4_button_hover'     => (self::su_hex_shift( $settings['button_4_button_colour'], 'down', 20 )),
 	    'button_4_link_colour'      => $settings['button_4_link_colour'],
-	    'button_4_as_button'      => $settings['button_4_as_button'],            
+	    'button_4_as_button'      => $settings['button_4_as_button'],
+		'button_7_button_colour'    => $settings['button_7_button_colour'],
+	    'button_7_button_hover'     => (self::su_hex_shift( $settings['button_7_button_colour'], 'down', 20 )),
+	    'button_7_link_colour'      => $settings['button_7_link_colour'],
+	    'button_7_as_button'      => $settings['button_7_as_button'],
+		'button_7_new_win'      => $settings['button_7_new_win'],            
 	    'font_family'         => $settings['font_family'],
 	    'header_fix'                    => $settings['header_fix'],
 	    'notify_animate_hide'     => $settings['notify_animate_hide'],
@@ -566,6 +581,8 @@ class Cookie_Law_Info {
 			case 'button_3_as_button':
 	        case 'button_4_new_win':
 			case 'button_4_as_button':
+			case 'button_7_new_win':
+			case 'button_7_as_button':
 			case 'scroll_close':
 			case 'scroll_close_reload':
 	        case 'accept_close_reload':
@@ -611,6 +628,8 @@ class Cookie_Law_Info {
 			case 'button_3_button_colour':   
 	        case 'button_4_link_colour':
 			case 'button_4_button_colour': 
+			case 'button_7_link_colour':
+			case 'button_7_button_colour':  
 				if ( preg_match( '/^#[a-f0-9]{6}|#[a-f0-9]{3}$/i', $value ) ) 
 				{
 					// Was: '/^#([0-9a-fA-F]{1,2}){3}$/i' which allowed e.g. '#00dd' (error)
@@ -632,10 +651,11 @@ class Cookie_Law_Info {
 			// URLs only:
 			case 'button_1_url':
 			case 'button_2_url':
-	                case 'button_3_url':
-	                case 'button_4_url':                    
-				$ret = esc_url( $value );
-				break;
+			case 'button_3_url':
+			case 'button_4_url': 
+			case 'button_7_url':                        
+			$ret = esc_url( $value );
+			break;
 			// Basic sanitisation for all the rest:
 			default:
 				$ret = self::wt_cli_clean( $value );

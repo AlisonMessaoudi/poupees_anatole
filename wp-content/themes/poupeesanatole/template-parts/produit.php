@@ -14,7 +14,7 @@ get_header();
         <h2>Le Shop</h2>
         
         <button>
-            <a href="<?php echo home_url('/panier'); ?>"><i class="fa fa-shopping-basket"></i>&nbsp;Mon panier (1)</a>
+            <a href="<?php echo home_url('/panier'); ?>"><ion-icon name="basket-outline"></ion-icon>&nbsp;Mon panier (1)</a>
         </button>
     
     </div>

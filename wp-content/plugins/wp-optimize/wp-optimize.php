@@ -3,7 +3,7 @@
 Plugin Name: WP-Optimize - Clean, Compress, Cache
 Plugin URI: https://getwpo.com
 Description: WP-Optimize makes your site fast and efficient. It cleans the database, compresses images and caches pages. Fast sites attract more traffic and users.
-Version: 3.1.7
+Version: 3.1.8
 Author: David Anderson, Ruhani Rabin, Team Updraft
 Author URI: https://updraftplus.com
 Text Domain: wp-optimize
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) die('No direct access allowed');
 
 // Check to make sure if WP_Optimize is already call and returns.
 if (!class_exists('WP_Optimize')) :
-define('WPO_VERSION', '3.1.7');
+define('WPO_VERSION', '3.1.8');
 define('WPO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WPO_PLUGIN_MAIN_PATH', plugin_dir_path(__FILE__));
 define('WPO_PREMIUM_NOTIFICATION', false);
@@ -424,6 +424,8 @@ class WP_Optimize {
 		if (is_multisite()) {
 			add_action('network_admin_menu', array($this, 'admin_menu'));
 		}
+
+		add_filter('robots_txt', array($this, 'robots_txt'), 99, 1);
 
 		// Run Premium loader if it exists
 		if (file_exists(WPO_PLUGIN_MAIN_PATH.'premium.php') && !class_exists('WP_Optimize_Premium')) {
@@ -1174,6 +1176,7 @@ class WP_Optimize {
 			'run_optimizations' => __('Run optimizations', 'wp-optimize'),
 			'table_optimization_timeout' => 120000,
 			'cancel' => __('Cancel', 'wp-optimize'),
+			'cancelling' => __('Cancelling...', 'wp-optimize'),
 			'enable' => __('Enable', 'wp-optimize'),
 			'disable' => __('Disable', 'wp-optimize'),
 			'please_select_settings_file' => __('Please, select settings file.', 'wp-optimize'),
@@ -2307,6 +2310,14 @@ class WP_Optimize {
 		}
 
 		$wpdb->query("DELETE FROM {$wpdb->options} WHERE " . join(' OR ', $where_parts));
+	}
+
+	/**
+	 * Prevents bots from indexing plugins list
+	 */
+	public function robots_txt($output) {
+		$output .= "Disallow: /uploads/wpo-plugins-tables-list.json";
+		return $output;
 	}
 }
 

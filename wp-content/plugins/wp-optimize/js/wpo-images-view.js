@@ -84,18 +84,19 @@ WP_Optimize_Images_View = function(settings) {
 		}
 
 		var image_id = $(this).attr('id');
-
-		if ('' == last_clicked_image_id || 0 == $('#'+last_clicked_image_id).length || false == ctrl_shift_on_image_held) {
+		if ('' === last_clicked_image_id || 0 === $('#'+last_clicked_image_id).length || false === ctrl_shift_on_image_held) {
 			select_images(image_id, null, true === $(this).prop('checked'));
 		} else {
 			if (ctrl_shift_on_image_held) {
-				select_images(last_clicked_image_id, image_id, true === $(this).prop('checked'));
-				last_clicked_image_id = '';
+				if (1 === get_selected_images().length) {
+					select_images('', image_id, true === $(this).prop('checked'));
+				} else {
+					select_images(last_clicked_image_id, image_id, true === $(this).prop('checked'));
+				}
 			} else {
 				select_images(image_id, null, true === $(this).prop('checked'));
 			}
 		}
-
 		last_clicked_image_id = image_id;
 	});
 
@@ -118,7 +119,7 @@ WP_Optimize_Images_View = function(settings) {
 			done = false;
 
 		// if set first and last ids then go through the list.
-		if (last_id) {
+		if (last_id && first_id) {
 			// get positions in then list.
 			index1 = $(checkbox_selector).index($('#' + first_id));
 			index2 = $(checkbox_selector).index($('#' + last_id));

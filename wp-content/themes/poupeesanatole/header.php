@@ -48,8 +48,8 @@
                 <!-- BOUTONS CONNEXION -->
                 <div class="row connexion">
 
-                    <i class="col-lg-5 fa fa-shopping-basket"></i>
-                    <i class="col-lg-5 fa fa-user"></i>
+                    <ion-icon name="person-outline"></ion-icon>
+                    <ion-icon name="basket-outline"></ion-icon>
 
                 </div>
                 
