@@ -16,7 +16,7 @@ get_header();
         <!-- BLOC TEXTE -->
         <div class="col-lg-7 project__bloc__txt">
 
-            <h2>Le Projet</h2>
+            <h2 class="appear">Le Projet</h2>
 
             <p>Le projet des Poupées Anatoles consiste à mettre à disposition des institutions et des professionnels accompagnant les personnes en situation de handicap un outil qui permet d'<span>aborder de façon respectueuse et adaptée le corps et les rapports amoureux.</span></p>
 
@@ -67,7 +67,7 @@ get_header();
                 <!-- BLOC TEXTE -->
                 <div class="col-lg-6 illustration__txt__left">
                     
-                    <h2>Les Poupées</h2>
+                    <h2 class="appear" data-delai="0">Les Poupées</h2>
 
                     <p><span>Ces poupées sont inclusives.</span> Les différentes morphologies, âges, et origines sont représentées par chacune d'entre elles. Également, nous avons voulu représenter des éléments trop peu visibles sur les représentations habituelles des femmes et des hommes. Ici, nous pouvons parler de poils, de hanches épaisses et de seins tombants, de vulves et de pénis...</p>
                 
@@ -103,173 +103,25 @@ get_header();
     <section class="container collaborateurs">
 
         <!-- TITRE : LES COLLABORATEURS -->
-        <div class="row collaborateurs__titre">
+        <div class="row mr-0 ml-0 collaborateurs__titre">
                 
-            <h2>Collaborateurs</h2>
+            <h2 class="appear">Collaborateurs</h2>
             
-            <button>
-                <a href="<?php echo home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
-            </button>
+            <div class="btn_redirection">
+            
+                <button>
+                    <a href="<?php echo home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                </button>
+            
+            </div>
         
         </div>
 
         <!-- LISTE DES COLLABORATEURS -->
         <div id="slider__collaborateurs" class="slider__wrapper liste__collaborateurs owl-carousel">
 
-            <!-- COLLABORATEUR 1 -->
-            <div class="collaborateur">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_thomasHuard.png" alt="Portrait de Thomas Huard - Porteur du projet les Poupées Anatoles"/>
-
-                <h4>Porteur de projet</h4>
-
-                <p>Thomas Huard
-
-                <br/>
-                <br/>
-                
-                <span>Designer, Créateur d'outils pédagogique</span>
+            <?php get_template_part('/template-parts/sliderCollaborateurs'); ?>
             
-                </p>
-
-                <div class="more__round">
-                    <a href="<?php echo home_url('/collaborateurs/#huard'); ?>"><i class="fa fa-plus"></i></a>
-                </div>
-
-            </div>
-
-            <!-- COLLABORATEUR 2 -->
-            <div class="collaborateur">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_sheilaWarembourg.png" alt="Portrait de Sheila Warembourg - Collaborateur du projet les Poupées Anatoles"/>
-
-                <h4>Experts</h4>
-
-                <p>Sheila Warembourg
-                
-                <br/>
-                <br/>
-
-                <span>Diplômée en Sexologie <br/> et Santé Publique, <br/>Formatrice sexologue</span>
-                
-                </p>
-
-                <div class="more__round">
-                    <a href="<?php echo home_url('/collaborateurs/#sheila'); ?>"><i class="fa fa-plus"></i></a>
-                </div>
-
-            </div>
-
-            <!-- COLLABORATEUR 3 -->
-            <div class="collaborateur">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_libreObjet.png" alt="Logo de Libre Objet - Collaborateur du projet les Poupées Anatoles"/>
-
-                <h4>Fabricant</h4>
-
-                <p>Libre Objet
-
-                <br/>
-                <br/>
-
-                <span>Atelier d'insertion</span>
-            
-                </p>
-
-                <div class="more__round">
-                    <a href="<?php echo home_url('/collaborateurs/#libreObjet'); ?>"><i class="fa fa-plus"></i></a>
-                </div>
-
-            </div>
-
-            <!-- COLLEBORATEUR 4 -->
-            <div class="collaborateur">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_GeraldineMathieu.png" alt="Portrait de Geraldine Mathieu - Collaborateur du projet les Poupées Anatoles"/>
-
-                <h4>Développement<br/>des Prototypes</h4>
-
-                <p>Géraldine Mathieu
-                
-                <br/>
-                <br/>
-
-                <span>Couturière</span>
-            
-                </p>
-
-                <div class="more__round">
-                    <a href="<?php echo home_url('/collaborateurs/#mathieu'); ?>"><i class="fa fa-plus"></i></a>
-                </div>
-
-            </div>
-
-            <!-- COLLABORATEUR 5 -->
-            <div class="collaborateur">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/05_logoPartenaires/logo_tango&Scan.png" alt="Logo de Tango&Scan - Financeur du projet les Poupées Anatoles"/>
-
-                <h4>Financeurs</h4>
-
-                <p>Tango&Scan
-                    
-                <br/>
-                <br/>
-                
-                <span>Appel à projets</span>
-                
-                </p>
-
-                <div class="more__round">
-                    <a href="<?php echo home_url('/collaborateurs/#tango'); ?>"><i class="fa fa-plus"></i></a>
-                </div>
-
-            </div>
-
-            <!-- COLLABORATEUR 6 -->
-            <div class="collaborateur">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_MarionHulot.png" alt="Portrait de Geraldine Marion Hulot - Collaborateur du projet les Poupées Anatoles"/>
-
-                <h4>Création des Prototypes</h4>
-
-                <p>Marion Hulot
-
-                <br/>
-                <br/>
-                
-                <span>Couturière</span>
-                
-                </p>
-
-                <div class="more__round">
-                    <a href="<?php echo home_url('/collaborateurs/#hulot'); ?>"><i class="fa fa-plus"></i></a>
-                </div>
-
-            </div>
-
-            <!-- COLLABORATEUR 7 -->
-            <div class="collaborateur">
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/02_portraitsPartenaires/portrait_AlisonMessaoudi.png" alt="Portrait d'Alison Messaoudi - Collaborateur du projet les Poupées Anatoles"/>
-
-                <h4>Développement du site internet</h4>
-
-                <p>Alison Messaoudi
-
-                <br/>
-                <br/>
-                
-                <span>Développeuse web et web-designeuse</span>
-                
-                </p>
-
-                <div class="more__round">
-                    <a href="<?php echo home_url('/collaborateurs/#messaoudi'); ?>"><i class="fa fa-plus"></i></a>
-                </div>
-
-            </div>
-
         </div>
 
     </section>
@@ -279,56 +131,15 @@ get_header();
 
         <!-- TITRE DOCUMENTS -->
         <div class="titre_documents">
-            <h2>Les documents pour aller plus loin</h2>
+        
+            <h2 class="appear" data-delai="0">Les documents pour aller plus loin</h2>
+        
         </div>
 
         <!-- LISTE DES DOCUMENTS -->
         <div class="liste__documents">
 
-            <!-- DOCUMENT 1 -->
-            <div class="document">
-
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/08_documents/document_01.png" alt="Dossier de création - Projet les Poupées Anatoles"/></a>
-
-                <div class="document__txt">
-                
-                    <h4>Dossier de Création</h4>
-
-                    <p>Thomas Huard<br/>2020</p>
-                
-                </div>
-
-            </div>
-
-            <!-- DOCUMENT 2 -->
-            <div class="document">
-
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/08_documents/document_02.png" alt="Retour d'expérimentations - Projet les Poupées Anatoles"/></a>
-
-                <div class="document__txt">
-                    
-                    <h4>Retour <br/> d'expérimentations</h4>
-
-                    <p>2021</p>
-                
-                </div>  
-
-            </div>
-
-            <!-- DOCUMENT 3 -->
-            <div class="document">
-
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/08_documents/document_03.png" alt="Ressources - Projet les Poupées Anatoles"/></a>
-
-                <div class="document__txt">
-                    
-                    <h4>Ressources</h4>
-
-                    <p></p>
-                
-                </div>
-
-            </div>
+            <?php get_template_part('/template-parts/sliderDocuments'); ?>
 
         </div>
 

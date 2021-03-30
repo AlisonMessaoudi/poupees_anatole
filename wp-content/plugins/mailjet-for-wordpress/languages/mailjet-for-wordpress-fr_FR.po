@@ -1544,10 +1544,10 @@ msgid "list"
 msgstr "45123"
 
 msgid "language_mandatory_email"
-msgstr ""
+msgstr "Adresse mail"
 
 msgid "language_mandatory_button"
-msgstr ""
+msgstr "S'abonner"
 
 msgid "confirmation_email_message_input"
 msgstr ""

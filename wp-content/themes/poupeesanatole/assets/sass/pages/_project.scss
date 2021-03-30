@@ -1,4 +1,5 @@
 /* GENERAL */
+
     .project__intro, .project__presentation__formes {
         max-width: 890px;
         margin: auto;
@@ -73,9 +74,14 @@
     /* SECTION 3 : COLLABORATEURS */
     .site__project .collaborateurs {
         margin-top: 0;
-        height: nth($height, 4);
+        height: 570px;
+        max-width: 890px;
         & .collaborateurs__titre {
             margin-top: 5rem;
+            justify-content: space-between;
+            & h2 {
+                margin-left: 2.5rem;
+            }
         }
         /* Collaborateur */
         & .collaborateur {
@@ -85,6 +91,8 @@
     /* SECTION 4 : DOCUMENTS */
     .documents {
         height: 400px;
+        max-width: 890px;
+        margin-bottom: 3rem;
         @include column();
         justify-content: center;
         & h2 {
@@ -96,12 +104,13 @@
             max-width: 750px;
             @include row();
             justify-content: space-between;
-            padding-top: 1.5rem;
-            margin-left: 2.5rem;
+            padding-top: 0;
+            margin: auto;
             /* Document */
             & .document {
                 @include column_center();
                 justify-content: flex-start;
+                margin: 1rem;
                 /* Document texte */
                 & .document__txt {
                     @include column();
@@ -114,8 +123,14 @@
                     & p {
                         font-size: nth($font-size, 2);
                         font-weight: $normal-weight;
+                        margin-bottom: 0;
                     }
                 }
+            }
+            & .document:hover {
+                border: solid 0.2rem black;
+                margin:0.35rem;
+                padding:0.5rem;
             }
         }
     }
@@ -218,14 +233,10 @@
         }
         & .liste__documents {
             display: grid;
-            overflow-x: scroll;
             grid-template-columns: repeat(3, auto);
             column-gap: 30px;
             flex-wrap: nowrap;
-            margin-left: 2.5rem;
-
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+            margin: auto;
         }
         & .liste__documents::-webkit-scrollbar {
             display: none;

@@ -58,7 +58,7 @@ $wrapper_classes   = apply_filters(
 		echo apply_filters(
 			'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
 			sprintf(
-				'<div class="shop__panier"><a href="%s" data-quantity="%s" class="%s" %s><i class="fa fa-shopping-basket"></i></a></div>',
+				'<div class="shop__panier"><a href="%s" data-quantity="%s" class="%s" %s><ion-icon name="basket-outline"></ion-icon></a></div>',
 				esc_url( $product->add_to_cart_url() ),
 				esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
 				esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),

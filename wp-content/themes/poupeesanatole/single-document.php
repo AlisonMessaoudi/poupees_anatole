@@ -38,17 +38,17 @@ get_header();
 
             <p class="document">Document 1</p>
 
-            <h2><?php get_post_meta(get_the_ID(), 'metabox_titredocument', true); ?></h2>
+            <h2><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['titre']; ?></h2>
 
-            <p class="date"><span class="auteur"><?php get_post_meta(get_the_ID(), 'metabox_auteurdocument', true); ?></span>, <?php get_post_meta(get_the_ID(), 'metabox_anneedocument', true); ?></p>
+            <p class="date"><span class="auteur"><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['auteur']; ?></span>, <?= get_post_meta(get_the_ID(), 'metabox_document', true) ['annee']; ?></p>
 
             <p class="resume">Résumé</p>
 
-            <p class="description"><?php get_post_meta(get_the_ID(), 'metabox_resumedocument', true); ?></p>
+            <p class="description"><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['resume']; ?></p>
 
             <div class="btn_redirection">
                 <button>
-                    <a href="<?php get_post_meta(get_the_ID(), 'metabox_liendocument', true); ?>">Lire le document</a>
+                    <a href="<?= get_post_meta(get_the_ID(), 'metabox_document', true) ['lien']; ?>">Lire le document</a>
                 </button>
             </div>
 

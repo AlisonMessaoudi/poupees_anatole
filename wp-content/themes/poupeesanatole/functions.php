@@ -24,6 +24,8 @@
 
             wp_enqueue_style('ionicons', "https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" );
 
+            wp_enqueue_style('animatecss', "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
             /* SCRIPT */
 
                 // wp_enqueue_script('jquery');
@@ -42,6 +44,9 @@
 
                 /* MORE */
                 wp_enqueue_script('core', get_template_directory_uri().'/assets/js/more.js', array('jquery'), false, true);
+
+                /* FADEIN */
+                wp_enqueue_script('core', get_template_directory_uri().'/assets/js/fadeIn.js', array('jquery'), false, true);
 
                 /* IONICONS */
                 wp_enqueue_script('ionicons', 'https://unpkg.com/ionicons@5.4.0/dist/ionicons.js');
@@ -75,11 +80,48 @@
             );}
         }
 
+        /* LOAD MORE PRODUCT */
+        function misha_my_load_more_scripts(){
+
+            global $wp_query ;
+ 
+            wp_register_script ('my_loadmore', get_stylesheet_directory_uri().'/assets/js/myloadmore.js' , array( 'jquery'));
+
+            wp_localize_script('my_loadmore', 'misha_loadmore_params', array( 
+                'ajaxurl' => site_url(). '/wp-admin/admin-ajax.php',
+                'posts' => json_encode($wp_query -> query_vars),
+                'current_page' => get_query_var('paged') ? get_query_var('paged'):1,
+                'max_page' => $wp_query -> max_num_pages 
+            ));
+         
+            wp_enqueue_script ('my_loadmore');
+        }
+
+        function misha_loadmore_ajax_handler(){
+ 
+            $args = json_decode( stripslashes( $_POST['query'] ), true );
+            $args['paged'] = $_POST['page'] + 1;
+            $args['post_status'] = 'publish';
+         
+            query_posts( $args );
+         
+            if ( wc_get_loop_prop( 'total' ) ) {
+                while ( have_posts() ) {
+                    the_post();
+                    do_action( 'woocommerce_shop_loop' );
+                    wc_get_template_part( 'content', 'product' );
+                }
+            }
+        }
+
         /* ACTIONS */
 
         add_action('after_setup_theme', 'poupeesanatole_supports');
         add_action('wp_enqueue_scripts', 'poupeesanatole_register_assets');
         add_action('after_setup_theme','woocommerce_support');
+        add_action('wp_enqueue_scripts', 'misha_my_load_more_scripts');
+        add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler');
+        add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler');
 
     /* FILTER */
 

@@ -1,234 +1,83 @@
-/* SECTION 1 : INTRODUCTION */
-.home__intro {
-    background-color: $color-primary;
-    height: nth($height, 3);
-    & .row {
-        height: nth($height, 5);
-    }
-}
-    /* BLOC IMAGE */
-    .home__bloc__img {
-        position: relative;
-        @include row_center();
-        justify-content: flex-end;
-        /* Forme image */
-        & .forme__img__gauche {
-            position: absolute;
-        }
-        /* Intro image */
-        & .forme__img__center {
-            z-index: 10;
-            margin-right: 4rem;
-        }
-        /* Forme image */ 
-        & .forme__img__droite {
-            position: absolute;
-            z-index: 11;
-        }
-    }
-    /* BLOC TEXTE */
-    .home__bloc__txt {
-        @include column_center();
-        align-items: flex-start;
-        & p {
-            font-size: nth($font-size, 2);
-            font-weight: $semibold-weight;
-            max-width: 44%;
-            margin: 1.5rem 0;
-        }
-        /* BOUTON REDIRECTION */
-        & .bloc__btn button a {
-            font-weight: $semibold-weight;
-            & i {
-                font-size: nth($font-size, 1)
-            }
-        } 
-    }
+.site__home {
+    /* SECTION 1 : SLIDER HOME */
+    /* c.f. : _sliderHome.scss */
 
-/* SECTION 2 : PRESENTATION POUPÉES */
-.poupees__presentation {
-    height: nth($height, 4);
-    @include row_center();
-}
-    /* BLOC FORMES */
-    .poupees__presentation__formes {
-        position: relative;
-        width: nth($width, 5);
-        /* Forme left */
-        & .forme__left {
-            position: absolute;     
-        }
-        /* Forme right */
-        & .forme__right {
-            position: absolute;
-        }
-    }
-    /* BLOC ILLUSTRATION */
-    .poupee__presentation__illustration {
-        /* Illustration right */
-        & .illustration__img__right {
-            @include row();
-            justify-content: flex-end;
-            padding-right: 4rem;
-            & img {
-                width: nth($width, 2);
-            }
-        }
-        /* Texte right */
-        & .illustration__txt__right {
-            @include row_center();
-            justify-content: flex-start;
-        }
-        /* Texte left */
-        & .illustration__txt__left {
-            @include row_center();
-            justify-content: flex-end;
-            & h3 {
-                text-align: right;
-            }
-        }
-        /* Illustration left */
-        & .illustration__img__left {
-            @include row();
-            justify-content: flex-start;
-            padding-left: 4rem;
-            & img {
-                width: nth($width, 2);
-            }
-        }
-
-    }
-
-/* SECTION 3 : SHOP SLIDER */
-.shop, .collaborateurs {
-    height: 430px;
-    @include column();
-    justify-content: center;
-    & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-        display: block !important;
-    }
-}
-
-    /* Titre et redirection */
-    .shop__titre, .collaborateurs__titre {
-        @include row();
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: nowrap;
-        margin-left: 2.5rem;
-        margin-bottom: 2.5rem;
-        & h2 {
-            margin: 0;
-        }
-        & button a i {
-            font-size: nth($font-size, 3);
-        }
-    }
-    /* SLIDER */
-    .slider__wrapper {
-        min-width: 110vw;
-        flex-wrap: nowrap;
-        margin-left: 2.5rem;
-        & img {
-            min-height: 200px; 
-        }
-        & .owl-nav .owl-prev {
-            position: absolute;
-            top: 18%;
-            left: -3%;
-            color: #000 !important;
-            font-size: 500% !important;
-        }
-        & .owl-nav .owl-next {
-            position: absolute;
-            top: 18%;
-            left: 68%;
-            color: #000 !important;
-            font-size: 500% !important;
-        }
-    }
-    /* CARD */
-    .card__shop {
-        position: relative;
-        /* Nom produit */
-        & h5 {
-            padding-top: 1rem;
-        }
-        /* Bouton panier */
-        & .shop__panier {
-            background-color: $color-primary;
-            color: $color-base-background;
-            padding: 0.8rem;
-            width: nth($width, 1);
-            @include row_center();
-            position: absolute;
-            bottom: 11.9%;
-            right: 0%;
-        }
-    }
-
-/* SECTION 4 : COLLABORATEURS */
-.collaborateurs {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    & .slider__wrapper {
-        & .owl-nav .owl-prev {
-            position: absolute;
-            top: 35%;
-            left: -3%;
-            color: #000 !important;
-            font-size: 500% !important;
-        }
-        & .owl-nav .owl-next {
-            position: absolute;
-            top: 35%;
-            left: 68%;
-            color: #000 !important;
-            font-size: 500% !important;
-        }
-    }
-}   
-    /* Liste des collaborateurs */
-    .liste__collaborateurs {
-        /* Collaborateur */
-        & .collaborateur {
-            min-height: 430px;
-            text-align: center;
-            width: 200px;
-            border-bottom: none;
-            padding: 2rem 0;
-            position: relative;
-            & img {
-                min-height: 200px;
-                object-fit: none;
-                object-position: center;
-                width: 100%;
-            }
-        }
-            & h4 {
-                padding-top: 2rem;
-                font-size: nth($font-size, 1);
-            }
-            & p {
-                font-weight: $bold-weight;
-                font-size: nth($font-size, 1);
-                line-height: 1.1rem;
-                & span {
-                    font-style: italic;
-                    font-weight: $medium-weight;
+    /* SECTION 2 : INTRODUCTION */
+    & .home__intro {
+        background-color: $color-primary;
+        height: nth($height, 3);
+        & .bloc__introduction {
+            height: nth($height, 5);
+            /* BLOC IMAGE */
+            & .home__bloc__img {
+                position: relative;
+                @include row_center();
+                justify-content: flex-end;
+                /* Forme image */
+                & .forme__img__gauche, .forme__img__droite  {
+                    position: absolute;
+                }
+                /* Intro image */
+                & .forme__img__center {
+                    z-index: 10;
+                    margin-right: 4rem;
+                }
+                /* Forme image droite */
+                .forme__img__droite {
+                    z-index: 11;
                 }
             }
-            & .more__round .fa {
-                border: 2px solid $color-base;
-                border-radius: 100%;
-                width: 18%;
-                padding: 0.5rem;
-                position: absolute;
-                bottom: 0;
-                left: 40%;
-                color: $color-base;
+            /* BLOC TEXTE */
+            & .home__bloc__txt {
+                @include column_center();
+                align-items: flex-start;
+                & p {
+                    font-size: nth($font-size, 2);
+                    font-weight: $semibold-weight;
+                    max-width: 44%;
+                    margin: 1.5rem 0;
+                }
+                /* BOUTON REDIRECTION */
+                & .bloc__btn button a {
+                    font-weight: $semibold-weight;
+                    & i {
+                        font-size: nth($font-size, 1)
+                    }
+                } 
             }
+        }
     }
+
+    /* SECTION : SHOP ET COLLABORATEURS */
+    & .shop, .collaborateurs {
+        height: 430px;
+        @include column();
+        justify-content: center;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+            display: block !important;
+        }
+        /* Titre et redirection */
+        & .shop__titre, .collaborateurs__titre {
+            @include row_center();
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            margin-left: 4rem;
+            margin-bottom: 2.5rem;
+            width: 100%;
+            /* Bouton redirection */
+            & button a i {
+                font-size: nth($font-size, 3);
+            }
+        }
+    }
+
+    /* SECTION 3 : SHOP */
+
+    /* SECTION 4 : COLLABORATEURS */
+} 
+        
 
 /* DESKTOP AND LAPTOPS */
 @media only screen and (min-width : 1224px) {
@@ -251,28 +100,12 @@
             bottom: 15%;
         }
     }
-    
-    /* SECTION 2 : PRÉSENTATION POUPÉES */
-    
-    /* Bloc formes */
-    .poupees__presentation__formes {
-        /* Forme left */
-        & .forme__left {  
-            bottom: 5%;
-            left: -5%;
-        }
-        /* Forme right */
-        & .forme__right {
-            top: 20%;
-            right: -6%;
-        }
-    }
 }
 
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-    /* SECTION 1 : INTRODUCTION */
+    /* SECTION 2 : INTRODUCTION */
     .home__intro {
         height: 100vh;
     }
@@ -309,50 +142,7 @@
                 max-width: 78%;
             }
         }
-    /* SECTION 2 : PRÉSENTATION POUPÉES */
-    .poupees__presentation {
-        max-width: 100vw;
-        padding: 0;
-        height: nth($height, 1);
-    }
-    /* Bloc formes */
-    .poupees__presentation__formes {
-        /* Forme Left */
-        & .forme__left {
-            bottom: 40%;
-            left: -11%;
-        }
-        /* Forme Right */
-        & .forme__right {
-            top: 19%;
-            right: -28%;
-        }
-        /* Images */
-        & .forme__left img, .forme__right img {
-            width: 60%;
-        }
-    }
-    /* Bloc illustration */
-    .poupee__presentation__illustration {
-        width: nth($width, 5);
-        margin: 0;
-        /* Illustration Right et Left */
-        & .illustration__img__right, .illustration__img__left {
-            width: nth($width, 3);
-            padding: 1.5rem;
-            & img {
-                width: nth($width, 5);
-            } 
-        }
-        /* Texte Right et Left */
-        & .illustration__txt__right, .illustration__txt__left {
-            padding: 1rem 0;
-            width: nth($width, 3); 
-            & h3 {
-                font-size: 1.2rem;
-            }
-        }
-    }
+
     /* SECTION 3 : SHOP */
     .shop, .collaborateurs {
         margin-bottom: 0;

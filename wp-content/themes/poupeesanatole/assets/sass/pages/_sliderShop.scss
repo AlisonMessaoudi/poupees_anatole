@@ -1,0 +1,32 @@
+.site__home {
+    /* SLIDER SHOP */
+    & .shop {
+        /* SLIDER */
+        & .slider__wrapper {
+            min-width: 110vw;
+            flex-wrap: nowrap;
+            margin-left: 2.5rem;
+            height: 100%;
+            & .owl-stage {
+                width: 100% !important;
+                & .owl-item {
+                    width: 100% !important;
+                    & img {
+                        min-height: 200px; 
+                    }
+                }
+            }
+            /* Bouton précédent et suivant */
+            & .owl-nav .owl-prev, .owl-nav .owl-next {
+                position: absolute;
+                top: 18%;
+                left: -3%;
+                color: $color-base !important;
+                font-size: 500% !important;
+            }
+            & .owl-nav .owl-next {
+                left: 68%;
+            }
+        }
+    }
+}

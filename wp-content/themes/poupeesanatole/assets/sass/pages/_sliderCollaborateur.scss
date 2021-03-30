@@ -1,0 +1,71 @@
+.site__home, .site__project {
+    /* SLIDER COLLABORATEURS */
+    & .collaborateurs {
+        /* Liste des collaborateurs */
+        & .liste__collaborateurs {
+            /* Collaborateur */
+            & .collaborateur {
+                min-height: 430px;
+                text-align: center;
+                width: 200px;
+                border-bottom: none;
+                padding: 2rem 0;
+                position: relative;
+                & img {
+                    min-height: 200px;
+                    object-fit: scale-down;
+                    object-position: center;
+                    width: 100%;
+                }
+                & h4 {
+                    padding-top: 2rem;
+                    font-size: nth($font-size, 1);
+                }
+                & p {
+                    font-weight: $bold-weight;
+                    font-size: nth($font-size, 1);
+                    line-height: 1.1rem;
+                    & span {
+                        font-style: italic;
+                        font-weight: $medium-weight;
+                    }
+                }
+                & .more__round .fa {
+                    border: 2px solid $color-base;
+                    border-radius: 100%;
+                    width: 18%;
+                    padding: 0.5rem;
+                    position: absolute;
+                    bottom: 0;
+                    left: 40%;
+                    color: $color-base;
+                }
+                & .more__round .fa:hover {
+                    border: none;
+                    background-color: $color-primary;
+                    color: $color-base-background;
+                    padding: 0.6rem;
+                }
+            }
+        }  
+        /* SLIDER */ 
+        & .slider__wrapper {
+            min-width: 110vw;
+            flex-wrap: nowrap;
+            margin-left: 3rem;
+            & .owl-nav .owl-prev, .owl-nav .owl-next {
+                position: absolute;
+                top: 35%;
+                left: -3%;
+                color: $color-base!important;
+                font-size: 500% !important;
+            }
+            & .owl-nav .owl-next {
+                left: 68%;
+            }
+        }
+        & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+            display: block !important;
+        }  
+    } 
+}

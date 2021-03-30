@@ -1,113 +1,115 @@
 /* FOOTER */
-
-/* SECTION 1 : CONTACTEZ NOUS */
-.contact {
-    // background-image: url("assets/images/04_fonds/contact_trait.png");
-    // background-repeat: no-repeat;
-    // background-position: center;
-    height: 250px;
-}
-    /* Bloc contact */
-    .bloc__contact {
-        @include column_center();
-        height: nth($height, 5);
-        position: relative;
-        /* Forme Left */
-        & .forme__left {
-            position: absolute;
-        }
-        /* Forme right */
-        & .forme__right {
-            position: absolute;
-        }
-        & p {
-            font-size: nth($font-size, 3);
-        }
-        & button a {
-            font-size: nth($font-size, 4);
-            & i {
-                font-size: nth($font-size, 2);
+.site__footer {
+    /* SECTION : CONTACTEZ-NOUS */
+    & .contact {
+        height: 250px;
+        /* Bloc contact */
+        .bloc__contact {
+            @include column_center();
+            height: nth($height, 5);
+            position: relative;
+            & .forme {
+                position: absolute;
+            }
+            & p {
+                font-size: nth($font-size, 3);
+            }
+            & button a {
+                font-size: nth($font-size, 4);
+                & i {
+                    font-size: nth($font-size, 2);
+                }
             }
         }
     }
-/* SECTION 2 : NEWSLETTER */
-.newsletter {
-    background-color: $color-fourth;
-    color: $color-base-background;
-    height: 380px;
-    @include column();
-    justify-content: center;
-    /* Formulaire newsletter */
-    & .form__news {
+    /* SECTION : NEWSLETTER */
+    & .newsletter {
+        background-color: $color-fourth;
+        color: $color-base-background;
+        height: 380px;
         @include column_center();
-        & label {
-            font-size: 1.1rem;
-        }
-        & .mailjet_widget_front_container {
-            margin-bottom: 0;
-        }
-        /* Texte */
-        & form {
-            @include row_center();
-            & .mailjet-widget-form-group {
+        /* FORMULAIRE NEWSLETTER */
+        & .form__news {
+            @include column_center();
+            & label {
+                font-size: 1.1rem;
+            }
+            & .mailjet_widget_front_container {
                 margin-bottom: 0;
             }
-            /* Adresse mail */
-            & input[type=email] {
-                background-color: $color-input;
-                border: $border-none;
-                width: 300px;
-                padding: 0.2rem 1rem;
-                border-radius: 6px;
-            }
+            /* Formulaire mailjet */
+            & form {
+                @include row_center();
+                & .mailjet-widget-form-group {
+                    margin-bottom: 0;
+                }
+                /* Adresse mail et bouton envoyé */
+                & input[type=email], input[type=submit]{
+                    border: $border-none;
+                    border-radius: 6px;
+                } 
+                /* Adresse mail */
+                & input[type=email] {
+                    background-color: $color-input;
+                    width: 350px;
+                    padding: 0.3rem 1.5rem;
+                }
+                /* Placeholder */
                 & input::placeholder {
                     @include placeholder($color-base-background);
                 }
-            /* Bouton envoyé */
-            & input[type=submit] {
-                border: $border-none;
-                background-color: $color-secondly;
-                color: $color-base-background;
-                font-weight: $semibold-weight;
-                padding: 0.2rem 1rem;
-                margin-left: 0.5rem;
-                border-radius: 6px;
+                /* Bouton envoyé */
+                & input[type=submit] {
+                    background-color: $color-secondly;
+                    color: $color-base-background;
+                    font-weight: $bold-weight;
+                    padding: 0.3rem 1rem;
+                    margin-left: 0.5rem;
+                    width: 130px;
+                }
+                & input[type=submit]:hover {
+                    background-color: $color-base-background;
+                    color: $color-fourth;
+                    font-weight: $semibold-weight;
+                }
             }
-        }
-    }           
-}
-    
-    /* Mentions */
-    .mentions {
-        @include column_center();
-        & p {
-            text-align: center;
-            font-weight: $normal-weight;
-            font-size: nth($font-size, 1);
-        }
-        & img {
-            margin-bottom: 1rem;
-            margin-top: 2rem;
-        }
-    }
-    /* Mentions politique */
-    .mentions__politique {
-        & ul {
-            list-style-type: none;
-            @include row_center();
-            & li a {
-                color: $color-base-background;
+        } 
+        /* MENTIONS */
+        & .mentions {
+            @include column_center();
+            & p {
+                text-align: center;
+                font-weight: $normal-weight;
                 font-size: nth($font-size, 1);
-                padding: 0 1rem;
-                opacity: 0.5;
+            }
+            & img {
+                margin-bottom: 1rem;
+                margin-top: 2rem;
             }
         }
-    }
+        /* MENTIONS ET POLITIQUE DE CONFIDENTIALITE */
+        .mentions__politique {
+            & ul {
+                list-style-type: none;
+                @include row_center();
+                & li a {
+                    color: $color-base-background;
+                    font-size: nth($font-size, 1);
+                    padding: 0 1rem;
+                    opacity: 0.5;
+                }
+                & li a:hover {
+                    text-decoration: none;
+                    opacity: 1;
+                }
+            }
+        }          
+    } 
+}
 
 /* DESKTOP AND LAPTOPS */
 @media only screen and (min-width : 1224px) {
     /* SECTION 1 : CONTACTEZ NOUS */
-    /* Bloc contact */
     .bloc__contact {
         /* Forme Left */
         & .forme__left {
@@ -125,16 +127,15 @@
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-    /* SECTION 1 : CONTACTEZ NOUS */
+    /* SECTION : CONTACTEZ-NOUS */
     .contact {
-        padding: 0;
         height: 200px;
-        /* Bloc contact */
+        /* BLOC CONTACT */
         & .bloc__contact {
             /* Forme left */
             & .forme__left {
-            top: 27%;
-            left: -7%;
+                top: 27%;
+                left: -7%;
             }
             /* Forme right */
             & .forme__right {
@@ -149,13 +150,10 @@
             }
         }
     }
-    /* SECTION 2 : NEWSLETTER */
+    /* SECTION : NEWSLETTER */
     .newsletter {
-        & .form__news__input {
-            width: 360px;
-        }
         /* Adresse mail */
-        & .newsletter__input {
+        & input[type=email] {
             width: 200px;
         }
         /* Mentions et politique */

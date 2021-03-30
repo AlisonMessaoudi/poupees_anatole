@@ -15,30 +15,46 @@ class DocumentMetaBox {
     }
 
     public static function render($post) {
-        /* Initialisation des variables pour la récupération des données */
-        $titre = get_post_meta($post->ID, 'metabox_titredocument', true);
-        $auteur = get_post_meta($post->ID, 'metabox_auteurdocument', true);
+        // /* Initialisation des variables pour la récupération des données */
+        $metabox = get_post_meta($post->ID, 'metabox_document', true);
+
+        $titre = '';
+        $auteur = '';
+        $annee = '';
+        $resume = '';
+        $lien = '';
+
+        if(!empty($metabox)) {
+
+        $titre = $metabox['titre'];
+        $auteur = $metabox['auteur'];
+        $annee = $metabox['annee'];
+        $resume = $metabox['resume'];
+        $lien = $metabox['lien'];
+
+        }
+
         ?>
 
         <!-- Titre -->
         <label for="metabox_titredocument">Titre du document</label>
-        <input type="text" name="metabox_titredocument" value="<?php $titre;?>" placeholder="Saisissez le titre du document"/>
+        <input type="text" name="metabox_titredocument" value="<?=$titre;?>" placeholder="Saisissez le titre du document"/>
         
         <!-- Auteur -->
         <label for="metabox_auteurdocument">Auteur du document</label>
-        <input type="text" name="metabox_auteurdocument" value="<?php $auteur;?>" placeholder="Saisissez l'auteur du document"/>
+        <input type="text" name="metabox_auteurdocument" value="<?= $auteur;?>" placeholder="Saisissez l'auteur du document"/>
 
         <!-- Année -->
         <label for="metabox_anneedocument">Année</label>
-        <input type="text" name="metabox_anneedocument" placeholder="Saisissez l'année du document"/>
+        <input type="text" name="metabox_anneedocument" value="<?= $annee;?>" placeholder="Saisissez l'année du document"/>
 
         <!-- Résumé -->
         <label for="metabox_resumedocument">Résumé</label>
-        <textarea name="metabox_resumedocument" id="metabox_resumedocument" cols="30" rows="10"></textarea>
+        <textarea name="metabox_resumedocument" id="metabox_resumedocument" value="<?= $resume;?>" cols="30" rows="10"></textarea>
 
         <!-- Lien -->
         <label for="metabox_liendocument">Lien du document</label>
-        <input type="text" name="metabox_liendocument" placeholder="Saisissez le lien du document"/>
+        <input type="text" name="metabox_liendocument" value="<?= $lien;?>" placeholder="Saisissez le lien du document"/>
 
         <!-- Style du formulaire -->
         <style>
@@ -59,13 +75,9 @@ class DocumentMetaBox {
 
     
     public static function save($post_id){
+        
+        if (!empty($_POST)) {
 
-        // if('metabox_document' == $_POST['post_type']){ 
-        //     if (!current_user_can('edit_page', $post_ID)){
-
-            // global $post;
-            // $post_id = $post-> ID;
-            
             /* Initialisation de la variable document */
             $document = array(
                 /* Qui contient les valeurs des metaboxes */
@@ -78,9 +90,8 @@ class DocumentMetaBox {
             
             /*  Mise à jour des données */
             update_post_meta($post_id, 'metabox_document', $document);
-        
         }
-    //     }
-    // }
+    
+    }
 }
 ?>

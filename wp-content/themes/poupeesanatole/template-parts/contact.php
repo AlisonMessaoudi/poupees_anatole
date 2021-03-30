@@ -13,19 +13,11 @@ get_header();
     <!-- FORMULAIRE NEWSLETTER -->
     <div class="site__news">
 
-        <form action="" method="POST">
-            
-            <!-- Texte -->
-            <h2>Abonnez-vous à notre Newsletter</h2>
+        <!-- Texte -->
+        <h2>Abonnez-vous à notre Newsletter</h2>
 
-            <div class="row m-0 form__news__input">
-                <!-- Adresse mail -->
-                <input type="email" id="newsletter" class="col-lg-8 newsletter__input" name="newsletter" placeholder="Adresse mail"/>
-                <!-- Bouton envoyé -->
-                <input type="submit"class="btn_envoyer" value="Envoyer"/>
-            </div>
-
-        </form>
+        <!-- Formulaire -->
+        <?= do_shortcode( '[mailjet_subscribe widget_id="19"]' ); ?>
 
     </div>
 
@@ -45,7 +37,7 @@ get_header();
             <!-- BLOC IMAGE -->
             <div class="col-lg-4 bloc__image">
                 
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/contact.png" alt="Ensemble de poupées - Projet les Poupées Anatoles"/>
+                <img src="<?= get_template_directory_uri(); ?>/assets/images/07_images/contact.png" alt="Ensemble de poupées - Projet les Poupées Anatoles"/>
             
             </div>
 
@@ -56,20 +48,7 @@ get_header();
                 <h5>Une Question ? Une envie ? Une rencontre ?</h5>
 
                 <!-- Formulaire -->
-                <?php echo do_shortcode( '[contact-form-7 id="5" title="Contact"]' ); ?>
-
-                <!--<form action="" method="POST">
-
-                    <input type="name" id="name" class="name__input" name="name" placeholder="Nom & Prénom"/>
-
-                    <input type="email" id="email" class="email__input" name="email" placeholder="Adresse mail"/>
-
-                    <textarea id="message" class="message__input" name="message" rows="8">Message</textarea>-->
-
-                    <!-- Bouton envoyé -->
-                    <!--<input type="submit" class="btn_envoyer" value="Envoyer"/>
-
-                </form>-->
+                <?= do_shortcode( '[contact-form-7 id="5" title="Contact"]' ); ?>
 
             </div>
 
@@ -79,4 +58,4 @@ get_header();
 
 </main>
 
-<?php get_footer() ?>
+<?php get_footer('footer_entier.php') ?>

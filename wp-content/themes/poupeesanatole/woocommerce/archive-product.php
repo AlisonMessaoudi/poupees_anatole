@@ -28,10 +28,14 @@ get_header();
         <h2>Le Shop</h2>
         
         <button>
-            <a href="<?php echo home_url('/shop'); ?>"><i class="fa fa-shopping-basket"></i>&nbsp;Mon panier</a>
+            <a href="<?= home_url('/panier'); ?>"><ion-icon name="basket-outline"></ion-icon>&nbsp;Mon panier</a>
         </button>
     
     </div>
+
+	<div>
+		<?= do_shortcode('[woocommerce_product_filter_products]');?>
+	</div>
 	
 	<?php
 	if ( woocommerce_product_loop() ) {

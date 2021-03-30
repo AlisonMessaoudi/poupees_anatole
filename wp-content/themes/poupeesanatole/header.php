@@ -22,26 +22,26 @@
 
     <!-- BODY -->
     <body <?php body_class();  ?> > 
-            <!-- contient les classes : "home blog logged-in admin-bar no-customize support" -->
+        <!-- contient les classes : "home blog logged-in admin-bar no-customize support" -->
 
         <?php wp_body_open(); ?>
-            <!-- permet aux extensions tel que Yoast d'ajouter des éléments au début du body -->
+        <!-- permet aux extensions tel que Yoast d'ajouter des éléments au début du body -->
 
         <!-- HEADER -->
-        <header class="container-fluid site__header">
+        <header class="container-fluid p-0 site__header">
             
             <!-- SITE NAVBAR -->
             <nav class="navbar mt-3 navbar-expand-lg shift site__navbar">
 
-                <!-- BLOC IMAGE -->
-                <div>
+                <!-- BLOC FORMES -->
+                <div class="bloc__forme">
 
                     <!-- Forme image left -->
-                    <img class="forme__img__gauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_01.png" alt="Forme noire - illustration Poupées Anatoles"/>
+                    <img class="forme forme__img__gauche" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_01.png" alt="Forme orange - illustration Poupées Anatoles"/>
                     <!-- Forme image center -->
-                    <img class="forme__img__center" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_02.png" alt="Image d'introduction - les Poupées Anatoles"/>
+                    <img class="forme forme__img__center" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_02.png" alt="Forme jaune - illustration Poupées Anatoles"/>
                     <!-- Forme image right -->
-                    <img class="forme__img__droite" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_03.png" alt="Forme blanche - illustration Poupées Anatoles"/>
+                    <img class="forme forme__img__droite" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_03.png" alt="Forme brune - illustration Poupées Anatoles"/>
 
                 </div>
 
@@ -54,8 +54,8 @@
                 </div>
                 
                 <!-- LOGO : redirection accueil -->
-                <a href="<?php echo home_url('/'); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/logo_poupees_anatoles.png" alt="Logo projet Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."/>
+                <a href="<?= home_url('/'); ?>">
+                    <img src="<?= get_template_directory_uri(); ?>/assets/images/01_logo/logo_poupees_anatoles.png" alt="Logo les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."/>
                 </a>
 
                 <!-- MENU BURGER -->
@@ -82,4 +82,3 @@
             </nav>
         
         </header>
-

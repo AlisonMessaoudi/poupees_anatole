@@ -16,6 +16,9 @@
         @include row();
         justify-content: flex-start;
         align-items: flex-start;
+        & img {
+            width: 100%;
+        }
     }
     /* Bloc texte */
     & .collaborateur__txt { 
@@ -54,14 +57,16 @@
                 font-weight: $semibold-weight;
                 color: $color-base;
             }
+            & a:hover {
+                color: $color-primary;
+                text-decoration: none;
+            }
         }
     }
-    .contact {
-        display: none;
-    }
 }
+
 /* Dernier collaborateur */
-.collaborateur__last {
+.collaborateur:last-child {
     border-bottom: $border-none;
 }
 

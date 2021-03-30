@@ -1,80 +1,108 @@
 /* HEADER */
 .site__header {
     @include column();
-    padding: 0;
-    position: relative;
     height: 170px;
     /* SITE NAVBAR */
     & .site__navbar {
         @include column();
-        /* Forme image left */
-        & .forme__img__gauche {
+        position: relative;
+        /* Forme & Bloc connexion */
+        & .forme, .connexion {
             position: absolute;
         }
-        /* Forme image center */
-        & .forme__img__center {
-            position: absolute;
-        }
-        /* Forme image right */
-        & .forme__img__droite {
-            position: absolute;
-        }
-        /* BOUTONS CONNEXION */
-        & .connexion {
-            position: absolute;
+        & .connexion ion-icon {
+            padding-right: 1rem;
+            font-size: 1.4rem;
         }
     }
     /* MENU DESKTOP ET MOBILE DEPLOYÉ */
     & .menu__desktop {
         width: nth($width, 5);
-        & .menu-item {
-            width: 25%;
-            @include column();
-            justify-content: flex-start;
-            align-items: center;
-            height: 100px;
-            position: relative;
-        }
-        & #menu-menu-principal > li:hover > .sub-menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            position: absolute;
-            top: 25%;
-            z-index: 100;
-            & li {
-                height: 70px;
-                justify-content: center;
+        & .site__header__menu {
+            max-width: 830px;
+            margin: auto;
+            margin-top: 2rem;
+            width: nth($width, 4);
+            & .menu-item {
+                width: 25%;
+                @include column();
+                align-items: center;
+                height: 100px;
+                position: relative;
+                z-index: 100;
+                & a {
+                    color: $color-base;
+                    /* Effet de soulignement en fondu */
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        top: 2rem;
+                        transform: translateX(0%) scaleX(0);
+                        transform-origin: -50% -50%;
+                        width: 25%;
+                        height: 1px;
+                        background-color: $color-base;
+                        transition: transform 250ms;
+                    }
+                    /* Effet de soulignement en fondu */
+                    &:hover {
+                        text-decoration: none;
+                        &::after {
+                            transform: translateX(-50%) scaleX(1);
+                        }
+                    }
+                }
+                /* Page active */
+                & a[aria-current=page] {
+                    font-weight: $bold-weight;
+                }
             }
-        }
-        /* ITEM COLLABORATEURS */
-        & .sub-menu {
-            display:none;
-            width: 100%;
+            /* ITEM PROJET avec sous menu */
+            & #menu-item-83:hover {
+                background-color: rgb(243, 243, 243);
+            }
+            /* ITEM COLLABORATEURS */
+            & .sub-menu {
+                display:none;
+                width: 100%;
+            }
+            /* ITEM COLLABORATEURS : HOVER */
+            & > li:hover > .sub-menu {
+                @include row_center();
+                position: absolute;
+                top: 25%;
+                z-index: 100;
+                & li {
+                    height: 70px;
+                    justify-content: center;
+                    & a {
+                        /* Effet de soulignement en fondu */
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            left: 50%;
+                            top: 3rem;
+                            transform: translateX(0%) scaleX(0);
+                            transform-origin: -50% -50%;
+                            width: 200%;
+                            height: 1px;
+                            background-color: $color-base;
+                            transition: transform 250ms;
+                        }
+                        /* Effet de soulignement en fondu */
+                        &:hover {
+                            text-decoration: none;
+                            &::after {
+                            transform: translateX(-50%) scaleX(1);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
-    /* MENU DESKTOP ET MOBILE DEPLOYÉ */
-    .site__header__menu {
-        @include row();
-        max-width: 830px;
-        margin: auto;
-        margin-top: 2rem;
-        justify-content: space-around;
-        width: nth($width, 4);
-        & li a {
-            color: $color-base;
-        }
-        & li a:hover {
-            text-decoration: none;
-            border-bottom: 0.5px solid black;
-        }
-        & li a:active {
-            font-weight: $bold-weight;
-            text-decoration: none;
-        }
-    }
 
 /* DESKTOP AND LAPTOPS */
 @media only screen and (min-width : 1224px) {
@@ -96,12 +124,8 @@
         }
         /* BOUTONS CONNEXION */
         & .connexion {
-            top: 20%;
-            right: 25%;
-            & ion-icon {
-                padding-right: 1rem;
-                font-size: 1.4rem;
-            }
+            top: 6%;
+            right: 26%;
         }
     }
 }
@@ -114,12 +138,11 @@
         height: 125px;
         /* SITE NAVBAR */
         .site__navbar {
-        margin-top: 0 !important;
-        padding: 1.5rem 0;
-        position: relative;
+            margin-top: 0 !important;
+            padding: 1.5rem 0;
+            position: relative;
             & .site__header__menu{
-                flex-direction: column;
-                align-items: center;
+                @include column_center();
                 justify-content: space-evenly;
                 margin: 0;
                 z-index: 100;
@@ -131,18 +154,18 @@
                 height: 250px;
                 z-index: 101;
             }
-        /* Bloc image */
-            /* Forme image left */
+            /* BLOC FORMES */
+            /* Forme left */
             & .forme__img__gauche {
                 top: -40%;
                 left: 73%;
             }
-            /* Forme image center */
+            /* Forme center */
             & .forme__img__center {
                 top: -14%;
                 left: -38px;
             }
-            /* Forme image right */
+            /* Forme right */
             & .forme__img__droite {
                 display: none;
             }
@@ -160,7 +183,7 @@
                 & span { 
                     height: auto;
                     & i {
-                    font-size: 2rem;
+                        font-size: 2rem;
                     }
                 }
             }

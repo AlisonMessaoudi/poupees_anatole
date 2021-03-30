@@ -14,7 +14,7 @@ get_header();
         <h2>Le Shop</h2>
         
         <button>
-            <a href="<?php echo home_url('/panier'); ?>"><ion-icon name="basket-outline"></ion-icon>&nbsp;Mon panier (1)</a>
+            <a href="<?= home_url('/panier'); ?>"><ion-icon name="basket-outline"></ion-icon>&nbsp;Mon panier (1)</a>
         </button>
     
     </div>
@@ -24,7 +24,7 @@ get_header();
         <!-- CARD -->
         <div class="col-lg-4 card__shop">
                 
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/06_shop/shop_01.png" alt="La Famille Abricot - Les poupées anatoles" />
+            <img src="<?= get_template_directory_uri(); ?>/assets/images/06_shop/shop_01.png" alt="La Famille Abricot - Les poupées anatoles" />
 
             <div class="shop__panier">
                 <i class="fa fa-shopping-basket"></i>
@@ -56,7 +56,6 @@ get_header();
         </div>
 
     </div>
-
 
 </main>
 

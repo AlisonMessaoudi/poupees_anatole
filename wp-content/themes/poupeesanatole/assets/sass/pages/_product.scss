@@ -21,16 +21,20 @@
             max-width: 33.3333333333%;
             position: relative;
             height:10%;
-            .shop__panier {
+            & .shop__panier {
                 background-color: $color-primary;
                 padding: 0.8rem;
                 width: nth($width, 1);
                 @include row_center();
                 position: absolute;
                 bottom: 6.2%;
-                right: 8.2%;
-                & a ion-icon {
-                    color: $color-base-background;
+                right: 11.5%;
+                & a {
+                    @include row_center();
+                    & ion-icon {
+                        color: $color-base-background;
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }
@@ -50,8 +54,11 @@
     & .related {
         position: relative;
         & .card__shop {
-            a {
+            & a {
                 @include column_center();
+            }
+            & h2 {
+                margin: 0.9rem;
             }
             & .price {
                 color: $color-base;
@@ -68,7 +75,7 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
             & .shop__panier {
-                bottom: 21.9%;
+                bottom: 30.4%;
                 right: 5.2%;
                 & a i {
                     color: $color-base-background;
@@ -82,9 +89,6 @@
         & h2 {
             margin-bottom: 2.5rem;
         }
-    }
-    .contact {
-        display: none;
     }
 }
 

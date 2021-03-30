@@ -9,11 +9,23 @@ get_header();
 
 <!-- MAIN -->
 <main class="container-fluid p-0 site__home">
+
+    <!-- SECTION 1 : SLIDER HOME -->
+    <section class="container-fluid p-0 home__slider">
+
+        <!-- HOME SLIDER -->
+        <div id="slider__home" class="owl-carousel">
+            
+            <?php get_template_part('/template-parts/sliderHome'); ?>
+
+        </div>
     
-    <!-- SECTION 1 : INTRODUCTION -->
+    </section>
+    
+    <!-- SECTION 2 : INTRODUCTION -->
     <section class="container-fluid home__intro">
 
-        <div class="row">
+        <div class="row bloc__introduction">
 
             <!-- BLOC IMAGE -->
             <div class="col-lg-6 home__bloc__img">
@@ -39,71 +51,9 @@ get_header();
 
                     <button>
 
-                        <a href="<?php echo home_url('/projet'); ?>">En savoir plus&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                        <a href="<?= home_url('/projet'); ?>">En savoir plus&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
 
                     </button>
-                
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- SECTION 2 : PRESENTATION POUPÉES -->
-    <section class="container-fluid poupees__presentation">
-
-        <!-- BLOC FORMES -->
-        <div class="poupees__presentation__formes">
-
-            <!-- Forme Left -->
-            <div class="forme__left">
-            
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_06.png" alt="Forme orange - illustration Poupées Anatoles"/>
-            
-            </div>
-
-            <!-- Forme Right -->
-            <div class="forme__right">
-            
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_02.png" alt="Forme jaune - illustration Poupées Anatoles"/>
-            
-            </div>
-
-            <!-- BLOC ILLUSTRATION 1 -->
-            <div class="row poupee__presentation__illustration">
-
-                <!-- ILLUSTRATION RIGHT -->
-                <div class="col-lg-6 illustration__img__right">
-                
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/poupees_presentation.png" alt="Poupées émotives - Thomas Huard les Poupées Anatoles"/>
-                
-                </div>
-
-                <!-- TEXTE RIGHT -->
-                <div class="col-lg-6 illustration__txt__right">
-                    
-                    <h3>Des poupées émotives</h3>
-                
-                </div>
-
-            </div>
-
-            <!-- BLOC ILLUSTRATION 2 -->
-            <div class="row poupee__presentation__illustration">
-                
-                <!-- TEXTE RIGHT -->
-                <div class="col-lg-6 illustration__txt__left">
-                    
-                    <h3>Une représentation <br/> des diversités</h3>
-                
-                </div>
-
-                <!-- ILLUSTRATION RIGHT -->
-                <div class="col-lg-6 illustration__img__left">
-                    
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/poupees_presentation02.png" alt="Une représentation des diversités - Thomas Huard les Poupées Anatoles"/>
                 
                 </div>
 
@@ -119,20 +69,21 @@ get_header();
         <!-- TITRE ET REDIRECTION -->
         <div class="shop__titre">
             
-            <h2>Articles</h2>
+            <h2 class="m-0">Articles</h2>
             
+            <!-- BOUTON REDIRECTION -->
             <div class="btn_redirection">
                 <button>
-                    <a href="<?php echo home_url('/shop'); ?>">Accéder au Shop&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                    <a href="<?= home_url('/shop'); ?>">Accéder au Shop&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
                 </button>
             </div>
         
         </div>
 
         <!-- SLIDER SHOP -->
-        <div id="slider__shop" class="slider__wrapper owl-carousel">
+        <div id="slider__shop" class="slider__wrapper">
             
-            <?php get_template_part('/template-parts/sliderShop'); ?>
+            <?= do_shortcode('[products limit="6" columns="6" category="pack" class="owl-carousel"]'); ?>
 
         </div>
 
@@ -146,10 +97,13 @@ get_header();
                 
             <h2>Collaborateurs</h2>
             
+            <!-- BOUTON REDIRECTION -->
             <div class="btn_redirection">
+                
                 <button>
-                    <a href="<?php echo home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                    <a href="<?= home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
                 </button>
+            
             </div>
         
         </div>
@@ -165,4 +119,4 @@ get_header();
 
 </main>
 
-<?php get_footer(); ?>
+<?php get_footer('entier'); ?>
