@@ -28,6 +28,7 @@
                     & span {
                         font-style: italic;
                         font-weight: $medium-weight;
+                        text-overflow: '(...)';
                     }
                 }
                 & .more__round .fa {

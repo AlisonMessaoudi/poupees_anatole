@@ -83,7 +83,7 @@ get_header();
         <!-- SLIDER SHOP -->
         <div id="slider__shop" class="slider__wrapper">
             
-            <?= do_shortcode('[products limit="6" columns="6" category="pack" class="owl-carousel"]'); ?>
+            <?= do_shortcode('[products limit="6" columns="6" category="pack" class="parent_owl-carousel"]'); ?>
 
         </div>
 

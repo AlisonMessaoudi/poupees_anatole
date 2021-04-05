@@ -34,7 +34,8 @@ get_header();
     </div>
 
 	<div>
-		<?= do_shortcode('[woocommerce_product_filter_products]');?>
+		<input type="checkbox" name="pack" id="pack" value='true' onclick="filtrePack"/>
+		<label for="pack">Pack</label>
 	</div>
 	
 	<?php

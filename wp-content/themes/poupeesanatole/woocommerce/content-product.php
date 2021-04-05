@@ -25,7 +25,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 
-<li <?php wc_product_class( 'col card__shop', $product ); ?>>
+<li <?php wc_product_class( 'col-4 card__shop', $product ); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

@@ -37,7 +37,7 @@
                 wp_enqueue_script('owl-carousel', get_template_directory_uri().'/node_modules/owl.carousel/dist/owl.carousel.min.js', array('jquery'), false, true);
 
                 /* SLIDER */
-                wp_enqueue_script('slider', get_template_directory_uri().'/assets/js/slider.js', array('jquery','owl-carousel'), false, true);
+                wp_enqueue_script('slider', get_template_directory_uri().'/assets/js/slider.js', array('jquery','owl-carousel', 'jquery'), false, true);
 
                 /* INDEX */
                 wp_enqueue_script('index', get_template_directory_uri().'/assets/js/index.js', array('jquery'), false, true);

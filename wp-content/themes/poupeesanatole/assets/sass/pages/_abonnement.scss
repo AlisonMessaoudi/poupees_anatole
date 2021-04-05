@@ -1,7 +1,7 @@
-.page__404 {
+.page__abonnement {
     padding: 4rem 0;
     @include column_center();
-    & .text__404 {
+    & .text__abonnement {
         @include column_center();
         padding-top: 3rem;
         padding-bottom: 2rem;
@@ -11,6 +11,9 @@
         & h4 {
             font-size: 1.3rem;
             padding-top: 1rem;
+            width: 60%;
+            text-align: center;
+            line-height: 1.8rem;
         }
     }
     & button {

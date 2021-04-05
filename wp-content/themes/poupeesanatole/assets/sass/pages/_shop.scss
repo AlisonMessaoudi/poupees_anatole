@@ -65,7 +65,7 @@
         position: absolute;
     }
     & .shop__panier:hover{
-        width: 90.9%;
+        width: 89%;
         cursor: pointer;
     }
     
@@ -86,8 +86,8 @@
     cursor: pointer;
     & .shop__panier {
         justify-content: space-between;
-        bottom: 24.5%;
-        right: 4.7%;
+        bottom: 28%;
+        right: 5.5%;
     }
 }
 
@@ -125,27 +125,27 @@
             }
         }
     }
-    & .woocommerce-pagination {
-        @include row_center();
-        padding-top: 1.5rem;
-        & ul {
-            @include row();
-            justify-content: space-between;
-            width: 25%;
-            & li a {
-                color: $color-base;
-            }
-            & li a:hover {
-                color: $color-primary;
-                text-decoration: none;
-                cursor: pointer;
-            }
-            & li span {
-                font-weight: $black-weight;
-            }
+    // & .woocommerce-pagination {
+    //     @include row_center();
+    //     padding-top: 1.5rem;
+    //     & ul {
+    //         @include row();
+    //         justify-content: space-between;
+    //         width: 25%;
+    //         & li a {
+    //             color: $color-base;
+    //         }
+    //         & li a:hover {
+    //             color: $color-primary;
+    //             text-decoration: none;
+    //             cursor: pointer;
+    //         }
+    //         & li span {
+    //             font-weight: $black-weight;
+    //         }
 
-        }
-    }
+    //     }
+    // }
     .misha_loadmore {
         @include btn_redirection();
         font-weight: $semibold-weight;

@@ -1,0 +1,72 @@
+.page-template-maintenance {
+    overflow-y: hidden;
+    & .site__header {
+        display: none;
+    }
+}
+
+.page__maintenance {
+    @include column_center();
+    font-family: 'Neris', Arial, sans-serif;
+    height: 100vh;
+    position: relative;
+    background-image: url("assets/images/07_images/maintenance_forme.png");
+
+
+    & .forme {
+        position: absolute;
+    }
+    & .forme__img__gauche {
+        top: 25%;
+        right: 14%;
+    }
+    & .forme__img__gauche2 {
+        top: 0;
+        left: -7%;
+    }
+    & .forme__img__gauche3 {
+        bottom: 45%;
+        left: 15%;
+    }
+    & .forme__img__gauche4 {
+        bottom: 2%;
+        left: 5%;
+    }
+    & .forme__img__droite {
+        bottom: 10%;
+        right: 2%;
+    }
+    & .forme__img__center {
+        top: -5%;
+        left: 60%;
+    }
+    .container__maintenance {
+        height: 300px;
+        @include column_center();
+        justify-content: space-evenly;
+        & .text__maintenance {
+            padding: 3rem 0;
+            & h2 {
+                font-size: 2.5rem;
+            }
+        }
+        & .btn_redirection {
+            & button {
+                @include btn-redirection();
+                margin-bottom: 6rem;
+            }
+        }
+        & .btn_redirection button:hover {
+            border: none;
+            background-color: #d36c3c;
+            padding: 7px 25px;
+            & a {
+                color: $color-base-background;
+            }
+        }
+        & .mentions_maintenance p {
+            text-align: center;
+            font-size: 1rem;
+        }
+    }
+}

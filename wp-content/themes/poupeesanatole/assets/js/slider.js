@@ -27,7 +27,7 @@
         $('.owl-item .texteSlider').hide();
         $('.owl-item.active .texteSlider').fadeIn("slow");
     });
-    
+
     owl.on('translated.owl.carousel', function(event) {
         $('.owl-item .texteSlider').hide();
         $('.owl-item.active .texteSlider').fadeIn("slow");
@@ -36,10 +36,11 @@
 
 /* SHOP SLIDER */
 (function($){
-    var owl = $('.shop .owl-carousel');
-    $(".shop .owl-carousel").owlCarousel({
+    $('.shop .parent_owl-carousel ul').addClass('owl-carousel');
+    var owl = $('.shop ul.owl-carousel');
+    owl.owlCarousel({
         stagePadding: 10,
-        loop: false,
+        loop: true,
         margin: 20,
         nav: true,
         autoplay:true,

@@ -71,6 +71,9 @@
                 font-size: nth($font-size, 3);
             }
         }
+        .card__shop {
+            max-width: 260px;
+        }
     }
 
     /* SECTION 3 : SHOP */

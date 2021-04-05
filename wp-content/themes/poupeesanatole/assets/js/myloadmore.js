@@ -11,17 +11,20 @@ jQuery (function($) {
  
 		$.ajax({
 			url: misha_loadmore_params.ajaxurl ,
-			data: data , 
+			data: data, 
 			type: 'POST', 
 			beforeSend:  function(xhr){ 
-				button. text ( "Chargement..." );
+				button.text( "Chargement..." );
 			} , 
-			success: function (data){ 
+			success: function(data){ 
 				if(data){  
-					button.text("Voir plus d'articles").prev().before(data); 
+					button.text("Voir plus d'articles");
+					$('ul.products.row').append(data); 
+					
 					misha_loadmore_params.current_page ++;
-					if(misha_loadmore_params.current_page == misha_loadmore_params.max_page)  
+					if(misha_loadmore_params.current_page == misha_loadmore_params.max_page){  
 					    button.remove();
+					}
 				}  
                 else{ 
 					button.remove();

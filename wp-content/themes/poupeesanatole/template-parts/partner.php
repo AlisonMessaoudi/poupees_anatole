@@ -57,7 +57,7 @@ get_header();
             <?php if(!empty($metabox['presentationcollaborateur']) || !empty($metabox['sitecollaborateur']) || !empty($metabox['emailcollaborateur'])) { ?>
 
             <!-- EN SAVOIR PLUS -->
-            <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('<?= $metabox['idcollaborateur']; ?>', this.id)">
+            
 
                 <!-- CONTENU EN SAVOIR PLUS -->
                 <div id="<?= $metabox['idcollaborateur']; ?>" class="more__collaborateur" style="display:none">
@@ -83,6 +83,8 @@ get_header();
                     ?>
                 
                 </div>
+
+                <input type="button" id="more" class="more" value="En savoir +" onclick="cache_affiche('<?= $metabox['idcollaborateur']; ?>', this.id)">
 
             <?php 
             }

@@ -7,15 +7,6 @@
             flex-wrap: nowrap;
             margin-left: 2.5rem;
             height: 100%;
-            & .owl-stage {
-                width: 100% !important;
-                & .owl-item {
-                    width: 100% !important;
-                    & img {
-                        min-height: 200px; 
-                    }
-                }
-            }
             /* Bouton précédent et suivant */
             & .owl-nav .owl-prev, .owl-nav .owl-next {
                 position: absolute;
