@@ -44,21 +44,22 @@ get_header();
         <!-- BLOC TEXTE -->
         <div class="col-lg-9 collaborateur__txt">
             
-            <h4><?= $metabox['typecollaborateur']; ?></h4>
+            <div class="before__input">
+                <h4><?= $metabox['typecollaborateur']; ?></h4>
 
-            <p><?= $metabox['nomcollaborateur']; ?>
+                <p><?= $metabox['nomcollaborateur']; ?>
 
-                <br/>
+                    <br/>
 
-                <span><?= $metabox['specialitecollaborateur']; ?></span>
+                    <span><?= $metabox['specialitecollaborateur']; ?></span>
 
-            </p>
+                </p>
+            </div>
 
             <?php if(!empty($metabox['presentationcollaborateur']) || !empty($metabox['sitecollaborateur']) || !empty($metabox['emailcollaborateur'])) { ?>
 
             <!-- EN SAVOIR PLUS -->
             
-
                 <!-- CONTENU EN SAVOIR PLUS -->
                 <div id="<?= $metabox['idcollaborateur']; ?>" class="more__collaborateur" style="display:none">
 
@@ -97,6 +98,12 @@ get_header();
     <?php } 
     //endwhile; ?>
    
+   <div class="remerciement">
+
+       <h5>Merci également à</h5>
+       <p>Solène Dietz, Noémie Hauss, Le Réseau VRAIS</p>
+
+   </div>
 
 </main>
 

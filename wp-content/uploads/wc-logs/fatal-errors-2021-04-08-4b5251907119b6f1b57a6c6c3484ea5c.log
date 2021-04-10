@@ -1,0 +1,29 @@
+2021-04-08T18:42:48+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Post::get_attriutes() in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/template-parts/store.php:42
+Stack trace:
+#0 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/template-loader.php(106): include()
+#1 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-blog-header.php(19): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sites/poupees_anatole/index.php(17): require('/Applications/M...')
+#3 {main}
+  thrown in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/template-parts/store.php on line 42
+
+2021-04-08T18:43:16+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Post::get_attributes() in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/template-parts/store.php:42
+Stack trace:
+#0 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/template-loader.php(106): include()
+#1 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-blog-header.php(19): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sites/poupees_anatole/index.php(17): require('/Applications/M...')
+#3 {main}
+  thrown in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/template-parts/store.php on line 42
+
+2021-04-08T18:50:54+00:00 CRITICAL syntax error, unexpected ':', expecting ')' in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/template-parts/store.php on line 45
+
+2021-04-08T19:28:12+00:00 CRITICAL syntax error, unexpected '}', expecting ';' or ',' in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/woocommerce/archive-product.php on line 56
+
+2021-04-08T19:30:43+00:00 CRITICAL Uncaught Error: Object of class WC_Product_Attribute could not be converted to string in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/kses.php:1644
+Stack trace:
+#0 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/kses.php(1644): preg_replace('/[\\x00-\\x08\\x0B...', '', Object(WC_Product_Attribute))
+#1 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/kses.php(751): wp_kses_no_null(Object(WC_Product_Attribute), Array)
+#2 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/kses.php(2038): wp_kses(Object(WC_Product_Attribute), 'post')
+#3 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/class-wp-hook.php(294): wp_kses_post(Object(WC_Product_Attribute))
+#4 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/plugin.php(212): WP_Hook->apply_filters(Object(WC_Product_Attribute), Array)
+#5 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/plugins/woocommerce/includes/wc-attribute-functions.php(211): apply_filters('woocommerce_att...', Object(WC_P in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-includes/kses.php on line 1644
+

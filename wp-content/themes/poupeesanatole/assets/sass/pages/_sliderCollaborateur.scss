@@ -51,18 +51,26 @@
         }  
         /* SLIDER */ 
         & .slider__wrapper {
-            min-width: 110vw;
             flex-wrap: nowrap;
             margin-left: 3rem;
+            width: 94.5%;
+            & .owl-stage {
+                width: 6000px !important;
+                & .owl-item {
+                    width: 200px !important;
+                }
+            }
             & .owl-nav .owl-prev, .owl-nav .owl-next {
                 position: absolute;
                 top: 35%;
-                left: -3%;
+                left: -5.5%;
                 color: $color-base!important;
                 font-size: 500% !important;
+                margin-right: 1rem;
             }
             & .owl-nav .owl-next {
-                left: 68%;
+                left: 100%;
+                margin-left: 1rem;
             }
         }
         & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {

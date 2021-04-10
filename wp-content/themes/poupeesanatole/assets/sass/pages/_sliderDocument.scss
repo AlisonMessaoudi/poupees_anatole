@@ -1,0 +1,15 @@
+.document {
+    & .more__round ion-icon {
+        border: 2px solid $color-base;
+        border-radius: 100%;
+        padding: 0.6rem;
+        color: $color-base;
+        margin-top: 2rem;
+    }
+    & .more__round ion-icon:hover {
+        border: none;
+        background-color: $color-primary;
+        color: $color-base-background;
+        padding: 0.7rem;
+    }
+}

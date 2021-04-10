@@ -137,7 +137,7 @@ get_header();
         </div>
 
         <!-- LISTE DES DOCUMENTS -->
-        <div class="liste__documents">
+        <div class="liste__documents owl-carousel slider_wrapper">
 
             <?php get_template_part('/template-parts/sliderDocuments'); ?>
 

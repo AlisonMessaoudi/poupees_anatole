@@ -44,7 +44,7 @@
             'labels' => $labels,
 
             // On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
-            'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes','post-formats'),
+            'supports' => array('title', 'custom-fields', 'thumbnail', 'revisions', 'page-attributes','post-formats'),
             
             'hierarchical' => false,
             'public' => true,

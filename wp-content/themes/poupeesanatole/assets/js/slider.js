@@ -38,10 +38,11 @@
 (function($){
     $('.shop .parent_owl-carousel ul').addClass('owl-carousel');
     var owl = $('.shop ul.owl-carousel');
+    owl.append($('#all-products'));
     owl.owlCarousel({
         stagePadding: 10,
         loop: true,
-        margin: 20,
+        margin: 0,
         nav: true,
         autoplay:true,
         autoplayTimeout:3000,
@@ -58,6 +59,7 @@
             }
         }
     })
+
     owl.on('mousewheel', '.owl-stage', function (e) {
         if (e.deltaY>0) {
             owl.trigger('next.owl');
@@ -74,7 +76,40 @@
     $(".collaborateurs .owl-carousel").owlCarousel({
         stagePadding: 0,
         loop: true,
-        margin: 20,
+        margin: 0,
+        nav: true,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            480:{
+                items:3
+            },
+            600:{
+                items:3
+            },
+            1224:{
+                items:7
+            }
+        }
+    })
+    owl.on('mousewheel', '.owl-stage', function (e) {
+        if (e.deltaY>0) {
+            owl.trigger('next.owl');
+        } else {
+            owl.trigger('prev.owl');
+        }
+        e.preventDefault();
+    });
+})(jQuery);
+
+/* DOCUMENT SLIDER */
+(function($){
+    var owl = $('.documents .owl-carousel');
+    $(".documents .owl-carousel").owlCarousel({
+        stagePadding: 0,
+        loop: true,
+        margin: 0,
         nav: true,
         autoplay:true,
         autoplayTimeout:3000,

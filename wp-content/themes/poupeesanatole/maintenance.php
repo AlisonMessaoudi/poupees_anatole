@@ -22,20 +22,26 @@ get_header();
     <!-- Forme image left 4 -->
     <img class="forme forme__img__gauche4" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_08.png" alt="Forme jaune - illustration Poupées Anatoles"/>
 
+    <!-- CONTAINER MAINTENANCE -->
     <div class="container__maintenance">
-        <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/logo_poupees_anatoles.png" alt="Logo du projet les Poupées Anatoles"/>
-        </div>
+        
+        <div class="img__txt__btn">
+            <!-- IMAGE -->
+            <div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/logo_poupees_anatoles.png" alt="Logo du projet les Poupées Anatoles"/>
+            </div>
 
-        <div class="text__maintenance">
-            <h2>Site en cours de maintenance</h2>
-        </div>
+            <!-- TEXTE -->
+            <div class="text__maintenance">
+                <h2>Site en cours de maintenance</h2>
+            </div>
 
-        <!-- BOUTON REDIRECTION -->
-        <div class="btn_redirection">
-            <button>
-                <a href="http://thomashuard.com/projets/anatoles/">Découvrir le projet&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
-            </button>
+            <!-- BOUTON REDIRECTION -->
+            <div class="btn_redirection">
+                <button>
+                    <a href="http://thomashuard.com/projets/anatoles/">Découvrir le projet&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                </button>
+            </div>
         </div>
 
         <div class="mentions_maintenance">

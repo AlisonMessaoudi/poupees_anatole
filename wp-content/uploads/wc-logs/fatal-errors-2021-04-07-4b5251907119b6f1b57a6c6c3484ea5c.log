@@ -1,0 +1,43 @@
+2021-04-07T11:48:23+00:00 CRITICAL Uncaught Error: Class 'ProductMetaBox' not found in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php:150
+Stack trace:
+#0 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-settings.php(528): include()
+#1 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-config.php(129): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-load.php(37): require_once('/Applications/M...')
+#3 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-admin/admin-ajax.php(22): require_once('/Applications/M...')
+#4 {main}
+  thrown in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 150
+
+2021-04-07T11:50:24+00:00 CRITICAL Uncaught Error: Class 'ProductMetaBox' not found in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php:150
+Stack trace:
+#0 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-settings.php(528): include()
+#1 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-config.php(129): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-load.php(37): require_once('/Applications/M...')
+#3 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-admin/admin-ajax.php(22): require_once('/Applications/M...')
+#4 {main}
+  thrown in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 150
+
+2021-04-07T11:51:35+00:00 CRITICAL Uncaught Error: Class 'ProductMetaBox' not found in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php:150
+Stack trace:
+#0 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-settings.php(528): include()
+#1 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-config.php(129): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-load.php(37): require_once('/Applications/M...')
+#3 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-admin/admin-ajax.php(22): require_once('/Applications/M...')
+#4 {main}
+  thrown in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 150
+
+2021-04-07T11:51:35+00:00 CRITICAL Uncaught Error: Class 'ProductMetaBox' not found in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php:150
+Stack trace:
+#0 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-settings.php(528): include()
+#1 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-config.php(129): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-load.php(37): require_once('/Applications/M...')
+#3 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-admin/admin.php(34): require_once('/Applications/M...')
+#4 /Applications/MAMP/htdocs/sites/poupees_anatole/wp-admin/edit.php(10): require_once('/Applications/M...')
+#5 {main}
+  thrown in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 150
+
+2021-04-07T12:51:15+00:00 CRITICAL require_once(): Failed opening required 'metaboxes/product.php' (include_path='.:/Applications/MAMP/bin/php/php7.4.12/lib/php') in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 149
+
+2021-04-07T12:51:38+00:00 CRITICAL require_once(): Failed opening required 'metaboxes/product.php' (include_path='.:/Applications/MAMP/bin/php/php7.4.12/lib/php') in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 149
+
+2021-04-07T12:51:42+00:00 CRITICAL require_once(): Failed opening required 'metaboxes/product.php' (include_path='.:/Applications/MAMP/bin/php/php7.4.12/lib/php') in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/functions.php on line 149
+

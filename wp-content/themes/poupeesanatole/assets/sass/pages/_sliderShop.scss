@@ -3,20 +3,28 @@
     & .shop {
         /* SLIDER */
         & .slider__wrapper {
-            min-width: 110vw;
+            width: 100%;
             flex-wrap: nowrap;
-            margin-left: 2.5rem;
+            margin-left: 4rem;
             height: 100%;
+            & .owl-stage {
+                width: 6000px !important;
+                & .owl-item {
+                    width: 250px !important;
+                }
+            }
             /* Bouton précédent et suivant */
             & .owl-nav .owl-prev, .owl-nav .owl-next {
                 position: absolute;
                 top: 18%;
-                left: -3%;
+                left: -5.5%;
                 color: $color-base !important;
                 font-size: 500% !important;
+                margin-right: 1rem;
             }
             & .owl-nav .owl-next {
-                left: 68%;
+                left: 100%;
+                margin-left: 1rem;
             }
         }
     }

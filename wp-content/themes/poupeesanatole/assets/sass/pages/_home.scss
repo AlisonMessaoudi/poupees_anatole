@@ -1,3 +1,6 @@
+#metabox_collaborateur .inside {
+    @include column();
+}
 .site__home {
     /* SECTION 1 : SLIDER HOME */
     /* c.f. : _sliderHome.scss */
@@ -48,9 +51,57 @@
         }
     }
 
+    /* SECTION FINANCEMENT */
+    .home__financement {
+        height: 400px;
+        background-color: $color-fourth;
+        position: relative;
+        @include row_center();
+        margin: auto;
+        & .forme__img__left, .forme__img__right {
+            position: absolute;
+        }
+        & .forme__img__left {
+            top: 10%;
+            left: -1%;
+        }
+        & .forme__img__right {
+            bottom: 10%;
+            right: -1%;
+        }
+        & .bloc__txt {
+            @include column();
+            justify-content: space-between;
+            height: 70%;
+            width: 33%;
+            & h2, p {
+                color: $color-base-background;
+            }
+            & .btn_redirection {
+                button {
+                    @include btn-redirection($color:$color-base-background);
+                }
+                button:hover {
+                    background-color: $color-base-background;
+                    & a {
+                        color: $color-fourth;
+                    }
+                }
+            }
+
+        }
+        & .bloc__img {
+            width: 21%;
+            margin: 0 2.5rem;
+            @include row_center;
+            justify-content: flex-end;
+        }
+    }
+
     /* SECTION : SHOP ET COLLABORATEURS */
     & .shop, .collaborateurs {
-        height: 430px;
+        max-width: 900px;
+        height: 450px;
         @include column();
         justify-content: center;
         margin-top: 5rem;
@@ -79,6 +130,12 @@
     /* SECTION 3 : SHOP */
 
     /* SECTION 4 : COLLABORATEURS */
+    & .collaborateurs {
+        & .slider__wrapper {
+            margin-left: 4rem;
+            width: 100%;
+        }
+    }
 } 
         
 

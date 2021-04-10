@@ -3,13 +3,35 @@
     .products {
         margin: 0;
     }
+    & #all-products{
+        & a {
+            border: solid 2px rgb(150, 150, 150);
+            @include row_center();
+            width: 218px;
+            height: 221px;
+            & i {
+                color: rgb(150, 150, 150);
+            }
+        }
+    }
+    & #all-products:hover {
+        border: none;
+        padding-top: 15px;
+        & a {
+            border: solid 2px $color-base;
+            & i {
+                color: $color-base;
+            }
+        }
+    }
 }
 .card__shop {
-    min-height: 345px;
+    min-height: 362px;
     padding-top: 15px;
     /* Images */
     & img {
         min-width: 100%;
+        height: 100%;
     }
     /* Titres */
     & .woocommerce-loop-product__title {
@@ -38,7 +60,7 @@
         width: nth($width, 1);
         @include row_center();
         position: absolute;
-        bottom: 25%;
+        bottom: 35%;
         right: 6%;
         & a {
             @include row_center();
@@ -54,6 +76,7 @@
                 width:100%;
             }
         }
+        
     }
     & .shop__panier a:before{
         content:'Ajouter au panier';
@@ -65,7 +88,7 @@
         position: absolute;
     }
     & .shop__panier:hover{
-        width: 89%;
+        width: 90%;
         cursor: pointer;
     }
     
@@ -86,8 +109,7 @@
     cursor: pointer;
     & .shop__panier {
         justify-content: space-between;
-        bottom: 28%;
-        right: 5.5%;
+        right: 4.5%;
     }
 }
 
@@ -125,32 +147,16 @@
             }
         }
     }
-    // & .woocommerce-pagination {
-    //     @include row_center();
-    //     padding-top: 1.5rem;
-    //     & ul {
-    //         @include row();
-    //         justify-content: space-between;
-    //         width: 25%;
-    //         & li a {
-    //             color: $color-base;
-    //         }
-    //         & li a:hover {
-    //             color: $color-primary;
-    //             text-decoration: none;
-    //             cursor: pointer;
-    //         }
-    //         & li span {
-    //             font-weight: $black-weight;
-    //         }
-
-    //     }
-    // }
     .misha_loadmore {
         @include btn_redirection();
         font-weight: $semibold-weight;
+        margin: auto;
+        width: 23%;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+        text-align: center;
     }
-    .misha_loadmore:hover {
+    .misha_loadmore:hover, .charginbtn {
         background-color: $color-primary;
         border: none;
         color: $color-base-background;
@@ -163,8 +169,11 @@
 @media only screen and (min-width : 1224px) {
     .site__shop {
         & .shop__panier {
-            bottom: 25%;
-            right: 5.2%;
+            bottom: 28.5%;
+            right: 5.1%;
+        }
+        .shop__panier:hover {
+            width: 91.3%;
         }
     }
 }

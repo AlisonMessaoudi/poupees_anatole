@@ -62,7 +62,7 @@
                 & input[type=submit] {
                     background-color: $color-secondly;
                     color: $color-base-background;
-                    font-weight: $bold-weight;
+                    font-weight: $semibold-weight;
                     padding: 0.3rem 1rem;
                     margin-left: 0.5rem;
                     width: 130px;
@@ -70,7 +70,6 @@
                 & input[type=submit]:hover {
                     background-color: $color-base-background;
                     color: $color-fourth;
-                    font-weight: $semibold-weight;
                 }
             }
         } 

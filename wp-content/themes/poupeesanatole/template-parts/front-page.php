@@ -63,6 +63,40 @@ get_header();
 
     </section>
 
+    <!-- SECTION TEMPORAIRE : FINANCEMENT ULULE -->
+    <section class="container-fluid home__financement">
+
+        <!-- Forme image left -->
+        <img class="forme__img__left" src="<?php echo get_template_directory_uri(); ?>/assets/images/10_financement/forme_financement01.png" alt="Forme jaune - illustration Poupées Anatoles"/>
+
+        <!-- Forme image right -->
+        <img class="forme__img__right" src="<?php echo get_template_directory_uri(); ?>/assets/images/10_financement/forme_financement02.png" alt="Forme orange - illustration Poupées Anatoles"/>
+
+        <div class="bloc__txt">
+
+            <h2>Soutenez notre projet !</h2>
+
+            <p>Du 1er juin au 30 juin 2021, les poupées Anatoles sollicitent votre soutien sur la plateforme de crownfunding Ulule ! En achetant en prévente ces poupées, ou en faisant tout simplement, par amour, un don, vous leur permettrez d’être mises à disposition du plus grand nombre ! En plus, des goodies et des surprises vous attendent !</p>
+
+            <p>Elles comptent sur vous !</p>
+
+            <!-- BOUTON REDIRECTION -->
+            <div class="btn_redirection">
+                <button>
+                    <a href="<?= home_url('/shop'); ?>">C'est parti ! &nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="bloc__img">
+
+            <img class="img__financement" src="<?php echo get_template_directory_uri(); ?>/assets/images/10_financement/img_financement.png" alt="Les poupées anatoles X Ulule"/>
+
+        </div>
+    
+    </section>
+
     <!-- SECTION 3 : SHOP -->
     <section class="container shop">
 
@@ -84,6 +118,11 @@ get_header();
         <div id="slider__shop" class="slider__wrapper">
             
             <?= do_shortcode('[products limit="6" columns="6" category="pack" class="parent_owl-carousel"]'); ?>
+
+            <li id="all-products" class="col-4 card__shop">
+	            <a href="http://localhost:8888/sites/poupees_anatole/produits/pack-de-base/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><i class="fa fa-chevron-right"></i></a>
+                <h2 class="woocommerce-loop-product__title">Tous les articles</h2>
+	        </li>
 
         </div>
 

@@ -31,9 +31,9 @@ if ( $total <= 1 ) {
 
 
 
-<nav class="woocommerce-pagination">
+<!-- <nav class="woocommerce-pagination">
 	<?php
-		echo '<div class="misha_loadmore">Plus de produits</div>';
+	// echo '<div class="misha_oadmore">Plus de produits</div>';
 	// paginate_links(
 	// 	apply_filters(
 	// 		'woocommerce_pagination_args',
@@ -52,4 +52,4 @@ if ( $total <= 1 ) {
 	// 	)
 	// );
 	?>
-</nav>
+</nav> -->

@@ -26,6 +26,23 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 ?>
 
 <li <?php wc_product_class( 'col-4 card__shop', $product ); ?>>
+		<?php
+		foreach($product->get_attributes() as $attr_name => $attr)
+		{
+		?>
+			<span class="type <?= $attr_name ?>">
+			<?= wc_attribute_label($attr_name); ?>
+		<?php
+			foreach($attr->get_terms() as $term)
+			{
+				echo '<span class="'. $term->slug .'">'.$term->name.'</span>';
+			}
+			?>
+			</span>
+			<?php
+		}
+		?>
+	</span>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

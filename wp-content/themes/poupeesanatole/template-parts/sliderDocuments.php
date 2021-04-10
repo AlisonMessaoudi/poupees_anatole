@@ -19,7 +19,7 @@
 
 <div class="document">
 
-    <a href="#">
+    <a href="<?= get_post_permalink($document->ID)?>">
         <img src="<?= get_the_post_thumbnail_url($document->ID);?>" alt=""/>
     </a>
 
@@ -27,7 +27,14 @@
         
         <h4><?= $metabox['titre']; ?></h4>
 
-        <p><?= $metabox['resume']; ?></p>
+        <p><?= $metabox['annee']; ?></p>
+
+        <!-- BOUTON LIRE -->
+        <div class="more__round">
+
+            <a href="<?= get_post_permalink($document->ID)?>"><ion-icon name="book-outline"></ion-icon></a>
+
+        </div>
 
     </div>
 

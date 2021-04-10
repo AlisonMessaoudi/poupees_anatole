@@ -48,8 +48,9 @@
                 <!-- BOUTONS CONNEXION -->
                 <div class="row connexion">
 
-                    <ion-icon name="person-outline"></ion-icon>
-                    <ion-icon name="basket-outline"></ion-icon>
+                    <!-- <ion-icon name="person-outline"></ion-icon>
+                    <ion-icon name="basket-outline"></ion-icon> -->
+                    <a href="#"><img src="<?= get_template_directory_uri(); ?>/assets/images/10_financement/ulule.png" alt="Logo du site de crownfounding Ulule pour le projet les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."></a>
 
                 </div>
                 

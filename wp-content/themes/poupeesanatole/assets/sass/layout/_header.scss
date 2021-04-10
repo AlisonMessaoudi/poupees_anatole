@@ -10,10 +10,28 @@
         & .forme, .connexion {
             position: absolute;
         }
-        & .connexion ion-icon {
-            padding-right: 1rem;
-            font-size: 1.4rem;
+        & .connexion {
+            & a:hover {
+                text-decoration: none;
+                &::before {
+                    content: "Soutenez notre campagne de crownfounding";
+                    color: $color-base;
+                    font-size: .8rem;
+                    font-style: italic;
+                    font-weight: bold;
+                    position: absolute;
+                    right: 130%;
+                    width: 150px;
+                    top: -5%;
+                    line-height: 1rem;
+                    text-align: end;
+                }
+            }
         }
+        // & .connexion ion-icon {
+        //     padding-right: 1rem;
+        //     font-size: 1.4rem;
+        // }
     }
     /* MENU DESKTOP ET MOBILE DEPLOYÉ */
     & .menu__desktop {

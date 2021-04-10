@@ -33,7 +33,7 @@
 @mixin btn_redirection($color:$color-base) {
     border: solid 2px $color;
     background-color: transparent;
-    padding: 5px 25px;;
+    padding: 5px 25px;
     & a {
         color: $color;
         font-weight: $bold-weight;

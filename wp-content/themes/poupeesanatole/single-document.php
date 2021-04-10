@@ -13,11 +13,11 @@ get_header();
         <div class="row document__navigation">
 
             <div class="nav">
-                <?php previous_post_link('<i class="fa fa-chevron-left"></i>');?>
+                <?php previous_post_link('%link', '<i class="fa fa-chevron-left"></i>');?>
             </div>
             
             <div class="nav">
-                <?php next_post_link('<i class="fa fa-chevron-right"></i>');?>
+                <?php next_post_link('%link', '<i class="fa fa-chevron-right"></i>');?>
             </div>
 
         </div>
