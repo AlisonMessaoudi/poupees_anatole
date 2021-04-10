@@ -36,14 +36,14 @@
             'filter_items_list' => __('Filter items list'),
         );
         
-        // On peut définir ici d'autres options pour notre custom post type
+        /* On peut définir ici d'autres options pour notre custom post type */
         $args = array(
             
             'label' => __('Document'),
             'description' => __('Présentation des documents'),
             'labels' => $labels,
 
-            // On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
+            /* On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...) */
             'supports' => array('title', 'custom-fields', 'thumbnail', 'revisions', 'page-attributes','post-formats'),
             
             'hierarchical' => false,
@@ -64,7 +64,7 @@
 
         );
         
-        // On enregistre notre custom post type qu'on nomme ici "document" et ses arguments
+        /* On enregistre notre custom post type qu'on nomme ici "document" et ses arguments */
         register_post_type( 'document', $args );
     }
 ?>

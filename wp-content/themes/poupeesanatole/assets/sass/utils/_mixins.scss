@@ -29,7 +29,7 @@
     color: $color-base;
 }
 
-/* BOUTON */
+/* BOUTON REDIRECTION */
 @mixin btn_redirection($color:$color-base) {
     border: solid 2px $color;
     background-color: transparent;
@@ -43,6 +43,22 @@
     }
 }
 
+@mixin btn_redirection_hover() {
+    border: none;
+    background-color: $color-primary;
+    padding: 7px 25px;
+    & a {
+        color: $color-base-background;
+    }
+}
+
+@mixin btn_formulaire(){
+    border: none;
+    background-color: $color-secondly;
+    color: $color-base-background;
+    font-weight: $normal-weight;
+}
+
 /* FORMULAIRE */
 
 @mixin placeholder ($color:$color-base) {
@@ -51,6 +67,23 @@
 }
 
 /* MISE EN PAGE */
+@mixin wrapper() {
+    max-width: 830px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 0;
+}
+
+@mixin wrapper_mobile(){
+    width: 300px;
+    margin-top: 3rem;
+}
+
+@mixin wrapper_tablette(){
+    width: 665px;
+    margin-top: 3rem;
+}
+
 @mixin row() {
     display: flex;
     flex-direction: row;

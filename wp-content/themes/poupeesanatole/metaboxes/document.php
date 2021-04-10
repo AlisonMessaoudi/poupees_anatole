@@ -3,41 +3,50 @@
 class DocumentMetaBox {
 
     public static function register() {
-        /* Création des meta-boxes pour le CPT Documents */
+        /* Création des meta-boxes pour le Custom Post Type 'Documents' */
         add_action('add_meta_boxes', [self::class, 'add']);
-        /* Sauvegarde des metaboxes */
+        /* Sauvegarde des données de la meta-boxe */
         add_action('save_post', [self::class, 'save']);
     }
 
     public static function add() {
-        /* Ajout des metabox à l'interface WordPress et définition de son placement */
+        /* Ajout des meta-boxes à l'interface WordPress et définition de son emplacement */
         add_meta_box('metabox_document', 'Contenu page document', [self::class, 'render'], 'document', 'normal', 'high');
     }
 
     public static function render($post) {
-        // /* Initialisation des variables pour la récupération des données */
+        /* Initialisation des variables pour la récupération des données */
         $metabox = get_post_meta($post->ID, 'metabox_document', true);
 
+        $numero = '';
         $titre = '';
         $auteur = '';
         $annee = '';
         $resume = '';
         $lien = '';
 
+        /* Si les meta-boxes ne sont pas vides */
         if(!empty($metabox)) {
 
-        $titre = $metabox['titre'];
-        $auteur = $metabox['auteur'];
-        $annee = $metabox['annee'];
-        $resume = $metabox['resume'];
-        $lien = $metabox['lien'];
+            /* Alors on implémente les données */
+            $numero = $metabox['numero'];
+            $titre = $metabox['titre'];
+            $auteur = $metabox['auteur'];
+            $annee = $metabox['annee'];
+            $resume = $metabox['resume'];
+            $lien = $metabox['lien'];
 
         }
 
         ?>
 
+        <!-- Meta-boxes -->
         <div class="metabox_document">
-
+            
+            <!-- Numéro -->
+            <label for="metabox_numerodocument">Numéro du document</label>
+            <input type="text" name="metabox_numerodocument" value="<?=$numero;?>" placeholder="Saisissez le numéro du document"/>
+            
             <!-- Titre -->
             <label for="metabox_titredocument">Titre du document</label>
             <input type="text" name="metabox_titredocument" value="<?=$titre;?>" placeholder="Saisissez le titre du document"/>
@@ -76,13 +85,16 @@ class DocumentMetaBox {
         <?php
     } 
     
+    /* Fonction d'enregistrement des données saisies dans le formulaire */
     public static function save($post_id){
         
+        /* Si les champs ne sont pas vides */
         if (!empty($_POST)) {
 
-            /* Initialisation de la variable document */
+            /* alors on initialise la variable document */
             $document = array(
-                /* Qui contient les valeurs des metaboxes */
+                /* Qui contient les valeurs saisies des metaboxes */
+                'numero' => esc_html($_POST['metabox_numerodocument']),
                 'titre' => esc_html($_POST['metabox_titredocument']),
                 'auteur' => esc_html($_POST['metabox_auteurdocument']),
                 'annee' => esc_html($_POST['metabox_anneedocument']),

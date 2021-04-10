@@ -1,19 +1,22 @@
-/* SECTION 0 : PAGE CONTACT */
-.site__page__contact {
-    max-width: 900px;
-    margin-top: 3.5rem;
-    margin-bottom: 5rem;
+/* PAGE CONTACT */
+.site__contact {
+    @include wrapper();
     height: 700px;
-    /* Formulaire Newsletter */
-    & .site__news, .site__contact {
-        /* Formulaire */
+    /* FORMULAIRE NEWSLETTER */
+    & .bloc__news, .bloc__contact {
+        /* FORMULAIRE */
         & form {
             align-items: flex-end;
-            /* Titre */
+            /* TITRE */
             & h2 {
                 padding-bottom: 1rem;
             }
-            /* Caractéristique générale formulaire */
+            /* TEXTE */
+            & p {
+                width: 100%!important;
+                margin-bottom: 0;
+            }
+            /* CARACTÉRISTIQUE GÉNÉRALE DU FORMULAIRE */
             & input, textarea {
                 background-color: #ececece6;
                 border: $border-none;
@@ -22,34 +25,34 @@
                 width: 100%;
                 border-radius: 6px;
             }
+            /* PLACEHOLDER */
             & input::placeholder, textarea{
                 color: $color-base;
                 font-style: italic;
             }
+            /* ZONE DE TEXTE*/
             & textarea {
                 height: nth($height, 5);
                 border-radius: 6px;
             }
+            /* BOUTON ENVOYÉ */
             & input[type=submit] {
-                border: none;
-                background-color: $color-secondly;
-                color: #fafafa;
-                font-weight: 600;
-                margin-left: .5rem;
+                @include btn_formulaire();
+                margin-left: 0rem;
                 width: 150px;
                 height: 100%;
             }
+            /* BOUTON ENVOYÉ HOVER */
             & input[type=submit]:hover {
                 background-color: $color-fourth;
             }
         }
     }
-    /* Formulaire newsletter*/
+    /* FORMULAIRE NEWSLETTER */
     .mailjet_widget_front_container {
         margin: 0;
         & #mailjetSubscriptionForm {
-            @include row();
-            align-items: center;
+            @include row_center();
             & #mailjet_widget_email {
                 width: 575px;
             }
@@ -58,7 +61,7 @@
             }
         }
     }
-    /* Ligne */ 
+    /* LIGNE */ 
     .ligne {
         @include row_center();
         & hr {
@@ -67,7 +70,7 @@
             margin: 3rem 0;
         }
     }
-    /* Sous-titre */
+    /* SOUS-TITRE */
     & h5 {
         font-weight: $bold-weight;
         font-size: nth($font-size, 3);
@@ -75,20 +78,6 @@
         padding-bottom: 1rem;
         text-align: start;
         margin-bottom: 0;
-    }
-    & .site__contact { 
-        & form {
-            & p {
-                width: 100%!important;
-                margin-bottom: 0;
-            }
-            & input[type=submit] {
-                margin-left: 0;
-            } 
-            & input[type=submit]:hover {
-                background-color: $color-fourth;
-            }
-        }
     }
     & .wpcf7 form .wpcf7-response-output, .wpcf7-response-output {
         margin: 0;
@@ -100,23 +89,23 @@
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-    /* SECTION 0 : PAGE CONTACT */
+    /* PAGE CONTACT */
     .site__page__contact {
         width: 380px;
         padding: 1rem;
         margin-bottom: 0;
         .site__news, .site__contact {
-            /* Formulaire */
+            /* FORMULAIRE */
             & form { 
                 @include column_center();
                 align-items: center;
-                /* Titre */
+                /* TITRE */
                 & h2 {
                     width: 360px;
                     font-size: 1.4rem;
                     padding-bottom: 0;
                 }
-                /* Formulaire newsletter */
+                /* FORMULAIRE NEWSLETTER */
                 & .form__news__input {
                     width: 360px;
                     justify-content: center;

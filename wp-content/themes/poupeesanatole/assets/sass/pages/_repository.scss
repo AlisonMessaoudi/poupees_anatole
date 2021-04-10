@@ -1,46 +1,67 @@
+/* PAGE DOCUMENT */
 .site__document {
-    max-width: 830px;
-    margin-top: 3.5rem;
-    padding: 0;
+    @include wrapper();
+    /* TITRE DOCUMENT */
     & .document__titre {
-        width: 100%;
         margin: 0;
         justify-content: space-between;
     }
+    /* NAVIGATION DOCUMENT */
     & .document__navigation {
         width: 10%;
         margin: 0;
         justify-content: space-between;
+        /* NAV */
         & .nav {
             border: solid 1px $color-base;
-            padding: 10px;
+            padding: 5px 10px;
+            & a {
+                color: $color-base;
+            }
+        }
+        & .nav:hover {
+            border: none;
+            background-color: $color-primary;
+            padding: 6px 11px;
+            & a { 
+                color: $color-base-background;
+            }
         }
     }
-    .document__description {
+    /* DESCRIPTION DOCUMENT */
+    & .document__description {
         @include row();
         margin: 2.5rem 0;
-        & .bloc__img {
+        /* IMAGE DU DOCUMENT */
+        & .document__image {
             padding: 0;
             & img {
                 width: 100%;
             }
         }
-        & .bloc__txt {
-            padding: 0 35px;
-            & .document {
+        /* TEXTE DU DOCUMENT */
+        & .document__txt {
+            padding: 0 45px;
+            /* NUMERO */
+            & .numero__document {
                 margin-bottom: 0;
             }
+            /* TITRE */
             & h2 {
                 margin: 0;
             }
+            /* AUTEUR */
             & .auteur {
+                text-decoration: none;
                 font-weight: $black-weight;
             }
-            & .resume, .date, .document {
+            /* RESUME DATE ET NUMERO */
+            & .resume, .date, .numero__document {
                 font-style: italic;
             }
-            & .description {
-                width: 90%;
+            /* RESUME */
+            & .resume {
+                text-decoration: underline;
             }
         }
     }
@@ -49,28 +70,34 @@
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-    /* SECTION 0 : PRESENTATION COLLABORATEURS */
+    /* PAGE DOCUMENT */
     .site__document {
-        width: 350px;
-        padding: 0;
+        @include wrapper_mobile();
+        /* TITRE DOCUMENT */
         & .document__titre {
             align-items: center;
+            /* TITRE */
             & h2 {
                 width: 60%;
             }
+            /* NAVIGATION DOCUMENT */
             & .document__navigation {
                 width: 25%;
                 height: 25%;
             }
         }
+        /* DESCRIPTION DOCUMENT */
         & .document__description {
             flex-direction: column;
-            & .bloc__txt {
+            /* TEXTE DOCUMENT */
+            & .document__txt {
                 padding: 0;
                 padding-top: 2rem;
+                /* DESCRIPTION */
                 & .description {
                     width: 100%;
                 }
+                /* BOUTON DE REDIRECTION */ 
                 & .btn_redirection {
                     justify-content: center;
                     display: flex;
@@ -78,8 +105,23 @@
             }
         }
     }
-    .contact {
-        display: none;
-    }
+}
 
+/* TABLETTE (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* PAGE DOCUMENT */
+    .site__document {
+        @include wrapper_tablette();
+        /* NAVIGATION DOCUMENT */
+        & .document__navigation {
+            width: 12%;
+        }
+        /* DESCRIPTION DOCUMENT */
+        & .document__description {
+            /* TEXTE DOCUMENT */
+            & .document__txt {
+                padding-right: 0;
+            }
+        }
+    }
 }

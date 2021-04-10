@@ -1,19 +1,49 @@
+/* PAGE 404 */
 .page__404 {
     padding: 4rem 0;
     @include column_center();
-    & .text__404 {
+    /* TEXTE 404 */
+    & .txt__404 {
         @include column_center();
         padding-top: 3rem;
         padding-bottom: 2rem;
+        /* TITRE */
         & h2 {
             font-size: 3rem;
+            text-align: center;
         }
+        /* SOUS-TITRE*/
         & h4 {
             font-size: 1.3rem;
             padding-top: 1rem;
         }
     }
-    & button {
-        @include btn-redirection();
+    /* BOUTON REDIRECTION */
+    & .btn_redirection {
+        & button {
+            @include btn-redirection();
+        }
+        & button:hover {
+            @include btn_redirection_hover();
+        }
+    }
+}
+
+/* MOBILE (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    /* PAGE 404 */
+    .page__404 {
+        /* TEXTE 404 */
+        & .txt__404 {
+            /* TITRE */
+            & h2 {
+                font-size: 1.8rem;
+            }
+            /* SOUS-TITRE*/
+            & h4 {
+                font-size: 1.2rem;
+            }
+        }
     }
 }

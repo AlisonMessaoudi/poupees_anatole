@@ -7,27 +7,29 @@ get_header();
 
 ?>
 
-<!-- SECTION 0 : PAGE CONTACT -->
-<main class="container site__page__contact">
+<!-- FEUILLE DE STYLE : assets/sass/pages/_contact.scss -->
+
+<!-- PAGE CONTACT -->
+<main class="container site__contact">
 
     <!-- FORMULAIRE NEWSLETTER -->
-    <div class="site__news">
+    <div class="bloc__news">
 
-        <!-- Texte -->
+        <!-- TEXTE -->
         <h2>Abonnez-vous à notre Newsletter</h2>
 
-        <!-- Formulaire -->
-        <?= do_shortcode( '[mailjet_subscribe widget_id="19"]' ); ?>
+        <!-- FORMULAIRE -->
+        <?= do_shortcode('[mailjet_subscribe widget_id="19"]'); ?>
 
     </div>
 
-    <!-- Ligne -->
+    <!-- LIGNE -->
     <div class="ligne">
         <hr/>
     </div>
 
     <!-- CONTACT -->
-    <div class="site__contact">
+    <div class="bloc__contact">
 
         <!-- TITRE -->
         <h2>Contactez-nous</h2>
@@ -41,13 +43,13 @@ get_header();
             
             </div>
 
-            <!-- BLOC TEXTE ET FORMULAIRE -->
+            <!-- BLOC TITRE ET FORMULAIRE -->
             <div class="col-lg-6 pr-0 bloc__texte__form">
 
-                <!-- Sous-titre -->
+                <!-- TITRE -->
                 <h5>Une Question ? Une envie ? Une rencontre ?</h5>
 
-                <!-- Formulaire -->
+                <!-- FORMULAIRE -->
                 <?= do_shortcode( '[contact-form-7 id="5" title="Contact"]' ); ?>
 
             </div>
