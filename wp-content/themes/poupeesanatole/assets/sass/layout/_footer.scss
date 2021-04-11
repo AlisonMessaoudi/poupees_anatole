@@ -1,19 +1,21 @@
 /* FOOTER */
 .site__footer {
-    /* SECTION : CONTACTEZ-NOUS */
+    /* CONTACTEZ-NOUS */
     & .contact {
         height: 250px;
-        /* Bloc contact */
+        /* BLOC CONTACT */
         .bloc__contact {
             @include column_center();
             height: nth($height, 5);
             position: relative;
+            /* FORMES */
             & .forme {
                 position: absolute;
             }
             & p {
                 font-size: nth($font-size, 3);
             }
+            /* BOUTON DE REDIRECTION */
             & button a {
                 font-size: nth($font-size, 4);
                 & i {
@@ -22,7 +24,7 @@
             }
         }
     }
-    /* SECTION : NEWSLETTER */
+    /* NEWSLETTER */
     & .newsletter {
         background-color: $color-fourth;
         color: $color-base-background;
@@ -37,24 +39,24 @@
             & .mailjet_widget_front_container {
                 margin-bottom: 0;
             }
-            /* Formulaire mailjet */
+            /* FORMULAIRE MAILJET */
             & form {
                 @include row_center();
                 & .mailjet-widget-form-group {
                     margin-bottom: 0;
                 }
-                /* Adresse mail et bouton envoyé */
+                /* ADRESSE MAIL ET BOUTON ENVOYÉ */
                 & input[type=email], input[type=submit]{
                     border: $border-none;
                     border-radius: 6px;
                 } 
-                /* Adresse mail */
+                /* ADRESSE EMAIL */
                 & input[type=email] {
                     background-color: $color-input;
                     width: 350px;
                     padding: 0.3rem 1.5rem;
                 }
-                /* Placeholder */
+                /* PLACEHOLDER */
                 & input::placeholder {
                     @include placeholder($color-base-background);
                 }
@@ -108,17 +110,20 @@
 
 /* DESKTOP AND LAPTOPS */
 @media only screen and (min-width : 1224px) {
-    /* SECTION 1 : CONTACTEZ NOUS */
-    .bloc__contact {
-        /* Forme Left */
-        & .forme__left {
-            top: 20%;
-            left: 15%;
-        }
-        /* Forme right */
-        & .forme__right {
-            top: 40%;
-            right: 15%;
+    /* FOOTER */
+    .site__footer {
+        /* CONTACTEZ NOUS */
+        .bloc__contact {
+            /* FORME LEFT */
+            & .forme__left {
+                top: 20%;
+                left: 15%;
+            }
+            /* FORME RIGHT */
+            & .forme__right {
+                top: 40%;
+                right: 15%;
+            }
         }
     }
 }
@@ -126,38 +131,47 @@
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-    /* SECTION : CONTACTEZ-NOUS */
-    .contact {
-        height: 200px;
-        /* BLOC CONTACT */
-        & .bloc__contact {
-            /* Forme left */
-            & .forme__left {
-                top: 27%;
-                left: -7%;
-            }
-            /* Forme right */
-            & .forme__right {
-                top: 47%;
-                right: -24%;
-            }
-            & img {
-                width: 60%;
-            }
-            & p {
-                font-size: 0.9rem;
+    /* FOOTER */
+    .site__footer {
+        /* CONTACTEZ-NOUS */
+        .contact {
+            height: 200px;
+            /* BLOC CONTACT */
+            & .bloc__contact {
+                /* FORME LEFT */
+                & .forme__left {
+                    top: 27%;
+                    left: -7%;
+                }
+                /* FORME RIGHT */
+                & .forme__right {
+                    top: 47%;
+                    right: -24%;
+                }
+                & img {
+                    width: 60%;
+                }
+                & p {
+                    font-size: 0.9rem;
+                }
             }
         }
-    }
-    /* SECTION : NEWSLETTER */
-    .newsletter {
-        /* Adresse mail */
-        & input[type=email] {
-            width: 200px;
-        }
-        /* Mentions et politique */
-        & .mentions p, .mentions li a {
-            font-size: 0.7rem;
+        /* SECTION : NEWSLETTER */
+        .newsletter {
+            .form__news form {
+                /* ADRESSE EMAIL */
+                & input[type=email] {
+                    width: 220px;
+                }
+                /* BOUTON ENVOYÉ */
+                & input[type=submit] {
+                    width: 105px;
+                }
+            }
+            /* MENTIONS POLITIQUES */
+            & .mentions p, .mentions li a {
+                font-size: 0.7rem;
+            }
         }
     }
 }

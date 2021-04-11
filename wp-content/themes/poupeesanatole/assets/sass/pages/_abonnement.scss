@@ -1,6 +1,6 @@
 /* PAGE ABONNEMENT */
 .page__abonnement {
-    padding: 4rem 0;
+    @include wrapper();
     @include column_center();
     /* TEXTE ABONNEMENT */
     & .txt__abonnement {
@@ -37,7 +37,7 @@
 {
     /* PAGE ABONNEMENT */
     .page__abonnement {
-        padding: 3rem 0;
+        @include wrapper_mobile();
         /* IMAGE ABONNEMENT */
         & .img__abonnement {
             @include row_center();
@@ -45,5 +45,13 @@
                 width: 90%;
             }
         }
+    }
+}
+
+/* TABLETTE (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* PAGE ABONNEMENT */
+    .page__abonnement{
+        margin-top: 9rem;
     }
 }

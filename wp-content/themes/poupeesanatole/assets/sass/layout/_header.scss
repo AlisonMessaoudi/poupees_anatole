@@ -1,46 +1,74 @@
 /* HEADER */
 .site__header {
-    @include column();
-    height: 170px;
+    height: 130px;
     /* SITE NAVBAR */
     & .site__navbar {
         @include column();
         position: relative;
-        /* Forme & Bloc connexion */
+        /* FORME & BLOC CONNEXION */
         & .forme, .connexion {
             position: absolute;
         }
+        /* FORME IMAGE LEFT */
+        & .forme__img__left {
+            top: 20%;
+            left: -2%;
+        }
+        /* FORME IMAGE CENTER */
+        & .forme__img__center {
+            top: -20%;
+            left: 35%;
+        }
+        /* FORME IMAGE RIGHT */
+        & .forme__img__right {
+            top: 30%;
+            right: -2%;
+        }
+        
+        /* CONNEXION */
         & .connexion {
+            top: 6%;
+            right: 27%;
             & a:hover {
                 text-decoration: none;
+                /* BOUTON CROWNFOUNDING - Phase 1 */
                 &::before {
                     content: "Soutenez notre campagne de crownfounding";
                     color: $color-base;
                     font-size: .8rem;
                     font-style: italic;
                     font-weight: bold;
-                    position: absolute;
-                    right: 130%;
-                    width: 150px;
-                    top: -5%;
                     line-height: 1rem;
                     text-align: end;
+                    position: absolute;
+                    width: 150px;
+                    top: -5%;
+                    right: 130%;
                 }
+                /* BOUTON E-COMMERCE BOUTIQUE/MON COMPTE */
+                // & ion-icon {
+                //     padding-right: 1rem;
+                //     font-size: 1.4rem;
+                // }
             }
         }
-        // & .connexion ion-icon {
-        //     padding-right: 1rem;
-        //     font-size: 1.4rem;
-        // }
+        /* LOGO */
+        & a {
+            @include row_center();
+            & img {
+                width: 80%;
+            }
+        }
     }
     /* MENU DESKTOP ET MOBILE DEPLOYÉ */
     & .menu__desktop {
         width: nth($width, 5);
+        justify-content: center;
         & .site__header__menu {
-            max-width: 830px;
-            margin: auto;
-            margin-top: 2rem;
-            width: nth($width, 4);
+            @include wrapper();
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+            width: nth($width, 5);
             & .menu-item {
                 width: 25%;
                 @include column();
@@ -48,14 +76,15 @@
                 height: 100px;
                 position: relative;
                 z-index: 100;
+                padding-top: 1rem;
                 & a {
                     color: $color-base;
-                    /* Effet de soulignement en fondu */
+                    /* ANIMATION EN FONDU AU HOVER */
                     &::after {
                         content: '';
                         position: absolute;
                         left: 50%;
-                        top: 2rem;
+                        top: 2.6rem;
                         transform: translateX(0%) scaleX(0);
                         transform-origin: -50% -50%;
                         width: 25%;
@@ -63,7 +92,7 @@
                         background-color: $color-base;
                         transition: transform 250ms;
                     }
-                    /* Effet de soulignement en fondu */
+                    /* ANIMATION EN FONDU AU HOVER */
                     &:hover {
                         text-decoration: none;
                         &::after {
@@ -71,7 +100,7 @@
                         }
                     }
                 }
-                /* Page active */
+                /* CSS LIEN ACTIF */
                 & a[aria-current=page] {
                     font-weight: $bold-weight;
                 }
@@ -95,12 +124,12 @@
                     height: 70px;
                     justify-content: center;
                     & a {
-                        /* Effet de soulignement en fondu */
+                        /* ANIMATION EN FONDU AU HOVER */
                         &::after {
                             content: '';
                             position: absolute;
                             left: 50%;
-                            top: 3rem;
+                            top: 3.5rem;
                             transform: translateX(0%) scaleX(0);
                             transform-origin: -50% -50%;
                             width: 200%;
@@ -108,7 +137,7 @@
                             background-color: $color-base;
                             transition: transform 250ms;
                         }
-                        /* Effet de soulignement en fondu */
+                        /* ANIMATION EN FONDU AU HOVER */
                         &:hover {
                             text-decoration: none;
                             &::after {
@@ -122,80 +151,50 @@
     }
 }
 
-/* DESKTOP AND LAPTOPS */
-@media only screen and (min-width : 1224px) {
-    .site__navbar {
-        /* Forme image left */
-        & .forme__img__gauche {
-            top: 20%;
-            left: -2%;
-        }
-        /* Forme image center */
-        & .forme__img__center {
-            top: -20%;
-            left: 35%;
-        }
-        /* Forme image right */
-        & .forme__img__droite {
-            top: 30%;
-            right: -2%;
-        }
-        /* BOUTONS CONNEXION */
-        & .connexion {
-            top: 6%;
-            right: 26%;
-        }
-    }
-}
-
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
     /* HEADER */
     .site__header {
-        height: 125px;
+        position: fixed;
+        z-index: 300;
+        background-color: white;
+        height: 100px;
         /* SITE NAVBAR */
         .site__navbar {
             margin-top: 0 !important;
-            padding: 1.5rem 0;
+            padding: 1.3rem 0;
             position: relative;
-            & .site__header__menu{
-                @include column_center();
-                justify-content: space-evenly;
-                margin: 0;
-                z-index: 100;
-                height: 250px;
+            /* BLOC FORME */
+            .bloc__forme {
                 width: 100%;
-            }
-            & .show {
-                background-color: #fff;
-                height: 250px;
-                z-index: 101;
-            }
-            /* BLOC FORMES */
-            /* Forme left */
-            & .forme__img__gauche {
-                top: -40%;
-                left: 73%;
-            }
-            /* Forme center */
-            & .forme__img__center {
-                top: -14%;
-                left: -38px;
-            }
-            /* Forme right */
-            & .forme__img__droite {
-                display: none;
-            }
-            /* Bouton connexion */
-            & .connexion {
-                display: none;
-            }
-            /* Menu burger */
-            & .menu__burger {
+                z-index: 1000;
                 position: absolute;
-                right: 4%;
-                top: 33%;
+                /* FORME IMAGE LEFT */
+                & .forme__img__left {
+                    top: -65px;
+                    left: 65%;
+                }
+                /* FORME IMAGE CENTER */
+                & .forme__img__center {
+                    top:  -35px;
+                    left: -38px;
+                }
+                /* FORME IMAGE RIGHT */
+                & .forme__img__right {
+                    display: none;
+                }
+            }
+            /* BOUTON CONNEXION */
+            & .connexion {
+                top: 74%;
+                right: 50%;
+            }
+            /* MENU BURGER */
+            & .menu__burger {
+                position: fixed;
+                right: 7%;
+                top: 12%;
                 z-index: 102;
                 /* Icone burger */
                 & span { 
@@ -204,6 +203,177 @@
                         font-size: 2rem;
                     }
                 }
+            }
+            /* MENU DESKTOP et MOBILE DEPLOYÉ*/
+            & .site__header__menu{
+                align-items: center;
+                height: 81vh;
+                padding-top: 6rem;
+                & .menu-item {
+                    width: 100%;
+                    height: 65px;
+                    & a {
+                        transform: none;
+                        width: 0;
+                        & :hover {
+                            &::after {
+                                transform: none;
+                            }
+                        }
+                    }
+                }
+                /* ACCUEIL */
+                & .menu-item-82 {
+                    padding-top: 0;
+                    height: 50px;
+                }
+                /* PROJET */
+                & .menu-item-83 {
+                    height: 100px;
+                    justify-content: space-between;
+                    & .sub-menu {
+                        display:flex;
+                        height: 70px;
+                        align-items: center;
+                        & li {
+                            padding-top: 0;
+                            justify-content: center;
+                        }
+                    }
+                }
+                /* PROJET:HOVER */
+                & #menu-item-83:hover {
+                    background-color: transparent;
+                }
+                /* COLLABORATEUR */
+                & > li:hover > .sub-menu {
+                    top: 38%;
+                }
+                /* CONTACT */ 
+                & .menu-item-26 {
+                    height: 80px;
+                }
+            }
+            & .show {
+                background-color: #fff;
+                height: 81vh;
+                z-index: 101;
+            }
+        }
+    }
+}
+
+/* TABLETTE (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* HEADER */
+    .site__header {
+        position: fixed;
+        z-index: 300;
+        background-color: white;
+        height: 120px;
+        /* SITE NAVBAR */
+        .site__navbar {
+            margin-top: 0 !important;
+            padding: 1.3rem 0;
+            position: relative;
+            /* BLOC FORME */
+            .bloc__forme {
+                width: 100%;
+                z-index: 1000;
+                position: absolute;
+                /* FORME IMAGE LEFT */
+                & .forme__img__left {
+                    top: -65px;
+                    left: 65%;
+                }
+                /* FORME IMAGE CENTER */
+                & .forme__img__center {
+                    top:  -35px;
+                    left: -38px;
+                }
+                /* FORME IMAGE RIGHT */
+                & .forme__img__right {
+                    display: none;
+                }
+            }
+            /* BOUTON CONNEXION */
+            & .connexion {
+                top: 84%;
+                right: 50%;
+            }
+            /* CROWNFOUNDING */
+            & a img {
+                width: 100%;
+            }
+            /* MENU BURGER */
+            & .menu__burger {
+                position: fixed;
+                right: 16%;
+                top: 7.5%;
+                z-index: 102;
+                /* Icone burger */
+                & span { 
+                    height: auto;
+                    & i {
+                        font-size: 2rem;
+                    }
+                }
+            }
+            /* MENU DESKTOP et MOBILE DEPLOYÉ*/
+            & .site__header__menu{
+                align-items: center;
+                height: 55vh;
+                padding-top: 14rem;
+                & .menu-item {
+                    width: 100%;
+                    height: 75px;
+                    & a {
+                        transform: none;
+                        width: 0;
+                        font-size: 22px;
+                        & :hover {
+                            &::after {
+                                transform: none;
+                            }
+                        }
+                    }
+                }
+                /* ACCUEIL */
+                & .menu-item-82 {
+                    padding-top: 0;
+                    height: 70px;
+                }
+                /* PROJET */
+                & .menu-item-83 {
+                    height: 140px;
+                    justify-content: space-between;
+                    & .sub-menu {
+                        display:flex;
+                        height: 90px;
+                        align-items: center;
+                        & li {
+                            padding-top: 0;
+                            justify-content: center;
+                        }
+                    }
+                }
+                /* PROJET:HOVER */
+                & #menu-item-83:hover {
+                    background-color: transparent;
+                }
+                /* COLLABORATEUR */
+                & > li:hover > .sub-menu {
+                    top: 38%;
+                }
+                /* CONTACT */ 
+                & .menu-item-26 {
+                    height: 100px;
+                }
+            }
+            & .show {
+                background-color: #fff;
+                height: 101vh;
+                z-index: 101;
             }
         }
     }

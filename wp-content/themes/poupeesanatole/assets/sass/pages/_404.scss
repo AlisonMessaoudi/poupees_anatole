@@ -1,6 +1,6 @@
 /* PAGE 404 */
 .page__404 {
-    padding: 4rem 0;
+    @include wrapper_mobile();
     @include column_center();
     /* TEXTE 404 */
     & .txt__404 {
@@ -34,6 +34,7 @@
 {
     /* PAGE 404 */
     .page__404 {
+        @include wrapper_mobile();
         /* TEXTE 404 */
         & .txt__404 {
             /* TITRE */

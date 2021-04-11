@@ -3,14 +3,10 @@
     @include wrapper();
     height: 700px;
     /* FORMULAIRE NEWSLETTER */
-    & .bloc__news, .bloc__contact {
+    & .bloc__newsletter, .bloc__contact {
         /* FORMULAIRE */
-        & form {
-            align-items: flex-end;
-            /* TITRE */
-            & h2 {
-                padding-bottom: 1rem;
-            }
+        & .mailjet_widget_front_container, .wpcf7-form {
+            margin: 0;
             /* TEXTE */
             & p {
                 width: 100%!important;
@@ -18,17 +14,12 @@
             }
             /* CARACTÉRISTIQUE GÉNÉRALE DU FORMULAIRE */
             & input, textarea {
-                background-color: #ececece6;
-                border: $border-none;
-                padding: 0.3rem 1rem;
-                margin-top: 1rem;
+                @include formulaire();
                 width: 100%;
-                border-radius: 6px;
             }
             /* PLACEHOLDER */
             & input::placeholder, textarea{
-                color: $color-base;
-                font-style: italic;
+                @include placeholder($color:$color-base);
             }
             /* ZONE DE TEXTE*/
             & textarea {
@@ -38,26 +29,22 @@
             /* BOUTON ENVOYÉ */
             & input[type=submit] {
                 @include btn_formulaire();
-                margin-left: 0rem;
                 width: 150px;
-                height: 100%;
             }
             /* BOUTON ENVOYÉ HOVER */
             & input[type=submit]:hover {
                 background-color: $color-fourth;
             }
-        }
-    }
-    /* FORMULAIRE NEWSLETTER */
-    .mailjet_widget_front_container {
-        margin: 0;
-        & #mailjetSubscriptionForm {
-            @include row_center();
-            & #mailjet_widget_email {
-                width: 575px;
-            }
-            & .mailjet-widget-form-group{
-                margin: 0;
+            & #mailjetSubscriptionForm {
+                @include row_center();
+                justify-content: space-between;
+                width: 85%;
+                & #mailjet_widget_email {
+                    width: 540px;
+                }
+                & .mailjet-widget-form-group{
+                    margin: 0;
+                }
             }
         }
     }
@@ -75,7 +62,7 @@
         font-weight: $bold-weight;
         font-size: nth($font-size, 3);
         width: nth($width, 4);
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
         text-align: start;
         margin-bottom: 0;
     }
@@ -90,64 +77,72 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
     /* PAGE CONTACT */
-    .site__page__contact {
-        width: 380px;
-        padding: 1rem;
-        margin-bottom: 0;
-        .site__news, .site__contact {
+    .site__contact {
+        @include wrapper_mobile();
+        margin-top: 2rem;
+        height: auto;
+        & .bloc__newsletter, .bloc__contact {
+            /* TITRE*/ 
+            & h2 {
+                text-align:start;
+            }
             /* FORMULAIRE */
-            & form { 
+            & .mailjet_widget_front_container #mailjetSubscriptionForm { 
                 @include column_center();
-                align-items: center;
-                /* TITRE */
-                & h2 {
-                    width: 360px;
-                    font-size: 1.4rem;
-                    padding-bottom: 0;
-                }
+                align-items: flex-start;
+                width: 100%;
                 /* FORMULAIRE NEWSLETTER */
-                & .form__news__input {
-                    width: 360px;
-                    justify-content: center;
-                }
-                /* Caractérstique générale formulaire */
-                & input, textarea {
+                & .mailjet-widget-form-group,#mailjet_widget_email, textarea {
                     width: 100%;
                 }
-                /* Champ nom */
+                /* CHAMP NOM */
                 & .name__input {
                     padding-top: 0 !important;
                 }
             }
-        }
-        /* Ligne */
-        .ligne { 
-            width: 100%;
-            & hr {
-            width: 100%;
-            margin: 2rem 0;
-            margin-bottom: 3rem;
+            /* SOUS-TITRE */
+            & h5 {
+                display: none;
             }
         }
-        /* Sous-titre */
-        & h5 {
-            display: none;
+        /* LIGNE */
+        & .ligne { 
+            & hr {
+                width: 100%;
+            }
         }
-    }
-    /* CONTACT */
-    .site__contact {
-        /* Bloc image */
-        & .bloc__image {
+        /* BLOC IMAGE */
+        & .bloc__img {
             order: 4;
-            /* Image */
+            /* IMAGE */
             & img {
                 width: 100%;
                 margin-top: 3rem;
             }
         }
-        /* Bloc texte et formulaire */
-        .bloc__texte__form {
+        /* BLOC TEXTE ET FORMULAIRE */
+        & .bloc__texte__form {
             padding-right: 15px !important;
         }
     }
 }
+/* TABLETTE (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* PAGE CONTACT */
+    .site__contact {
+        @include wrapper_tablette();
+        & .bloc__img {
+            width: 42%;
+        }
+        & .bloc__txt__form {
+            width: 51%;
+        }
+        & .bloc__newsletter .mailjet_widget_front_container #mailjetSubscriptionForm {
+            width: 95%;
+            & #mailjet_widget_email {
+                width: 470px;
+            }
+        }
+    }
+}
+

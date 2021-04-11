@@ -1,41 +1,55 @@
-/* SECTION 0 : PRESENTATION COLLABORATEURS */
-.site__partner{
-    max-width: 830px;
-    margin-top: 3.5rem;
-    /* TITRE : LES COLLABORATEURS */
+/* COLLABORATEURS */
+.site__collaborateurs {
+    @include wrapper();
+    /* TITRE */
     & .collaborateurs__titre {
         margin: 0;
     }
+    /* BLOC REMERCIEMENT */
+    & .remerciement {
+        @include column();
+        margin: 4rem 0;
+        & h5 {
+            font-weight: $black-weight;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: start;
+        }
+    }
 }
-/* CARD COLLABORATEUR */
+/* COLLABORATEUR */
 .collaborateur {
     border-bottom: 0.1px solid $color-base;
     padding: 4rem 0;
-    /* Bloc image */
+    /* BLOC IMAGE */
     & .collaborateur__img {
         @include row();
-        justify-content: flex-start;
         align-items: flex-start;
+        justify-content: center;
         & img {
             width: 100%;
         }
     }
-    /* Bloc texte */
+    /* BLOC TEXTE */
     & .collaborateur__txt { 
         @include column();
-        justify-content: flex-start;
         align-items: flex-start;
+        justify-content: center;
         padding-top: 1rem;
+        /* CONTENU AVANT L'INPUT */
         & .before__input {
+            /* TYPE */
             & h4 {
                 font-size: nth($font-size, 2);
                 font-weight: $normal-weight;
             }
+            /* NOM */
             & p {
                 line-height: 1.9rem;
                 padding-top: 1rem;
                 font-weight: $black-weight;
                 font-size: nth($font-size, 4);
+                /* SPECIALITÉ */
                 & span {
                     font-weight: $normal-weight;
                     font-style: italic;
@@ -44,14 +58,7 @@
             }
         }
     }
-    /* En savoir plus */
-    & input {
-        background-color: transparent;
-        border: $border-none;
-        color: $color-base;
-        font-weight: $semibold-weight;
-    }
-    /* Contenu en savoir plus */
+    /* CONTENU EN SAVOIR PLUS */
     & .more__collaborateur {
         & p {
             font-size: nth($font-size, 2);
@@ -65,55 +72,81 @@
                 text-decoration: none;
             }
         }
+        & .site, .contact {
+            margin: 0;
+        }
     }
-}
-
-.remerciement {
-    @include column();
-    margin: 4rem 0;
-    & h5 {
-        font-weight: $black-weight;
-        font-style: italic;
-        font-size: 1.1rem;
-        text-align: start;
+    /* BOUTON EN SAVOIR PLUS/EN SAVOIR MOINS */
+    & input {
+        background-color: transparent;
+        border: $border-none;
+        color: $color-base;
+        font-weight: $semibold-weight;
+        margin-top: 1rem;
     }
 }
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-    /* SECTION 0 : PRESENTATION COLLABORATEURS */
-    .site__partner {
-        width: 350px;
-        /* Titre collaborateur */
-        & .collaborateurs__titre {
-            margin: 0;
-            @include row_center();
+    /* COLLABORATEURS */
+    .site__collaborateurs {
+        @include wrapper_mobile();
+        /* TITRE */
+        & .collaborateurs__titre h2 {
+            text-align: center;
+            width: 100%;
         }
-        /* Card collaborateur */
+        /* COLLABORATEUR */
         & .collaborateur {
-            padding: 3rem 0;
-            width: 300px;
+            padding: 2rem 0;
             margin: auto;
             /* Bloc image */
-            & .collaborateur__img {
-                @include row();
-                justify-content: center;
+            & .collaborateur__img img{
+                width: 80%;
             }
             /* Bloc texte */
             & .collaborateur__txt {
                 text-align: center;
-                & h4 {
-                    padding-top: 1.5rem;
-                }
+                align-items: center;
             }
             /* Contenu en savoir plus */
             & .more__collaborateur p {
                 text-align: start;
             }
         }
-        /* Dernier collaborateur */
-        & .collaborateur__last {
-            padding-bottom: 0rem;
+        /* BLOC REMERCIEMENT */
+        & .remerciement {
+            align-items: center;
+            & p {
+                width: 80%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+/* TABLETTE (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* COLLABORATEURS */
+    .site__collaborateurs {
+        @include wrapper_tablette();
+        & .collaborateur {
+            padding: 2.5rem 0;
+            & .collaborateur__img {
+                width: 40%;
+                & img {
+                    width: 90%;
+                }
+            }
+            & .collaborateur__txt {
+                width: 60%;
+                & .before__input {
+                    padding-top: 1rem;
+                }
+            }
+        }
+        & .remerciement {
+            align-items: center;
         }
     }
 }

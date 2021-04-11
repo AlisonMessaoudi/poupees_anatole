@@ -4,6 +4,7 @@
     <!-- HEAD -->
     <head>
 
+        <!-- META-DONNÉES -->
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -14,7 +15,8 @@
         <!-- FAVICON -->
         <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/images/01_logo/favicon32x32.png"/>
 
-        <title> <?php bloginfo('name'); ?> </title>
+        <!-- TITRE -->
+        <title><?php bloginfo('name'); ?></title>
 
         <?php wp_head(); ?>
 
@@ -37,24 +39,29 @@
                 <div class="bloc__forme">
 
                     <!-- Forme image left -->
-                    <img class="forme forme__img__gauche" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_01.png" alt="Forme orange - illustration Poupées Anatoles"/>
+                    <img class="forme forme__img__left" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_01.png" alt="Forme orange - illustration Poupées Anatoles"/>
                     <!-- Forme image center -->
                     <img class="forme forme__img__center" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_02.png" alt="Forme jaune - illustration Poupées Anatoles"/>
                     <!-- Forme image right -->
-                    <img class="forme forme__img__droite" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_03.png" alt="Forme brune - illustration Poupées Anatoles"/>
+                    <img class="forme forme__img__right" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_03.png" alt="Forme brune - illustration Poupées Anatoles"/>
 
                 </div>
 
-                <!-- BOUTONS CONNEXION -->
-                <div class="row connexion">
+                <!-- CONNEXION -->
+                <!-- <div class="row connexion"> -->
 
-                    <!-- <ion-icon name="person-outline"></ion-icon>
-                    <ion-icon name="basket-outline"></ion-icon> -->
-                    <a href="#"><img src="<?= get_template_directory_uri(); ?>/assets/images/10_financement/ulule.png" alt="Logo du site de crownfounding Ulule pour le projet les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."></a>
+                    <!-- PARTIE À VENIR AVEC LE SHOP -->
+                        <!-- <ion-icon name="person-outline"></ion-icon>
+                        <ion-icon name="basket-outline"></ion-icon> -->
 
-                </div>
+                    <!-- LIEN CROWNFOUNDING -->
+                    <!-- <a href="#">
+                        <img src="<?= get_template_directory_uri(); ?>/assets/images/10_financement/ulule.png" alt="Logo du site de crownfounding Ulule pour le projet les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."/>
+                    </a>
+
+                </div> -->
                 
-                <!-- LOGO : redirection accueil -->
+                <!-- LOGO -->
                 <a href="<?= home_url('/'); ?>">
                     <img src="<?= get_template_directory_uri(); ?>/assets/images/01_logo/logo_poupees_anatoles.png" alt="Logo les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."/>
                 </a>
@@ -77,6 +84,20 @@
                             'depth' => 0,
                         )
                     ); ?>
+
+                    <!-- CONNEXION -->
+                <div class="row connexion">
+
+                    <!-- PARTIE À VENIR AVEC LE SHOP -->
+                        <!-- <ion-icon name="person-outline"></ion-icon>
+                        <ion-icon name="basket-outline"></ion-icon> -->
+
+                    <!-- LIEN CROWNFOUNDING -->
+                    <a href="#">
+                        <img src="<?= get_template_directory_uri(); ?>/assets/images/10_financement/ulule.png" alt="Logo du site de crownfounding Ulule pour le projet les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."/>
+                    </a>
+
+                </div>
                 
                 </div>
             

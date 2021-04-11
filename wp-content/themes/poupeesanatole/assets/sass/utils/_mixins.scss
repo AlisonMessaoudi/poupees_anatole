@@ -56,12 +56,20 @@
     border: none;
     background-color: $color-secondly;
     color: $color-base-background;
-    font-weight: $normal-weight;
+    font-weight: $semibold-weight;
 }
 
 /* FORMULAIRE */
 
-@mixin placeholder ($color:$color-base) {
+@mixin formulaire() {
+    background-color: $color-input;
+    border: $border-none;
+    padding: 0.3rem 1rem;
+    margin-top: 1rem;
+    border-radius: 6px;
+}
+
+@mixin placeholder($color:$color-base) {
     font-style: italic;
     color: $color;
 }
@@ -77,11 +85,15 @@
 @mixin wrapper_mobile(){
     width: 300px;
     margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 3rem 0;
+    padding-top: 6rem;
 }
 
 @mixin wrapper_tablette(){
-    width: 665px;
+    width: 630px;
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 @mixin row() {

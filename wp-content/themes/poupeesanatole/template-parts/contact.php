@@ -13,7 +13,7 @@ get_header();
 <main class="container site__contact">
 
     <!-- FORMULAIRE NEWSLETTER -->
-    <div class="bloc__news">
+    <div class="bloc__newsletter">
 
         <!-- TEXTE -->
         <h2>Abonnez-vous à notre Newsletter</h2>
@@ -34,17 +34,15 @@ get_header();
         <!-- TITRE -->
         <h2>Contactez-nous</h2>
 
-        <div class="row pt-3">
+        <div class="row">
 
             <!-- BLOC IMAGE -->
-            <div class="col-lg-4 bloc__image">
-                
+            <div class="col-lg-4 bloc__img">
                 <img src="<?= get_template_directory_uri(); ?>/assets/images/07_images/contact.png" alt="Ensemble de poupées - Projet les Poupées Anatoles"/>
-            
             </div>
 
             <!-- BLOC TITRE ET FORMULAIRE -->
-            <div class="col-lg-6 pr-0 bloc__texte__form">
+            <div class="col-lg-6 pr-0 bloc__txt__form">
 
                 <!-- TITRE -->
                 <h5>Une Question ? Une envie ? Une rencontre ?</h5>
