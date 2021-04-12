@@ -33,9 +33,20 @@ get_header();
     
     </div>
 	
-	<div class="filtre">
-		<h2>Filtres</h2>
+	<div class="filtreType">
+		<button type="button" class="tous__filtres" data-toggle="modal" data-target="#exampleModalLong"><ion-icon name="grid-outline"></ion-icon> Tous les filtres</button>
+	</div>
 
+	
+
+	<div class="modal fade filtre" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">	
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>	
+		</div>	
 	</div>
 
 	<?php
@@ -124,20 +135,25 @@ get_header();
 		}
 
 		for(var i = 0; i < categories.length; i++) { // dès qu'on a la liste complète consolidée
-			var html = '<h4>' + $($('span.type.' + categories[i][0]).first().contents().get(0)).text() + '</h4>'; // On crée le titre
-			html += '<div">'; // On ouvre la div
+			var html = '<h5>' + $($('span.type.' + categories[i][0]).first().contents().get(0)).text() + '</h5>'; // On crée le titre
+			html += '<p>'; // On ouvre la balise p
 			for(var j = 0; j < categories[i][1].length; j++) { // On parcourt les valeurs et les transforme en checkbox
-				html += '<input type="checkbox" class="' + categories[i][0] + '|' + categories[i][1][j] + '" name="' + categories[i][1][j] + '" />' + $('span.type.' + categories[i][0] + ' span.' + categories[i][1][j]).first().text() + '<br />';
+				html += '<input type="checkbox" class="' + categories[i][0] + '|' + categories[i][1][j] + '" name="' + categories[i][1][j] + '" /> <span>' + $('span.type.' + categories[i][0] + ' span.' + categories[i][1][j]).first().text() + '</span><br />';
 			}
-			html += '</div>'; // On ferme la div
-			$('div.filtre').append(html); // On l'ajoute au corps de la page
+			html += '</p>'; // On ferme la balise p
+			$('div.filtre .modal-content').append(html); // On l'ajoute au corps de la page
+
+			if(categories[i][0]=='pa_par-type-darticle') {
+				$('div.filtreType').append(html)
+			}
 		}
 
 		var nbFiltre = 0;
-		$('input[type="checkbox"').click(function() { 
+		$('input[type="checkbox"]').click(function() { 
 			// on cible les input et on met un evenement onClick dessus
 				var filtres = []; // crée une variable contenant un tableau vide
-				$('div.filtre input:checked').each(function(){ // on parcours les input checké
+				var curNbFiltre = 0;
+				$('div.filtre input:checked, div.filtreType input:checked').each(function(){ // on parcours les input checké
 					var classe = $(this).attr('class').split('|'); // on crée une variable classe contenant les valeurs (attribut et term)
 					var type = classe[0]; // on crée une variable type qui contient les attributs
 					var valeur = classe[1]; // on crée une variable valeur qui contient les terms
@@ -146,14 +162,16 @@ get_header();
 						found = filtres[i][0] == type;
 						if(found && !filtres[i][1].includes(valeur)) {
 							filtres[i][1].push(valeur);
+							curNbFiltre++;
 						}
 					}
 					if (!found){
 						filtres.push([type, [valeur]]);
+						curNbFiltre++;
 					}
 				});
 
-				if(filtres.length == 0 || filtres.length < nbFiltre){
+				if(curNbFiltre== 0 || curNbFiltre < nbFiltre){
 					$('li.card__shop').show();
 				}
 				for (var i = 0; i < filtres.length; i++) {
@@ -163,7 +181,7 @@ get_header();
 						li.show();
 					}
 				}
-				nbFiltre = filtres.length;
+				nbFiltre = curNbFiltre;
 		});
 	})
 </script>

@@ -1,15 +1,17 @@
-/* GENERAL */
-
-    .project__intro, .project__presentation__formes {
-        max-width: 900px;
+/* PAGE PROJET */
+.site__project {
+    /* SECTION : PROJET & PRESENTATION */
+    & .project__intro, .project__presentation__formes {
+        max-width: 830px;
         margin: auto;
     }
-    /* SECTION 1 : LE PROJET */
-    .project__intro {
+    /* SECTION : PROJET */
+    & .project__intro {
         min-height: 450px;
         @include row_center();
-        /* Bloc texte */
-        & .project__bloc__txt {
+        /* BLOC TEXTE */
+        & .bloc__txt {
+            /* TITRE */
             & h2 {
                 margin-bottom: 1.5rem;
             }
@@ -20,45 +22,49 @@
                 }
             }
         }
-        /* Bloc image */
-        & .project__bloc__img {
-            @include row_center();
-        }
     }
-    /* SECTION 2 : LES POUPEES */
-    .project__presentation {
+    /* SECTION : POUPÉES */
+    & .project__presentation {
         background-color: $color-primary;
         position: relative;
-        /* Bloc formes */
+        /* BLOC FORMES */
         & .project__presentation__formes{
             padding: 2rem 0;
-            /* Forme left */
-            & .forme__left {
+            /* FORME IMAGE LEFT & FORME IMAGE RIGHT*/
+            & .forme__img__left, .forme__img__right {
                 position:absolute;
             }
-            /* Forme right */
-            & .forme__right {
-                position: absolute;
+            /* FORME IMAGE LEFT */
+            & .forme__img__left {
+                bottom: 22%;
+                left: -3%;
             }
-            /* Illustrations */
-            .project__presentation__illustration {
+            /* FORME IMAGE RIGHT */
+            & .forme__img__right {
+                top: 20%;
+                right: -4%;
+            }
+            /* ILLUSTRATION */
+            & .project__presentation__illustration {
                 padding: 1.2rem 0;
-                /* Illustration image */
+                /* ILLUSTRATION IMAGE LEFT & ILLUSTRATION IMAGE RIGHT */
                 & .illustration__img__left, .illustration__img__right {
                     @include row_center();
+                    align-items: flex-start;
                 }
-                /* Illustration texte */
+                /* ILLUSTRATION TEXTE RIGHT */
                 & .illustration__txt__right {
                     & p {
                         text-align: end;
                     }
                 }
+                /* ILLUSTRATION TEXTE RIGHT & ILLUSTRATION TEXTE LEFT */
                 & .illustration__txt__right, .illustration__txt__left {
                     @include column_center();
                     color: $color-base-background;
                     & h2 {
                         padding-bottom: 1rem;
-                        width: 82%;
+                        width: 87%;
                     }
                     & p {
                         max-width: 350px;
@@ -71,30 +77,22 @@
             }
         }
     }
-    /* SECTION 3 : COLLABORATEURS */
-    .site__project .collaborateurs {
-        margin-top: 0;
-        height: 570px;
-        max-width: 890px;
+    /* SECTION : COLLABORATEURS */
+    & .collaborateurs {
+        min-height: 450px;
+        @include wrapper();
+        /* TITRE */
         & .collaborateurs__titre {
-            margin-top: 5rem;
             justify-content: space-between;
             & h2 {
                 margin-left: 2.5rem;
             }
         }
-        /* Collaborateur */
-        & .collaborateur {
-            border-bottom: none;
-        }
     }
-    /* SECTION 4 : DOCUMENTS */
-    .documents {
-        height: 400px;
-        max-width: 890px;
-        margin-bottom: 5rem;
-        @include column();
-        justify-content: center;
+    /* SECTION : DOCUMENTS */
+    & .documents {
+        min-height: 450px;
+        @include wrapper();
         & h2 {
             margin-left: 2.5rem;
             margin-bottom: 2.5rem;
@@ -103,21 +101,17 @@
         & .liste__documents {
             @include row();
             justify-content: space-between;
-            padding-top: 0;
-            margin-left: 3rem;
-            width: 94.5%;
+            margin-left: 2.5rem;
+            max-width: 830px;
             /* Document */
             & .owl-stage {
                 width: 6000px !important;
                 & .owl-item {
                     width: 250px !important;
                     & .document {
-                        @include column_center();
-                        justify-content: flex-start;
                         margin: 1rem;
-                        /* Document texte */
+                        /* DOCEUMENT TEXTE */
                         & .document__txt {
-                            @include column();
                             text-align: center;
                             padding-top: 2rem;
                             & h4 {
@@ -139,7 +133,6 @@
                 left: -5.5%;
                 color: $color-base!important;
                 font-size: 500% !important;
-                margin-right: 1rem;
             }
             & .owl-nav .owl-next {
                 left: 100%;
@@ -149,26 +142,6 @@
         & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
             display: block !important;
         }  
-    }
-
-/* DESKTOP AND LAPTOPS */
-@media only screen and (min-width : 1224px) {
-    .project__presentation__formes{
-        /* Forme left */
-        & .forme__left {
-            bottom: 22%;
-            left: -3%;
-        }
-        /* Forme right */
-        & .forme__right {
-            top: 20%;
-            right: -4%;
-        }
-    }
-    .project__presentation__illustration {
-        & .illustration__txt__left, .illustration__txt__right {
-            align-items: flex-start;
-        }
     }
 }
 
@@ -180,7 +153,7 @@
         & .project__intro {
             margin-bottom: 2rem;
             /* BLOC TEXTE */
-            & .project__bloc__txt {
+            & .bloc__txt {
                 width: 300px;
                 & p {
                     font-size: 1.2rem;
@@ -192,7 +165,7 @@
     .project__presentation .project__presentation__formes {
         padding: 3rem 0;
         /* Forme Left */
-        & .forme__left {
+        & .forme__img__left {
             left: -9%;
             bottom: 38%;
             & img {
@@ -200,7 +173,7 @@
             }
         }
         /* Forme Right */
-        & .forme__right {
+        & .forme__img__right {
             right: -23%;
             top: 9%;
             & img {

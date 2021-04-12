@@ -7,15 +7,16 @@ get_header();
 
 ?>
 
-<!-- MAIN -->
+<!-- PAGE PROJET -->
 <main class="container-fluid p-0 site__project">
 
-    <!-- SECTION 1 : LE PROJET -->
+    <!-- SECTION : LE PROJET -->
     <section class="container row project__intro">
 
         <!-- BLOC TEXTE -->
-        <div class="col-lg-7 project__bloc__txt">
+        <div class="col-lg-7 bloc__txt">
 
+            <!-- TITRE -->
             <h2 class="appear">Le Projet</h2>
 
             <p>Le projet des Poupées Anatoles consiste à mettre à disposition des institutions et des professionnels accompagnant les personnes en situation de handicap un outil qui permet d'<span>aborder de façon respectueuse et adaptée le corps et les rapports amoureux.</span></p>
@@ -25,46 +26,46 @@ get_header();
         </div>
 
         <!-- BLOC IMAGE -->
-        <div class="col-lg-5 project__bloc__img">
+        <div class="col-lg-5 bloc__img">
 
-            <!-- Intro_img -->
+            <!-- FORME IMAGE CENTRE -->
             <img class="forme__img__center" src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/intro_img.png" alt="Image d'introduction - les Poupées Anatoles"/>
             
         </div>
 
     </section>
 
-    <!-- SECTION 2 : LES POUPEES -->
+    <!-- SECTION : LES POUPEES -->
     <section class="container-fluid project__presentation">
         
         <!-- BLOC FORMES -->
         <div class="project__presentation__formes">
 
-            <!-- Forme Left -->
-            <div class="forme__left">
+            <!-- FORME IMAGE LEFT -->
+            <div class="forme__img__left">
             
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_01_blanche.png" alt="Forme blanche - illustration Poupées Anatoles"/>
             
             </div>
 
-            <!-- Forme Right -->
-            <div class="forme__right">
+            <!-- FORME IMAGE DROITE -->
+            <div class="forme__img__right">
             
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/forme_02_blanche.png" alt="Forme blanche - illustration Poupées Anatoles"/>
             
             </div>
 
-            <!-- ILLUSTRATION 1 -->
+            <!-- ILLUSTRATION -->
             <div class="row project__presentation__illustration">
 
-                <!-- BLOC IMAGE -->
+                <!-- ILLUSTRATION IMAGE LEFT -->
                 <div class="col-lg-6 illustration__img__left">
                     
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/poupees_presentation02.png" alt="Une représentation des diversités - Thomas Huard les Poupées Anatoles"/>
                 
                 </div>
                 
-                <!-- BLOC TEXTE -->
+                <!-- ILLUSTRATION TEXTE LEFT -->
                 <div class="col-lg-6 illustration__txt__left">
                     
                     <h2 class="appear" data-delai="0">Les Poupées</h2>
@@ -75,18 +76,17 @@ get_header();
 
             </div>
 
-
-            <!-- ILLUSTRATION 2 -->
+            <!-- ILLUSTRATION -->
             <div class="row project__presentation__illustration">
 
-                <!-- BLOC TEXTE -->
+                <!-- ILLUSTRATION TEXTE LEFT -->
                 <div class="col-lg-6 illustration__txt__right">
 
                     <p>La particularité de ces poupées repose également sur la possibilité qu'elles ont de <span>modifier leurs émotions.</span> Grâce à un système de modification de leur expression faciale, il est alors possible de parler de choses incontournables lorsqu'il s'agit de sexualité: les sentiments, le consentement, le plaisir etc...</p>
                 
                 </div>
 
-                <!-- BLOC IMAGE -->
+                <!-- ILLUSTRATION IMAGE LEFT -->
                 <div class="col-lg-6 illustration__img__right">
                 
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/poupees_presentation.png" alt="Poupées émotives - Thomas Huard les Poupées Anatoles"/>
@@ -99,20 +99,19 @@ get_header();
 
     </section>
 
-    <!-- SECTION 3 : COLLABORATEURS -->
+    <!-- SECTION : COLLABORATEURS -->
     <section class="container collaborateurs">
 
-        <!-- TITRE : LES COLLABORATEURS -->
+        <!-- TITRE -->
         <div class="row mr-0 ml-0 collaborateurs__titre">
-                
+            
             <h2 class="appear">Collaborateurs</h2>
             
+            <!-- BOUTON REDIRECTION -->
             <div class="btn_redirection">
-            
                 <button>
                     <a href="<?php echo home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
                 </button>
-            
             </div>
         
         </div>
@@ -120,16 +119,17 @@ get_header();
         <!-- LISTE DES COLLABORATEURS -->
         <div id="slider__collaborateurs" class="slider__wrapper liste__collaborateurs owl-carousel">
 
+            <!-- SLIDER COLLABORATEURS -->
             <?php get_template_part('/template-parts/sliderCollaborateurs'); ?>
             
         </div>
 
     </section>
 
-    <!-- SECTION 4 : DOCUMENTS -->
+    <!-- SECTION : DOCUMENTS -->
     <section class="container documents">
 
-        <!-- TITRE DOCUMENTS -->
+        <!-- TITRE -->
         <div class="titre_documents">
         
             <h2 class="appear" data-delai="0">Les documents pour aller plus loin</h2>
@@ -139,6 +139,7 @@ get_header();
         <!-- LISTE DES DOCUMENTS -->
         <div class="liste__documents owl-carousel slider_wrapper">
 
+            <!-- SLIDER DOCUMENTS -->
             <?php get_template_part('/template-parts/sliderDocuments'); ?>
 
         </div>

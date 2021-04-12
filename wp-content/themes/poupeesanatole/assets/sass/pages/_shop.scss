@@ -31,7 +31,7 @@
     /* Images */
     & img {
         min-width: 100%;
-        height: 100%;
+        height: auto;
     }
     /* Titres */
     & .woocommerce-loop-product__title {
@@ -60,8 +60,8 @@
         width: nth($width, 1);
         @include row_center();
         position: absolute;
-        bottom: 35%;
-        right: 6%;
+        bottom: 24.8%;
+        right: 5.2%;
         & a {
             @include row_center();
             justify-content: start;
@@ -101,6 +101,9 @@
         left: 40%;
         cursor: pointer;
     }
+    & span.type {
+        display: none;
+    }
 }
 
 .card__shop:hover {
@@ -123,7 +126,7 @@
         margin-left: 0;
         @include row();
         justify-content: space-between;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1rem;
         & h2 {
             margin: 0;
         }
@@ -162,6 +165,51 @@
         color: $color-base-background;
         padding: 7px 25px;
         cursor: pointer;
+    }
+    & .filtreType {
+        @include row();
+        & h5 { 
+            display: none;
+            margin-right: 1rem;
+        }
+        & button {
+            border: none;
+            background-color: #0000;
+            height: 20px;
+            @include row_center();
+            & ion-icon {
+                padding-right: 0.5rem;
+            }
+        }
+        & button:hover, p span:hover{
+            color: $color-primary;
+            $font-weight: $semibold-weight;
+            cursor: pointer;
+            & ion-icon{
+                color: $color-base;
+            }
+        }
+        & p {
+            @include row_center();
+            & input {
+                margin-right: 0.5rem;
+                margin-left: 1rem;
+            }
+        }
+    }
+    .filtre, .modal-content {
+        padding: 2rem 4rem !important;
+        border-radius: .4rem;
+        border:none;
+        & h5 {
+            text-align: start;
+        }
+        & input {
+            margin-right: 0.5rem;
+        }
+        & button {
+            text-align: end;
+        }
     }
 }
 
