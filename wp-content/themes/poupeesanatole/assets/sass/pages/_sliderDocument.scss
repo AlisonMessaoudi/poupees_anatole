@@ -1,15 +1,60 @@
-.document {
-    & .more__round ion-icon {
-        border: 2px solid $color-base;
-        border-radius: 100%;
-        padding: 0.6rem;
-        color: $color-base;
-        margin-top: 2rem;
+/* SLIDER DOCUMENTS */
+.slider__documents {
+    @include row();
+    justify-content: space-between;
+    margin-left: 2.5rem;
+    max-width: 830px;
+    & .owl-stage {
+        width: 6000px !important;
+        & .owl-item {
+            width: 250px !important;
+            /* DOCUMENT */
+            & .document {
+                margin: 1rem;
+                /* DOCUMENT TEXTE */
+                & .document__txt {
+                    text-align: center;
+                    padding-top: 2rem;
+                    & h4 {
+                        font-size: nth($font-size, 2);
+                        font-weight: $semibold-weight;
+                    }
+                    & p {
+                        font-size: nth($font-size, 2);
+                        font-weight: $normal-weight;
+                        margin-bottom: 0;
+                    }
+                }
+                & .more__round ion-icon {
+                    border: 2px solid $color-base;
+                    border-radius: 100%;
+                    padding: 0.6rem;
+                    color: $color-base;
+                    margin-top: 2rem;
+                }
+                & .more__round ion-icon:hover {
+                    border: none;
+                    background-color: $color-primary;
+                    color: $color-base-background;
+                    padding: 0.7rem;
+                }
+            }
+        }
     }
-    & .more__round ion-icon:hover {
-        border: none;
-        background-color: $color-primary;
-        color: $color-base-background;
-        padding: 0.7rem;
+    /* NAVIGATION PRECEDENT & SUIVANT */
+    & .owl-nav .owl-prev, .owl-nav .owl-next {
+        position: absolute;
+        top: 35%;
+        left: -5.5%;
+        color: $color-base!important;
+        font-size: 500% !important;
+    }
+    /* NAVIGATION SUIVANT */
+    & .owl-nav .owl-next {
+        left: 100%;
+        margin-left: 1rem;
     }
 }
+.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+    display: block !important;
+}  

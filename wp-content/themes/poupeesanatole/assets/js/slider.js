@@ -12,7 +12,7 @@
         autoplayHoverPause: false,
         responsive:{
             480:{
-                items:1
+                items:3
             },
             600:{
                 items:1
@@ -41,7 +41,7 @@
     owl.append($('#all-products'));
     owl.owlCarousel({
         stagePadding: 10,
-        loop: true,
+        loop: false,
         margin: 0,
         nav: true,
         autoplay:true,
@@ -49,10 +49,10 @@
         autoplayHoverPause:true,
         responsive:{
             480:{
-                items:3
+                items:6
             },
             600:{
-                items:3
+                items:6
             },
             1224:{
                 items:6
@@ -83,10 +83,10 @@
         autoplayHoverPause:true,
         responsive:{
             480:{
-                items:3
+                items:7
             },
             600:{
-                items:3
+                items:7
             },
             1224:{
                 items:7

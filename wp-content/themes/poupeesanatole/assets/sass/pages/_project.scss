@@ -1,154 +1,124 @@
-/* PAGE PROJET */
-.site__project {
-    /* SECTION : PROJET & PRESENTATION */
-    & .project__intro, .project__presentation__formes {
-        max-width: 830px;
-        margin: auto;
-    }
-    /* SECTION : PROJET */
-    & .project__intro {
-        min-height: 450px;
-        @include row_center();
-        /* BLOC TEXTE */
-        & .bloc__txt {
-            /* TITRE */
-            & h2 {
-                margin-bottom: 1.5rem;
-            }
-            & p {
-                max-width: 350px;
-                & span {
-                    font-weight: $semibold-weight;
+/* VERSION DESKTOP & STYLE GÉNÉRAL */
+    /* PAGE PROJET */
+    .site__project {
+        padding: 0;
+        margin-top: 2rem;
+        width: 100%;
+        /* SECTION 1 : LE PROJET & SECTION 2 : LES POUPEES */
+        & .project__intro, .project__presentation__formes {
+            max-width: 830px;
+            margin: auto;
+        }
+        /* SECTION 1 : LE PROJET */
+        & .project__intro {
+            min-height: 450px;
+            @include row_center();
+            /* BLOC TEXTE */
+            & .bloc__txt {
+                /* TITRE */
+                & h2 {
+                    margin-bottom: 1.5rem;
+                }
+                /* TEXTE */
+                & p {
+                    max-width: 350px;
+                    & span {
+                        font-weight: $semibold-weight;
+                    }
+                }
+                & .mobile {
+                    display: none;
                 }
             }
         }
-    }
-    /* SECTION : POUPÉES */
-    & .project__presentation {
-        background-color: $color-primary;
-        position: relative;
-        /* BLOC FORMES */
-        & .project__presentation__formes{
-            padding: 2rem 0;
-            /* FORME IMAGE LEFT & FORME IMAGE RIGHT*/
-            & .forme__img__left, .forme__img__right {
-                position:absolute;
-            }
-            /* FORME IMAGE LEFT */
-            & .forme__img__left {
-                bottom: 22%;
-                left: -3%;
-            }
-            /* FORME IMAGE RIGHT */
-            & .forme__img__right {
-                top: 20%;
-                right: -4%;
-            }
-            /* ILLUSTRATION */
-            & .project__presentation__illustration {
-                padding: 1.2rem 0;
-                /* ILLUSTRATION IMAGE LEFT & ILLUSTRATION IMAGE RIGHT */
-                & .illustration__img__left, .illustration__img__right {
-                    @include row_center();
-                    align-items: flex-start;
+        /* SECTION 2 : LES POUPÉES */
+        & .project__presentation {
+            background-color: $color-primary;
+            position: relative;
+            /* BLOC FORMES */
+            & .project__presentation__formes {
+                padding: 2rem 0;
+                /* FORMES */
+                & .forme {
+                    position: absolute;
                 }
-                /* ILLUSTRATION TEXTE RIGHT */
-                & .illustration__txt__right {
-                    & p {
-                        text-align: end;
-                    }
+                /* FORME IMAGE LEFT */
+                & .forme__img__left {
+                    bottom: 22%;
+                    left: -3%;
                 }
-                /* ILLUSTRATION TEXTE RIGHT & ILLUSTRATION TEXTE LEFT */
-                & .illustration__txt__right, .illustration__txt__left {
-                    @include column_center();
-                    color: $color-base-background;
-                    & h2 {
-                        padding-bottom: 1rem;
-                        width: 87%;
+                /* FORME IMAGE RIGHT */
+                & .forme__img__right {
+                    top: 20%;
+                    right: -4%;
+                }
+                /* ILLUSTRATIONS */
+                & .project__presentation__illustration {
+                    padding: 1.2rem 0;
+                    /* ILLUSTRATION IMAGE LEFT & ILLUSTRATION IMAGE RIGHT */
+                    & .illustration__img__left, .illustration__img__right {
+                        @include row_center();
+                        align-items: flex-start;
                     }
-                    & p {
-                        max-width: 350px;
-                        font-weight: $thin-weight;
-                        & span {
-                            font-weight: $semibold-weight;
+                    /* ILLUSTRATION TEXTE RIGHT */
+                    & .illustration__txt__right {
+                        & p {
+                            text-align: end;
                         }
                     }
-                }
-            }
-        }
-    }
-    /* SECTION : COLLABORATEURS */
-    & .collaborateurs {
-        min-height: 450px;
-        @include wrapper();
-        /* TITRE */
-        & .collaborateurs__titre {
-            justify-content: space-between;
-            & h2 {
-                margin-left: 2.5rem;
-            }
-        }
-    }
-    /* SECTION : DOCUMENTS */
-    & .documents {
-        min-height: 450px;
-        @include wrapper();
-        & h2 {
-            margin-left: 2.5rem;
-            margin-bottom: 2.5rem;
-        }
-        /* Liste documents */
-        & .liste__documents {
-            @include row();
-            justify-content: space-between;
-            margin-left: 2.5rem;
-            max-width: 830px;
-            /* Document */
-            & .owl-stage {
-                width: 6000px !important;
-                & .owl-item {
-                    width: 250px !important;
-                    & .document {
-                        margin: 1rem;
-                        /* DOCEUMENT TEXTE */
-                        & .document__txt {
-                            text-align: center;
-                            padding-top: 2rem;
-                            & h4 {
-                                font-size: nth($font-size, 2);
+                    /* ILLUSTRATION TEXTE RIGHT & ILLUSTRATION TEXTE LEFT */
+                    & .illustration__txt__right, .illustration__txt__left {
+                        @include column_center();
+                        color: $color-base-background;
+                        & h2 {
+                            padding-bottom: 1rem;
+                            width: 87%;
+                        }
+                        & p {
+                            max-width: 350px;
+                            font-weight: $thin-weight;
+                            & span {
                                 font-weight: $semibold-weight;
                             }
-                            & p {
-                                font-size: nth($font-size, 2);
-                                font-weight: $normal-weight;
-                                margin-bottom: 0;
-                            }
                         }
                     }
                 }
             }
-            & .owl-nav .owl-prev, .owl-nav .owl-next {
-                position: absolute;
-                top: 35%;
-                left: -5.5%;
-                color: $color-base!important;
-                font-size: 500% !important;
-            }
-            & .owl-nav .owl-next {
-                left: 100%;
-                margin-left: 1rem;
+        }
+        /* SECTION 3 : COLLABORATEURS */
+        & .collaborateurs {
+            min-height: 450px;
+            @include wrapper();
+            /* TITRE */
+            & .collaborateurs__titre {
+                justify-content: space-between;
+                align-items: center;
+                & h2 {
+                    margin-left: 2.5rem;
+                    margin-bottom: 0;
+                }
             }
         }
-        & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-            display: block !important;
-        }  
+        /* SECTION 4 : DOCUMENTS */
+        & .documents {
+            min-height: 450px;
+            @include wrapper();
+            /* TITRE */
+            & h2 {
+                margin-left: 2.5rem;
+                margin-bottom: 2.5rem;
+            }
+            /* SLIDER DOCUMENTS */
+                /* c.f. assets/sass/pages/_sliderDocument.scss */
+        }
     }
-}
 
-/* MOBILE */
-@media all and (max-device-width: 480px)
-{
+/* MOBILE (portrait & landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+    /* PAGE PROJET */
     .site__project {
+        @include wrapper_mobile();
+        width: 100%;
         /* SECTION 1 : LE PROJET */
         & .project__intro {
             margin-bottom: 2rem;
@@ -158,77 +128,235 @@
                 & p {
                     font-size: 1.2rem;
                 }
-            }
-        }
-    }
-    /* SECTION 2 : LES POUPEES */
-    .project__presentation .project__presentation__formes {
-        padding: 3rem 0;
-        /* Forme Left */
-        & .forme__img__left {
-            left: -9%;
-            bottom: 38%;
-            & img {
-                width: 65%;
-            }
-        }
-        /* Forme Right */
-        & .forme__img__right {
-            right: -23%;
-            top: 9%;
-            & img {
-                width: 65%;
-            }
-        }
-        /* Illustration */
-        & .project__presentation__illustration {
-            padding: 0;
-            /* Bloc texte */
-            & .illustration__txt__left, .illustration__txt__right {
-                align-items: center;
-                order: 2;
-                & p {
-                    width: 300px;
-                    font-size: 1.3rem;
+                & .mobile {
+                    display: block;
+                    padding-top: 1rem;
+                    padding-bottom: 2rem;
+                    & img {
+                        width: 100%;
+                    }
                 }
+            }
+            & .bloc__img {
+                display: none;
+            }
+        }
+        /* SECTION 2 : LES POUPEES */
+        & .project__presentation {
+            & .project__presentation__formes {
+                padding: 3rem 0;
+                /* FORMES IMAGES */
+                & .forme img {
+                    width: 65%;
+                }
+                /* FORME IMAGE LEFT */
+                & .forme__img__left {
+                    left: -9%;
+                    bottom: 38%;
+                }
+                /* FORME IMAGE RIGHT */
+                & .forme__img__right {
+                    right: -23%;
+                    top: 3%;
+                }
+                /* ILLUSTRATIONS */
+                & .project__presentation__illustration {
+                    padding: 0;
+                    /* BLOC TEXTE */
+                    & .illustration__txt__left, .illustration__txt__right {
+                        align-items: center;
+                        order: 2;
+                        & p {
+                            width: 300px;
+                            font-size: 1.3rem;
+                            text-align: start;
+                        }
+                        & h2 {
+                            width: 300px;
+                        }
+                    }
+                    /* BLOC IMAGE */
+                    & .illustration__img__right, .illustration__img__left {
+                        order: 1;
+                        margin-top: 1rem;
+                        margin-bottom: 2rem;   
+                    }
+                }
+            } 
+        }
+        /* SECTION 3 : COLLABORATEURS */
+        & .collaborateurs {
+            height: nth($height, 3);
+            /* TITRE */
+            & .collaborateurs__titre {
+                margin-left: 4rem !important;
+                margin-bottom: 1.5rem;
+                @include column();
+                align-items: start;
                 & h2 {
-                    width: 300px;
+                    margin: 0;
+                    margin-bottom: 1rem;
+                }
+                & button {
+                    padding: 5px 17px;
+                    & a i {
+                        font-size: nth($font-size, 1);
+                    }
                 }
             }
-            /* Bloc image */
-            & .illustration__img__right, .illustration__img__left {
-                order: 1;
-                margin-top: 1rem;
-                margin-bottom: 2rem;   
+            /* SLIDER COLLABORATEURS */
+            & .slider__wrapper {
+                width: 62%;
+                margin: auto;
+                /* NAVIGATION SLIDER */
+                & .owl-nav {
+                    display: none;
+                }
+            }
+        }
+        /* SECTION 4 : DOCUMENTS */
+        & .documents {
+            margin-top: 8rem;
+            margin-bottom: -2rem;
+            /* TITRE */
+            & h2 {
+                width: 60%;
+                margin-left: 4.5rem;
+            }
+            /* SLIDER DOCUMENTS */
+            & .slider__wrapper {
+                width: 62%;
+                margin: auto;
+                /* NAVIGATION SLIDER */
+                & .owl-nav {
+                    display: none;
+                }
             }
         }
     }
-    /* SECTION 3 : COLLABORATEURS */
-    .site__project .collaborateurs {
-        height: nth($height, 3);
-        /* TITRE : LES COLLABORATEURS */
-        & .collaborateurs__titre {
-            margin-left: 2rem;
-            margin-bottom: 0;
+}
+
+/* VERSION TABLETTE (portrait & landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* PAGE PROJET */
+    .site__project {
+        @include wrapper_tablette();
+        width: 100%;
+        /* SECTION 1 : LE PROJET */
+        & .project__intro {
+            margin-bottom: 2rem;
+            /* BLOC TEXTE */
+            & .bloc__txt {
+                width: 50%;
+                & p {
+                    font-size: 1.2rem;
+                }
+                & .mobile {
+                    display: none;
+                }
+            }
+            & .bloc__img {
+                width: 40%;
+                display: block;
+                & img {
+                    width: 100%;
+                }
+            }
         }
-    }
-    /* SECTION 4 : DOCUMENTS */
-    .documents {
-        height: 400px;
-        justify-content: space-evenly;
-        & h2 {
-            font-size: 1.3rem;
-            text-align: center;
+        /* SECTION 2 : LES POUPEES */
+        & .project__presentation {
+            & .project__presentation__formes {
+                padding: 3rem 0;
+                /* FORMES IMAGES */
+                & .forme img {
+                    width: 90%;
+                }
+                /* FORME IMAGE LEFT */
+                & .forme__img__left {
+                    left: -5%;
+                    bottom: 45%;
+                }
+                /* FORME IMAGE RIGHT */
+                & .forme__img__right {
+                    right: -8%;
+                    top: 55%;
+                }
+                /* ILLUSTRATIONS */
+                & .project__presentation__illustration {
+                    padding: 0;
+                    /* BLOC TEXTE */
+                    & .illustration__txt__left, .illustration__txt__right {
+                        align-items: center;
+                        width: 50%;
+                        & p {
+                            font-size: 1.3rem;
+                            text-align: start;
+                        }
+                        & h2 {
+                            width: 100%;
+                        }
+                    }
+                    & .illustration__txt__right {
+                        width: 55%;
+                    }
+                    /* BLOC IMAGE */
+                    & .illustration__img__right, .illustration__img__left {
+                        width: 45%;
+                        align-items: center; 
+                    }
+                    & .illustration__img__right {
+                        width: 35%;
+                    }
+                }
+                /* ILLUSTRATIONS */
+                & .project__presentation__illustration:last-child {
+                    padding-top: 2rem;
+                }
+            } 
         }
-        & .liste__documents {
-            display: grid;
-            grid-template-columns: repeat(3, auto);
-            column-gap: 30px;
-            flex-wrap: nowrap;
-            margin: auto;
+        /* SECTION 3 : COLLABORATEURS */
+        & .collaborateurs {
+            height: nth($height, 3);
+            @include wrapper_tablette();
+            margin-top: 5rem;
+            /* TITRE */
+            & .collaborateurs__titre {
+                & h2 {
+                    margin: 0;
+                }
+            }
+            /* SLIDER COLLABORATEURS */
+            & .slider__wrapper {
+                margin: 0; 
+                width: 100%;
+                & .owl-nav .owl-prev {
+                    left: -6.5%;
+                    margin: 0;
+                }
+                & .owl-nav .owl-next {
+                    left: 102%;
+                    margin: 0;
+                }
+            }
         }
-        & .liste__documents::-webkit-scrollbar {
-            display: none;
+        /* SECTION 4 : DOCUMENTS */
+        & .documents {
+            @include wrapper_tablette();
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            /* SLIDER DOCUMENTS */
+            & .slider__wrapper {
+                margin: 0; 
+                width: 100%;
+                & .owl-nav .owl-prev {
+                    left: -6.5%;
+                    margin: 0;
+                }
+                & .owl-nav .owl-next {
+                    left: 102%;
+                    margin: 0;
+                }
+            }
         }
     }
 }

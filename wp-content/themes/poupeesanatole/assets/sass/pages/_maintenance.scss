@@ -1,90 +1,89 @@
-/* PAGE MAINTENANCE */
-.page-template-maintenance {
-    overflow-y: hidden;
-    /* HEADER */
-    & .site__header {
-        display: none;
-    }
-    /* PAGE MAINTENANCE */
-    & .page__maintenance {
-        font-family: 'Neris', Arial, sans-serif;
-        height: 100vh;
-        position: relative;
-        background-image: url("assets/images/07_images/maintenance_forme.png");
-        /* FORMES */
-        & .forme {
-            position: absolute;
-        }
-        /* FORME IMAGE RIGHT */
-        & .forme__img__right {
-            top: -5%;
-            left: 60%;
-        }
-        & .forme__img__right2 {
-            bottom: 10%;
-            right: 2%;
-        }
-        & .forme__img__right3 {
-            top: 25%;
-            right: 14%;
-        }
-        /* FORME IMAGE LEFT */
-        & .forme__img__left {
-            top: 0;
-            left: -7%;
-        }
-        & .forme__img__left2 {
-            bottom: 45%;
-            left: 15%;
-        }
-        & .forme__img__left3 {
-            bottom: 2%;
-            left: 5%;
-        }
-        /* CONTAINER MAINTENANCE */
-        & .container__maintenance {
-            height: 100%;
-            /* BLOC MAINTENANCE */
-            & .bloc__maintenance {
-                height: 90%;
-                @include column_center();
-                /* TEXTE MAINTENANCE */
-                & .txt__maintenance {
-                    padding: 3rem 0;
-                    & h2 {
-                        font-size: 2.5rem;
-                        text-align: center;
-                    }
-                }
-                /* BOUTON REDIRECTION */
-                & .btn_redirection {
-                    & button {
-                        @include btn-redirection();
-                    }
-                }
-                /* BOUTON REDIRECTION:HOVER */
-                & .btn_redirection button:hover {
-                    @include btn_redirection_hover();
-                }
-            }
-            /* MENTIONS */
-            & .mentions_maintenance {
-                height: 10%;
-                p {
-                    text-align: center;
-                    font-size: 1rem;
-                    height: 10%;
-                }
-            }
-        }
-    }
-}
-
-/* MOBILE (portrait and landscape) */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
-    /* PAGE MAINTENANCE */
+/* VERSION DESKTOP & STYLE GÉNÉRAL */
+    /* PAGE TEMPLATE MAINTENANCE */
     .page-template-maintenance {
-        @include wrapper_mobile();
+        overflow-y: hidden;
+        /* HEADER */
+        & .site__header {
+            display: none;
+        }
+        /* PAGE MAINTENANCE */
+        & .page__maintenance {
+            height: 100vh;
+            position: relative;
+            background-image: url("assets/images/07_images/maintenance_forme.png");
+            /* FORMES */
+            & .forme {
+                position: absolute;
+            }
+            /* FORME IMAGE RIGHT */
+            & .forme__img__right {
+                top: -5%;
+                left: 60%;
+            }
+            & .forme__img__right2 {
+                bottom: 10%;
+                right: 2%;
+            }
+            & .forme__img__right3 {
+                top: 25%;
+                right: 14%;
+            }
+            /* FORME IMAGE LEFT */
+            & .forme__img__left {
+                top: 0;
+                left: -7%;
+            }
+            & .forme__img__left2 {
+                bottom: 45%;
+                left: 15%;
+            }
+            & .forme__img__left3 {
+                bottom: 2%;
+                left: 5%;
+            }
+            /* CONTAINER MAINTENANCE */
+            & .container__maintenance {
+                height: 100%;
+                /* BLOC MAINTENANCE */
+                & .bloc__maintenance {
+                    height: 80%;
+                    @include column_center();
+                    /* TEXTE MAINTENANCE */
+                    & .txt__maintenance {
+                        padding: 3rem 0;
+                        & h2 {
+                            font-size: 2.5rem;
+                            text-align: center;
+                        }
+                    }
+                    /* BOUTON REDIRECTION */
+                    & .btn__redirection {
+                        & button {
+                            @include btn-redirection();
+                        }
+                    }
+                    /* BOUTON REDIRECTION:HOVER */
+                    & .btn__redirection button:hover {
+                        @include btn_redirection_hover();
+                    }
+                }
+                /* MENTIONS */
+                & .mentions__maintenance {
+                    height: 10%;
+                    p {
+                        text-align: center;
+                        font-size: 1rem;
+                        height: 10%;
+                    }
+                }
+            }
+        }
+    }
+
+/* MOBILE (portrait & landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+    /* PAGE TEMPLATE MAINTENANCE */
+    .page-template-maintenance {
         /* FORMES */
         & .forme {
             width: 25%;
@@ -92,10 +91,16 @@
         /* PAGE MAINTENANCE */
         & .page__maintenance {
             /* CONTAINER MAINTENANCE */
-            .container__maintenance{
+            & .container__maintenance {
+                @include column_center();
+                /* BLOC MAINTENANCE */
+                & .bloc__maintenance {
+                    height: 80%;
+                }
                 /* MENTIONS */
-                & .mentions_maintenance {
-                    p {
+                & .mentions__maintenance {
+                    width: 60%;
+                    & p {
                         font-size: 0.8rem;
                     }
                 }
@@ -106,9 +111,8 @@
 
 /* TABLETTE (portrait and landscape) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    /* PAGE MAINTENANCE */
+    /* PAGE TEMPLATE MAINTENANCE */
     .page-template-maintenance {
-        @include wrapper_tablette();
         /* FORMES */
         & .forme {
             width: 20%;
@@ -116,10 +120,30 @@
         /* PAGE MAINTENANCE */
         & .page__maintenance {
             /* CONTAINER MAINTENANCE */
-            .container__maintenance{
+            & .container__maintenance {
+                & .bloc__maintenance {
+                    height: 85%;
+                    & .logo__poupees {
+                        width: 45%;
+                        & img {
+                            width: 100%;
+                        }
+                    }
+                    & .txt__maintenance {
+                        padding: 5rem 0;
+                        & h2 {
+                            font-size: 4rem;
+                        }
+                    }
+                    & .btn__redirection {
+                        & button a {
+                            font-size: 2rem;
+                        }
+                    }
+                }
                 /* MENTIONS */
                 & .mentions_maintenance {
-                    p {
+                    & p {
                         font-size: 1rem;
                     }
                 }

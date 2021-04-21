@@ -13,7 +13,7 @@
                     width: 250px !important;
                 }
             }
-            /* Bouton précédent et suivant */
+            /* BOUTON PRÉCEDENT & SUIVANT */
             & .owl-nav .owl-prev, .owl-nav .owl-next {
                 position: absolute;
                 top: 18%;
@@ -22,9 +22,26 @@
                 font-size: 500% !important;
                 margin-right: 1rem;
             }
+            /* BOUTON SUIVANT */
             & .owl-nav .owl-next {
                 left: 100%;
                 margin-left: 1rem;
+            }
+            /* CARD SHOP */
+            & .card__shop {
+                max-width: 260px;
+                /* BOUTON PANIER */
+                & .shop__panier {
+                    bottom: 35%;
+                    right: 6%;
+                }
+            }
+            /* CARD SHOP :HOVER */
+            & .card__shop:hover {
+                /* BOUTON PANIER */
+                & .shop__panier {
+                    right: 5%;
+                }
             }
         }
     }

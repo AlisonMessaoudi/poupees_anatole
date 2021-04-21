@@ -8,6 +8,7 @@ get_header();
 ?>
 
 <!-- FEUILLE DE STYLE : assets/sass/pages/_abonnement.scss -->
+<!-- URL DE LA PAGE : poupees-anatoles.fr/merci -->
 
 <!-- PAGE ABONNEMENT -->
 <main class="container page__abonnement">
@@ -26,12 +27,11 @@ get_header();
     </div>
 
     <!-- BOUTON REDIRECTION -->
-    <div class="btn_redirection">
+    <div class="btn__redirection">
         <button>
             <a href="<?= home_url('/'); ?>">Retour à l'accueil&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
         </button>
     </div>
-
 
 </main>
 

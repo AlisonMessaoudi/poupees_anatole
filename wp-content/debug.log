@@ -2385,3 +2385,16 @@ Stack trace:
 [11-Apr-2021 14:02:35 UTC] PHP Notice:  Undefined index: metabox_anneedocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 100
 [11-Apr-2021 14:02:35 UTC] PHP Notice:  Undefined index: metabox_resumedocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 101
 [11-Apr-2021 14:02:35 UTC] PHP Notice:  Undefined index: metabox_liendocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 102
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_numerodocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 97
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_titredocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 98
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_auteurdocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 99
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_anneedocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 100
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_resumedocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 101
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_liendocument in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/document.php on line 102
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_idcollaborateur in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 96
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_typecollaborateur in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 97
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_nomcollaborateur in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 98
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_presentationcollaborateur in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 99
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_specialitecollaborateur in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 100
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_sitecollaborateur in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 101
+[13-Apr-2021 11:45:13 UTC] PHP Notice:  Undefined index: metabox_emailcollaborateur in /Applications/MAMP/htdocs/sites/poupees_anatole/wp-content/themes/poupeesanatole/metaboxes/collaborateur.php on line 102

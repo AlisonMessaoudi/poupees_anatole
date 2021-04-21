@@ -1,238 +1,383 @@
+/* STYLE : METABOX COLLABORATEUR DASHBOARD */
 #metabox_collaborateur .inside {
     @include column();
 }
-.site__home {
-    /* SECTION 1 : SLIDER HOME */
-    /* c.f. : _sliderHome.scss */
 
-    /* SECTION 2 : INTRODUCTION */
-    & .home__intro {
-        background-color: $color-primary;
-        height: nth($height, 3);
-        & .bloc__introduction {
-            height: nth($height, 5);
+/* VERSION DESKTOP & STYLE GÉNÉRAL */
+    /* PAGE D'ACCUEIL | HOME */
+    .site__home {
+        /* SECTION 1 : SLIDER HOME */
+            /* HOME SLIDER */
+                /* c.f. feuille de style : _sliderHome.scss */
+                /* c.f. code HTML : template-parts/sliderHome.php */
+                /* c.f. code javascript : assets/js/slider.js */
+        /* SECTION 2 : INTRODUCTION */
+        & .home__intro {
+            background-color: $color-primary;
+            height: nth($height, 3);
+            /* BLOC INTRO */
+            & .bloc__intro {
+                height: nth($height, 5);
+                /* BLOC IMAGE */
+                & .home__bloc__img {
+                    position: relative;
+                    @include row_center();
+                    justify-content: flex-end;
+                    /* FORME IMAGE GAUCHE & FORME IMAGE DROITE */
+                    & .forme__img__gauche, .forme__img__droite  {
+                        position: absolute;
+                    }
+                    /* FORME IMAGE GAUCHE */
+                    & .forme__img__gauche {
+                        top: 20%;
+                        left: 37%;
+                    }
+                    /* FORME IMAGE CENTRE */
+                    & .forme__img__center {
+                        width: 53%;
+                        z-index: 10;
+                        margin-right: 4rem;
+                    }
+                    /* FORME IMAGE DROITE */
+                    & .forme__img__droite {
+                        right: 16%;
+                        bottom: 15%;
+                        z-index: 11;
+                    }
+                }
+                /* BLOC TEXTE */
+                & .home__bloc__txt {
+                    @include column_center();
+                    align-items: flex-start;
+                    & p {
+                        font-size: nth($font-size, 2);
+                        font-weight: $semibold-weight;
+                        max-width: 44%;
+                        margin: 1.5rem 0;
+                    }
+                    /* BOUTON REDIRECTION */
+                    & .bloc__btn button a {
+                        font-weight: $semibold-weight;
+                        & i {
+                            font-size: nth($font-size, 1)
+                        }
+                    } 
+                }
+            }
+        }
+        /* SECTION TEMPORAIRE : FINANCEMENT CROWNFOUNDING */
+        & .home__financement {
+            height: 400px;
+            background-color: $color-fourth;
+            position: relative;
+            @include row_center();
+            margin: auto;
+            /* FORME IMAGE LEFT & FORME IMAGE RIGHT */
+            & .forme__img__left, .forme__img__right {
+                position: absolute;
+            }
+            /* FORME IMAGE LEFT */
+            & .forme__img__left {
+                top: 10%;
+                left: -1%;
+            }
+            /* FORME IMAGE RIGHT */
+            & .forme__img__right {
+                bottom: 10%;
+                right: -1%;
+            }
+            /* BLOC TEXTE */
+            & .bloc__txt {
+                @include column();
+                justify-content: space-between;
+                height: 70%;
+                width: 33%;
+                & h2, p {
+                    color: $color-base-background;
+                }
+                /* BOUTON REDIRECTION */
+                & .btn_redirection {
+                    & button {
+                        @include btn-redirection($color:$color-base-background);
+                    }
+                    & button:hover {
+                        background-color: $color-base-background;
+                        & a {
+                            color: $color-fourth;
+                        }
+                    }
+                }
+            }
+            /* BLOC IMAGE */
+            & .bloc__img {
+                width: 21%;
+                margin: 0 2.5rem;
+                @include row_center;
+                justify-content: flex-end;
+            }
+        }
+        /* SECTION 3: SHOP & SECTION 4: COLLABORATEURS */
+        & .shop, .collaborateurs {
+            @include wrapper();
+            @include column();
+            height: 450px;
+            justify-content: center;
+            /* OWL-CAROUSEL NAVIGATION & DOTS */ 
+            & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+                display: block !important;
+            }
+            /* TITRE */
+            & .shop__titre, .collaborateurs__titre {
+                @include row_center();
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                margin-left: 4rem;
+                margin-bottom: 2.5rem;
+                width: 100%;
+                /* BOUTON REDIRECTION */
+                & button a i {
+                    font-size: nth($font-size, 3);
+                }
+            }
+            /* SLIDER SHOP */
+                /* c.f. __sliderShop.scss */
+        }   
+        /* SECTION 4 : COLLABORATEURS */
+        & .collaborateurs {
+            /* SLIDER COLLABORATEURS */
+            & .slider__wrapper {
+                margin-left: 4rem;
+                width: 100%;
+            }
+        }
+    } 
+
+/* VERSION MOBILE (portrait & landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+    /* PAGE D'ACCUEIL | HOME */
+    .site__home {
+        /* SECTION 1 : SLIDER HOME */
+            /* c.f.: __sliderHome.scss */ 
+            & .home__slider #slider__home .owl-stage-outer .owl-stage .owl-item {
+                width: 100vw !important;
+            }
+        /* SECTION 2 : INTRODUCTION */
+        & .home__intro {
+            height: 700px;
+            /* BLOC INTRO */
+            & .bloc__intro {
+                /* BLOC IMAGE */
+                & .home__bloc__img {
+                    justify-content: flex-end;
+                    margin-top: 1rem;
+                    /* FORME IMAGE DROITE */
+                    & .forme__img__droite {
+                        right: 18%;
+                        bottom: 7%;
+                        width: 28%;
+                    }
+                    /* FORME IMAGE CENTRE */
+                    & .forme__img__center {
+                        width: 70%;
+                        margin-right: 3.5rem;
+                    }
+                    /* FORME IMAGE GAUCHE */
+                    & .forme__img__gauche {
+                        top: 17%;
+                        left: 12%;
+                        width: 25%;
+                    }
+                }
+                /* BLOC TEXTE */
+                & .home__bloc__txt {
+                    align-items: center;
+                    & h1 {
+                        font-size: nth($font-size, 4);
+                        text-align: center;
+                        max-width: 90%;
+                        height: 24%;
+                    }
+                    & p {
+                        text-align: center;
+                        max-width: 78%;
+                    }
+                }
+            }
+        }
+        /* SECTION TEMPORAIRE : CROWNFOUNDING */
+        & .home__financement {
+            height: 700px;
+            flex-direction: column;
+            justify-content: space-around;
+            /* FORME IMAGE LEFT */
+            & .forme__img__left {
+                top: 3%;
+                left: -4%;
+                width: 15%;
+            }
+            /* FORME IMAGE RIGHT */
+            & .forme__img__right {
+                bottom: 6%;
+                right: -4%;
+                width: 15%;
+            }
+            /* BLOC TEXTE */
+            & .bloc__txt {
+                width: 75%;
+                height: 50%;
+                align-items: center;
+                & h2 {
+                    margin-bottom: 1.5rem;
+                }
+                & h2, p {
+                    text-align: center;
+                }
+            }
+            /* BLOC IMAGE */
+            & .bloc__img {
+                width: 50%;
+                justify-content: center;
+                & img {
+                    width: 80%;
+                }
+            }
+        }
+        /* SECTION 3 : SHOP & SECTION 4 : COLLABORATEURS */
+        & .shop, .collaborateurs {
+            margin-bottom: 0;
+            padding: 0;
+            height: nth($height, 2);
+            /* TITRE ET REDIRECTION */
+            & .shop__titre, .collaborateurs__titre {
+                margin-left: 4rem;
+                margin-bottom: 1.5rem;
+                @include column();
+                align-items: flex-start;
+                & h2 {
+                    margin: 0;
+                    margin-bottom: 1rem !important;
+                }
+                /* BOUTON REDIRECTION */
+                & button {
+                    padding: 5px 17px;
+                    & a i {
+                        font-size: nth($font-size, 1);
+                    }
+                }
+            }
+            /* SLIDER WRAPPER */
+            & .slider__wrapper {
+                width: 62%;
+                /* NAVIGATION SLIDER */
+                & .owl-nav {
+                    display: none;
+                }
+            }
+            /* CARD SHOP */
+            & .card__shop {
+                min-width: 244px;
+                /* BOUTON PANIER */
+                & .shop__panier {
+                    bottom: 34.9%;
+                    right: 6.2%;
+                }
+            }
+        }
+        /* SECTION 4 : COLLABORATEURS */
+        & .collaborateurs {
+            margin-bottom: 2.5rem;
+            /* SLIDER COLLABORATEURS */
+            & .slider__collaborateurs {
+                /* COLLABORATEUR */
+                & .collaborateur {
+                    height: nth($height, 1);
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+
+/* VERSION TABLETTE (portrait & landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* PAGE D'ACCUEIL | HOME */
+    .site__home {
+        /* SECTION 1 : SLIDER HOME */
+        & .home__slider {
+            height: 445px;
+            margin-top: 130px;
+        }
+        /* SECTION 2 : INTRODUCTION */
+        & .home__intro .bloc__intro { 
             /* BLOC IMAGE */
             & .home__bloc__img {
-                position: relative;
-                @include row_center();
-                justify-content: flex-end;
-                /* Forme image */
-                & .forme__img__gauche, .forme__img__droite  {
-                    position: absolute;
-                }
-                /* Intro image */
+                width: 45%;
+                /* FORME IMAGE CENTRE */
                 & .forme__img__center {
-                    z-index: 10;
-                    margin-right: 4rem;
+                    width: 75%;
+                    margin-right: 1.5rem;
                 }
-                /* Forme image droite */
-                .forme__img__droite {
-                    z-index: 11;
+                /* FORME IMAGE DROITE */
+                & .forme__img__droite {
+                    top: 63%;
+                    right: 5%;
+                }
+                /* FORME IMAGE GAUCHE */
+                & .forme__img__gauche {
+                    top: 25%;
+                    left: 15%;
+                    width: 30%;
                 }
             }
             /* BLOC TEXTE */
             & .home__bloc__txt {
-                @include column_center();
-                align-items: flex-start;
+                width: 55%;
+                padding-left: 5%;
+                & h1, p {
+                    max-width: 88%;
+                }
+            }
+        }
+        /* SECTION TEMPORAIRE : FINANCEMENT CROWNFOUNDING */
+        & .home__financement {
+            height: 470px;
+            /* FORME IMAGE LEFT */
+            & .forme__img__left {
+                left: -3%;
+            }
+            /* FORME IMAGE RIGHT */
+            & .forme__img__right {
+                right: -3%;
+            }
+            /* BLOC TEXTE */
+            & .bloc__txt {
+                width: 47%;
+                & h2 {
+                    margin-bottom: 1rem;
+                }
                 & p {
-                    font-size: nth($font-size, 2);
-                    font-weight: $semibold-weight;
-                    max-width: 44%;
-                    margin: 1.5rem 0;
-                }
-                /* BOUTON REDIRECTION */
-                & .bloc__btn button a {
-                    font-weight: $semibold-weight;
-                    & i {
-                        font-size: nth($font-size, 1)
-                    }
-                } 
-            }
-        }
-    }
-
-    /* SECTION FINANCEMENT */
-    .home__financement {
-        height: 400px;
-        background-color: $color-fourth;
-        position: relative;
-        @include row_center();
-        margin: auto;
-        & .forme__img__left, .forme__img__right {
-            position: absolute;
-        }
-        & .forme__img__left {
-            top: 10%;
-            left: -1%;
-        }
-        & .forme__img__right {
-            bottom: 10%;
-            right: -1%;
-        }
-        & .bloc__txt {
-            @include column();
-            justify-content: space-between;
-            height: 70%;
-            width: 33%;
-            & h2, p {
-                color: $color-base-background;
-            }
-            & .btn_redirection {
-                button {
-                    @include btn-redirection($color:$color-base-background);
-                }
-                button:hover {
-                    background-color: $color-base-background;
-                    & a {
-                        color: $color-fourth;
-                    }
+                    width: 90%;
                 }
             }
-
-        }
-        & .bloc__img {
-            width: 21%;
-            margin: 0 2.5rem;
-            @include row_center;
-            justify-content: flex-end;
-        }
-    }
-
-    /* SECTION : SHOP ET COLLABORATEURS */
-    & .shop, .collaborateurs {
-        max-width: 900px;
-        height: 450px;
-        @include column();
-        justify-content: center;
-        margin-top: 5rem;
-        margin-bottom: 5rem;
-        & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-            display: block !important;
-        }
-        /* Titre et redirection */
-        & .shop__titre, .collaborateurs__titre {
-            @include row_center();
-            justify-content: space-between;
-            flex-wrap: nowrap;
-            margin-left: 4rem;
-            margin-bottom: 2.5rem;
-            width: 100%;
-            /* Bouton redirection */
-            & button a i {
-                font-size: nth($font-size, 3);
-            }
-        }
-        .card__shop {
-            max-width: 260px;
-        }
-    }
-
-    /* SECTION 3 : SHOP */
-
-    /* SECTION 4 : COLLABORATEURS */
-    & .collaborateurs {
-        & .slider__wrapper {
-            margin-left: 4rem;
-            width: 100%;
-        }
-    }
-} 
-        
-
-/* DESKTOP AND LAPTOPS */
-@media only screen and (min-width : 1224px) {
-    /* SECTION 1 : INTRODUCTION */
-    
-    /* Bloc image */
-    .home__bloc__img {
-        /* Forme image */
-        & .forme__img__gauche {
-            top: 20%;
-            left: 37%;
-        }
-        /* Intro image */
-        & .forme__img__center {
-            width: 53%;
-        }
-        /* Forme image */
-        & .forme__img__droite {
-            right: 16%;
-            bottom: 15%;
-        }
-    }
-}
-
-/* MOBILE (portrait and landscape) */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
-{
-    /* SECTION 2 : INTRODUCTION */
-    .home__intro {
-        height: 100vh;
-    }
-        /* Bloc image*/
-        .home__bloc__img {
-            /* Forme image */
-            & .forme__img__droite {
-                right: 15%;
-                bottom: 10%;
+            /* BLOC IMAGE */
+            & .bloc__img {
+                margin: 0;
                 width: 28%;
             }
-            /* Intro image */
-            & .forme__img__center {
-                width: 70%;
-            }
-            /* Forme image */
-            & .forme__img__gauche {
-                top: 17%;
-                left: 12%;
-                width: 25%;
-            }
         }
-        /* Bloc texte*/
-        .home__bloc__txt {
-            align-items: center;
-            & h1 {
-                font-size: nth($font-size, 4);
-                text-align: center;
-                max-width: 90%;
-                height: 24%;
-            }
-            & p {
-                text-align: center;
-                max-width: 78%;
-            }
+        /* SECTION 3 : SHOP & SECTION 4 : COLLABORATEURS */
+        & .shop .shop__titre, .shop #slider__shop, .collaborateurs .collaborateurs__titre, .collaborateurs #slider__collaborateurs {
+            width: 80%;
         }
-
-    /* SECTION 3 : SHOP */
-    .shop, .collaborateurs {
-        margin-bottom: 0;
-        padding: 0;
-        height: nth($height, 2);
-    }
-        /* Titre et redirection */
-        .shop__titre, .collaborateurs__titre {
-            margin-left: 2.5rem;
-            margin-right: 2rem;
-            @include column();
-            align-items: flex-start;
-            & h2 {
-                margin: 0;
-                margin-bottom: 0.5rem;
-            }
-            & button {
-                padding: 5px 17px;
-                & a i {
-                    font-size: nth($font-size, 1);
-                }
-            }
+        /* CARD SHOP */
+        & .card__shop {
+            /* BOUTON PANIER */
+            & .shop__panier {
+                bottom: 35%;
+                right: 6.2%;
+            } 
         }
-        /* CARD */
-        .card__shop {
-            min-width: 244px;
-        }
-    /* SECTION 4 : COLLABORATEURS */
-    .liste__collaborateurs .collaborateur {
-        height: nth($height, 1);
-        padding: 1.5rem 0;
     }
 }

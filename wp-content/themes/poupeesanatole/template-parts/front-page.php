@@ -7,7 +7,9 @@ get_header();
 
 ?>
 
-<!-- MAIN -->
+<!-- FEUILLE DE STYLE : assets/sass/pages/_home.scss -->
+
+<!-- PAGE D'ACCUEIL | HOME -->
 <main class="container-fluid p-0 site__home">
 
     <!-- SECTION 1 : SLIDER HOME -->
@@ -16,6 +18,9 @@ get_header();
         <!-- HOME SLIDER -->
         <div id="slider__home" class="owl-carousel">
             
+            <!-- CODE HTML : template-parts/sliderHome.php -->
+            <!-- FEUILLE DE STYLE : assets/sass/pages/_sliderHome.scss -->
+            <!-- CODE JAVASCRIPT : assets/js/slider.js -->
             <?php get_template_part('/template-parts/sliderHome'); ?>
 
         </div>
@@ -25,16 +30,17 @@ get_header();
     <!-- SECTION 2 : INTRODUCTION -->
     <section class="container-fluid home__intro">
 
-        <div class="row bloc__introduction">
+        <!-- BLOC INTRO -->
+        <div class="row bloc__intro">
 
             <!-- BLOC IMAGE -->
             <div class="col-lg-6 home__bloc__img">
 
-                <!-- Forme image -->
+                <!-- FORME IMAGE GAUCHE -->
                 <img class="forme__img__gauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/intro_forme_01.png" alt="Forme noire - illustration Poupées Anatoles"/>
-                <!-- Intro image -->
+                <!-- FORME IMAGE CENTER -->
                 <img class="forme__img__center" src="<?php echo get_template_directory_uri(); ?>/assets/images/07_images/intro_img.png" alt="Image d'introduction - les Poupées Anatoles"/>
-                <!-- Forme image -->
+                <!-- FORME IMAGE DROITE -->
                 <img class="forme__img__droite" src="<?php echo get_template_directory_uri(); ?>/assets/images/03_formes/intro_forme_02.png" alt="Forme blanche - illustration Poupées Anatoles"/>
             
             </div>
@@ -48,13 +54,9 @@ get_header();
 
                 <!-- BOUTON REDIRECTION -->
                 <div class="bloc__btn">
-
                     <button>
-
                         <a href="<?= home_url('/projet'); ?>">En savoir plus&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
-
                     </button>
-                
                 </div>
 
             </div>
@@ -63,15 +65,16 @@ get_header();
 
     </section>
 
-    <!-- SECTION TEMPORAIRE : FINANCEMENT ULULE -->
+    <!-- SECTION TEMPORAIRE : FINANCEMENT CROWNFOUNDING -->
     <section class="container-fluid home__financement">
 
-        <!-- Forme image left -->
+        <!-- FORME IMAGE LEFT -->
         <img class="forme__img__left" src="<?php echo get_template_directory_uri(); ?>/assets/images/10_financement/forme_financement01.png" alt="Forme jaune - illustration Poupées Anatoles"/>
 
-        <!-- Forme image right -->
+        <!-- FORME IMAGE RIGHT -->
         <img class="forme__img__right" src="<?php echo get_template_directory_uri(); ?>/assets/images/10_financement/forme_financement02.png" alt="Forme orange - illustration Poupées Anatoles"/>
 
+        <!-- BLOC TEXTE -->
         <div class="bloc__txt">
 
             <h2>Soutenez notre projet !</h2>
@@ -89,10 +92,9 @@ get_header();
 
         </div>
 
+        <!-- BLOC IMAGE -->
         <div class="bloc__img">
-
             <img class="img__financement" src="<?php echo get_template_directory_uri(); ?>/assets/images/10_financement/img_financement.png" alt="Les poupées anatoles X Ulule"/>
-
         </div>
     
     </section>
@@ -117,10 +119,14 @@ get_header();
         <!-- SLIDER SHOP -->
         <div id="slider__shop" class="slider__wrapper">
             
+            <!-- RÉCUPÉRATION DES PRODUITS "PACK" -->
             <?= do_shortcode('[products limit="6" columns="6" category="pack" class="parent_owl-carousel"]'); ?>
 
+            <!-- CARD "TOUS LES ARTICLES" -->
             <li id="all-products" class="col-4 card__shop">
+                <!-- LIEN DE REDIRECTION -->
 	            <a href="http://localhost:8888/sites/poupees_anatole/produits/pack-de-base/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><i class="fa fa-chevron-right"></i></a>
+                <!-- TOUS LES ARTICLES -->
                 <h2 class="woocommerce-loop-product__title">Tous les articles</h2>
 	        </li>
 
@@ -130,7 +136,7 @@ get_header();
 
     <!-- SECTION 4 : COLLABORATEURS -->
     <section class="container collaborateurs">
-
+ 
         <!-- TITRE ET REDIRECTION -->
         <div class="collaborateurs__titre">
                 
@@ -138,18 +144,16 @@ get_header();
             
             <!-- BOUTON REDIRECTION -->
             <div class="btn_redirection">
-                
                 <button>
                     <a href="<?= home_url('/collaborateurs'); ?>">Les découvrir&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
                 </button>
-            
             </div>
         
         </div>
 
-        <!-- LISTE DES COLLABORATEURS -->
+        <!-- SLIDER COLLABORATEURS -->
         <div id="slider__collaborateurs" class="slider__wrapper liste__collaborateurs owl-carousel">
-
+            <!-- CODE HTML : template-parts/sliderCollaborateurs.php -->
             <?php get_template_part('/template-parts/sliderCollaborateurs'); ?>
 
         </div>

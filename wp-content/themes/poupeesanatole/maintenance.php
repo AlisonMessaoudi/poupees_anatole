@@ -18,11 +18,11 @@ get_header();
     <img class="forme forme__img__right2" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_03maintenance.png" alt="Forme brune - illustration Poupées Anatoles"/>
     <!-- FORME IMAGE RIGHT 3 -->
     <img class="forme forme__img__right3" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_01maintenance.png" alt="Forme orange - illustration Poupées Anatoles"/>
-    <!-- FORME IMAGE LEFT 2 -->
+    <!-- FORME IMAGE LEFT -->
     <img class="forme forme__img__left" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_04.png" alt="Forme jaune - illustration Poupées Anatoles"/>
-    <!-- Forme image left 3 -->
+    <!-- FORME IMAGE LEFT 2 -->
     <img class="forme forme__img__left2" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_07.png" alt="Forme jaune - illustration Poupées Anatoles"/>
-    <!-- Forme image left 4 -->
+    <!-- FORME IMAGE LEFT 3 -->
     <img class="forme forme__img__left3" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_08.png" alt="Forme jaune - illustration Poupées Anatoles"/>
 
     <!-- CONTAINER MAINTENANCE -->
@@ -42,7 +42,7 @@ get_header();
             </div>
 
             <!-- BOUTON REDIRECTION -->
-            <div class="btn_redirection">
+            <div class="btn__redirection">
                 <button>
                     <a href="http://thomashuard.com/projets/anatoles/">Découvrir le projet&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></a>
                 </button>
@@ -50,7 +50,7 @@ get_header();
         </div>
 
         <!-- MENTIONS -->
-        <div class="mentions_maintenance">
+        <div class="mentions__maintenance">
             <p>Site conçu par Thomas Huard & réalisé par Alison Messaoudi <br/>
             2020 - Tous droits réservés</p>
         </div>

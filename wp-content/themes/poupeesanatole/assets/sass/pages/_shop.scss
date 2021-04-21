@@ -213,19 +213,6 @@
     }
 }
 
-/* DESKTOP AND LAPTOPS */
-@media only screen and (min-width : 1224px) {
-    .site__shop {
-        & .shop__panier {
-            bottom: 28.5%;
-            right: 5.1%;
-        }
-        .shop__panier:hover {
-            width: 91.3%;
-        }
-    }
-}
-
 /* MOBILE (portrait and landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {

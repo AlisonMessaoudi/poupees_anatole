@@ -1,43 +1,46 @@
-/* PAGE ABONNEMENT */
-.page__abonnement {
-    @include wrapper();
-    @include column_center();
-    /* TEXTE ABONNEMENT */
-    & .txt__abonnement {
+/* VERSION DESKTOP & STYLE GÉNÉRAL */
+    /* PAGE ABONNEMENT */
+    .page__abonnement {
+        @include wrapper();
         @include column_center();
-        padding-top: 3rem;
-        padding-bottom: 2rem;
-        /* TITRE */
-        & h2 {
-            font-size: 3rem;
-            text-align: center;
+        /* IMAGE ABONNEMENT */
+        /* TEXTE ABONNEMENT */
+        & .txt__abonnement {
+            @include column_center();
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+            /* TITRE */
+            & h2 {
+                font-size: 3rem;
+                text-align: center;
+            }
+            /* SOUS-TITRE */
+            & h4 {
+                font-size: 1.3rem;
+                padding-top: 1rem;
+                width: 49%;
+                text-align: center;
+                line-height: 1.8rem;
+            }
         }
-        /* SOUS-TITRE */
-        & h4 {
-            font-size: 1.3rem;
-            padding-top: 1rem;
-            width: 60%;
-            text-align: center;
-            line-height: 1.8rem;
+        /* BOUTON REDIRECTION */
+        & .btn__redirection {
+            & button {
+                @include btn-redirection();
+            }
+            & button:hover {
+                @include btn_redirection_hover();
+            }
         }
     }
-    /* BOUTON REDIRECTION */
-    .btn_redirection {
-        & button {
-            @include btn-redirection();
-        }
-        & button:hover {
-            @include btn_redirection_hover();
-        }
-    }
-}
 
-/* MOBILE (portrait and landscape) */
+/* VERSION MOBILE (portrait & landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
     /* PAGE ABONNEMENT */
     .page__abonnement {
         @include wrapper_mobile();
+        padding-top: 7rem;
         /* IMAGE ABONNEMENT */
         & .img__abonnement {
             @include row_center();
@@ -45,13 +48,24 @@
                 width: 90%;
             }
         }
+        /* TEXTE ABONNEMENT */
+        & .txt__abonnement {
+            /* SOUS-TITRE */
+            & h4 {
+                width: 100%;
+            }
+        }
+        /* BOUTON REDIRECTION */
     }
 }
 
-/* TABLETTE (portrait and landscape) */
+/* VERSION TABLETTE (portrait & landscape) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     /* PAGE ABONNEMENT */
     .page__abonnement{
-        margin-top: 9rem;
+        margin-top: 11rem;
+        /* IMAGE ABONNEMENT */
+        /* TEXTE ABONNEMENT */
+        /* BOUTON REDIRECTION */
     }
 }

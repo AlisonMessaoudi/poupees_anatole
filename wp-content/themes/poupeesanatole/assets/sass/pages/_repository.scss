@@ -1,78 +1,85 @@
-/* PAGE DOCUMENT */
-.site__document {
-    @include wrapper();
-    /* TITRE DOCUMENT */
-    & .document__titre {
-        margin: 0;
-        justify-content: space-between;
-    }
-    /* NAVIGATION DOCUMENT */
-    & .document__navigation {
-        width: 10%;
-        margin: 0;
-        justify-content: space-between;
-        /* NAV */
-        & .nav {
-            border: solid 1px $color-base;
-            padding: 5px 10px;
-            & a {
-                color: $color-base;
-            }
-        }
-        & .nav:hover {
-            border: none;
-            background-color: $color-primary;
-            padding: 6px 11px;
-            & a { 
-                color: $color-base-background;
-            }
-        }
-    }
-    /* DESCRIPTION DOCUMENT */
-    & .document__description {
-        @include row();
-        margin: 2.5rem 0;
-        /* IMAGE DU DOCUMENT */
-        & .document__image {
-            padding: 0;
-            & img {
-                width: 100%;
-            }
-        }
-        /* TEXTE DU DOCUMENT */
-        & .document__txt {
-            padding: 0 45px;
-            /* NUMERO */
-            & .numero__document {
-                margin-bottom: 0;
-            }
-            /* TITRE */
+/* VERSION DESKTOP & STYLE GÉNÉRAL */
+    /* PAGE DOCUMENT */
+    .site__document {
+        @include wrapper();
+        /* TITRE DOCUMENT */
+        & .document__titre {
+            margin: 0;
+            justify-content: space-between;
+            align-items: center;
+            /* TITRE */ 
             & h2 {
                 margin: 0;
             }
-            /* AUTEUR */
-            & .auteur {
-                text-decoration: none;
-                font-weight: $black-weight;
+            /* NAVIGATION DOCUMENT */
+            & .document__navigation {
+                width: 10%;
+                margin: 0;
+                justify-content: space-between;
+                /* BOUTON PRECEDENT & SUIVANT */
+                & a {
+                    border: solid 1px $color-base;
+                    padding: 5px 10px;
+                    & .fa {
+                        color: $color-base;
+                    }
+                }
+                & a:hover {
+                    border: none;
+                    background-color: $color-primary;
+                    padding: 6px 11px;
+                    & .fa { 
+                        color: $color-base-background;
+                    }
+                }
             }
-            /* RESUME DATE ET NUMERO */
-            & .resume, .date, .numero__document {
-                font-style: italic;
+        }
+        /* DESCRIPTION DOCUMENT */
+        & .document__description {
+            @include row();
+            margin: 2.5rem 0;
+            /* IMAGE DU DOCUMENT */
+            & .document__img {
+                padding: 0;
+                & img {
+                    width: 100%;
+                }
             }
-            /* RESUME */
-            & .resume {
-                text-decoration: underline;
+            /* TEXTE DU DOCUMENT */
+            & .document__txt {
+                padding: 0 45px;
+                /* NUMERO DU DOCUMENT */
+                & .numero__document {
+                    margin-bottom: 0;
+                }
+                /* TITRE DU DOCUMENT */
+                & h2 {
+                    margin: 0;
+                }
+                /* AUTEUR DU DOCUMENT */
+                & .auteur {
+                    text-decoration: none;
+                    font-weight: $black-weight;
+                }
+                /* RESUME, DATE & NUMERO DU DOCUMENT */
+                & .resume, .date, .numero__document {
+                    font-style: italic;
+                }
+                /* RESUME */
+                & .resume {
+                    text-decoration: underline;
+                }
             }
         }
     }
-}
 
-/* MOBILE (portrait and landscape) */
+/* VERSION MOBILE (portrait & landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
     /* PAGE DOCUMENT */
     .site__document {
         @include wrapper_mobile();
+        padding-bottom: 0.5rem;
         /* TITRE DOCUMENT */
         & .document__titre {
             align-items: center;
@@ -89,11 +96,11 @@
         /* DESCRIPTION DOCUMENT */
         & .document__description {
             flex-direction: column;
-            /* TEXTE DOCUMENT */
+            /* TEXTE DU DOCUMENT */
             & .document__txt {
                 padding: 0;
                 padding-top: 2rem;
-                /* DESCRIPTION */
+                /* DESCRIPTION DU DOCUMENT */
                 & .description {
                     width: 100%;
                 }
@@ -107,7 +114,7 @@
     }
 }
 
-/* TABLETTE (portrait and landscape) */
+/* VERSION TABLETTE (portrait & landscape) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     /* PAGE DOCUMENT */
     .site__document {

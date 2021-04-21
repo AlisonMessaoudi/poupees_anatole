@@ -79,7 +79,6 @@
     /* PAGE CONTACT */
     .site__contact {
         @include wrapper_mobile();
-        margin-top: 2rem;
         height: auto;
         & .bloc__newsletter, .bloc__contact {
             /* TITRE*/ 

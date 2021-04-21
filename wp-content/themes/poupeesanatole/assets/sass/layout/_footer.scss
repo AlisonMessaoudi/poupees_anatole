@@ -52,7 +52,7 @@
                 } 
                 /* ADRESSE EMAIL */
                 & input[type=email] {
-                    background-color: $color-input;
+                    background-color: #efefef63;
                     width: 350px;
                     padding: 0.3rem 1.5rem;
                 }
@@ -140,16 +140,16 @@
             & .bloc__contact {
                 /* FORME LEFT */
                 & .forme__left {
-                    top: 27%;
+                    top: 13%;
                     left: -7%;
                 }
                 /* FORME RIGHT */
                 & .forme__right {
-                    top: 47%;
-                    right: -24%;
+                    top: 63%;
+                    right: -20%;
                 }
                 & img {
-                    width: 60%;
+                    width: 50%;
                 }
                 & p {
                     font-size: 0.9rem;
@@ -157,21 +157,51 @@
             }
         }
         /* SECTION : NEWSLETTER */
-        .newsletter {
-            .form__news form {
-                /* ADRESSE EMAIL */
-                & input[type=email] {
-                    width: 220px;
+        & .newsletter {
+            & .form__news {
+                & .mailjet_widget_front_container {
+                    margin-right: 1.5rem;
                 }
-                /* BOUTON ENVOYÉ */
-                & input[type=submit] {
-                    width: 105px;
+                & form {
+                    /* ADRESSE EMAIL */
+                    & input[type=email] {
+                        width: 175px;
+                    }
+                    /* BOUTON ENVOYÉ */
+                    & input[type=submit] {
+                        width: 105px;
+                    }
                 }
             }
-            /* MENTIONS POLITIQUES */
-            & .mentions p, .mentions li a {
+            /* MENTIONS */
+            & .mentions {
+                margin-right: 1.3rem;
+                & p, .mentions li a {
+                    font-size: 0.7rem;
+                }
+            }
+            & .mentions__politique ul li a {
                 font-size: 0.7rem;
             }
+        }
+    }
+}
+/* TABLETTE (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* FOOTER */
+    .site__footer .contact .bloc__contact {
+        & .forme {
+            & img {
+                width: 70%;
+            }
+        }
+        & .forme__left {
+            left: 10%;
+            top: 10%;
+        }
+        & .forme__right {
+            right: 5%;
+            top: 40%;
         }
     }
 }

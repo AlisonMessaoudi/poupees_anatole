@@ -11,20 +11,17 @@ get_header();
     <!-- TITRE DOCUMENT -->
     <div class="row document__titre">
 
+        <!-- TITRE -->
         <h2>Documents pour aller plus loin</h2>
 
         <!-- NAVIGATION DOCUMENT -->
         <div class="row document__navigation">
-
-            <!-- PRECEDENT -->
-            <div class="nav">
-                <?php previous_post_link('%link', '<i class="fa fa-chevron-left"></i>');?>
-            </div>
             
+            <!-- PRECEDENT -->
+            <?php previous_post_link('%link', '<i class="fa fa-chevron-left"></i>');?>
+           
             <!-- SUIVANT -->
-            <div class="nav">
-                <?php next_post_link('%link', '<i class="fa fa-chevron-right"></i>');?>
-            </div>
+            <?php next_post_link('%link', '<i class="fa fa-chevron-right"></i>');?>
 
         </div>
 
@@ -37,17 +34,15 @@ get_header();
         <?php while (have_posts()) : the_post(); ?>
 
         <!-- IMAGE DU DOCUMENT -->
-        <div class="col-lg-4 document__image">
-        
+        <div class="col-lg-4 document__img">
             <img src="<?php the_post_thumbnail_url();?>" alt=""/>
-        
         </div>
 
         <!-- TEXTE DU DOCUMENT -->
         <div class="col-lg-8 document__txt">
 
             <!-- NUMERO DU DOCUMENT -->
-            <p class="numero__document">Document 1</p>
+            <p class="numero__document">Document <?= get_post_meta(get_the_ID(), 'metabox_document', true) ['numero']; ?></p>
 
             <!-- TITRE DU DOCUMENT -->
             <h2><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['titre']; ?></h2>
