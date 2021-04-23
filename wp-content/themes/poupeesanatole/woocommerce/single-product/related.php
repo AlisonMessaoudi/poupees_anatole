@@ -31,21 +31,29 @@ if ( $related_products ) : ?>
 			<h2>Nos autres produits</h2>
 		<?php endif; ?>
 		
-		<?php woocommerce_product_loop_start(); ?>
+		<!-- SLIDER SHOP -->
+        <div class="slider__wrapper slider__product parent_owl-carousel">
+            
+            <!-- RÉCUPÉRATION DES PRODUITS "PACK" -->
+            <?= do_shortcode('[products limit="6" columns="6" category="pack"]'); ?>
 
-			<?php foreach ( $related_products as $related_product ) : ?>
+        </div>
+
+		<?php //woocommerce_product_loop_start(); ?>
+
+			<?php //foreach ( $related_products as $related_product ) : ?>
 
 					<?php
-					$post_object = get_post( $related_product->get_id() );
+						// $post_object = get_post( $related_product->get_id() );
 
-					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+						// setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-					wc_get_template_part( 'content', 'product' );
+						// wc_get_template_part( 'content', 'product' );
 					?>
 
-			<?php endforeach; ?>
+			<?php //endforeach; ?>
 
-		<?php woocommerce_product_loop_end(); ?>
+		<?php //woocommerce_product_loop_end(); ?>
 
 	</section>
 	<?php

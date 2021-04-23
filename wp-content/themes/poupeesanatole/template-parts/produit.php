@@ -26,8 +26,15 @@ get_header();
                 
             <img src="<?= get_template_directory_uri(); ?>/assets/images/06_shop/shop_01.png" alt="La Famille Abricot - Les poupées anatoles" />
 
-            <div class="shop__panier">
+            <!-- <div class="shop__panier">
                 <i class="fa fa-shopping-basket"></i>
+            </div> -->
+
+            <!-- BOUTON PANIER CROWNFOUNDING -->
+            <div class="shop__panier">
+                <a href="#" class="#">
+                    <img src="<?= get_template_directory_uri(); ?>/assets/images/10_financement/ulule.png" alt="Logo du site de crownfounding Ulule pour le projet les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."/>
+                </a>
             </div>
         
         </div>

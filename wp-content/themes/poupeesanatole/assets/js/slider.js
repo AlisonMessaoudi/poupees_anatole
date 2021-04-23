@@ -11,8 +11,8 @@
         autoplayTimeout:4000,
         autoplayHoverPause: false,
         responsive:{
-            480:{
-                items:3
+            0:{
+                items:1
             },
             600:{
                 items:1
@@ -48,14 +48,21 @@
         autoplayTimeout:3000,
         autoplayHoverPause:true,
         responsive:{
-            480:{
-                items:6
+            0:{
+                items:1,
+                center: true,
+                autoplay: false,
+                stagePadding: -10
             },
-            600:{
-                items:6
+            700:{
+                items:3,
+                autoplay: false,
+                stagePadding: -120
             },
-            1224:{
-                items:6
+            1025:{
+                items:4,
+                autoplay: false,
+                stagePadding: -190
             }
         }
     })
@@ -70,6 +77,50 @@
     });
 })(jQuery);
 
+/* SHOP SLIDER : PAGE PRODUIT */
+(function($){
+    $('.products .parent_owl-carousel ul').addClass('owl-carousel');
+    var owl = $('.products ul.owl-carousel');
+    owl.owlCarousel({
+        stagePadding: 10,
+        loop: false,
+        margin: 0,
+        nav: true,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1,
+                center: true,
+                autoplay: false,
+                stagePadding: -10,
+                nav: false,
+            },
+            700:{
+                items:3,
+                autoplay: false,
+                stagePadding: 0
+            },
+            1025:{
+                items:4,
+                autoplay: false,
+                stagePadding: -150
+            }
+        }
+    })
+
+    owl.on('mousewheel', '.owl-stage', function (e) {
+        if (e.deltaY>0) {
+            owl.trigger('next.owl');
+        } else {
+            owl.trigger('prev.owl');
+        }
+        e.preventDefault();
+    });
+})(jQuery);
+
+
 /* COLLABORATEURS SLIDER */
 (function($){
     var owl = $('.collaborateurs .owl-carousel');
@@ -82,14 +133,19 @@
         autoplayTimeout:3000,
         autoplayHoverPause:true,
         responsive:{
-            480:{
-                items:7
+            0:{
+                items:1,
+                autoplay: false,
+                stagePadding: 14
             },
-            600:{
-                items:7
+            700:{
+                items:3,
+                autoplay: false,
+                stagePadding: 0
             },
-            1224:{
-                items:7
+            1025:{
+                items:4,
+                autoplay: false,
             }
         }
     })
@@ -115,14 +171,20 @@
         autoplayTimeout:3000,
         autoplayHoverPause:true,
         responsive:{
-            480:{
-                items:3
+            0:{
+                items:1,
+                center: true,
+                autoplay: false,
+                stagePadding: -10
             },
-            600:{
-                items:3
+            700:{
+                items:3,
+                autoplay: false,
+                stagePadding: 0
             },
-            1224:{
-                items:7
+            1025:{
+                items:4,
+                autoplay: false
             }
         }
     })

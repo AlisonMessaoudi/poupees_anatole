@@ -29,9 +29,9 @@ get_header();
         
         <h2>Le Shop</h2>
         
-        <button>
+        <!-- <button>
             <a href="<?= home_url('/panier'); ?>"><ion-icon name="basket-outline"></ion-icon>&nbsp;Mon panier </a>
-        </button>
+        </button> -->
     
     </div>
 

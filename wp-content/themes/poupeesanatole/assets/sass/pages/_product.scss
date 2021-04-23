@@ -1,103 +1,229 @@
-.site__product {
-    max-width: 830px;
-    margin-top: 3.5rem;
-    & .shop__titre {
-        margin-left: 0;
-    }
-    & .bloc__description {
-        & h2 {
-            font-size: 1rem;
-            font-weight: $normal-weight;
-            font-style: italic;
+/* VERSION DESKTOP & STYLE GÉNÉRAL */
+    /* PAGE PRODUIT */
+    .site__product {
+        max-width: 830px;
+        margin-top: 3.5rem;
+        /* TITRE */
+        & .shop__titre {
+            margin-left: 0;
+            margin-bottom: 2rem!important;
         }
-        & p {
-            font-size: 0.9rem;
-            max-width: 85%;
+        /* BLOC DESCRIPTION */
+        & .bloc__description {
+            & h2 {
+                font-size: 1rem;
+                font-weight: $normal-weight;
+                font-style: italic;
+                text-decoration: underline;
+            }
+            & p {
+                font-size: 0.9rem;
+                max-width: 85%;
+            }
         }
-    }
-    & .product__description {
-        & .bloc__img {
-            flex: 0 0 33.3333333333%;
-            max-width: 33.3333333333%;
-            position: relative;
-            height:10%;
-            & .shop__panier {
-                background-color: $color-primary;
-                padding: 0.8rem;
-                width: nth($width, 1);
-                @include row_center();
-                position: absolute;
-                bottom: 6.2%;
-                right: 11.5%;
-                & a {
+        & #tab-description {
+            & p::first-line {
+                font-weight: $semibold-weight;
+            }
+            & p:nth-child(3)::first-line {
+                text-decoration: underline;
+                font-style: italic;
+                font-size: 1rem;
+                font-weight: $normal-weight;
+            }
+            & p:nth-child(2)::first-line {
+                font-weight: $normal-weight;
+            }
+        }
+        /* DESCRIPTION DU PRODUIT */
+        & .product__description {
+            /* BLOC IMAGE */
+            & .bloc__img {
+                flex: 0 0 33.3333333333%;
+                max-width: 33.3333333333%;
+                position: relative;
+                height:10%;
+                /* BOUTON PANIER - CROWNFOUNDING */
+                & .shop__panier {
+                    background-color: $color-primary;
+                    padding: 0.8rem;
+                    width: nth($width, 1);
                     @include row_center();
-                    & ion-icon {
+                    position: absolute;
+                    bottom: 1rem;
+                    right: 2.05rem;
+                    & a {
+                        @include row_center();
+                        // & ion-icon {
+                        //     color: $color-base-background;
+                        //     font-size: 1.5rem;
+                        // }
+                        & img {
+                            width: 70%;
+                        }
+                    }
+                    & a::before{
+                        content:'Accéder à Ulule';
                         color: $color-base-background;
-                        font-size: 1.5rem;
+                        font-size: 1.1rem;
+                        font-weight: $semibold-weight;
+                        opacity: 0;
+                        transition: all .2s ease 0s;
+                        position: absolute;
+                    }
+                }
+                & .shop__panier:hover{
+                    cursor: pointer;
+                    padding-top: 2.2rem;
+                    width: 88%;
+                    & a::before {
+                        left: 2rem;
+                        bottom: 0.75rem;
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                    & img {
+                        width: 1.5rem;
+                        position: absolute;
+                        right: 2rem;
+                        bottom: .75rem;
+                    }
+                }
+            }
+            & .card__description {
+                flex: 0 0 66.6666666667%;
+                max-width: 66.6666666667%;
+                & h6 {
+                    text-decoration: underline;
+                }
+            }
+            & .bloc__img, .card__description {
+                margin-bottom: 2.5rem;
+            }
+            & .card__description {
+                & .price {
+                    font-style: italic;
+                }
+            }
+        }
+        & .related {
+            position: relative;
+            & .card__shop {
+                & a {
+                    @include column_center();
+                }
+                & h2 {
+                    margin: 0.9rem;
+                }
+                & .price {
+                    color: $color-base;
+                    font-style: italic;
+                }
+            }
+            & h2 {
+                margin-bottom: 2.5rem;
+            }
+        }
+        & .products {
+            width:100%;
+            margin: 0;
+            & .slider__wrapper {
+                width: 100%;
+                flex-wrap: nowrap;
+                height: 100%;
+                & .owl-stage {
+                    width: 6000px !important;
+                    // & .owl-item {
+                    //     width: 250px !important;
+                    // }
+                }
+                /* BOUTON PRÉCEDENT & SUIVANT */
+                & .owl-nav .owl-prev, .owl-nav .owl-next {
+                    position: absolute;
+                    top: 18%;
+                    left: -5.5%;
+                    color: $color-base !important;
+                    font-size: 500% !important;
+                    margin-right: 1rem;
+                }
+                /* BOUTON SUIVANT */
+                & .owl-nav .owl-next {
+                    left: 100%;
+                    margin-left: 1rem;
+                }
+                & .owl-nav.disabled {
+                    display: none !important;
+                }
+                /* CARD SHOP */
+                & .card__shop {
+                    max-width: 260px;
+                    /* BOUTON PANIER */
+                    & .shop__panier {
+                        background-color: $color-primary;
+                        padding: 0.8rem;
+                        width: nth($width, 1);
+                        @include row_center();
+                        position: absolute;
+                        bottom: 32.2%;
+                        right: 5.9%;
+                        & a {
+                            @include row_center();
+                            // & ion-icon {
+                            //     color: $color-base-background;
+                            //     font-size: 1.5rem;
+                            // }
+                            & img {
+                                width: 70%;
+                            }
+                        }
+                        & a::before{
+                            content:'Accéder à Ulule';
+                            color: $color-base-background;
+                            font-size: 1.1rem;
+                            font-weight: $semibold-weight;
+                            opacity: 0;
+                            transition: all .2s ease 0s;
+                            position: absolute;
+                        }
+                    }
+                    /* BOUTON PANIER */
+                    & .shop__panier:hover {
+                        padding-top: 2.5rem;
+                        right: 6%;
+                        width: 88%;
+                        & a::before {
+                            left: 0.5rem;
+                            bottom: 0rem;
+                            opacity: 1;
+                        }
+                        & img {
+                            min-width: 1.5rem;
+                            position: absolute;
+                            right: 1rem;
+                            bottom: 0;
+                            width: 1.8rem;
+                        }
+                    }
+                }
+                & .card__shop:hover {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    padding-top: 15px;
+                    padding-bottom: 10px;
+                    & .shop__panier {
+                        bottom: 33.3%;
                     }
                 }
             }
         }
-        & .card__description {
-            flex: 0 0 66.6666666667%;
-            max-width: 66.6666666667%;
-        }
-        & .bloc__img, .card__description {
-            margin-bottom: 2.5rem;
-        }
-        & .card__description {
-            & .price {
-                font-style: italic;
-            }
-        }
     }
-    & .related {
-        position: relative;
-        & .card__shop {
-            & a {
-                @include column_center();
-            }
-            & h2 {
-                margin: 0.9rem;
-            }
-            & .price {
-                color: $color-base;
-                font-style: italic;
-            }
-        }
-        & .products {
-            display: grid;
-            overflow-x: scroll;
-            grid-template-columns: repeat(6, auto);
-            column-gap: 30px;
-            flex-wrap: nowrap;
 
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            & .shop__panier {
-                bottom: 30.4%;
-                right: 5.2%;
-                & a i {
-                    color: $color-base-background;
-                }
-            }
-        }
-        .products::-webkit-scrollbar {
-            display: none;
-        }
-
-        & h2 {
-            margin-bottom: 2.5rem;
-        }
-    }
-}
-
-/* MOBILE (portrait and landscape) */
+/* VERSION MOBILE (portrait & landscape) */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
     /* SECTION 0 : PRESENTATION COLLABORATEURS */
     .site__product {
-        width: 350px;
+        @include wrapper_mobile();
         padding: 0;
         & .shop__titre {
             margin-right: 0;
@@ -116,6 +242,24 @@
                     width: 100%;
                     bottom: 0;
                     right: 0;
+                    padding: 1rem;
+                    justify-content: flex-end;
+                    a {
+                        padding-right: 1.5rem;
+                        & img {
+                            width: 100%;
+                        }
+                    }
+                    & a::before {
+                        content:'Accéder à Ulule';
+                        color: $color-base-background;
+                        font-size: 1.4rem;
+                        font-weight: $semibold-weight;
+                        position: absolute;
+                        top: 15px;
+                        left: 34px;
+                        opacity: 1;
+                    }
                 }
             }
             & .card__description {
@@ -127,10 +271,119 @@
         }
         & .related .products {
             margin: 0;
-            & .shop__panier {
-                bottom: 27%;
-                right: 0;
+            & .card__shop {
+                max-width: 280px;
+                & .shop__panier {
+                    width: 88.5%;
+                    bottom: 6rem;
+                    right: 1rem;
+                    padding: 1rem;
+                    justify-content: flex-end;
+                    a {
+                        width: 100%;
+                        padding: 1rem;
+                        & img {
+                            min-width: 1.5rem;
+                            width: 2.5rem;
+                            position: absolute;
+                            right: 0rem;
+                        }
+                    }
+                    & a::before {
+                        content:'Accéder à Ulule';
+                        color: $color-base-background;
+                        font-size: 1.4rem;
+                        font-weight: $semibold-weight;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        opacity: 1;
+                    }
+                }
             }
         }
     }
+}
+
+/* VERSION TABLETTE (portrait & landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* PAGE PRODUIT| SHOP */
+    .site__product {
+        @include wrapper_tablette();
+        margin-bottom: 0;
+        & .product__description {
+            justify-content: space-between;
+            & .card__description {
+                flex: 0 0 55.666667%;
+                min-width: 37%;
+            }
+            & .bloc__img {
+                min-width: 44%;
+                padding-right: 2rem;
+                & img{
+                    width: 100%;
+                    height: auto;
+                }
+                & .shop__panier {
+                    width: 89%;
+                    bottom: 6.2%;
+                    right: 2rem;
+                    padding: 1rem;
+                    justify-content: flex-end;
+                    a {
+                        padding-right: 0rem;
+                        & img {
+                            width: 100%;
+                        }
+                    }
+                    & a::before {
+                        content:'Accéder à Ulule';
+                        color: $color-base-background;
+                        font-size: 1.4rem;
+                        font-weight: $semibold-weight;
+                        opacity: 1;
+                        position: absolute;
+                        left: 1.5rem;
+                    }
+                }
+            }
+        }
+        & .related .products {
+            margin: 0;
+            & .card__shop {
+                max-width: 280px;
+                & .shop__panier {
+                    width: 85.5%;
+                    bottom: 10.5rem;
+                    right: 1rem;
+                    padding: 1rem;
+                    justify-content: flex-end;
+                    a {
+                        width: 100%;
+                        padding: 0.7rem;
+                        & img {
+                            min-width: 1.5rem;
+                            width: 1.5rem;
+                            position: absolute;
+                            right: 0rem;
+                        }
+                    }
+                    & a::before {
+                        content:'Accéder à Ulule';
+                        color: $color-base-background;
+                        font-size: 1rem;
+                        font-weight: $semibold-weight;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        opacity: 1;
+                    }
+                }
+                & .woocommerce-loop-product__title {
+                    padding-top: 0rem;
+                }
+            }
+        }
+    }
+
 }

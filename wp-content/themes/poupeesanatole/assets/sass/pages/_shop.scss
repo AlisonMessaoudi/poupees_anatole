@@ -57,7 +57,7 @@
         background-color: $color-primary;
         color: $color-base-background;
         padding: 0.8rem;
-        width: nth($width, 1);
+        width: 18%;
         @include row_center();
         position: absolute;
         bottom: 24.8%;
@@ -67,7 +67,6 @@
             justify-content: start;
             width: 100%;
             position: relative;
-            padding: 0.8rem;
             & ion-icon {
                 color: $color-base-background;
                 font-size: 1.5rem;
@@ -76,10 +75,12 @@
                 width:100%;
             }
         }
-        
+        & img {
+            width: 70%;
+        }
     }
     & .shop__panier a:before{
-        content:'Ajouter au panier';
+        content:'Accéder à Ulule';
         color: $color-base-background;
         font-size: 1.1rem;
         font-weight: $semibold-weight;
@@ -88,15 +89,23 @@
         position: absolute;
     }
     & .shop__panier:hover{
-        width: 90%;
         cursor: pointer;
+        padding-top: 2.5rem;
+        width: 91.3%;
+        & a::before {
+            left: 1rem;
+            bottom: 0;
+            opacity: 1;
+            cursor: pointer;
+        }
+        & img {
+            width: 1.6rem;
+            min-width: 0.5rem;
+            position: absolute;
+            right: 1rem;
+            bottom: 0;
+        }
     }
-    
-    & .shop__panier:hover a:before{
-        opacity: 1;
-        cursor: pointer;
-    }
-    
     & .shop__panier:hover a ion-icon {
         left: 40%;
         cursor: pointer;
@@ -111,7 +120,6 @@
     padding: 12px;
     cursor: pointer;
     & .shop__panier {
-        justify-content: space-between;
         right: 4.5%;
     }
 }
@@ -131,6 +139,7 @@
             margin: 0;
         }
         & button {
+            display: none;
             padding: 5px 15px;
             a {
                 display: flex;
@@ -217,21 +226,104 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
     .site__shop {
-        width: 350px;
+        @include wrapper_mobile();
+        padding: 0;
         & .shop__titre {
             margin-right: 0;
         }
+        & .products {
+            justify-content: center;
+            /* CARD SHOP */
+            & .card__shop {
+                max-width: 260px;
+                /* BOUTON PANIER */
+                & .shop__panier {
+                    width: 94%;
+                    bottom: 6.5rem;
+                    right: 0;
+                    padding: 1.8rem;
+                    justify-content: flex-end;
+                    a {
+                        padding-right: 1.5rem;
+                        & img {
+                            width: 2rem;
+                            min-width: 2rem;
+                            position: absolute;
+                            right: -0.5rem;
+                        }
+                    }
+                    & a::before {
+                        content: "Accéder à Ulule";
+                        color: #fafafa;
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        position: absolute;
+                        top: -1rem;
+                        left: -0.5rem;
+                        opacity: 1;
+                    }
+                }
+            }
+            & .card__shop:hover {
+                padding: 0;
+                border: none;
+                & .shop__panier {
+                    bottom: 33.3%;
+                }
+            }
+        }
+        & .filtreType {
+            padding-bottom: 2rem;
+            & p {
+                display: none;
+            }
+        }
+    }
+}
+
+/* VERSION TABLETTE (portrait & landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* PAGE PRODUIT| SHOP */
+    .site__shop {
+        @include wrapper_tablette();
+        margin-bottom: 0;
         & .card__shop {
-            min-height: 450px;
+            min-height: 320px;
             & img {
-                min-width: 100%;
-                height: auto;
+                width: 100%;
             }
             & .shop__panier {
-                bottom: 22.4%;
-                right: 4.2%;
-                width: 92%;
-                height: 10%;
+                width: 86%;
+                bottom: 7rem;
+                right: 0.9rem;
+                padding: 1.5rem;
+                justify-content: flex-end;
+                a {
+                    padding-right: 1.5rem;
+                    & img {
+                        width: 1.8rem;
+                        min-width: 1.8rem;
+                        position: absolute;
+                        right: -0.5rem;
+                    }
+                }
+                & a::before {
+                    content: "Accéder à Ulule";
+                    color: #fafafa;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    position: absolute;
+                    top: -0.8rem;
+                    left: -0.5rem;
+                    opacity: 1;
+                }
+            }
+        }
+        & .card__shop:hover {
+            padding: 0;
+            border: none;
+            & .shop__panier {
+                bottom: 33.3%;
             }
         }
     }

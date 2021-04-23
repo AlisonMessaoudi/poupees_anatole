@@ -40,11 +40,15 @@
                 /* INDEX */
                 wp_enqueue_script('index', get_template_directory_uri().'/assets/js/index.js', array('jquery'), false, true);
 
-                /* MORE */
-                wp_enqueue_script('core', get_template_directory_uri().'/assets/js/more.js', array('jquery'), false, true);
+                /* MORE COLLABORATEUR */
+                wp_enqueue_script('core', get_template_directory_uri().'/assets/js/moreCollaborateur.js', array('jquery'), false, true);
 
-                /* FADEIN */
-                wp_enqueue_script('core', get_template_directory_uri().'/assets/js/fadeIn.js', array('jquery'), false, true);
+                /* MORE PRODUCT */
+                wp_enqueue_script('core', get_template_directory_uri().'/assets/js/moreProduct.js', array('jquery'), false, true);
+
+
+                /* ANIMATION TITRE  */
+                wp_enqueue_script('core', get_template_directory_uri().'/assets/js/animationTitre.js', array('jquery'), false, true);
 
                 /* IONICONS */
                 wp_enqueue_script('ionicons', 'https://unpkg.com/ionicons@5.4.0/dist/ionicons.js');

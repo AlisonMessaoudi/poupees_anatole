@@ -46,20 +46,6 @@
                     <img class="forme forme__img__right" src="<?= get_template_directory_uri(); ?>/assets/images/03_formes/forme_header_03.png" alt="Forme brune - illustration Poupées Anatoles"/>
 
                 </div>
-
-                <!-- CONNEXION -->
-                <!-- <div class="row connexion"> -->
-
-                    <!-- PARTIE À VENIR AVEC LE SHOP -->
-                        <!-- <ion-icon name="person-outline"></ion-icon>
-                        <ion-icon name="basket-outline"></ion-icon> -->
-
-                    <!-- LIEN CROWNFOUNDING -->
-                    <!-- <a href="#">
-                        <img src="<?= get_template_directory_uri(); ?>/assets/images/10_financement/ulule.png" alt="Logo du site de crownfounding Ulule pour le projet les Poupées Anatoles - Des outils pour parler des sexualités, des corps, des émotions..."/>
-                    </a>
-
-                </div> -->
                 
                 <!-- LOGO -->
                 <a href="<?= home_url('/'); ?>">
