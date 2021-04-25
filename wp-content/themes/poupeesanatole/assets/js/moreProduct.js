@@ -1,7 +1,30 @@
-
-// JE RECUPERE TOUT LES PRODUITS : $allProduct = ;
-// JE CREE MA VARIABLE DE PRODUIT : $product = [];
-// CHARGEMENT DE LA PAGE : JE CACHE TOUT LES PRODUITS : $allProduct.css('display', 'none');
-// SI IL Y A 6 PRODUITS : J'AFFICHE LES 6 PRODUITS : if ($allProduct >= 6) { $product =  ; $product.css('display', 'block'); }
-// SI IL Y A PLUS DE 6 PRODUITS : J'AFFICHE LE BOUTON 'EN VOIR PLUS' : if($allProduct > 6) { $('div').append('<button><p>Voir d'autres produits</p></button>'); }
-// POUR CHAQUE CLIQUE SUR LE BOUTON EN VOIR PLUS : J'AFFICHE +6 PRODUITS : for (var i=0; i = $allProduct.length; i++) { }
+jQuery (function($) {
+// AJOUT D'UNE CLASS 'MASQUER' aux produits
+$('products li').addClass('masquer');
+// J'AJOUTE LA PROPRIETE CSS À LA CLASS MASQUER
+$('masquer').css('display', 'none');
+// FUNCTION AFFICHER LES 6 PRODUITS : 
+    function afficherProduit() { 
+        // JE CRÉE UNE VARIABLE CONTENANT TOUS MES PRODUITS MASQUÉS
+        var produit = $('products li.masquer');
+        // JE CRÉE UNE BOUCLE POUR AFFICHER LES 6 PREMIERS PRODUITS
+        for(var i=0; i< produit.length && i < 6; i++) { 
+            // JE RETIRE LA CLASS MASQUER DES 6 PREMIERS PRODUITS
+            $(produit[i]).removeClass('masquer');
+        }
+        // SI IL Y A ENCORE DES PRODUITS MASQUÉS
+        if ($('products li.masquer').length > 0) {
+        // J'AFFICHE LE BOUTON
+            $('btn_more').css('display','block');
+        }
+        // SINON
+        else {
+        // JE MASQUE LE BOUTON 
+            $('btn_more').css('display','none');
+        }
+    }
+    $(document).ready(function(){afficherProduit(
+        $('btn_more').click(afficherProduit())
+    )});
+   
+})

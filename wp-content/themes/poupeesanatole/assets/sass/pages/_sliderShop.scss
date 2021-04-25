@@ -5,7 +5,7 @@
         & .slider__wrapper {
             width: 100%;
             flex-wrap: nowrap;
-            margin-left: 4rem;
+            margin-left: 3rem;
             height: 100%;
             & .owl-stage {
                 width: 6000px !important;
@@ -26,6 +26,9 @@
             & .owl-nav .owl-next {
                 left: 100%;
                 margin-left: 1rem;
+            }
+            & .owl-nav .owl-prev span{
+                color: #cecece;
             }
             /* CARD SHOP */
             & .card__shop {

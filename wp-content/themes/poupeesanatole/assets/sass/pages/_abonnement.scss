@@ -40,6 +40,7 @@
     /* PAGE ABONNEMENT */
     .page__abonnement {
         @include wrapper_mobile();
+        margin-bottom: 2rem;
         padding-top: 7rem;
         /* IMAGE ABONNEMENT */
         & .img__abonnement {
@@ -50,9 +51,15 @@
         }
         /* TEXTE ABONNEMENT */
         & .txt__abonnement {
+            /* TITRE */
+            & h2 {
+                font-size: 2rem;
+            }
             /* SOUS-TITRE */
             & h4 {
-                width: 100%;
+                width: 90%;
+                font-size: 1.1rem;
+                line-height: 1.4rem;
             }
         }
         /* BOUTON REDIRECTION */
@@ -64,8 +71,16 @@
     /* PAGE ABONNEMENT */
     .page__abonnement{
         margin-top: 11rem;
+        @include wrapper_tablette();
+        margin-bottom: 4rem;
         /* IMAGE ABONNEMENT */
         /* TEXTE ABONNEMENT */
+        & .txt__abonnement {
+            /* TITRE */
+            & h2 {
+                font-size: 2rem;
+            }
+        }
         /* BOUTON REDIRECTION */
     }
 }

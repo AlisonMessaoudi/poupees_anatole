@@ -123,9 +123,9 @@
             height: 450px;
             justify-content: center;
             /* OWL-CAROUSEL NAVIGATION & DOTS */ 
-            & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-                display: block !important;
-            }
+            // & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+            //     display: block !important;
+            // }
             /* TITRE */
             & .shop__titre, .collaborateurs__titre {
                 @include row_center();
@@ -207,9 +207,9 @@
         }
         /* SECTION TEMPORAIRE : CROWNFOUNDING */
         & .home__financement {
-            height: 700px;
+            height: 740px;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-evenly;
             /* FORME IMAGE LEFT */
             & .forme__img__left {
                 top: 3%;
@@ -227,6 +227,7 @@
                 width: 75%;
                 height: 50%;
                 align-items: center;
+                order: 2;
                 & h2 {
                     margin-bottom: 1.5rem;
                 }

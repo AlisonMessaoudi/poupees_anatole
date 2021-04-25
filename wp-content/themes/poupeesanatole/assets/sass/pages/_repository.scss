@@ -32,6 +32,14 @@
                         color: $color-base-background;
                     }
                 }
+                & .disabled, .disabled:hover {
+                    border: solid 1px #cecece;
+                    background-color: transparent;
+                    padding: 5px 10px;
+                    & .fa {
+                        color: #cecece;
+                    }
+                }
             }
         }
         /* DESCRIPTION DOCUMENT */
@@ -121,7 +129,7 @@
         @include wrapper_tablette();
         /* NAVIGATION DOCUMENT */
         & .document__navigation {
-            width: 12%;
+            width: 14%;
         }
         /* DESCRIPTION DOCUMENT */
         & .document__description {

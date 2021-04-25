@@ -80,7 +80,7 @@
         }
     }
     & .shop__panier a:before{
-        content:'Accéder à Ulule';
+        content:'Voir sur Ulule';
         color: $color-base-background;
         font-size: 1.1rem;
         font-weight: $semibold-weight;
@@ -131,7 +131,7 @@
     margin-bottom: 3.5rem;
     padding: 0;
     & .shop__titre {
-        margin-left: 0;
+        margin-left: 3rem;
         @include row();
         justify-content: space-between;
         margin-bottom: 1rem;
@@ -158,22 +158,6 @@
                 color: $color-base-background;
             }
         }
-    }
-    .misha_loadmore {
-        @include btn_redirection();
-        font-weight: $semibold-weight;
-        margin: auto;
-        width: 23%;
-        margin-top: 3rem;
-        margin-bottom: 5rem;
-        text-align: center;
-    }
-    .misha_loadmore:hover, .charginbtn {
-        background-color: $color-primary;
-        border: none;
-        color: $color-base-background;
-        padding: 7px 25px;
-        cursor: pointer;
     }
     & .filtreType {
         @include row();
@@ -253,7 +237,7 @@
                         }
                     }
                     & a::before {
-                        content: "Accéder à Ulule";
+                        content: "Voir sur Ulule";
                         color: #fafafa;
                         font-size: 1.4rem;
                         font-weight: 600;
@@ -308,7 +292,7 @@
                     }
                 }
                 & a::before {
-                    content: "Accéder à Ulule";
+                    content: "Voir sur Ulule";
                     color: #fafafa;
                     font-size: 1rem;
                     font-weight: 600;

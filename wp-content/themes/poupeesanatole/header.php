@@ -33,7 +33,7 @@
         <header class="container-fluid p-0 site__header">
             
             <!-- SITE NAVBAR -->
-            <nav class="navbar mt-3 navbar-expand-lg shift site__navbar">
+            <nav class="navbar navbar-expand-lg shift site__navbar">
 
                 <!-- BLOC FORMES -->
                 <div class="bloc__forme">

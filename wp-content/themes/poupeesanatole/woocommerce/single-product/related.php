@@ -37,6 +37,14 @@ if ( $related_products ) : ?>
             <!-- RÉCUPÉRATION DES PRODUITS "PACK" -->
             <?= do_shortcode('[products limit="6" columns="6" category="pack"]'); ?>
 
+			<!-- CARD "TOUS LES ARTICLES" -->
+            <li id="all-products" class="col-4 card__shop">
+                <!-- LIEN DE REDIRECTION -->
+	            <a href="http://localhost:8888/sites/poupees_anatole/produits/pack-de-base/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><i class="fa fa-chevron-right"></i></a>
+                <!-- TOUS LES ARTICLES -->
+                <h2 class="woocommerce-loop-product__title">Tous les articles</h2>
+	        </li>
+			
         </div>
 
 		<?php //woocommerce_product_loop_start(); ?>

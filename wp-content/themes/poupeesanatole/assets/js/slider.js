@@ -43,7 +43,6 @@
         stagePadding: 10,
         loop: false,
         margin: 0,
-        nav: true,
         autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
@@ -52,18 +51,39 @@
                 items:1,
                 center: true,
                 autoplay: false,
-                stagePadding: -10
+                nav: false,
+                stagePadding: -10,
+                dots: true,
             },
             700:{
                 items:3,
                 autoplay: false,
-                stagePadding: -120
+                stagePadding: -120,
+                nav: false,
+                dots: true,
             },
             1025:{
                 items:4,
                 autoplay: false,
-                stagePadding: -190
+                stagePadding: -190,
+                dots: false,
+                nav: true,
             }
+        }
+    })
+
+    owl.on('changed.owl.carousel', function(e){
+        if(e.item.index == 0){
+            $('.site__home .shop .slider__wrapper .owl-prev span').css('color','#cecece');
+            $('.site__home .shop .slider__wrapper .owl-next span').css('color','black');
+        }
+        else if(e.page.count-1 == e.page.index) {
+            $('.site__home .shop .slider__wrapper .owl-next span').css('color','#cecece');
+            $('.site__home .shop .slider__wrapper .owl-prev span').css('color','black');
+        }
+        else {
+            $('.site__home .shop .slider__wrapper .owl-next span').css('color','black');
+            $('.site__home .shop .slider__wrapper .owl-prev span').css('color','black');
         }
     })
 
@@ -81,11 +101,11 @@
 (function($){
     $('.products .parent_owl-carousel ul').addClass('owl-carousel');
     var owl = $('.products ul.owl-carousel');
+    owl.append($('#all-products'));
     owl.owlCarousel({
         stagePadding: 10,
         loop: false,
         margin: 0,
-        nav: true,
         autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
@@ -100,12 +120,14 @@
             700:{
                 items:3,
                 autoplay: false,
-                stagePadding: 0
+                stagePadding: -120
             },
             1025:{
                 items:4,
                 autoplay: false,
-                stagePadding: -150
+                stagePadding: -150,
+                dots: false,
+                nav: true,
             }
         }
     })
@@ -128,7 +150,6 @@
         stagePadding: 0,
         loop: true,
         margin: 0,
-        nav: true,
         autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
@@ -136,16 +157,22 @@
             0:{
                 items:1,
                 autoplay: false,
-                stagePadding: 14
+                stagePadding: 14,
+                nav: false,
+                dots: true,
             },
             700:{
                 items:3,
                 autoplay: false,
-                stagePadding: 0
+                stagePadding: 0,
+                nav: false,
+                dots: true,
             },
             1025:{
                 items:4,
                 autoplay: false,
+                dots: false,
+                nav: true,
             }
         }
     })
@@ -166,7 +193,6 @@
         stagePadding: 0,
         loop: true,
         margin: 0,
-        nav: true,
         autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
@@ -175,16 +201,22 @@
                 items:1,
                 center: true,
                 autoplay: false,
-                stagePadding: -10
+                stagePadding: -10,
+                nav: false,
+                dots: true,
             },
             700:{
                 items:3,
                 autoplay: false,
-                stagePadding: 0
+                stagePadding: 0,
+                nav: false,
+                dots: true,
             },
             1025:{
                 items:4,
-                autoplay: false
+                autoplay: false,
+                dots: false,
+                nav: true,
             }
         }
     })

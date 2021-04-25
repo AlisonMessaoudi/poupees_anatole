@@ -63,7 +63,7 @@
                         }
                     }
                     & a::before{
-                        content:'Accéder à Ulule';
+                        content:'Voir sur Ulule';
                         color: $color-base-background;
                         font-size: 1.1rem;
                         font-weight: $semibold-weight;
@@ -151,9 +151,9 @@
                     left: 100%;
                     margin-left: 1rem;
                 }
-                & .owl-nav.disabled {
-                    display: none !important;
-                }
+                // & .owl-nav.disabled {
+                //     display: none !important;
+                // }
                 /* CARD SHOP */
                 & .card__shop {
                     max-width: 260px;
@@ -177,7 +177,7 @@
                             }
                         }
                         & a::before{
-                            content:'Accéder à Ulule';
+                            content:'Voir sur Ulule';
                             color: $color-base-background;
                             font-size: 1.1rem;
                             font-weight: $semibold-weight;
@@ -251,7 +251,7 @@
                         }
                     }
                     & a::before {
-                        content:'Accéder à Ulule';
+                        content:'Voir sur Ulule';
                         color: $color-base-background;
                         font-size: 1.4rem;
                         font-weight: $semibold-weight;
@@ -290,7 +290,7 @@
                         }
                     }
                     & a::before {
-                        content:'Accéder à Ulule';
+                        content:'Voir sur Ulule';
                         color: $color-base-background;
                         font-size: 1.4rem;
                         font-weight: $semibold-weight;
@@ -337,7 +337,7 @@
                         }
                     }
                     & a::before {
-                        content:'Accéder à Ulule';
+                        content:'Voir sur Ulule';
                         color: $color-base-background;
                         font-size: 1.4rem;
                         font-weight: $semibold-weight;
@@ -369,7 +369,7 @@
                         }
                     }
                     & a::before {
-                        content:'Accéder à Ulule';
+                        content:'Voir sur Ulule';
                         color: $color-base-background;
                         font-size: 1rem;
                         font-weight: $semibold-weight;

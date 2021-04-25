@@ -160,7 +160,7 @@
         & .newsletter {
             & .form__news {
                 & .mailjet_widget_front_container {
-                    margin-right: 1.5rem;
+                    margin-right: 0;
                 }
                 & form {
                     /* ADRESSE EMAIL */
@@ -175,7 +175,7 @@
             }
             /* MENTIONS */
             & .mentions {
-                margin-right: 1.3rem;
+                margin-right: 0;
                 & p, .mentions li a {
                     font-size: 0.7rem;
                 }

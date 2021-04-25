@@ -31,11 +31,13 @@
 
     </p>
 
-    <div class="more__round">
-    
-        <a href="<?= home_url('/collaborateurs/#'. $metabox['nomcollaborateur']); ?>"><i class="fa fa-plus"></i></a>
-    
-    </div>
+    <?php if(!empty($metabox['presentationcollaborateur']) || !empty($metabox['sitecollaborateur']) || !empty($metabox['emailcollaborateur'])) { ?>
+        <div class="more__round">
+        
+            <a href="<?= home_url('/collaborateurs/#'. $metabox['nomcollaborateur']); ?>"><i class="fa fa-plus"></i></a>
+        
+        </div>
+    <?php } ?>
 
 </div>
 
