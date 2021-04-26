@@ -3,21 +3,21 @@
     & .shop {
         /* SLIDER */
         & .slider__wrapper {
-            width: 100%;
+            width: 101%;
             flex-wrap: nowrap;
-            margin-left: 3rem;
             height: 100%;
+            margin-left: 0rem;
             & .owl-stage {
                 width: 6000px !important;
                 & .owl-item {
-                    width: 250px !important;
+                    width: auto !important;
                 }
             }
             /* BOUTON PRÉCEDENT & SUIVANT */
             & .owl-nav .owl-prev, .owl-nav .owl-next {
                 position: absolute;
                 top: 18%;
-                left: -5.5%;
+                left: -4%;
                 color: $color-base !important;
                 font-size: 500% !important;
                 margin-right: 1rem;
@@ -27,15 +27,17 @@
                 left: 100%;
                 margin-left: 1rem;
             }
-            & .owl-nav .owl-prev span{
-                color: #cecece;
+            & .owl-nav .disabled {
+                & span {
+                    color: #cecece;
+                }
             }
             /* CARD SHOP */
             & .card__shop {
                 max-width: 260px;
                 /* BOUTON PANIER */
                 & .shop__panier {
-                    bottom: 35%;
+                    bottom: 32.5%;
                     right: 6%;
                 }
             }

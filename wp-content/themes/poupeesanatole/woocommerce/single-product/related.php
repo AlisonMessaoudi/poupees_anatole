@@ -32,10 +32,10 @@ if ( $related_products ) : ?>
 		<?php endif; ?>
 		
 		<!-- SLIDER SHOP -->
-        <div class="slider__wrapper slider__product parent_owl-carousel">
+        <div class="slider__wrapper slider__product">
             
             <!-- RÉCUPÉRATION DES PRODUITS "PACK" -->
-            <?= do_shortcode('[products limit="6" columns="6" category="pack"]'); ?>
+            <?= do_shortcode('[products limit="6" columns="6" category="pack" class="parent_owl-carousel"]'); ?>
 
 			<!-- CARD "TOUS LES ARTICLES" -->
             <li id="all-products" class="col-4 card__shop">

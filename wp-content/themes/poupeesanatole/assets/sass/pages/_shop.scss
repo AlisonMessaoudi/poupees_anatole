@@ -1,6 +1,6 @@
 /* GÉNÉRAL */
 #slider__shop{
-    .products {
+    & .products {
         margin: 0;
     }
     & #all-products{
@@ -8,7 +8,7 @@
             border: solid 2px rgb(150, 150, 150);
             @include row_center();
             width: 218px;
-            height: 221px;
+            height: 230px;
             & i {
                 color: rgb(150, 150, 150);
             }
@@ -131,7 +131,7 @@
     margin-bottom: 3.5rem;
     padding: 0;
     & .shop__titre {
-        margin-left: 3rem;
+        margin-left: 0rem;
         @include row();
         justify-content: space-between;
         margin-bottom: 1rem;
@@ -211,19 +211,45 @@
 {
     .site__shop {
         @include wrapper_mobile();
+        margin-top: 8rem;
         padding: 0;
-        & .shop__titre {
-            margin-right: 0;
-        }
         & .products {
             justify-content: center;
+            & .owl-carousel {
+                & .owl-dots {
+                    @include row_center();
+                    margin-top: 2.5rem;
+                    margin-bottom: 2.5rem;
+                    & .owl-dot {
+                        background-color: black;
+                        opacity: 0.5;
+                        border-radius: 100%;
+                        width:10px;
+                        height: 10px;
+                        margin: 0 0.3rem;
+                    }
+                    & .active {
+                        opacity: 1;
+                    }
+                }
+            }
             /* CARD SHOP */
             & .card__shop {
-                max-width: 260px;
+                width: 100%;
+                min-width: 100%;
+                padding: 0;
+                min-height: 450px;
+                & h2 {
+                    font-size: 1.5rem;
+                    padding-top: 2rem;
+                }
+                & .price {
+                    font-size: 1.3rem;
+                }
                 /* BOUTON PANIER */
                 & .shop__panier {
-                    width: 94%;
-                    bottom: 6.5rem;
+                    width: 100%;
+                    bottom: 7.5rem;
                     right: 0;
                     padding: 1.8rem;
                     justify-content: flex-end;
@@ -233,7 +259,7 @@
                             width: 2rem;
                             min-width: 2rem;
                             position: absolute;
-                            right: -0.5rem;
+                            right: 2rem;
                         }
                     }
                     & a::before {
@@ -243,7 +269,7 @@
                         font-weight: 600;
                         position: absolute;
                         top: -1rem;
-                        left: -0.5rem;
+                        left: 2rem;
                         opacity: 1;
                     }
                 }
@@ -271,6 +297,7 @@
     .site__shop {
         @include wrapper_tablette();
         margin-bottom: 0;
+        &
         & .card__shop {
             min-height: 320px;
             & img {

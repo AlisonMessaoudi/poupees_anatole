@@ -90,6 +90,26 @@
         }
         /* PAGE MAINTENANCE */
         & .page__maintenance {
+            & .forme__img__right, .forme__img__right2 {
+                display: none;
+            }
+            & .forme__img__right3 {
+                top: 52%;
+                right: -18%;
+            }
+            & .forme__img__left {
+                top: -1%;
+                left: 8%;
+                width: 40%;
+            }
+            & .forme__img__left2 {
+                bottom: 53%;
+                left: -15%;
+            }
+            & .forme__img__left3 {
+                bottom: 10%;
+                left: -18%;
+            }
             /* CONTAINER MAINTENANCE */
             & .container__maintenance {
                 @include column_center();
@@ -119,6 +139,31 @@
         }
         /* PAGE MAINTENANCE */
         & .page__maintenance {
+            & .forme__img__right {
+                top: -5%;
+                left: 89%;
+            }
+            & .forme__img__right2 {
+                bottom: 6%;
+                right: -4%;
+            } 
+            & .forme__img__right3 {
+                top: 34%;
+                right: -13%;
+            }
+            & .forme__img__left {
+                top: -1%;
+                left: 6%;
+                width: 30%;
+            }
+            & .forme__img__left2 {
+                bottom: 50%;
+                left: -7%;
+            }
+            & .forme__img__left3 {
+                bottom: 10%;
+                left: -13%;
+            }
             /* CONTAINER MAINTENANCE */
             & .container__maintenance {
                 & .bloc__maintenance {

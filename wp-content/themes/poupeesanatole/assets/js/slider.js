@@ -48,42 +48,25 @@
         autoplayHoverPause:true,
         responsive:{
             0:{
-                items:1,
-                center: true,
                 autoplay: false,
                 nav: false,
-                stagePadding: -10,
+                stagePadding: 10,
                 dots: true,
             },
             700:{
                 items:3,
                 autoplay: false,
-                stagePadding: -120,
+                stagePadding: -100,
                 nav: false,
                 dots: true,
             },
             1025:{
                 items:4,
                 autoplay: false,
-                stagePadding: -190,
+                stagePadding: -220,
                 dots: false,
                 nav: true,
             }
-        }
-    })
-
-    owl.on('changed.owl.carousel', function(e){
-        if(e.item.index == 0){
-            $('.site__home .shop .slider__wrapper .owl-prev span').css('color','#cecece');
-            $('.site__home .shop .slider__wrapper .owl-next span').css('color','black');
-        }
-        else if(e.page.count-1 == e.page.index) {
-            $('.site__home .shop .slider__wrapper .owl-next span').css('color','#cecece');
-            $('.site__home .shop .slider__wrapper .owl-prev span').css('color','black');
-        }
-        else {
-            $('.site__home .shop .slider__wrapper .owl-next span').css('color','black');
-            $('.site__home .shop .slider__wrapper .owl-prev span').css('color','black');
         }
     })
 
@@ -112,15 +95,16 @@
         responsive:{
             0:{
                 items:1,
-                center: true,
                 autoplay: false,
                 stagePadding: -10,
                 nav: false,
             },
             700:{
-                items:3,
+                items:2,
                 autoplay: false,
-                stagePadding: -120
+                stagePadding: -20,
+                nav: false,
+                dots: true,
             },
             1025:{
                 items:4,
@@ -193,6 +177,7 @@
         stagePadding: 0,
         loop: true,
         margin: 0,
+        nav: true,
         autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,

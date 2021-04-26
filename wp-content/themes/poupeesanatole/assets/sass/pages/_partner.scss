@@ -91,6 +91,7 @@
     /* COLLABORATEURS */
     .site__collaborateurs {
         @include wrapper_mobile();
+        padding: 0;
         /* TITRE */
         & .collaborateurs__titre h2 {
             text-align: center;

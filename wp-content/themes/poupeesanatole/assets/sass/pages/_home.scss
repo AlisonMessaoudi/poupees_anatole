@@ -119,19 +119,13 @@
         /* SECTION 3: SHOP & SECTION 4: COLLABORATEURS */
         & .shop, .collaborateurs {
             @include wrapper();
-            @include column();
+            @include column_center();
             height: 450px;
-            justify-content: center;
-            /* OWL-CAROUSEL NAVIGATION & DOTS */ 
-            // & .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-            //     display: block !important;
-            // }
             /* TITRE */
             & .shop__titre, .collaborateurs__titre {
                 @include row_center();
                 justify-content: space-between;
                 flex-wrap: nowrap;
-                margin-left: 4rem;
                 margin-bottom: 2.5rem;
                 width: 100%;
                 /* BOUTON REDIRECTION */
@@ -146,7 +140,6 @@
         & .collaborateurs {
             /* SLIDER COLLABORATEURS */
             & .slider__wrapper {
-                margin-left: 4rem;
                 width: 100%;
             }
         }
@@ -170,7 +163,7 @@
                 /* BLOC IMAGE */
                 & .home__bloc__img {
                     justify-content: flex-end;
-                    margin-top: 1rem;
+                    margin-top: 2rem;
                     /* FORME IMAGE DROITE */
                     & .forme__img__droite {
                         right: 18%;
@@ -192,6 +185,7 @@
                 /* BLOC TEXTE */
                 & .home__bloc__txt {
                     align-items: center;
+                    margin-bottom: 1rem;
                     & h1 {
                         font-size: nth($font-size, 4);
                         text-align: center;
@@ -225,7 +219,7 @@
             /* BLOC TEXTE */
             & .bloc__txt {
                 width: 75%;
-                height: 50%;
+                height: 53%;
                 align-items: center;
                 order: 2;
                 & h2 {
@@ -248,10 +242,10 @@
         & .shop, .collaborateurs {
             margin-bottom: 0;
             padding: 0;
-            height: nth($height, 2);
+            height: 530px;
             /* TITRE ET REDIRECTION */
             & .shop__titre, .collaborateurs__titre {
-                margin-left: 4rem;
+                margin-left: 4.5rem;
                 margin-bottom: 1.5rem;
                 @include column();
                 align-items: flex-start;
@@ -268,20 +262,68 @@
                 }
             }
             /* SLIDER WRAPPER */
-            & .slider__wrapper {
-                width: 62%;
-                /* NAVIGATION SLIDER */
-                & .owl-nav {
-                    display: none;
+            & #slider__shop {
+                width: 90%;
+                margin-left: -0.5rem;
+                /* CARD SHOP */
+                & .card__shop {
+                    min-width: 340px;
+                    /* BOUTON PANIER */
+                    & .shop__panier {
+                        width: 91%;
+                        padding: 1rem;
+                        justify-content: flex-end;
+                        bottom: 17%;
+                        right: 4.4%;
+                        & a {
+                            padding: 0.8rem;
+                            justify-content: center;
+                            & img {
+                                width: 2rem;
+                                min-width: 2rem;
+                                position: absolute;
+                                right: 2rem;
+                            }
+                        }
+                        & a::before {
+                            content: "Voir sur Ulule";
+                            color: #fafafa;
+                            font-size: 1.4rem;
+                            font-weight: 600;
+                            position: absolute;
+                            top: -0.2rem;
+                            left: 2rem;
+                            opacity: 1;
+                        }
+                    }
+                }
+                & .card__shop:hover {
+                    border: none;
+                    padding: 0;
+                    padding-top: 15px;
+                    & .shop__panier {
+                        right: 4.4%;
+                    }
                 }
             }
-            /* CARD SHOP */
-            & .card__shop {
-                min-width: 244px;
-                /* BOUTON PANIER */
-                & .shop__panier {
-                    bottom: 34.9%;
-                    right: 6.2%;
+        }
+        & .shop, .collaborateurs {
+            & .owl-carousel {
+                & .owl-dots {
+                    @include row_center();
+                    margin-top: 2.5rem;
+                    margin-bottom: 2.5rem;
+                    & .owl-dot {
+                        background-color: black;
+                        opacity: 0.5;
+                        border-radius: 100%;
+                        width:10px;
+                        height: 10px;
+                        margin: 0 0.3rem;
+                    }
+                    & .active {
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -289,11 +331,16 @@
         & .collaborateurs {
             margin-bottom: 2.5rem;
             /* SLIDER COLLABORATEURS */
-            & .slider__collaborateurs {
-                /* COLLABORATEUR */
-                & .collaborateur {
-                    height: nth($height, 1);
-                    padding: 0;
+            & #slider__collaborateurs {
+                width: 90%;
+                margin-left: 0;
+                & .owl-stage-outer {
+                    margin-left: 1rem;
+                    width: 90%;
+                    /* COLLABORATEUR */
+                    & .collaborateur {
+                        padding: 0;
+                    }
                 }
             }
         }
@@ -369,8 +416,16 @@
             }
         }
         /* SECTION 3 : SHOP & SECTION 4 : COLLABORATEURS */
-        & .shop .shop__titre, .shop #slider__shop, .collaborateurs .collaborateurs__titre, .collaborateurs #slider__collaborateurs {
-            width: 80%;
+        & .shop {
+            & .shop__titre, #slider__shop {
+                width: 80%;
+            }
+            & #slider__shop {
+                margin-left: -1.9rem;
+            }
+            & .owl-carousel {
+                width: 102%;
+            }
         }
         /* CARD SHOP */
         & .card__shop {
@@ -379,6 +434,37 @@
                 bottom: 35%;
                 right: 6.2%;
             } 
+        }
+        & .shop, .collaborateurs {
+            & .owl-carousel {
+                & .owl-dots {
+                    @include row_center();
+                    & .owl-dot {
+                        background-color: black;
+                        opacity: 0.5;
+                        border-radius: 100%;
+                        width:10px;
+                        height: 10px;
+                        margin: 0 0.3rem;
+                    }
+                    & .active {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        & .collaborateurs {
+            width: 80%;
+            & .collaborateurs__titre {
+                margin-bottom: 0;
+            }
+            & .owl-carousel {
+                width: 100%;
+                margin-left: 0rem;
+                & .owl-stage-outer {
+                    margin-bottom: 2.5rem;
+                }
+            }
         }
     }
 }

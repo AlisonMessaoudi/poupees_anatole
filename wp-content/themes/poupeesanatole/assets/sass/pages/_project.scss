@@ -93,10 +93,13 @@
             & .collaborateurs__titre {
                 justify-content: space-between;
                 align-items: center;
+                margin-bottom: 2.5rem;
                 & h2 {
-                    margin-left: 2.5rem;
-                    margin-bottom: 0;
+                    margin: 0;
                 }
+            }
+            & .slider__wrapper {
+                width: 100%;
             }
         }
         /* SECTION 4 : DOCUMENTS */
@@ -105,7 +108,6 @@
             @include wrapper();
             /* TITRE */
             & h2 {
-                margin-left: 2.5rem;
                 margin-bottom: 2.5rem;
             }
             /* SLIDER DOCUMENTS */
@@ -118,6 +120,7 @@
     /* PAGE PROJET */
     .site__project {
         @include wrapper_mobile();
+        margin-bottom: 0;
         width: 100%;
         /* SECTION 1 : LE PROJET */
         & .project__intro {
@@ -186,7 +189,7 @@
         }
         /* SECTION 3 : COLLABORATEURS */
         & .collaborateurs {
-            height: nth($height, 3);
+            height: 570px;
             /* TITRE */
             & .collaborateurs__titre {
                 margin-left: 4rem !important;
@@ -211,6 +214,29 @@
                 /* NAVIGATION SLIDER */
                 & .owl-nav {
                     display: none;
+                }
+            }
+        }
+        & .documents, .collaborateurs {
+            & .owl-carousel {
+                & .owl-nav {
+                    display: none !important;
+                }
+                & .owl-dots {
+                    @include row_center();
+                    margin-top: 3.5rem;
+                    margin-bottom: 2.5rem;
+                    & .owl-dot {
+                        background-color: black;
+                        opacity: 0.5;
+                        border-radius: 100%;
+                        width:10px;
+                        height: 10px;
+                        margin: 0 0.3rem;
+                    }
+                    & .active {
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -269,43 +295,50 @@
                 padding: 3rem 0;
                 /* FORMES IMAGES */
                 & .forme img {
-                    width: 90%;
+                    width: 100%;
                 }
                 /* FORME IMAGE LEFT */
                 & .forme__img__left {
-                    left: -5%;
-                    bottom: 45%;
+                    left: -4%;
+                    bottom: 75%;
                 }
                 /* FORME IMAGE RIGHT */
                 & .forme__img__right {
-                    right: -8%;
-                    top: 55%;
+                    right: -7%;
+                    top: 53%;
                 }
                 /* ILLUSTRATIONS */
                 & .project__presentation__illustration {
                     padding: 0;
+                    @include column_center();
                     /* BLOC TEXTE */
                     & .illustration__txt__left, .illustration__txt__right {
                         align-items: center;
-                        width: 50%;
+                        width: 650px;
                         & p {
                             font-size: 1.3rem;
                             text-align: start;
+                            max-width: 100%;
                         }
                         & h2 {
                             width: 100%;
                         }
                     }
                     & .illustration__txt__right {
-                        width: 55%;
+                        order: 2;
                     }
                     /* BLOC IMAGE */
                     & .illustration__img__right, .illustration__img__left {
-                        width: 45%;
-                        align-items: center; 
+                        width: 100%;
+                        align-items: center;
+                        padding-top: 1rem;
+                        padding-bottom: 4rem;
+                        & img {
+                            width: 450px;
+                        }
                     }
                     & .illustration__img__right {
-                        width: 35%;
+                        order: 1;
                     }
                 }
                 /* ILLUSTRATIONS */
@@ -316,11 +349,12 @@
         }
         /* SECTION 3 : COLLABORATEURS */
         & .collaborateurs {
-            height: nth($height, 3);
+            height: 560px;
             @include wrapper_tablette();
             margin-top: 5rem;
             /* TITRE */
             & .collaborateurs__titre {
+                margin-bottom: 2.5rem;
                 & h2 {
                     margin: 0;
                 }
@@ -336,6 +370,29 @@
                 & .owl-nav .owl-next {
                     left: 102%;
                     margin: 0;
+                }
+            }
+        }
+        & .documents, .collaborateurs {
+            & .owl-carousel {
+                & .owl-nav {
+                    display: none !important;
+                }
+                & .owl-dots {
+                    @include row_center();
+                    margin-top: 3.5rem;
+                    margin-bottom: 2.5rem;
+                    & .owl-dot {
+                        background-color: black;
+                        opacity: 0.5;
+                        border-radius: 100%;
+                        width:10px;
+                        height: 10px;
+                        margin: 0 0.3rem;
+                    }
+                    & .active {
+                        opacity: 1;
+                    }
                 }
             }
         }
