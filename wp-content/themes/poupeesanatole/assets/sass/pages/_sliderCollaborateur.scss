@@ -56,7 +56,10 @@
             & .owl-stage {
                 width: 6000px !important;
                 & .owl-item {
-                    width: 200px !important;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 300px;
                 }
             }
             & .owl-nav .owl-prev, .owl-nav .owl-next {

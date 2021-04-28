@@ -1,3 +1,5 @@
+        <!-- FEUILLE DE STYLE : assets/sass/layout/_footer.scss -->
+        
         <!-- FOOTER : SANS PARTIE CONTACT -->
         <footer class="site__footer">
 
@@ -9,7 +11,6 @@
 
                     <!-- LABEL NEWSLETTER -->
                     <label for="newsletter">Abonnez-vous à notre Newsletter</label>
-                    
                     <!-- FORMULAIRE MAILJET -->
                     <?= do_shortcode( '[mailjet_subscribe widget_id="19"]' ); ?>
 

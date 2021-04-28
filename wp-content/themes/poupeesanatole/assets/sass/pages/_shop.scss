@@ -127,7 +127,7 @@
 /* PAGE SHOP */
 .site__shop, .site__product {
     max-width: 830px;
-    margin-top: 3.5rem;
+    margin-top: 12rem;
     margin-bottom: 3.5rem;
     padding: 0;
     & .shop__titre {
@@ -190,7 +190,7 @@
             }
         }
     }
-    .filtre, .modal-content {
+    & .filtre, .modal-content {
         padding: 2rem 4rem !important;
         border-radius: .4rem;
         border:none;
@@ -235,8 +235,8 @@
             }
             /* CARD SHOP */
             & .card__shop {
-                width: 100%;
-                min-width: 100%;
+                width: 90%;
+                min-width: 90%;
                 padding: 0;
                 min-height: 450px;
                 & h2 {
@@ -246,10 +246,13 @@
                 & .price {
                     font-size: 1.3rem;
                 }
+                & img {
+                    width: 100%;
+                }
                 /* BOUTON PANIER */
                 & .shop__panier {
                     width: 100%;
-                    bottom: 7.5rem;
+                    bottom: 9.5rem;
                     right: 0;
                     padding: 1.8rem;
                     justify-content: flex-end;
@@ -278,7 +281,7 @@
                 padding: 0;
                 border: none;
                 & .shop__panier {
-                    bottom: 33.3%;
+                    bottom: 9.5rem;
                 }
             }
         }
@@ -287,6 +290,9 @@
             & p {
                 display: none;
             }
+        }
+        & .filtre, .modal-content {
+            padding: 1.5rem 2rem !important;
         }
     }
 }
@@ -297,44 +303,47 @@
     .site__shop {
         @include wrapper_tablette();
         margin-bottom: 0;
-        &
         & .card__shop {
             min-height: 320px;
             & img {
                 width: 100%;
             }
             & .shop__panier {
-                width: 86%;
-                bottom: 7rem;
-                right: 0.9rem;
+                bottom: 35.5%;
+                right: 7%;
                 padding: 1.5rem;
-                justify-content: flex-end;
+                width: 86%;
                 a {
-                    padding-right: 1.5rem;
                     & img {
                         width: 1.8rem;
                         min-width: 1.8rem;
                         position: absolute;
-                        right: -0.5rem;
+                        right: 0px;
+                        top: -1rem;
                     }
                 }
                 & a::before {
                     content: "Voir sur Ulule";
                     color: #fafafa;
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                     font-weight: 600;
                     position: absolute;
-                    top: -0.8rem;
-                    left: -0.5rem;
                     opacity: 1;
+                    left: -0.6rem;
+                    bottom: -10px;
+                }
+                & img {
+                    width: 100%;
                 }
             }
         }
         & .card__shop:hover {
-            padding: 0;
+            padding: 15px;
             border: none;
             & .shop__panier {
-                bottom: 33.3%;
+                & a::before {
+                    opacity: 1;
+                }
             }
         }
     }

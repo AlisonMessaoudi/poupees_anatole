@@ -1,10 +1,22 @@
+* {
+    & .grecaptcha-badge {
+        display: none;
+    }
+}
+
 /* HEADER */
 .site__header {
-    height: 130px;
+    position: fixed;
+    z-index: 300;
+    background-color: white;
+    height: 115px;
     /* SITE NAVBAR */
     & .site__navbar {
         @include column();
         position: relative;
+        height: 100%;
+        padding: 0;
+        width: 100%;
         /* FORME & BLOC CONNEXION */
         & .forme, .connexion {
             position: absolute;
@@ -23,6 +35,11 @@
         & .forme__img__right {
             top: 20%;
             right: -2%;
+        }
+        /* LOGO POUPEES ANATOLES */
+        & a {
+            @include row_center();
+            height: 70%;
         }
         /* CONNEXION */
         & .connexion {
@@ -50,13 +67,18 @@
                 //     font-size: 1.4rem;
                 // }
             }
+            & a img {
+                width: 75%;
+                height: auto;
+            }
         }
         /* LOGO */
         & a {
             @include row_center();
+            height: 100%;
             z-index: 102;
             & img {
-                width: 80%;
+                width: 13%;
             }
         }
     }
@@ -64,6 +86,8 @@
     & .menu__desktop {
         width: nth($width, 5);
         justify-content: center;
+        height: 30%;
+        padding-bottom: 1rem;
         & .site__header__menu {
             @include wrapper();
             margin-top: 0.2rem;
@@ -84,7 +108,7 @@
                         content: '';
                         position: absolute;
                         left: 50%;
-                        top: 2.6rem;
+                        top: 4.6rem;
                         transform: translateX(0%) scaleX(0);
                         transform-origin: -50% -50%;
                         width: 25%;
@@ -105,10 +129,6 @@
                     font-weight: $bold-weight;
                 }
             }
-            /* ITEM PROJET avec sous menu */
-            & #menu-item-83:hover {
-                background-color: rgb(243, 243, 243);
-            }
             /* ITEM COLLABORATEURS */
             & .sub-menu {
                 display:none;
@@ -118,18 +138,23 @@
             & > li:hover > .sub-menu {
                 @include row_center();
                 position: absolute;
-                top: 25%;
+                top: 80%;
                 z-index: 100;
+                background: $color-base-background;
+                box-shadow: 1px 4px 20px -8px #b1b1b1;
+                height: 50px;
                 & li {
                     height: 70px;
                     justify-content: center;
+                    padding-top: 0rem;
                     & a {
+                        height: auto;
                         /* ANIMATION EN FONDU AU HOVER */
                         &::after {
                             content: '';
                             position: absolute;
                             left: 50%;
-                            top: 3.5rem;
+                            top: 3rem;
                             transform: translateX(0%) scaleX(0);
                             transform-origin: -50% -50%;
                             width: 200%;
@@ -156,41 +181,39 @@
 {
     /* HEADER */
     .site__header {
-        position: fixed;
-        z-index: 300;
-        background-color: white;
-        height: 100px;
+        height: 85px;
         /* SITE NAVBAR */
         .site__navbar {
             margin-top: 0 !important;
-            padding: 1.3rem 0;  
-            position: relative;
+            @include row();
             /* BLOC FORME */
-            .bloc__forme {
-                width: 100%;
-                z-index: 1000;
-                position: relative;
                 & .forme {
-                    position: absolute;
+                    width: 15%;
                 }
                 /* FORME IMAGE LEFT */
                 & .forme__img__left {
-                    top: -65px;
-                    left: 65%;
+                    top: -50%;
+                    left: 68%;
                 }
                 /* FORME IMAGE CENTER */
                 & .forme__img__center {
-                    top:  -35px;
-                    left: -38px;
+                    top:  14%;
+                    left: 5%;
                 }
                 /* FORME IMAGE RIGHT */
                 & .forme__img__right {
                     display: none;
                 }
+            /* LOGO POUPEES ANATOLES */
+            & a {
+                height: 100%;
+                & img {
+                    width: 30%;
+                }
             }
             /* BOUTON CONNEXION */
             & .connexion {
-                top: 68%;
+                top: 620%;
                 right: 30%;
                 &::before {
                     content: "Soutenez notre campagne de crownfounding";
@@ -201,7 +224,7 @@
                     line-height: 1rem;
                     text-align: end;
                     position: absolute;
-                    width: 150px;
+                    width: 165px;
                     top: -5%;
                     right: 130%;
                 }
@@ -209,8 +232,8 @@
             /* MENU BURGER */
             & .menu__burger {
                 position: fixed;
-                right: 5%;
-                top: 4%;
+                right: 3%;
+                top: 3%;
                 z-index: 102;
                 /* Icone burger */
                 & span { 
@@ -221,56 +244,93 @@
                 }
             }
             /* MENU DESKTOP et MOBILE DEPLOYÉ*/
-            & .site__header__menu{
-                align-items: center;
-                height: 100vh;
-                padding-top: 6rem;
-                & .menu-item {
-                    width: 100%;
-                    height: 65px;
-                    & a {
-                        transform: none;
-                        width: 0;
-                        &::after {
-                            width: 0%;
+            & .menu__desktop{
+                height: 100%;
+                & .site__header__menu{
+                    align-items: center;
+                    height: 100vh;
+                    padding-top: 2rem;
+                    margin-top: -0.5rem;
+                    background-color: #fff;
+                    & .menu-item {
+                        width: 100%;
+                        height: 85px;
+                        & a {
+                            &::after {
+                                width: 0%;
+                                transform: none;
+                                transform-origin: none;
+                                height: 0;
+                                transition: none;
+                            }
+                            & :hover {
+                                &::after {
+                                    transform: none;
+                                }
+                            }
                         }
                     }
-                }
-                /* ACCUEIL */
-                & .menu-item-82 {
-                    padding-top: 0;
-                    height: 50px;
-                }
-                /* PROJET */
-                & .menu-item-83 {
-                    height: 130px;
-                    justify-content: space-between;
-                    & .sub-menu {
-                        display:flex;
+                    /* ACCUEIL */
+                    & .menu-item-82 {
+                        padding-top: 0;
+                        height: 80px;
+                    }
+                    /* PROJET */
+                    & .menu-item-83 {
+                        height: 145px;
+                        & .sub-menu {
+                            display:flex;
+                            height: 80px;
+                            align-items: center;
+                            & li {
+                                padding-top: 0;
+                                justify-content: center;
+                            }
+                        }
+                    }
+                    /* PROJET:HOVER */
+                    & #menu-item-83:hover {
+                        background-color: transparent;
+                        padding-top: 1.8rem;
+                        & a {
+                            height: auto;
+                        }
+                    }
+                    /* COLLABORATEUR */
+                    & > li:hover > .sub-menu {
+                        top: 35%;
+                        padding-top: 1.8rem;
+                        background: transparent;
+                        box-shadow: none;
+                        height: auto;
+                        & li { 
+                            padding-top: 1rem;
+                            & a {
+                                &::after {
+                                    width: 0%;
+                                    transform: none;
+                                    transform-origin: none;
+                                    height: 0;
+                                    transition: none;
+                                }
+                                & :hover {
+                                    &::after {
+                                        transform: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /* CONTACT */ 
+                    & .menu-item-26 {
                         height: 70px;
-                        align-items: center;
-                        & li {
-                            padding-top: 0;
-                            justify-content: center;
-                        }
+                        padding-top: 0;
                     }
                 }
-                /* PROJET:HOVER */
-                & #menu-item-83:hover {
-                    background-color: transparent;
+                & .show {
+                    background-color: #fff;
+                    z-index: 101;
                 }
-                /* COLLABORATEUR */
-                & > li:hover > .sub-menu {
-                    top: 38%;
-                }
-                /* CONTACT */ 
-                & .menu-item-26 {
-                    height: 80px;
-                }
-            }
-            & .show {
-                background-color: #fff;
-                z-index: 101;
             }
         }
     }
@@ -280,39 +340,32 @@
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     /* HEADER */
     .site__header {
-        position: fixed;
-        z-index: 300;
-        background-color: white;
-        height: 120px;
         /* SITE NAVBAR */
-        .site__navbar {
-            margin-top: 0 !important;
-            padding: 1.3rem 0;
-            position: relative;
-            /* BLOC FORME */
-            .bloc__forme {
-                width: 100%;
-                z-index: 1000;
-                position: absolute;
-                /* FORME IMAGE LEFT */
-                & .forme__img__left {
-                    top: -65px;
-                    left: 65%;
-                }
-                /* FORME IMAGE CENTER */
-                & .forme__img__center {
-                    top:  -35px;
-                    left: -38px;
-                }
-                /* FORME IMAGE RIGHT */
-                & .forme__img__right {
-                    display: none;
-                }
+        & .site__navbar {
+            @include row();
+            /* FORME IMAGE LEFT */
+            & .forme__img__left {
+                top: 20%;
+                left: -4%;
+            }
+            /* FORME IMAGE CENTER */
+            & .forme__img__center {
+                top:  -35%;
+                left: 20%;
+            }
+            /* FORME IMAGE RIGHT */
+            & .forme__img__right {
+                top: 20%;
+                right: 19%;
+            }
+            & .forme {
+                z-index: 200;
+                width: 10%;
             }
             /* BOUTON CONNEXION */
             & .connexion {
-                top: 71%;
-                right: 38%;
+                top: 650%;
+                right: 40%;
                 &::before {
                     content: "Soutenez notre campagne de crownfounding";
                     color: $color-base;
@@ -322,14 +375,22 @@
                     line-height: 1rem;
                     text-align: end;
                     position: absolute;
-                    width: 150px;
+                    width: 165px;
                     top: -5%;
                     right: 130%;
                 }
+                /* CROWNFOUNDING */
+                & a {
+                    & img {
+                        width: 100%;
+                    }
+                }
             }
-            /* CROWNFOUNDING */
-            & a img {
-                width: 100%;
+            & a {
+                height: 100%;
+                & img {
+                    width: 25%;
+                }
             }
             /* MENU BURGER */
             & .menu__burger {
@@ -350,30 +411,49 @@
                 align-items: center;
                 height: 89vh;
                 padding-top: 13rem;
+                background-color: #fff;
                 & .menu-item {
                     width: 100%;
                     height: 75px;
                     & a {
-                        transform: none;
-                        width: 0;
-                        font-size: 22px;
                         &::after {
                             width: 0%;
+                            transform: none;
+                            transform-origin: none;
+                            height: 0;
+                            transition: none;
                         }
+                        & :hover {
+                            &::after {
+                                transform: none;
+                            }
+                        }
+                    }
+                }
+                
+                /* ACCUEIL */ 
+                & .menu-item-40 {
+                    height: 80px;
+                    justify-content: start;
+                    & a {
+                        height: auto;
                     }
                 }
                 /* ACCUEIL */
                 & .menu-item-82 {
                     padding-top: 0;
-                    height: 70px;
+                    height: 140px;
                 }
                 /* PROJET */
                 & .menu-item-83 {
-                    height: 160px;
+                    height: 170px;
                     justify-content: space-between;
+                    & a {
+                        height: auto;
+                    }
                     & .sub-menu {
                         display:flex;
-                        height: 90px;
+                        height: 130px;
                         align-items: center;
                         & li {
                             padding-top: 0;
@@ -387,11 +467,33 @@
                 }
                 /* COLLABORATEUR */
                 & > li:hover > .sub-menu {
-                    top: 38%;
+                    top: 21%;
+                    background: transparent;
+                    box-shadow: none;
+                    height: auto;
+                    & li { 
+                        top: 4%;
+                        padding-top: 1rem;
+                        & a {
+                            &::after {
+                                width: 0%;
+                                transform: none;
+                                transform-origin: none;
+                                height: 0;
+                                transition: none;
+                            }
+                            & :hover {
+                                &::after {
+                                    transform: none;
+                                }
+                            }
+                        }
+                    }
                 }
                 /* CONTACT */ 
                 & .menu-item-26 {
-                    height: 100px;
+                    height: 30px;
+                    padding-top: 0;
                 }
             }
             & .show {

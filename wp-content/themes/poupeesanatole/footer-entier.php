@@ -1,3 +1,5 @@
+        <!-- FEUILLE DE STYLE : assets/sass/layout/_footer.scss -->
+
         <!-- FOOTER -->
         <footer class="site__footer">
 
@@ -20,12 +22,10 @@
                     <p>Une question, un avis, une commande ?</p> 
 
                     <!-- BOUTON DE REDIRECTION -->
-                    <div class="btn_redirection">
-                        
+                    <div class="btn_redirection">             
                         <button>
                             <a href="<?= home_url('/contact'); ?>">Contactez-nous&nbsp; &nbsp;<i class="fa fa-chevron-right"></i></a>
                         </button>
-
                     </div>
 
                 </div>
@@ -37,9 +37,9 @@
 
                 <!-- FORMULAIRE NEWSLETTER -->
                 <div class="form__news">
-
-                    <label for="newsletter">Abonnez-vous à notre Newsletter</label>
                     
+                    <!-- LABEL NEWSLETTER -->
+                    <label for="newsletter">Abonnez-vous à notre Newsletter</label>           
                     <!-- FORMULAIRE MAILJET -->
                     <?= do_shortcode( '[mailjet_subscribe widget_id="19"]' ); ?>
 
@@ -63,7 +63,6 @@
 
                 <!-- MENTIONS LÉGALE ET POLITIQUE DE CONFIDENTIALITÉ -->
                 <div class="mentions__politique">
-
                     <?php wp_nav_menu( 
                         array(
                             'theme_location' => 'footer',
@@ -71,7 +70,6 @@
                             'menu_class' => 'site__footer__menu', // crée une classe personnalisée
                         )
                     ); ?>
-
                 </div>
 
             </section>

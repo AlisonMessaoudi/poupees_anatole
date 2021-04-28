@@ -4,10 +4,12 @@
 */
 
 get_header();
+/* permet de récupérer le header */
 
 ?>
 
 <!-- FEUILLE DE STYLE : assets/sass/pages/_404.scss -->
+<!-- URL DE LA PAGE : poupees-anatoles.fr/404 -->
 
 <!-- PAGE 404 -->
 <main class="container page__404">

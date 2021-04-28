@@ -1,7 +1,8 @@
 /* PAGE CONTACT */
 .site__contact {
     @include wrapper();
-    height: 700px;
+    margin-top: 12rem;
+    height: 100vh;
     /* FORMULAIRE NEWSLETTER */
     & .bloc__newsletter, .bloc__contact {
         /* FORMULAIRE */
@@ -16,6 +17,9 @@
             & input, textarea {
                 @include formulaire();
                 width: 100%;
+            }
+            & input:focus-visible, textarea:focus-visible {
+                outline-color: transparent;
             }
             /* PLACEHOLDER */
             & input::placeholder, textarea{
@@ -130,6 +134,9 @@
     /* PAGE CONTACT */
     .site__contact {
         @include wrapper_tablette();
+        & div.row {
+            justify-content: space-around;
+        }
         & .bloc__img {
             width: 42%;
         }

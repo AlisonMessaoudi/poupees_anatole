@@ -1,8 +1,10 @@
 <?php 
 
 get_header();
+/* permet de récupérer le header */
 
 ?>
+
 <!-- FEUILLE DE STYLE : assets/sass/pages/_repository.scss -->
 
 <!-- PAGE DOCUMENT -->
@@ -48,7 +50,7 @@ get_header();
             <h2><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['titre']; ?></h2>
 
             <!-- DATE ET AUTEUR -->
-            <p class="date"><span class="auteur"><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['auteur']; ?></span>, <?= get_post_meta(get_the_ID(), 'metabox_document', true) ['annee']; ?></p>
+            <p class="date"><span class="auteur"><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['auteur']; ?>,</span><?= get_post_meta(get_the_ID(), 'metabox_document', true) ['annee']; ?></p>
 
             <!-- RÉSUMÉ -->
             <p class="resume">Résumé</p>
@@ -71,4 +73,6 @@ get_header();
 
 </main>
 
-<?php get_footer() ?>
+<?php get_footer() 
+/* permet de récupérer le footer */
+?>

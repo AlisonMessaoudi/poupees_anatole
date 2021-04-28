@@ -2,6 +2,7 @@
     /* PAGE DOCUMENT */
     .site__document {
         @include wrapper();
+        margin-top: 12rem;
         /* TITRE DOCUMENT */
         & .document__titre {
             margin: 0;

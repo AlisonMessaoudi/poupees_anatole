@@ -242,7 +242,7 @@
         & .shop, .collaborateurs {
             margin-bottom: 0;
             padding: 0;
-            height: 530px;
+            height: 600px;
             /* TITRE ET REDIRECTION */
             & .shop__titre, .collaborateurs__titre {
                 margin-left: 4.5rem;
@@ -263,18 +263,25 @@
             }
             /* SLIDER WRAPPER */
             & #slider__shop {
-                width: 90%;
-                margin-left: -0.5rem;
+                width: 80%;
                 /* CARD SHOP */
                 & .card__shop {
-                    min-width: 340px;
+                    min-width: 315px;
+                    padding-left: 0;
+                    padding-right: 20px;
+                    & h2 {
+                        font-size: 1.5rem;
+                        min-height: 80px;
+                    }
+                    & span {
+                        font-size: 1.2rem;
+                    }
                     /* BOUTON PANIER */
                     & .shop__panier {
-                        width: 91%;
+                        width: 94%;
                         padding: 1rem;
                         justify-content: flex-end;
-                        bottom: 17%;
-                        right: 4.4%;
+                        bottom: 26%;
                         & a {
                             padding: 0.8rem;
                             justify-content: center;
@@ -297,12 +304,14 @@
                         }
                     }
                 }
+                & #all-products a {
+                    width: 300px;
+                    height: 300px;
+                }
                 & .card__shop:hover {
                     border: none;
-                    padding: 0;
-                    padding-top: 15px;
                     & .shop__panier {
-                        right: 4.4%;
+                        bottom: 26%;
                     }
                 }
             }
@@ -331,12 +340,12 @@
         & .collaborateurs {
             margin-bottom: 2.5rem;
             /* SLIDER COLLABORATEURS */
-            & #slider__collaborateurs {
-                width: 90%;
-                margin-left: 0;
+            & .slider__wrapper {
+                width: 80%;
+                margin: auto;
                 & .owl-stage-outer {
-                    margin-left: 1rem;
-                    width: 90%;
+                    margin-left: 0rem;
+                    width: 100%;
                     /* COLLABORATEUR */
                     & .collaborateur {
                         padding: 0;
@@ -419,9 +428,11 @@
         & .shop {
             & .shop__titre, #slider__shop {
                 width: 80%;
+                margin-bottom: 2rem;
             }
             & #slider__shop {
-                margin-left: -1.9rem;
+                margin-left: 0;
+                margin-right: 1rem;
             }
             & .owl-carousel {
                 width: 102%;
@@ -433,9 +444,15 @@
             & .shop__panier {
                 bottom: 35%;
                 right: 6.2%;
+                width: 21%;
             } 
+            & .shop__panier:hover {
+                padding-top: 2.5rem;
+                width: 88%;
+            }
         }
         & .shop, .collaborateurs {
+            margin-bottom: 3rem;
             & .owl-carousel {
                 & .owl-dots {
                     @include row_center();
@@ -454,13 +471,15 @@
             }
         }
         & .collaborateurs {
-            width: 80%;
+            height: 560px;
+            @include wrapper_tablette();
+            margin-top: 5rem;
             & .collaborateurs__titre {
-                margin-bottom: 0;
+                margin-bottom: 2rem;
             }
             & .owl-carousel {
                 width: 100%;
-                margin-left: 0rem;
+                margin: 0rem;
                 & .owl-stage-outer {
                     margin-bottom: 2.5rem;
                 }

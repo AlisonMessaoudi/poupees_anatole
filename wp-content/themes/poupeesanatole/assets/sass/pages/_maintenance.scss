@@ -1,7 +1,7 @@
 /* VERSION DESKTOP & STYLE GÉNÉRAL */
     /* PAGE TEMPLATE MAINTENANCE */
     .page-template-maintenance {
-        overflow-y: hidden;
+        overflow: hidden;
         /* HEADER */
         & .site__header {
             display: none;
@@ -11,6 +11,7 @@
             height: 100vh;
             position: relative;
             background-image: url("assets/images/07_images/maintenance_forme.png");
+            background-repeat: no-repeat;
             /* FORMES */
             & .forme {
                 position: absolute;
@@ -18,39 +19,47 @@
             /* FORME IMAGE RIGHT */
             & .forme__img__right {
                 top: -5%;
-                left: 60%;
+                left: 86%;
             }
             & .forme__img__right2 {
                 bottom: 10%;
-                right: 2%;
+                right: 1%;
             }
             & .forme__img__right3 {
-                top: 25%;
-                right: 14%;
+                top: 28%;
+                right: 16%;
             }
             /* FORME IMAGE LEFT */
             & .forme__img__left {
-                top: 0;
-                left: -7%;
+                top: -4%;
+                left: 2%;
+                width: 15%;
             }
             & .forme__img__left2 {
                 bottom: 45%;
                 left: 15%;
             }
             & .forme__img__left3 {
-                bottom: 2%;
-                left: 5%;
+                bottom: 4%;
+                left: 4%;
             }
             /* CONTAINER MAINTENANCE */
             & .container__maintenance {
                 height: 100%;
                 /* BLOC MAINTENANCE */
                 & .bloc__maintenance {
-                    height: 80%;
+                    height: 85%;
                     @include column_center();
+                    & .logo__poupees {
+                        @include row_center();
+                        & img {
+                            width: 25%;
+                        }
+                    }
                     /* TEXTE MAINTENANCE */
                     & .txt__maintenance {
                         padding: 3rem 0;
+                        @include row_center();
                         & h2 {
                             font-size: 2.5rem;
                             text-align: center;
@@ -73,7 +82,7 @@
                     p {
                         text-align: center;
                         font-size: 1rem;
-                        height: 10%;
+                        margin-bottom: 0;
                     }
                 }
             }
@@ -84,43 +93,61 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px){
     /* PAGE TEMPLATE MAINTENANCE */
     .page-template-maintenance {
-        /* FORMES */
-        & .forme {
-            width: 25%;
-        }
         /* PAGE MAINTENANCE */
         & .page__maintenance {
+            background-image: url("assets/images/07_images/maintenance_forme_mobile.png");
+            background-size: 80%;
+            background-position: center;
+            /* FORMES */
+            & .forme {
+                width: 20%;
+            }
             & .forme__img__right, .forme__img__right2 {
                 display: none;
             }
             & .forme__img__right3 {
-                top: 52%;
-                right: -18%;
+                top: 50%;
+                right: -12%;
             }
             & .forme__img__left {
                 top: -1%;
-                left: 8%;
-                width: 40%;
+                left: 12%;
+                width: 30%;
             }
             & .forme__img__left2 {
-                bottom: 53%;
-                left: -15%;
+                bottom: 59%;
+                left: -7%;
             }
             & .forme__img__left3 {
-                bottom: 10%;
-                left: -18%;
+                bottom: 19%;
+                left: -13%;
             }
             /* CONTAINER MAINTENANCE */
             & .container__maintenance {
                 @include column_center();
                 /* BLOC MAINTENANCE */
                 & .bloc__maintenance {
-                    height: 80%;
+                    height: 90%;
+                    & .txt__maintenance {
+                        & h2 {
+                            font-size: 2rem;
+                        }
+                    }
+                    & .logo__poupees {
+                        & img {
+                            width: 50%;
+                        }
+                    }
+                    & .btn__redirection button a {
+                        font-size: 1rem;
+                    }
                 }
                 /* MENTIONS */
                 & .mentions__maintenance {
-                    width: 60%;
+                    width: 65%;
+                    height: 10%;
                     & p {
+                        height: 100%;
                         font-size: 0.8rem;
                     }
                 }
@@ -133,36 +160,38 @@
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     /* PAGE TEMPLATE MAINTENANCE */
     .page-template-maintenance {
-        /* FORMES */
-        & .forme {
-            width: 20%;
-        }
+        overflow: hidden;
         /* PAGE MAINTENANCE */
         & .page__maintenance {
+            background-position: top;
+            /* FORMES */
+            & .forme {
+                width: 15%;
+            }
             & .forme__img__right {
-                top: -5%;
-                left: 89%;
+                top: -2%;
+                left: 75%;
             }
             & .forme__img__right2 {
-                bottom: 6%;
-                right: -4%;
+                bottom: 20%;
+                right: -2%;
             } 
             & .forme__img__right3 {
                 top: 34%;
-                right: -13%;
+                right: -9%;
             }
             & .forme__img__left {
-                top: -1%;
+                top: -2%;
                 left: 6%;
-                width: 30%;
+                width: 25%;
             }
             & .forme__img__left2 {
                 bottom: 50%;
-                left: -7%;
+                left: -5%;
             }
             & .forme__img__left3 {
-                bottom: 10%;
-                left: -13%;
+                bottom: 11%;
+                left: -10%;
             }
             /* CONTAINER MAINTENANCE */
             & .container__maintenance {
@@ -171,23 +200,25 @@
                     & .logo__poupees {
                         width: 45%;
                         & img {
-                            width: 100%;
+                            width: 75%;
                         }
                     }
                     & .txt__maintenance {
                         padding: 5rem 0;
                         & h2 {
-                            font-size: 4rem;
+                            font-size: 3rem;
+                            width:80%;
                         }
                     }
                     & .btn__redirection {
                         & button a {
-                            font-size: 2rem;
+                            font-size: 1.5rem;
                         }
                     }
                 }
                 /* MENTIONS */
                 & .mentions_maintenance {
+                    height: 5%;
                     & p {
                         font-size: 1rem;
                     }

@@ -25,9 +25,10 @@
 
     <div class="document__txt">
         
-        <h4><?= $metabox['titre']; ?></h4>
-
-        <p><?= $metabox['annee']; ?></p>
+        <div class="txt">
+            <h4><?= $metabox['titre']; ?></h4>
+            <p><?= $metabox['annee']; ?></p>
+        </div>
 
         <!-- BOUTON LIRE -->
         <div class="more__round">

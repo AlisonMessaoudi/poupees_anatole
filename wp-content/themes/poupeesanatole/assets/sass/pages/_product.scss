@@ -2,7 +2,7 @@
     /* PAGE PRODUIT */
     .site__product {
         max-width: 830px;
-        margin-top: 3.5rem;
+        margin-top: 12rem;
         /* TITRE */
         & .shop__titre {
             margin-left: 0;
@@ -51,7 +51,7 @@
                     @include row_center();
                     position: absolute;
                     bottom: 1rem;
-                    right: 2.05rem;
+                    right: 2rem;
                     & a {
                         @include row_center();
                         // & ion-icon {
@@ -59,13 +59,13 @@
                         //     font-size: 1.5rem;
                         // }
                         & img {
-                            width: 70%;
+                            width: 1.5rem;
                         }
                     }
                     & a::before{
                         content:'Voir sur Ulule';
                         color: $color-base-background;
-                        font-size: 1.1rem;
+                        font-size: 1.2rem;
                         font-weight: $semibold-weight;
                         opacity: 0;
                         transition: all .2s ease 0s;
@@ -77,7 +77,7 @@
                     padding-top: 2.2rem;
                     width: 88%;
                     & a::before {
-                        left: 2rem;
+                        left: 2.5rem;
                         bottom: 0.75rem;
                         opacity: 1;
                         cursor: pointer;
@@ -85,7 +85,7 @@
                     & img {
                         width: 1.5rem;
                         position: absolute;
-                        right: 2rem;
+                        right: 2.5rem;
                         bottom: .75rem;
                     }
                 }
@@ -108,16 +108,38 @@
         }
         & .related {
             position: relative;
-            & .card__shop {
+            & .slider__product .card__shop {
                 & a {
                     @include column_center();
                 }
                 & h2 {
-                    margin: 0.9rem;
+                    margin: .9rem;
+                    min-height: 60px;
+                    font-size: 1.2rem;
                 }
                 & .price {
                     color: $color-base;
                     font-style: italic;
+                }
+                & .shop__panier:hover {
+                    & a::before {
+                        left: 1rem;
+                        top: -1.8rem;
+                        opacity: 1;
+                    }
+                    & img {
+                        min-width: 2rem;
+                        height: auto;
+                        position: absolute;
+                        right: 1.5rem;
+                        bottom: -0.2rem;
+                        width: 2rem;
+                    }
+                }
+            }
+            & .slider__product .card__shop:hover {
+                & .shop__panier {
+                    bottom: 33.8%;
                 }
             }
             & h2 {
@@ -186,16 +208,17 @@
                         right: 6%;
                         width: 88%;
                         & a::before {
-                            left: 0.5rem;
-                            bottom: 0rem;
+                            left: 3.5rem;
+                            top: 0.5rem;
                             opacity: 1;
                         }
                         & img {
-                            min-width: 1.5rem;
+                            min-width: 2rem;
+                            height: auto;
                             position: absolute;
-                            right: 1rem;
-                            bottom: 0;
-                            width: 1.8rem;
+                            right: 3.5rem;
+                            bottom: 0.5rem;
+                            width: 2rem;
                         }
                     }
                 }
@@ -208,6 +231,27 @@
                         bottom: 33.3%;
                     }
                 }
+                & #all-products{
+                    & a {
+                        border: solid 2px rgb(150, 150, 150);
+                        @include row_center();
+                        width: 218px;
+                        height: 230px;
+                        & i {
+                            color: rgb(150, 150, 150);
+                        }
+                    }
+                }
+                & #all-products:hover {
+                    border: none;
+                    padding-top: 15px;
+                    & a {
+                        border: solid 2px $color-base;
+                        & i {
+                            color: $color-base;
+                        }
+                    }
+                }
             }
         }
         & .slider__product .products .owl-nav button.disabled {
@@ -218,7 +262,7 @@
     }
 
 /* VERSION MOBILE (portrait & landscape) */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px)
 {
     /* SECTION 0 : PRESENTATION COLLABORATEURS */
     .site__product {
@@ -242,23 +286,43 @@
                     width: 100%;
                     bottom: 0;
                     right: 0;
-                    padding: 1rem;
-                    justify-content: flex-end;
-                    a {
-                        padding-right: 1.5rem;
+                    height: 3.5rem;
+                    & a {
+                        padding-right: 3.3rem;
+                        width: 100%;
+                        justify-content: flex-end;
                         & img {
-                            width: 100%;
+                            width: 2rem;
+                            height: auto;
                         }
                     }
-                    & a::before {
+                    & a::before{
                         content:'Voir sur Ulule';
                         color: $color-base-background;
                         font-size: 1.4rem;
                         font-weight: $semibold-weight;
-                        position: absolute;
-                        top: 15px;
-                        left: 34px;
                         opacity: 1;
+                        transition: all .2s ease 0s;
+                        position: absolute;
+                        width: auto;
+                        left: 3rem;
+                        top: 0.75rem;
+                    }
+                }
+                & .shop__panier:hover {
+                    width: 100%;
+                    bottom: 0;
+                    right: 0;
+                    height: 3.5rem;
+                    padding-top: 0.8rem;
+                    & a::before {
+                        left: 3rem;
+                        bottom: 0.75rem;
+                        width: auto;
+                    }
+                    & img {
+                        width: 2rem;
+                        right: 4.1rem;
                     }
                 }
             }
@@ -288,22 +352,21 @@
                 }
             }
             & .card__shop {
-                max-width: 280px;
+                max-width: 295px;
                 padding: 0;
                 & .shop__panier {
                     width: 100%;
-                    bottom: 5.5rem;
+                    bottom: 5.3rem;
                     right: 0rem;
-                    padding: 1rem;
                     justify-content: flex-end;
                     a {
                         width: 100%;
-                        padding: 1rem;
+                        height: 1.5rem;
                         & img {
-                            min-width: 1.5rem;
-                            width: 2.5rem;
+                            min-width: 2rem;
+                            width: 2rem;
                             position: absolute;
-                            right: 0rem;
+                            right: 2rem;
                         }
                     }
                     & a::before {
@@ -312,9 +375,22 @@
                         font-size: 1.4rem;
                         font-weight: $semibold-weight;
                         position: absolute;
-                        top: 0;
-                        left: 0;
+                        top: -0.25rem;
+                        left: 2rem;
                         opacity: 1;
+                    }
+                }
+                & .shop__panier:hover {
+                    width: 100%;
+                    padding-top: 0.8rem;
+                    & a::before{
+                        left: 2rem;
+                        top: -0.25rem;
+                        width: auto;
+                    }
+                    & img {
+                        right: 2rem;
+                        bottom: -0.25rem;
                     }
                 }
             }
@@ -322,7 +398,14 @@
                 padding: 0;
                 border: none;
                 & .shop__panier {
-                    bottom: 33.3%;
+                    bottom: 23.5%;
+                    right: 0%;
+                }
+            }
+            & #all-products{
+                & a {
+                    width: 300px;
+                    height: 280px;
                 }
             }
         }
@@ -352,12 +435,14 @@
                     width: 88.5%;
                     bottom: 1rem;
                     right: 2rem;
-                    padding: 1rem;
+                    padding: 0.8rem;
                     justify-content: flex-end;
                     a {
-                        padding-right: 0rem;
+                        justify-content: flex-end;
+                        padding-right: 1rem;
+                        height: 1.5rem;
                         & img {
-                            width: 100%;
+                            width: 2rem;
                         }
                     }
                     & a::before {
@@ -370,6 +455,18 @@
                         left: 1.5rem;
                     }
                 }
+                & .shop__panier:hover {
+                    padding-top: 0.8rem;
+                    & img {
+                        right: 1.95rem;
+                        bottom: .6rem;
+                        width: 2rem;
+                    }
+                    & a::before {
+                        left: 1.5rem;
+                        bottom: 0.5rem;
+                    }
+                }
             }
         }
         & .related .slider__product {
@@ -380,7 +477,7 @@
                         border: solid 2px rgb(150, 150, 150);
                         @include row_center();
                         width: 270px;
-                        height: 270px;
+                        height: 290px;
                         & i {
                             color: rgb(150, 150, 150);
                         }
@@ -388,7 +485,6 @@
                 }
                 & #all-products:hover {
                     border: none;
-                    padding-top: 15px;
                     & a {
                         border: solid 2px $color-base;
                         & i {
@@ -417,19 +513,19 @@
                 }
             }
             & .card__shop {
-                max-width: 300px;
+                min-width: 320px;
                 & .shop__panier {
-                    width: 89.5%;
-                    bottom: 4.8rem;
+                    width: 90%;
+                    bottom: 7.2rem;
                     right: 1rem;
-                    padding: 1rem;
+                    padding: 0.8rem;
                     justify-content: flex-end;
                     a {
                         width: 100%;
-                        padding: 0.7rem;
+                        padding: 0.8rem;
                         & img {
-                            min-width: 1.5rem;
-                            width: 1.5rem;
+                            min-width: 2rem;
+                            width: 2rem;
                             position: absolute;
                             right: 2rem;
                         }
@@ -437,23 +533,40 @@
                     & a::before {
                         content:'Voir sur Ulule';
                         color: $color-base-background;
-                        font-size: 1rem;
+                        font-size: 1.4rem;
                         font-weight: $semibold-weight;
                         position: absolute;
-                        top: 0;
+                        top: -0.25rem;
                         left: 2rem;
                         opacity: 1;
                     }
                 }
+                & .shop__panier:hover {
+                    padding-top: 0.8rem;
+                    right: 1rem;
+                    width: 90%;
+                    & a::before {
+                        left: 2rem;
+                        top: -0.25rem;
+                    }
+                    & img {
+                        min-width: 2rem;
+                        right: 2rem;
+                        top: -0.25rem;
+                        width: 2rem;
+                    }
+                }
                 & .woocommerce-loop-product__title {
                     padding-top: 0rem;
+                    min-height: 65px;
                 }
             }
             & .card__shop:hover {
-                padding: 0;
+                padding-top: 0;
                 border: none;
+                width: 90.5%;
                 & .shop__panier {
-                    bottom: 33.3%;
+                    bottom: 22.3%;
                 }
             }
         }

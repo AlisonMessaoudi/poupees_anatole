@@ -2,7 +2,7 @@
     /* PAGE PROJET */
     .site__project {
         padding: 0;
-        margin-top: 2rem;
+        margin-top: 5rem;
         width: 100%;
         /* SECTION 1 : LE PROJET & SECTION 2 : LES POUPEES */
         & .project__intro, .project__presentation__formes {
@@ -106,9 +106,15 @@
         & .documents {
             min-height: 450px;
             @include wrapper();
-            /* TITRE */
-            & h2 {
+            & .titre__documents {
                 margin-bottom: 2.5rem;
+            }
+            & .document__txt .txt {
+                min-height: 70px;
+                /* TITRE */
+                & h2 {
+                    margin-bottom: 2.5rem;
+                }
             }
             /* SLIDER DOCUMENTS */
                 /* c.f. assets/sass/pages/_sliderDocument.scss */
@@ -209,8 +215,16 @@
             }
             /* SLIDER COLLABORATEURS */
             & .slider__wrapper {
-                width: 62%;
+                width: 80%;
                 margin: auto;
+                & .owl-stage-outer {
+                    margin-left: 0rem;
+                    width: 100%;
+                    /* COLLABORATEUR */
+                    & .collaborateur {
+                        padding: 0;
+                    }
+                }
                 /* NAVIGATION SLIDER */
                 & .owl-nav {
                     display: none;
@@ -243,7 +257,7 @@
         /* SECTION 4 : DOCUMENTS */
         & .documents {
             margin-top: 8rem;
-            margin-bottom: -2rem;
+            margin-bottom: 2.5rem;
             /* TITRE */
             & h2 {
                 width: 60%;
@@ -253,6 +267,10 @@
             & .slider__wrapper {
                 width: 62%;
                 margin: auto;
+                /* TITRE */
+                & .document__txt .txt {
+                    min-height: 70px;
+                }
                 /* NAVIGATION SLIDER */
                 & .owl-nav {
                     display: none;
@@ -334,7 +352,7 @@
                         padding-top: 1rem;
                         padding-bottom: 4rem;
                         & img {
-                            width: 450px;
+                            width: 400px;
                         }
                     }
                     & .illustration__img__right {
@@ -405,6 +423,9 @@
             & .slider__wrapper {
                 margin: 0; 
                 width: 100%;
+                & .document__txt .txt {
+                    min-height: 70px;
+                }
                 & .owl-nav .owl-prev {
                     left: -6.5%;
                     margin: 0;

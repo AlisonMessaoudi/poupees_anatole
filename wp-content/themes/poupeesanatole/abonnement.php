@@ -4,6 +4,7 @@
 */
 
 get_header();
+/* permet de récupérer le header */
 
 ?>
 
@@ -35,4 +36,6 @@ get_header();
 
 </main>
 
-<?php get_footer(); ?>
+<?php get_footer(); 
+/* permet de récupérer le footer */
+?>
